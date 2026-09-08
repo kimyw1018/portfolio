@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A:SSU (아쑤) - 프로젝트 상세 | 김예원</title>
+  
+  <meta name="description" content="숭실대학교 제휴 서비스 매장 순위 및 통계 시스템, Spring Boot 백엔드 및 Android 클라이언트 풀스택 개발">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-40 glass-header bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/80 dark:border-slate-800/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="../index.html#projects" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 transition-colors">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span>포트폴리오 메인으로</span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <button id="theme-toggle" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+          <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+        </button>
+        <a href="https://github.com/kimyw1018/ASSU_BE" target="_blank" class="p-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+          <i data-lucide="github" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="pt-28 pb-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    <!-- Hero / Title -->
+    <div class="space-y-4">
+      <div class="flex flex-wrap items-center gap-2.5">
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 dark:bg-amber-950/70 dark:text-amber-300 border border-amber-300 dark:border-amber-800 flex items-center gap-1.5">
+          <i data-lucide="award" class="w-3.5 h-3.5"></i> 2026 숭실대학교 컴퓨터학부 SW공모전 총장상 🏆
+        </span>
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-100 text-brand-800 dark:bg-brand-950/70 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
+          Fullstack (Spring Boot & Android)
+        </span>
+        <span class="text-xs text-slate-400 dark:text-slate-500">2025.03 ~ 진행 중</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+        A:SSU (학생-매장 제휴 플랫폼)
+      </h1>
+      <p class="text-lg text-brand-600 dark:text-brand-400 font-medium">
+        숭실대학교 학생·업체·학생회를 잇는 제휴 관리 및 매장 순위·통계 대시보드 플랫폼
+      </p>
+
+      <!-- Action Links -->
+      <div class="flex flex-wrap gap-3 pt-2">
+        <a href="https://github.com/kimyw1018/ASSU_BE" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-white dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 transition-colors">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span>Backend Repository</span>
+        </a>
+        <a href="https://github.com/ASSU-dev/ASSU_FE_app" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+          <i data-lucide="smartphone" class="w-4 h-4"></i>
+          <span>Android Repository</span>
+        </a>
+      </div>
+      
+      <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+        💡 <strong>담당 부분:</strong> 학생-매장 간 제휴 서비스의 매장 순위 및 통계 시스템 구현, 파트너 매장 실시간 순위 추적 및 사용량 분석 기능 구현, 관리자용 통계 시스템과 데이터 시각화 통합, <strong>백엔드 API 설계부터 Android 클라이언트 구현까지 풀스택 전담</strong>.
+      </div>
+    </div>
+
+    <!-- Part 1: Android Client Implementation -->
+    <section class="space-y-6">
+      <div class="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+        <i data-lucide="smartphone" class="w-6 h-6 text-brand-500"></i>
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Part 1. [Android] 대시보드 클라이언트 구현</h2>
+      </div>
+
+      <!-- Android Key Contributions -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white">1. 주요 성과 및 기술적 기여</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Item A -->
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <h4 class="font-bold text-brand-600 dark:text-brand-400 text-sm">A. 타입 안전 상태 관리 시스템 설계</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300">
+              • Sealed Interface 기반 Exhaustive State Management 구축<br>
+              • StateFlow 불변성으로 Thread-Safe 반응형 아키텍처 실현<br>
+              • <strong>성과:</strong> 런타임 상태 에러 0건 및 Fragment UI 깜빡임 제거
+            </p>
+          </div>
+
+          <!-- Item B -->
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <h4 class="font-bold text-brand-600 dark:text-brand-400 text-sm">B. Clean Architecture 멀티 레이어 설계</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300">
+              • Presentation / Domain / Data 레이어 완전 분리<br>
+              • Repository Pattern + UseCase로 비즈니스 로직 캡슐화 및 DTO-Model 변환<br>
+              • <strong>성과:</strong> 각 레이어 독립적 단위 테스트 및 Mock 서버 연동 가능
+            </p>
+          </div>
+
+          <!-- Item C -->
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <h4 class="font-bold text-brand-600 dark:text-brand-400 text-sm">C. 병렬 API 호출 최적화</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300">
+              • Kotlin Coroutines async/await로 독립된 3개 API 동시 호출<br>
+              • coroutineScope Structured Concurrency 보장 및 부분 실패 대응<br>
+              • <strong>성과:</strong> 네트워크 I/O 대기 시간 중복 제거 및 체감 속도 향상
+            </p>
+          </div>
+
+          <!-- Item D -->
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <h4 class="font-bold text-brand-600 dark:text-brand-400 text-sm">D. Retrofit + Hilt 네트워크 계층 구축</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300">
+              • Moshi JSON 직렬화 및 HttpLoggingInterceptor 로깅<br>
+              • AuthInterceptor로 SharedPreferences 토큰 Header 자동 탑재<br>
+              • Qualifier Annotation으로 BaseUrl 및 Interceptor 모듈 분리
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Android Troubleshooting -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white">2. 안드로이드 트러블 슈팅 (Deep Dive)</h3>
+
+        <div class="space-y-3">
+          <!-- Android Issue 1 -->
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <span class="px-2 py-0.5 rounded text-xs font-bold bg-red-100 text-red-700 dark:bg-red-950/70 dark:text-red-300">Issue 1</span>
+            <h4 class="font-bold text-slate-900 dark:text-white text-sm">ViewModel 상태 관리 불일치로 인한 컴파일 에러</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300">
+              <strong>원인:</strong> <code>PartnerDashboardUiState</code>를 Sealed interface와 data class로 중복 정의하여 Fragment와 ViewModel 간 타입 충돌 발생.<br>
+              <strong>해결:</strong> Sealed interface를 독립 타입으로 ViewModel 외부로 분리하고, StateFlow 이름을 <code>dashboardState</code>로 통일. Success 상태 헬퍼 함수(<code>getCurrentData()</code>) 구현으로 컴파일 타임에 모든 상태 처리 강제.
+            </p>
+          </div>
+
+          <!-- Android Issue 2 -->
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <span class="px-2 py-0.5 rounded text-xs font-bold bg-red-100 text-red-700 dark:bg-red-950/70 dark:text-red-300">Issue 2</span>
+            <h4 class="font-bold text-slate-900 dark:text-white text-sm">Repository 계층의 Service 인터페이스 미정의 문제</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300">
+              <strong>원인:</strong> Repository 구현체에서 StoreService, AdminService를 주입받으나 실제 인터페이스 정의 및 Hilt Module Provider 등록 누락으로 DI 런타임 에러 발생.<br>
+              <strong>해결:</strong> 완전한 Retrofit HTTP 어노테이션(@GET, @POST) 정의, Moshi DTO의 <code>toModel()</code> 확장 함수 구조화, NetworkModule과 RepositoryModule의 <code>@Binds</code> 바인딩 구성 완료.
+            </p>
+          </div>
+
+          <!-- Android Issue 3 -->
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <span class="px-2 py-0.5 rounded text-xs font-bold bg-red-100 text-red-700 dark:bg-red-950/70 dark:text-red-300">Issue 3</span>
+            <h4 class="font-bold text-slate-900 dark:text-white text-sm">차트 데이터 업데이트 시 UI 미반영 문제</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300">
+              <strong>원인:</strong> 사용자가 주차를 선택해도 MPAndroidChart 막대 색상이 변경되지 않음 (Fragment에서 selectedWeekIndex 미수신 및 DataSet 색상 변경 후 뷰 리렌더링 파이프라인 누락).<br>
+              <strong>해결:</strong> Fragment의 StateFlow Observation 추가, <code>updateBarColors()</code> 호출 및 <code>invalidate()</code> 연동, 모서리가 둥근 커스텀 렌더러(<code>RoundedBarChartRenderer</code>) 적용으로 완전한 UI 동기화 달성.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 2: Spring Boot Backend & Cloud Infrastructure -->
+    <section class="space-y-6">
+      <div class="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+        <i data-lucide="server" class="w-6 h-6 text-brand-500"></i>
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Part 2. [Spring Boot] 백엔드 API & 클라우드 인프라</h2>
+      </div>
+
+      <!-- Backend Key Contributions -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white">1. 주요 성과 및 기술적 기여</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Item A -->
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <h4 class="font-bold text-brand-600 dark:text-brand-400 text-sm">A. 도메인 모델 설계 및 통계 집계 최적화</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300">
+              • Student-Store N:M을 partnership 연결 엔티티로 정규화<br>
+              • CTE(Common Table Expression) 및 RANK() OVER Window 함수로 주차별 순위 단일 쿼리 일괄 집계<br>
+              • <strong>복합 인덱스 설계:</strong> 통계 쿼리 O(N) → O(log N) 개선
+            </p>
+          </div>
+
+          <!-- Item B -->
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <h4 class="font-bold text-brand-600 dark:text-brand-400 text-sm">B. 공간 인덱싱(GIS) 및 지도 API 최적화</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300">
+              • 프론트 뷰포트를 WKT(POLYGON)로 변환해 PostGIS R-Tree 인덱스 연동<br>
+              • <strong>역할 분담:</strong> DB는 공간 바운딩 박스 필터링만 전담, 제휴 권한 검증은 WAS 메모리(HashSet O(1))로 이관<br>
+              • IN 절 Bulk Read + Stream groupingBy로 N+1 문제 원천 차단
+            </p>
+          </div>
+
+          <!-- Item C -->
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <h4 class="font-bold text-brand-600 dark:text-brand-400 text-sm">C. 실시간 통신 및 동시성 제어</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300">
+              • STOMP WebSocket CONNECT 시점에 JWT 사전 검증<br>
+              • 제휴 사용량 동시 업데이트 시 집계 누락(Lost Update) 방지를 위해 DB 비관적 락(<code>SELECT ... FOR UPDATE</code>) 적용<br>
+              • 트랜잭션 범위를 최소화하여 락 경합 방어
+            </p>
+          </div>
+
+          <!-- Item D -->
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <h4 class="font-bold text-brand-600 dark:text-brand-400 text-sm">D. K3s 기반 GitOps 배포 및 클러스터 아키텍처</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300">
+              • GitHub Actions → Manifest 커밋 → ArgoCD K3s 자동 동기화<br>
+              • <strong>3-Node 클러스터:</strong> Control 노드(Taint 격리), Prod 노드, Dev 노드 분리<br>
+              • Git Submodule로 민감 설정 격리 및 단일 RDS 스키마 분리
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend Deep Dive Troubleshooting -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white">2. 백엔드 & 인프라 트러블 슈팅 (Deep Dive)</h3>
+
+        <div class="space-y-3">
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <span class="px-2 py-0.5 rounded text-xs font-bold bg-red-100 text-red-700 dark:bg-red-950/70 dark:text-red-300">Issue 1</span>
+            <h4 class="font-bold text-slate-900 dark:text-white text-sm">동시성 트랜잭션으로 인한 집계 데이터 누락 (Lost Update)</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              <strong>원인:</strong> 락 없이 단순 READ → UPDATE를 수행하여 다수 학생이 동시에 같은 매장의 제휴 사용량을 올릴 때 이전 트랜잭션의 커밋이 덮어씌워짐.<br>
+              <strong>해결:</strong> 통계 정합성 보장을 위해 낙관적 락 대신 비관적 락(<code>@Lock(LockModeType.PESSIMISTIC_WRITE)</code>)을 적용하고, 행 단위 잠금(Row-level Lock) 유지 및 트랜잭션 범위 최소화로 락 유지 시간 단축.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <span class="px-2 py-0.5 rounded text-xs font-bold bg-red-100 text-red-700 dark:bg-red-950/70 dark:text-red-300">Issue 2</span>
+            <h4 class="font-bold text-slate-900 dark:text-white text-sm">STOMP 실시간 통신 시 SecurityContext 누락 문제</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              <strong>원인:</strong> SecurityContextHolder의 ThreadLocal 기반 컨텍스트가 STOMP 비동기 ThreadPoolTaskExecutor 워커 스레드로 전파되지 않아 <code>@PreAuthorize</code> 인가 실패 발생.<br>
+              <strong>해결:</strong> STOMP 수명주기상 CONNECT 시점에 JWT가 사전 검증되므로 핸들러 레벨의 중복 검증을 제거하고, 요청 단위 인증이 필요한 HTTP 엔드포인트에만 선별 적용하여 컨텍스트 복사 오버헤드 제거.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <span class="px-2 py-0.5 rounded text-xs font-bold bg-red-100 text-red-700 dark:bg-red-950/70 dark:text-red-300">Issue 3</span>
+            <h4 class="font-bold text-slate-900 dark:text-white text-sm">Flannel 오버레이 프로토콜 오설정 및 Traefik 충돌</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              <strong>원인:</strong> AWS 보안그룹에서 Flannel VXLAN 포트 8472를 TCP로 개방하여 노드 간 파드 통신 타임아웃 발생 (Flannel은 UDP 기반).<br>
+              <strong>해결:</strong> 8472 인바운드를 UDP로 수정하고, Traefik 인그레스 엔트리포인트를 <code>websecure</code> 단독 지정 및 인프라 레벨 HTTPS 리다이렉트 위임으로 통신 및 인증서 발급 정상화.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Footer -->
+    <div class="pt-8 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <a href="naru.html" class="inline-flex items-center gap-1 text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-brand-500">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span>이전: Naru</span>
+      </a>
+      <a href="musereview.html" class="inline-flex items-center gap-1 text-sm font-bold text-brand-600 dark:text-brand-400 hover:text-brand-500">
+        <span>다음 프로젝트: 뮤즈리뷰</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (localStorage.getItem('theme') === 'light') {
+      document.documentElement.classList.remove('dark');
+    }
+    toggleBtn?.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+    if (window.lucide) lucide.createIcons();
+  </script>
+</body>
+</html>

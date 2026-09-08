@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProfile();
   renderEducation();
   renderSkills();
+  renderAwards();
   renderProjects('all');
   renderExperiences();
   initEventListeners();
@@ -50,7 +51,6 @@ function renderProfile() {
   const p = PORTFOLIO_DATA.profile;
   if (!p) return;
 
-  // 텍스트 매핑
   const nameEl = document.getElementById('hero-name');
   const navBrandEl = document.getElementById('nav-brand-name');
   const roleEl = document.getElementById('hero-role-badge');
@@ -58,6 +58,7 @@ function renderProfile() {
   const statusEl = document.getElementById('hero-status');
   const taglineEl = document.getElementById('hero-tagline');
   const emailTextEl = document.getElementById('email-text');
+  const phoneEl = document.getElementById('hero-phone');
   const avatarEl = document.getElementById('hero-avatar');
   const navGithubLink = document.getElementById('nav-github-link');
   const heroGithubBtn = document.getElementById('hero-github-btn');
@@ -69,11 +70,11 @@ function renderProfile() {
   if (statusEl) statusEl.textContent = p.statusBadge;
   if (taglineEl) taglineEl.textContent = p.tagline;
   if (emailTextEl) emailTextEl.textContent = p.email;
+  if (phoneEl && p.phone) phoneEl.textContent = p.phone;
   if (avatarEl && p.avatar) avatarEl.src = p.avatar;
   if (navGithubLink && p.github) navGithubLink.href = p.github;
   if (heroGithubBtn && p.github) heroGithubBtn.href = p.github;
 
-  // 자기소개 문단
   const bioContainer = document.getElementById('hero-bio-container');
   if (bioContainer && Array.isArray(p.bio)) {
     bioContainer.innerHTML = p.bio
@@ -139,7 +140,43 @@ function renderSkills() {
 }
 
 /**
- * 5. 프로젝트 섹션 렌더링 (필터 기능 지원)
+ * 5. 수상 내역 (Awards & Honors) 렌더링
+ */
+function renderAwards() {
+  const container = document.getElementById('awards-container');
+  if (!container || !PORTFOLIO_DATA.awards) return;
+
+  container.innerHTML = PORTFOLIO_DATA.awards.map(award => `
+    <div class="glass-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-900 dark:bg-amber-950/70 dark:text-amber-300 border border-amber-300 dark:border-amber-800">
+            ${award.badge}
+          </span>
+          <span class="text-xs text-slate-400 dark:text-slate-500 font-medium">
+            ${award.date}
+          </span>
+        </div>
+
+        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1">
+          ${award.title}
+        </h3>
+        <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mb-2">
+          프로젝트: ${award.project}
+        </p>
+        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+          ${award.description}
+        </p>
+      </div>
+      <div class="pt-3 mt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-400 font-medium">
+        주최: ${award.organization}
+      </div>
+    </div>
+  `).join('');
+}
+
+/**
+ * 6. 프로젝트 섹션 렌더링 (각 프로젝트별 전용 상세 페이지 링크 탑재)
  */
 function renderProjects(filterCategory = 'all') {
   const container = document.getElementById('projects-grid');
@@ -147,6 +184,12 @@ function renderProjects(filterCategory = 'all') {
 
   const projects = PORTFOLIO_DATA.projects.filter(project => {
     if (filterCategory === 'all') return true;
+    if (filterCategory === 'backend') {
+      return project.category.toLowerCase().includes('backend');
+    }
+    if (filterCategory === 'frontend') {
+      return project.category.toLowerCase().includes('frontend') || project.category.toLowerCase().includes('web');
+    }
     return project.category.toLowerCase().includes(filterCategory.toLowerCase());
   });
 
@@ -160,21 +203,31 @@ function renderProjects(filterCategory = 'all') {
   }
 
   container.innerHTML = projects.map(proj => `
-    <div class="glass-card flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-brand-500/50 dark:hover:border-brand-500/50">
+    <div class="glass-card flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-brand-500/50 dark:hover:border-brand-500/50 group">
       <div>
-        <div class="flex items-center justify-between gap-2 mb-3">
-          <span class="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-brand-50 text-brand-700 dark:bg-brand-950/70 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
-            ${proj.categoryName || proj.category}
-          </span>
+        <!-- 상단 뱃지 영역 -->
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <div class="flex items-center gap-1.5">
+            <span class="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-brand-50 text-brand-700 dark:bg-brand-950/70 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
+              ${proj.categoryName || proj.category}
+            </span>
+            ${proj.award ? `
+              <span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-amber-50 text-amber-700 dark:bg-amber-950/70 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
+                ${proj.award}
+              </span>
+            ` : ''}
+          </div>
           <span class="text-xs text-slate-400 dark:text-slate-500 font-medium">
             ${proj.period}
           </span>
         </div>
 
-        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
-          ${proj.title}
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-brand-500 transition-colors">
+          <a href="${proj.detailPage}">
+            ${proj.title}
+          </a>
         </h3>
-        <p class="text-xs font-medium text-brand-600 dark:text-brand-400 mb-3">
+        <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mb-3">
           ${proj.subtitle}
         </p>
 
@@ -193,17 +246,17 @@ function renderProjects(filterCategory = 'all') {
         </div>
       </div>
 
-      <!-- 카드 하단 버튼들 -->
+      <!-- 카드 하단: 상세 페이지 이동 버튼 & 링크 -->
       <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2">
-        <button onclick="openProjectModal('${proj.id}')" class="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-500">
-          <span>상세 보기</span>
-          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-        </button>
+        <a href="${proj.detailPage}" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 dark:text-brand-400 hover:text-brand-500 group-hover:translate-x-0.5 transition-transform">
+          <span>상세 분석 보기 (Deep Dive)</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
 
         <div class="flex items-center gap-2">
-          ${(proj.links || []).map(link => `
+          ${(proj.links || []).filter(l => l.url.startsWith('http')).map(link => `
             <a href="${link.url}" target="_blank" rel="noopener noreferrer" title="${link.label}" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-              <i data-lucide="external-link" class="w-4 h-4"></i>
+              <i data-lucide="github" class="w-4 h-4"></i>
             </a>
           `).join('')}
         </div>
@@ -215,7 +268,7 @@ function renderProjects(filterCategory = 'all') {
 }
 
 /**
- * 6. 활동 이력 (타임라인) 렌더링
+ * 7. 활동 이력 (타임라인) 렌더링
  */
 function renderExperiences() {
   const container = document.getElementById('experience-timeline');
@@ -223,7 +276,6 @@ function renderExperiences() {
 
   container.innerHTML = PORTFOLIO_DATA.experiences.map(exp => `
     <div class="relative pl-6 md:pl-8 group">
-      <!-- 타임라인 포인트 -->
       <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-slate-950 border-2 border-brand-500 group-hover:scale-125 transition-transform shadow-sm"></div>
 
       <div class="glass-card p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm">
@@ -248,78 +300,9 @@ function renderExperiences() {
 }
 
 /**
- * 7. 프로젝트 모달 상세 팝업 열기
- */
-window.openProjectModal = function(projectId) {
-  const project = (PORTFOLIO_DATA.projects || []).find(p => p.id === projectId);
-  if (!project) return;
-
-  const modal = document.getElementById('project-modal');
-  const title = document.getElementById('modal-title');
-  const category = document.getElementById('modal-category');
-  const period = document.getElementById('modal-period');
-  const desc = document.getElementById('modal-description');
-  const role = document.getElementById('modal-role');
-  const highlights = document.getElementById('modal-highlights');
-  const tags = document.getElementById('modal-tags');
-  const links = document.getElementById('modal-links');
-
-  title.textContent = project.title;
-  category.textContent = project.categoryName || project.category;
-  period.textContent = project.period;
-  desc.textContent = project.description || project.summary;
-  role.textContent = project.role ? `담당 역할: ${project.role}` : '';
-
-  // 주요 성과 및 기여 목록
-  if (Array.isArray(project.highlights)) {
-    highlights.innerHTML = project.highlights.map(h => `<li>${h}</li>`).join('');
-  } else {
-    highlights.innerHTML = '';
-  }
-
-  // 태그 목록
-  tags.innerHTML = project.tags.map(tag => `
-    <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-      ${tag}
-    </span>
-  `).join('');
-
-  // 링크 목록
-  links.innerHTML = (project.links || []).map(link => `
-    <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-brand-600 text-white hover:bg-brand-500 transition-colors shadow-sm">
-      <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-      <span>${link.label}</span>
-    </a>
-  `).join('');
-
-  modal.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
-  initLucide();
-};
-
-/**
  * 8. 이벤트 리스너 등록
  */
 function initEventListeners() {
-  // 모달 닫기
-  const modal = document.getElementById('project-modal');
-  const closeModalBtn = document.getElementById('close-modal-btn');
-
-  function closeModal() {
-    modal?.classList.add('hidden');
-    document.body.style.overflow = '';
-  }
-
-  closeModalBtn?.addEventListener('click', closeModal);
-  modal?.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
-      closeModal();
-    }
-  });
-
   // 프로젝트 카테고리 필터 버튼 이벤트
   const filterBtns = document.querySelectorAll('.filter-btn');
   filterBtns.forEach(btn => {
