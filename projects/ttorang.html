@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>또랑 (TTORANG) - 프로젝트 상세 | 김예원</title>
   
-  <meta name="description" content="발표 피드백 플랫폼 또랑(TTORANG), 분리 녹화 아키텍처 및 1MB 청크 업로드 파이프라인 웹 프론트엔드 개발">
+  <meta name="description" content="발표 피드백 플랫폼 또랑(TTORANG) 웹 프론트엔드 분리 녹화 아키텍처 및 청크 업로드 상세">
   
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -14,201 +15,144 @@
       theme: {
         extend: {
           colors: {
-            brand: {
-              50: '#ecfdf5',
-              100: '#d1fae5',
-              400: '#34d399',
-              500: '#10b981',
-              600: '#059669',
-              700: '#047857',
-              800: '#065f46',
+            gh: {
+              bg: 'var(--color-canvas-default)',
+              card: 'var(--color-canvas-subtle)',
+              border: 'var(--color-border-default)',
+              borderMuted: 'var(--color-border-muted)',
+              text: 'var(--color-fg-default)',
+              body: 'var(--color-fg-muted)',
+              subtle: 'var(--color-fg-subtle)',
+              blue: 'var(--color-accent-fg)',
+              green: 'var(--color-success-fg)',
             }
           }
         }
       }
     }
   </script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-gh-bg text-gh-text antialiased selection:bg-blue-600 selection:text-white">
 
   <!-- Header -->
-  <header class="fixed top-0 left-0 right-0 z-40 glass-header bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/80 dark:border-slate-800/80">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="../index.html#projects" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 transition-colors">
+  <header class="sticky top-0 z-40 bg-gh-card border-b border-gh-border">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <a href="../index.html#projects" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gh-body hover:text-gh-blue transition-colors">
         <i data-lucide="arrow-left" class="w-4 h-4"></i>
         <span>포트폴리오 메인으로</span>
       </a>
 
-      <div class="flex items-center gap-3">
-        <button id="theme-toggle" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
-          <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
-          <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+      <div class="flex items-center gap-2">
+        <button id="theme-toggle" class="p-1.5 rounded-md border border-gh-border text-gh-body hover:text-gh-text">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
         </button>
-        <a href="https://github.com/TTORANG/Web" target="_blank" class="p-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
-          <i data-lucide="github" class="w-5 h-5"></i>
+        <a href="https://github.com/TTORANG/Web" target="_blank" class="p-1.5 rounded-md border border-gh-border text-gh-body hover:text-gh-text">
+          <i data-lucide="github" class="w-4 h-4"></i>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Main Content Container -->
-  <main class="pt-28 pb-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+  <!-- Article Container -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 space-y-10 markdown-body">
     
-    <!-- Hero / Title -->
-    <div class="space-y-4">
-      <div class="flex flex-wrap items-center gap-2.5">
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 dark:bg-amber-950/70 dark:text-amber-300 border border-amber-300 dark:border-amber-800 flex items-center gap-1.5">
-          <i data-lucide="award" class="w-3.5 h-3.5"></i> UMC 9기 데모데이 최우수상 🥇
+    <!-- Title & Meta -->
+    <div class="space-y-3 border-b border-gh-border pb-6">
+      <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-gh-subtle">
+        <span class="px-2 py-0.5 rounded border border-amber-500/40 bg-amber-950/20 text-amber-400 font-sans font-medium">
+          🏆 UMC 9기 데모데이 최우수상
         </span>
-        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-100 text-brand-800 dark:bg-brand-950/70 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
-          Web Frontend Architecture
-        </span>
-        <span class="text-xs text-slate-400 dark:text-slate-500">2025.12 ~ 2026.02</span>
+        <span>2025.12 ~ 2026.02</span>
+        <span>•</span>
+        <span>Web Frontend Architecture</span>
       </div>
 
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+      <h1 class="text-2xl sm:text-3xl font-bold text-gh-text tracking-tight">
         또랑 (TTORANG)
       </h1>
-      <p class="text-lg text-brand-600 dark:text-brand-400 font-medium">
+      <p class="text-base text-gh-blue font-medium">
         발표 자료, 대본, 영상을 링크 하나로 공유하고 익명으로 피드백받는 웹 서비스
       </p>
 
-      <!-- Action Links -->
-      <div class="flex flex-wrap gap-3 pt-2">
-        <a href="https://github.com/TTORANG/Web" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-white dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 transition-colors">
-          <i data-lucide="github" class="w-4 h-4"></i>
+      <div class="flex flex-wrap gap-2 pt-1 text-xs">
+        <a href="https://github.com/TTORANG/Web" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-gh-border bg-gh-card hover:bg-gh-bg text-gh-text font-medium transition-colors">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
           <span>Frontend Repository</span>
         </a>
       </div>
-      
-      <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-        💡 <strong>목표:</strong> "발표 피드백을 frictionless하게" - 내 발표의 문제점을 쉽게 파악하고, 자료부터 대본, 스피치까지 발표의 전체 과정을 개선할 수 있도록 돕는 웹 플랫폼입니다. 웹 프론트엔드의 핵심 기능인 <strong>[웹캠 녹화 - 1MB 청크 분할 업로드 - 타임스탬프 동기화 재생] 파이프라인 및 전역 상태 아키텍처</strong>를 전담 설계했습니다.
-      </div>
     </div>
 
-    <!-- 1. 핵심 기술적 구현 방식 -->
-    <section class="space-y-6">
-      <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-        <i data-lucide="layers" class="w-5 h-5 text-brand-500"></i>
-        1. 기술적 구현 방식 (Technical Implementation)
+    <!-- 1. 개요 -->
+    <section class="space-y-3">
+      <h2 class="text-lg font-semibold text-gh-text border-b border-gh-border pb-1.5">
+        📌 프로젝트 목표 및 역할
       </h2>
-
-      <div class="space-y-6">
-        <!-- Part A: 분리 녹화 -->
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
-          <h3 class="text-base font-bold text-slate-900 dark:text-white">
-            A. 브라우저 부하 격리를 위한 분리 녹화 아키텍처
-          </h3>
-          <div class="text-sm text-slate-600 dark:text-slate-300 space-y-2 leading-relaxed">
-            <p><strong>기존 합성 방식의 한계:</strong> Canvas API 위에 고해상도(1080p) 슬라이드와 웹캠 비디오를 얹어 실시간 합성 인코딩 시 브라우저 CPU 부하 급증 및 5분 이상 녹화 시 메모리 누수로 브라우저 탭 다운 발생.</p>
-            <p><strong>구조적 개선:</strong> 화면 합성 방식을 배제하고 <strong>[웹캠 스트림 독립 녹화(640x480, VP9) + 슬라이드 전환 타임스탬프 메타데이터 분리 수집]</strong> 구조로 전면 전환.</p>
-            
-            <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-950 font-mono text-xs text-slate-700 dark:text-slate-300 overflow-x-auto my-2">
-              [ 기존 합성 방식 ]<br>
-              [슬라이드] + [웹캠] ──(Canvas 합성 / 1080p)──> [통짜 대용량 영상] (메모리 폭증 및 크래시 발생)<br><br>
-              [ 개선된 분리 방식 ]<br>
-              ├── [웹캠 스트림] ──(MediaRecorder / 480p)──> [경량 비디오 Blob] (저용량 웹캠 단독 캡처)<br>
-              └── [슬라이드 조작] ──(타임스탬프 기록) ──> [JSON 메타데이터] (텍스트 데이터로 분리 저장)
-            </div>
-            <p class="text-xs text-brand-600 dark:text-brand-400 font-semibold">
-              ✨ 성과: 장시간 녹화 시 브라우저 크래시 0건 달성 및 슬라이드 정적 렌더링으로 텍스트 선명도 100% 보존
-            </p>
-          </div>
-        </div>
-
-        <!-- Part B: 3-Phase 청크 업로드 -->
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
-          <h3 class="text-base font-bold text-slate-900 dark:text-white">
-            B. 3-Phase 청크(Chunk) 업로드 파이프라인
-          </h3>
-          <div class="text-sm text-slate-600 dark:text-slate-300 space-y-2 leading-relaxed">
-            <p><strong>문제:</strong> 5분 이상의 영상 단일 전송 시 네트워크 지연 및 패킷 유실로 HTTP 타임아웃 빈발, 실패 시 처음부터 다시 전송해야 하는 비효율 발생.</p>
-            <p><strong>해결책:</strong> 1MB 단위의 Blob 청크로 분할하여 순차 전송하고 실시간 진행률 시각 피드백 제공.</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 my-2 text-xs">
-              <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">Phase 1: Start</p>
-                <p class="text-slate-500 dark:text-slate-400">총 청크 수 & 메타데이터 전송 → 고유 videoId 발급</p>
-              </div>
-              <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">Phase 2: Chunks</p>
-                <p class="text-slate-500 dark:text-slate-400">1MB 단위 순차 POST 전송 및 실시간 업로드 진행률 계산</p>
-              </div>
-              <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">Phase 3: Finish</p>
-                <p class="text-slate-500 dark:text-slate-400">슬라이드 전환 타임라인 전송 → 서버 병합 및 HLS 트랜스코딩 시작</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Part C: Zustand 동기화 엔진 -->
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
-          <h3 class="text-base font-bold text-slate-900 dark:text-white">
-            C. Zustand 기반 비디오 동기화 엔진
-          </h3>
-          <div class="text-sm text-slate-600 dark:text-slate-300 space-y-2 leading-relaxed">
-            <p><strong>요구 조건:</strong> <code>&lt;VideoPlayer&gt;</code>의 현재 재생 시간(currentTime)에 맞춰 <code>&lt;SlideViewer&gt;</code>, <code>&lt;ScriptSection&gt;</code>, <code>&lt;CommentList&gt;</code>가 밀리초 단위로 지연 없이 동기화되어야 함.</p>
-            <p><strong>해결책:</strong> Context API의 트리 전체 리렌더링 병목을 방지하기 위해 경량 상태 관리 라이브러리인 <strong>Zustand</strong> 채택. 재생 시간 업데이트(<code>updateCurrentTime</code>)와 특정 시점 탐색(<code>seekTo</code>)을 스토어 레벨에서 단일 진실 공급원(SSOT)으로 통제.</p>
-          </div>
-        </div>
+      <div class="gh-callout text-xs sm:text-sm text-gh-body space-y-2">
+        <p>
+          <strong>목표:</strong> 발표 연습과 피드백을 frictionless하게 만들어, 자료부터 대본, 스피치까지 발표의 전 과정을 개선할 수 있도록 돕는 웹 플랫폼입니다. 웹 프론트엔드의 핵심인 <strong>[웹캠 녹화 - 1MB 청크 분할 업로드 - 타임스탬프 동기화 재생] 파이프라인과 전역 상태 아키텍처</strong>를 전담했습니다.
+        </p>
       </div>
     </section>
 
-    <!-- 2. 기술 스택 선택 근거 -->
+    <!-- 2. 기술 스택 -->
+    <section class="space-y-3">
+      <h2 class="text-lg font-semibold text-gh-text border-b border-gh-border pb-1.5">
+        🛠 사용 기술 (Tech Stack)
+      </h2>
+      <div class="space-y-2 text-xs sm:text-sm text-gh-body">
+        <p><strong class="text-gh-text">Framework:</strong> React 18, TypeScript, Vite, Tailwind CSS</p>
+        <p><strong class="text-gh-text">State & Data:</strong> Zustand (Global Video Sync), TanStack Query v5 (Server State)</p>
+        <p><strong class="text-gh-text">Media & Network:</strong> MediaRecorder API, hls.js, Axios, MSW (Mocking)</p>
+      </div>
+    </section>
+
+    <!-- 3. 기술적 구현 방식 -->
     <section class="space-y-4">
-      <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-        <i data-lucide="cpu" class="w-5 h-5 text-brand-500"></i>
-        2. 기술 스택 선택 근거 (Tech Stack Rationale)
+      <h2 class="text-lg font-semibold text-gh-text border-b border-gh-border pb-1.5">
+        🚀 주요 구현 방식 (Technical Implementation)
       </h2>
-      <div class="overflow-x-auto">
-        <table class="w-full text-left text-sm border-collapse rounded-xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-          <thead class="bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-600 dark:text-slate-300">
-            <tr>
-              <th class="p-3 w-1/4">기술 스택</th>
-              <th class="p-3 w-2/5">선택 이유</th>
-              <th class="p-3">대안 비교</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-slate-700 dark:text-slate-300 text-xs sm:text-sm">
-            <tr>
-              <td class="p-3 font-semibold text-brand-600 dark:text-brand-400">TypeScript</td>
-              <td class="p-3">슬라이드 타임라인, 청크 메타데이터, API DTO 간 엄격한 타입 계약 보장</td>
-              <td class="p-3 text-slate-500">런타임 타입 에러 및 스키마 변경 시 디버깅 비용 방지</td>
-            </tr>
-            <tr>
-              <td class="p-3 font-semibold text-brand-600 dark:text-brand-400">Zustand</td>
-              <td class="p-3">보일러플레이트가 적고 셀렉터 기반으로 불필요한 리렌더링 차단</td>
-              <td class="p-3 text-slate-500">Context API의 전체 리렌더링 및 Redux의 과도한 보일러플레이트 배제</td>
-            </tr>
-            <tr>
-              <td class="p-3 font-semibold text-brand-600 dark:text-brand-400">TanStack Query</td>
-              <td class="p-3">영상 목록, 처리 상태 폴링, 비동기 상태 캐싱을 선언적으로 처리</td>
-              <td class="p-3 text-slate-500">useEffect + useState 수동 관리 시 발생하는 경쟁 상태(Race Condition) 방지</td>
-            </tr>
-            <tr>
-              <td class="p-3 font-semibold text-brand-600 dark:text-brand-400">hls.js</td>
-              <td class="p-3">브라우저 환경에서 HLS 스트리밍을 안정적으로 제어할 수 있는 표준 라이브러리</td>
-              <td class="p-3 text-slate-500">표준 &lt;video&gt; 태그의 브라우저별 HLS 호환성 한계 해결</td>
-            </tr>
-          </tbody>
-        </table>
+
+      <div class="space-y-3 text-xs sm:text-sm text-gh-body">
+        <div class="border border-gh-border rounded-md p-4 bg-gh-card space-y-2">
+          <h3 class="font-semibold text-gh-text">A. 브라우저 부하 격리를 위한 분리 녹화 아키텍처</h3>
+          <p>
+            • <strong>기존 한계:</strong> Canvas API에 고해상도(1080p) 슬라이드와 웹캠을 합성 인코딩하면서 CPU 부하 급증 및 5분 이상 녹화 시 브라우저 탭 다운 발생.<br>
+            • <strong>구조 개선:</strong> 화면 합성 방식을 배제하고 <code>[웹캠 단독 캡처(480p Blob) + 슬라이드 전환 타임스탬프 JSON 분리 수집]</code> 구조로 전환.<br>
+            • <strong>성과:</strong> 슬라이드 원본 이미지 선명도 100% 보존 및 <strong>장시간 녹화 시 브라우저 크래시 0건 달성</strong>.
+          </p>
+        </div>
+
+        <div class="border border-gh-border rounded-md p-4 bg-gh-card space-y-2">
+          <h3 class="font-semibold text-gh-text">B. 3-Phase 청크(Chunk 1MB) 분할 업로드 파이프라인</h3>
+          <p>
+            • 5분 이상 비디오를 1MB 단위의 Blob 청크로 쪼개어 순차 전송.<br>
+            • <strong>Phase 1:</strong> 총 청크 수 & 메타데이터 전송 → videoId 발급<br>
+            • <strong>Phase 2:</strong> 1MB 청크 순차 POST 전송 및 실시간 업로드 진행률 계산 UI<br>
+            • <strong>Phase 3:</strong> 슬라이드 전환 타임라인 전송 및 완료 요청 → 서버 병합 및 HLS 트랜스코딩
+          </p>
+        </div>
+
+        <div class="border border-gh-border rounded-md p-4 bg-gh-card space-y-2">
+          <h3 class="font-semibold text-gh-text">C. Zustand 기반 비디오 동기화 엔진</h3>
+          <p>
+            • <code>&lt;VideoPlayer&gt;</code>의 현재 재생 시간(currentTime)에 맞춰 슬라이드 뷰어, 발표 대본, 피드백 댓글이 밀리초 단위로 지연 없이 동기화되도록 <strong>Zustand 단일 상태 저장소</strong>에서 양방향 탐색(seek) 및 시간 업데이트를 중앙 통제.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- Navigation Footer -->
-    <div class="pt-8 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
-      <a href="musereview.html" class="inline-flex items-center gap-1 text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-brand-500">
-        <i data-lucide="arrow-left" class="w-4 h-4"></i>
-        <span>이전: 뮤즈리뷰</span>
+    <!-- Bottom Navigation -->
+    <div class="pt-6 border-t border-gh-border flex justify-between items-center text-xs">
+      <a href="musereview.html" class="text-gh-subtle hover:text-gh-text flex items-center gap-1">
+        <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i> 이전: 뮤즈리뷰
       </a>
-      <a href="../index.html#projects" class="inline-flex items-center gap-1 text-sm font-bold text-brand-600 dark:text-brand-400 hover:text-brand-500">
+      <a href="../index.html#projects" class="font-semibold text-gh-blue hover:underline flex items-center gap-1">
         <span>포트폴리오 메인으로</span>
-        <i data-lucide="home" class="w-4 h-4"></i>
+        <i data-lucide="home" class="w-3.5 h-3.5"></i>
       </a>
     </div>
 
