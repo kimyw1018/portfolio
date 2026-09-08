@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김예원 (Kim Yewon) | Portfolio</title>
+  
+  <!-- SEO & OpenGraph -->
+  <meta name="description" content="안정적인 백엔드 시스템과 유기적인 사용자 경험을 설계하는 개발자 김예원의 포트폴리오입니다.">
+  <meta name="keywords" content="김예원, 포트폴리오, 백엔드, 풀스택, 개발자, Spring Boot, Java, React, 숭실대학교">
+  <meta property="og:title" content="김예원 (Kim Yewon) | Developer Portfolio">
+  <meta property="og:description" content="숭실대학교 컴퓨터학부 24학번 | Backend & Fullstack Developer 포트폴리오">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://github.com/kimyw1018.png">
+
+  <!-- Tailwind CSS (Play CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Devicon for Tech Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Navigation Bar -->
+  <header class="fixed top-0 left-0 right-0 z-40 glass-header bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-teal-700 flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform">
+          YW
+        </span>
+        <span class="font-bold text-lg text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors" id="nav-brand-name">
+          김예원.dev
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#about" class="hover:text-brand-500 dark:hover:text-brand-400 transition-colors">소개</a>
+        <a href="#skills" class="hover:text-brand-500 dark:hover:text-brand-400 transition-colors">기술 스택</a>
+        <a href="#projects" class="hover:text-brand-500 dark:hover:text-brand-400 transition-colors">프로젝트</a>
+        <a href="#experience" class="hover:text-brand-500 dark:hover:text-brand-400 transition-colors">활동 이력</a>
+        <a href="#contact" class="hover:text-brand-500 dark:hover:text-brand-400 transition-colors">연락처</a>
+      </nav>
+
+      <!-- Right Actions: Theme Toggle & GitHub -->
+      <div class="flex items-center gap-3">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" aria-label="테마 전환" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
+          <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+        </button>
+
+        <a id="nav-github-link" href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span>GitHub</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" aria-label="메뉴 열기" class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 px-4 pt-3 pb-4 space-y-2">
+      <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 mobile-nav-link">소개</a>
+      <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 mobile-nav-link">기술 스택</a>
+      <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 mobile-nav-link">프로젝트</a>
+      <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 mobile-nav-link">활동 이력</a>
+      <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 mobile-nav-link">연락처</a>
+      <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
+        <a href="https://github.com/kimyw1018" target="_blank" class="flex items-center gap-2 px-3 py-2 text-sm text-slate-600 dark:text-slate-300">
+          <i data-lucide="github" class="w-4 h-4"></i> GitHub 프로필 방문
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+    <!-- Ambient Background Glow -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-500/10 dark:bg-brand-500/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute top-1/3 left-1/4 w-72 h-72 bg-teal-400/10 dark:bg-teal-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+        <!-- Avatar Column -->
+        <div class="relative group">
+          <div class="w-32 h-32 md:w-40 md:h-40 rounded-2xl p-1 bg-gradient-to-tr from-brand-500 to-teal-400 shadow-xl shadow-brand-500/10 dark:shadow-brand-500/5">
+            <img id="hero-avatar" src="https://github.com/kimyw1018.png" alt="Profile Avatar" class="w-full h-full object-cover rounded-xl bg-slate-200 dark:bg-slate-800">
+          </div>
+          <div class="absolute -bottom-2 -right-2 px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-xs font-semibold text-brand-600 dark:text-brand-400 shadow-sm flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-brand-500 pulse-dot"></span>
+            <span>Online</span>
+          </div>
+        </div>
+
+        <!-- Bio Column -->
+        <div class="flex-1 text-center md:text-left space-y-4">
+          <!-- Status Badge -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-brand-100 text-brand-800 dark:bg-brand-900/40 dark:text-brand-300 border border-brand-200 dark:border-brand-700/50">
+            <span id="hero-status">🚀 프로젝트 협업 및 학습 진행 중</span>
+          </div>
+
+          <div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              <span id="hero-name">김예원</span>
+              <span class="text-lg sm:text-xl font-medium text-slate-500 dark:text-slate-400 ml-2" id="hero-role-badge">Backend & Fullstack Developer</span>
+            </h1>
+            <p class="text-sm font-semibold text-brand-600 dark:text-brand-400 mt-1" id="hero-affiliation">
+              숭실대학교 컴퓨터학부 24학번
+            </p>
+          </div>
+
+          <p class="text-lg md:text-xl font-medium text-slate-700 dark:text-slate-300 max-w-2xl leading-relaxed" id="hero-tagline">
+            안정적인 백엔드 시스템과 유기적인 서비스 경험을 설계하는 개발자 김예원입니다.
+          </p>
+
+          <div class="space-y-2 text-sm md:text-base text-slate-600 dark:text-slate-400 max-w-2xl" id="hero-bio-container">
+            <!-- Populated via JavaScript -->
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-4">
+            <a href="#projects" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm bg-brand-600 hover:bg-brand-500 text-white shadow-md shadow-brand-600/20 transition-all hover:scale-[1.02] active:scale-[0.98]">
+              <i data-lucide="layers" class="w-4 h-4"></i>
+              <span>프로젝트 둘러보기</span>
+            </a>
+            
+            <button id="copy-email-btn" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm">
+              <i data-lucide="mail" class="w-4 h-4 text-slate-400"></i>
+              <span id="email-text">poppppp00@gmail.com</span>
+              <span class="text-xs px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400">복사</span>
+            </button>
+
+            <a id="hero-github-btn" href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm bg-slate-900 text-white dark:bg-slate-800 dark:hover:bg-slate-700 hover:bg-slate-800 transition-colors shadow-sm">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Education Section -->
+  <section id="about" class="py-16 bg-white dark:bg-slate-900/60 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="p-2 rounded-lg bg-brand-100 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400">
+          <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white">학력 및 기반</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400">학업 및 기반 전공 역량</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="education-container">
+        <!-- Education cards rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-16 transition-colors">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="p-2 rounded-lg bg-brand-100 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400">
+          <i data-lucide="code-2" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white">기술 스택</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400">실무 및 프로젝트에서 활용한 기술 목록</p>
+        </div>
+      </div>
+
+      <div class="space-y-8" id="skills-container">
+        <!-- Skill categories rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 bg-white dark:bg-slate-900/60 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div class="flex items-center gap-3">
+          <div class="p-2 rounded-lg bg-brand-100 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400">
+            <i data-lucide="folder-git-2" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white">프로젝트</h2>
+            <p class="text-sm text-slate-500 dark:text-slate-400">주도적으로 설계하고 협업한 주요 프로젝트</p>
+          </div>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="flex items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-800/80 rounded-xl text-xs font-semibold self-start sm:self-auto" id="project-filters">
+          <button data-filter="all" class="filter-btn px-3 py-1.5 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm transition-all">전체</button>
+          <button data-filter="backend" class="filter-btn px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">Backend</button>
+          <button data-filter="frontend" class="filter-btn px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">Frontend</button>
+        </div>
+      </div>
+
+      <!-- Project Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Activities Section -->
+  <section id="experience" class="py-16 transition-colors">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-10">
+        <div class="p-2 rounded-lg bg-brand-100 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400">
+          <i data-lucide="milestone" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white">활동 및 경험</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400">학부 학생회, IT 연합동아리, 자문 및 멘토링 이력</p>
+        </div>
+      </div>
+
+      <!-- Timeline Container -->
+      <div class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-4 md:ml-6 space-y-8" id="experience-timeline">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Footer Section -->
+  <footer id="contact" class="pt-16 pb-12 bg-slate-900 text-slate-300 border-t border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-12 border-b border-slate-800">
+        <div>
+          <h3 class="text-xl font-bold text-white mb-2">Let's Connect</h3>
+          <p class="text-sm text-slate-400 leading-relaxed max-w-md">
+            새로운 프로젝트 기회, 기술적인 교류, 백엔드/풀스택 협업 제안은 언제나 환영합니다. 아래 이메일이나 GitHub를 통해 편하게 연락주세요!
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row md:justify-end items-start sm:items-center gap-4">
+          <a href="mailto:poppppp00@gmail.com" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-medium text-sm transition-colors shadow-lg shadow-brand-600/20">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>메일 보내기</span>
+          </a>
+          <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm transition-colors border border-slate-700">
+            <i data-lucide="github" class="w-4 h-4"></i>
+            <span>GitHub 방문</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>© 2026 김예원 (Kim Yewon). All rights reserved.</p>
+        <div class="flex items-center gap-2">
+          <span>Deployed on GitHub Pages</span>
+          <span>•</span>
+          <span class="text-brand-400">Zero-Build Architecture</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Project Detail Modal -->
+  <div id="project-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden animate-modal">
+      <!-- Modal Header -->
+      <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-start justify-between">
+        <div>
+          <span id="modal-category" class="inline-block px-2.5 py-0.5 rounded-md text-xs font-semibold bg-brand-100 text-brand-800 dark:bg-brand-900/50 dark:text-brand-300 mb-2">Category</span>
+          <h3 id="modal-title" class="text-2xl font-bold text-slate-900 dark:text-white">Project Title</h3>
+          <p id="modal-period" class="text-xs text-slate-500 dark:text-slate-400 mt-1">2026.01 ~ 2026.02</p>
+        </div>
+        <button id="close-modal-btn" aria-label="닫기" class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 space-y-6 max-h-[70vh] overflow-y-auto">
+        <div>
+          <h4 class="text-sm font-semibold text-slate-900 dark:text-white mb-2">프로젝트 개요</h4>
+          <p id="modal-description" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed"></p>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-semibold text-slate-900 dark:text-white mb-2">담당 역할 및 기여 내용</h4>
+          <p id="modal-role" class="text-xs font-medium text-brand-600 dark:text-brand-400 mb-2"></p>
+          <ul id="modal-highlights" class="list-disc list-inside space-y-1.5 text-sm text-slate-600 dark:text-slate-300"></ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-semibold text-slate-900 dark:text-white mb-2">사용 기술</h4>
+          <div id="modal-tags" class="flex flex-wrap gap-1.5"></div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div id="modal-links" class="p-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 flex flex-wrap gap-2 justify-end">
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xl text-sm font-medium">
+    <i data-lucide="check-circle" class="w-4 h-4 text-brand-400"></i>
+    <span id="toast-message">알림</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
