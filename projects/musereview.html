@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>뮤즈리뷰 (MuseReview) - 프로젝트 상세 | 김예원</title>
+  <title>뮤즈리뷰 (MuseReview) - 프로젝트 상세 | 김예원 (코코)</title>
   
   <meta name="description" content="악기 연주 피드백 플랫폼 뮤즈리뷰 백엔드 코어 아키텍처 및 OAuth 2.0 / Redis 설계">
   
@@ -68,12 +68,14 @@
     
     <!-- Title & Image -->
     <section class="space-y-4">
-      <div class="flex flex-wrap items-center gap-2">
-        <span class="toss-award-badge-flat">
+      <div class="flex flex-wrap items-center gap-2.5">
+        <span class="font-bold text-xs text-[var(--toss-primary)]">
           UMC 10기 데모데이 우수상
         </span>
-        <span class="toss-chip-subtle text-xs font-mono">2026.06 ~ 2026.08</span>
-        <span class="toss-chip-subtle text-xs">Backend Core Architecture</span>
+        <span class="text-[var(--toss-border)]">•</span>
+        <span class="text-xs font-mono text-[var(--toss-text-tertiary)]">2026.06 ~ 2026.08</span>
+        <span class="text-[var(--toss-border)]">•</span>
+        <span class="text-xs text-[var(--toss-text-secondary)]">Spring Boot Backend</span>
       </div>
 
       <div>
@@ -90,15 +92,17 @@
       </div>
 
       <div class="flex flex-wrap gap-2.5 pt-2 text-xs">
-        <a href="https://github.com/kimyw1018/BE" target="_blank" class="toss-btn-secondary !py-2 !px-3.5 !text-xs">
+        <a href="https://github.com/kimyw1018/BE" target="_blank" rel="noopener noreferrer" class="toss-btn-github !py-2 !px-3.5 !text-xs">
           <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
           </svg>
-          <span>My Backend Repo</span>
+          <span>개인 레포지토리</span>
         </a>
-        <a href="https://github.com/Musereview/BE" target="_blank" class="toss-btn-secondary !py-2 !px-3.5 !text-xs">
-          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-          <span>MuseReview Org Repo</span>
+        <a href="https://github.com/Musereview/BE" target="_blank" rel="noopener noreferrer" class="toss-btn-github !py-2 !px-3.5 !text-xs">
+          <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+          </svg>
+          <span>팀 레포지토리</span>
         </a>
       </div>
     </section>
@@ -115,7 +119,7 @@
 
     <!-- 2. 기술 스택 -->
     <section class="space-y-3">
-      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">사용 기술 (Tech Stack)</h2>
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">사용 기술</h2>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
         <div class="toss-flat-card p-4 space-y-1">
           <p class="font-bold text-[var(--toss-text-primary)]">Core Framework</p>
@@ -162,7 +166,7 @@
 
     <!-- 4. 트러블 슈팅 -->
     <section class="space-y-4">
-      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">기술적 트러블슈팅 (Deep Dive)</h2>
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">트러블슈팅</h2>
       <div class="space-y-3 text-sm">
         <div class="toss-flat-card p-5 space-y-2">
           <p class="font-bold text-[var(--toss-text-primary)]">

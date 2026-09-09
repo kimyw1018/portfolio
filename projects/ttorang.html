@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>또랑 (TTORANG) - 프로젝트 상세 | 김예원</title>
+  <title>또랑 (TTORANG) - 프로젝트 상세 | 김예원 (코코)</title>
   
   <meta name="description" content="발표 피드백 플랫폼 또랑(TTORANG) 웹 프론트엔드 분리 녹화 아키텍처 및 청크 업로드 상세">
   
@@ -68,12 +68,14 @@
     
     <!-- Title & Image -->
     <section class="space-y-4">
-      <div class="flex flex-wrap items-center gap-2">
-        <span class="toss-award-badge-flat">
+      <div class="flex flex-wrap items-center gap-2.5">
+        <span class="font-bold text-xs text-[var(--toss-primary)]">
           UMC 9기 데모데이 최우수상
         </span>
-        <span class="toss-chip-subtle text-xs font-mono">2025.12 ~ 2026.02</span>
-        <span class="toss-chip-subtle text-xs">Web Frontend Architecture</span>
+        <span class="text-[var(--toss-border)]">•</span>
+        <span class="text-xs font-mono text-[var(--toss-text-tertiary)]">2025.12 ~ 2026.02</span>
+        <span class="text-[var(--toss-border)]">•</span>
+        <span class="text-xs text-[var(--toss-text-secondary)]">React Frontend</span>
       </div>
 
       <div>
@@ -90,7 +92,7 @@
       </div>
 
       <div class="flex flex-wrap gap-2.5 pt-2 text-xs">
-        <a href="https://github.com/TTORANG/Web" target="_blank" class="toss-btn-secondary !py-2 !px-3.5 !text-xs">
+        <a href="https://github.com/TTORANG/Web" target="_blank" rel="noopener noreferrer" class="toss-btn-github !py-2 !px-3.5 !text-xs">
           <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
           </svg>
@@ -111,7 +113,7 @@
 
     <!-- 2. 기술 스택 -->
     <section class="space-y-3">
-      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">사용 기술 (Tech Stack)</h2>
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">사용 기술</h2>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
         <div class="toss-flat-card p-4 space-y-1">
           <p class="font-bold text-[var(--toss-text-primary)]">Framework</p>
@@ -130,11 +132,11 @@
 
     <!-- 3. 핵심 구현 내용 -->
     <section class="space-y-4">
-      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">주요 구현 방식 (Technical Implementation)</h2>
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">주요 구현 내용</h2>
       <div class="space-y-3 text-sm">
         <div class="toss-flat-card p-5 space-y-2">
           <h3 class="font-bold text-base text-[var(--toss-text-primary)]">
-            A. 브라우저 부하 격리를 위한 분리 녹화 아키텍처
+            브라우저 부하 격리를 위한 분리 녹화
           </h3>
           <p class="text-[var(--toss-text-secondary)] leading-relaxed">
             기존 Canvas API 화면 합성 방식을 배제하고 <code>[웹캠 단독 캡처(480p Blob) + 슬라이드 전환 타임스탬프 JSON 분리 수집]</code> 구조로 전환하여 장시간 녹화 시 브라우저 크래시 0건을 달성했습니다.
@@ -143,7 +145,7 @@
 
         <div class="toss-flat-card p-5 space-y-2">
           <h3 class="font-bold text-base text-[var(--toss-text-primary)]">
-            B. 3-Phase 청크(1MB) 분할 업로드 파이프라인
+            1MB 청크 분할 업로드 파이프라인
           </h3>
           <p class="text-[var(--toss-text-secondary)] leading-relaxed">
             5분 이상 비디오를 1MB 단위의 Blob 청크로 쪼개어 순차 전송하고, 업로드 진행률 계산 UI를 제공하여 대용량 비디오의 타임아웃 문제를 해결했습니다.
@@ -152,7 +154,7 @@
 
         <div class="toss-flat-card p-5 space-y-2">
           <h3 class="font-bold text-base text-[var(--toss-text-primary)]">
-            C. Zustand 기반 비디오 동기화 엔진
+            Zustand 기반 비디오 동기화
           </h3>
           <p class="text-[var(--toss-text-secondary)] leading-relaxed">
             비디오 플레이어의 재생 시간에 맞춰 슬라이드 뷰어, 발표 대본, 피드백 댓글이 밀리초 단위로 지연 없이 동기화되도록 단일 상태 저장소에서 양방향 탐색 및 시간 업데이트를 중앙 통제했습니다.

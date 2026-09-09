@@ -108,7 +108,7 @@ function renderEducation() {
 }
 
 /**
- * 4. Tech Stack Rendering (로고 + 이름 + 숙련도 명도 텍스트)
+ * 4. Tech Stack Rendering (실제 공식 SVG 로고 + 이름 + 숙련도 명도 텍스트)
  */
 function renderSkills() {
   const container = document.getElementById('skills-container');
@@ -127,8 +127,8 @@ function renderSkills() {
           ${skillsList.map(skill => `
             <div class="toss-skill-row">
               <div class="flex items-center gap-2.5 min-w-0">
-                <div class="w-5 h-5 flex items-center justify-center text-lg shrink-0">
-                  <i class="${skill.icon}"></i>
+                <div class="w-5 h-5 flex items-center justify-center shrink-0">
+                  <img src="${skill.logo}" alt="${skill.name}" class="w-5 h-5 object-contain" loading="lazy" onerror="this.style.display='none'">
                 </div>
                 <span class="text-sm font-semibold text-[var(--toss-text-primary)] whitespace-normal break-words">${skill.name}</span>
               </div>
@@ -144,40 +144,34 @@ function renderSkills() {
 }
 
 /**
- * 5. Awards & Honors Rendering (신뢰도 높은 깔끔한 반응형 표 형태)
+ * 5. Awards & Honors Rendering (구분 박스 제거, PC 줄바꿈 없이 한 줄, 나머지 내용은 밑에 배치)
  */
 function renderAwards() {
   const container = document.getElementById('awards-container');
   if (!container || !PORTFOLIO_DATA?.awards) return;
 
   container.innerHTML = `
-    <div class="toss-table-container">
-      <table class="toss-table">
-        <thead>
-          <tr>
-            <th style="width: 100px;">일자</th>
-            <th style="width: 80px;">구분</th>
-            <th>대회 및 공모전명</th>
-            <th style="width: 130px;">프로젝트</th>
-            <th style="width: 130px;">주최</th>
-            <th class="hidden md:table-cell">주요 성과 / 역할</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${PORTFOLIO_DATA.awards.map(award => `
-            <tr>
-              <td class="font-mono text-xs text-[var(--toss-text-tertiary)] whitespace-nowrap">${award.date}</td>
-              <td class="whitespace-nowrap">
-                <span class="toss-award-badge-flat">${award.badge}</span>
-              </td>
-              <td class="font-bold text-[var(--toss-text-primary)]">${award.title}</td>
-              <td class="font-semibold text-[var(--toss-primary)] whitespace-nowrap">${award.project}</td>
-              <td class="text-xs text-[var(--toss-text-secondary)] whitespace-nowrap">${award.organization}</td>
-              <td class="text-xs text-[var(--toss-text-secondary)] hidden md:table-cell leading-relaxed">${award.description}</td>
-            </tr>
-          `).join('')}
-        </tbody>
-      </table>
+    <div class="overflow-x-auto -mx-2 px-2">
+      <div class="min-w-[680px] sm:min-w-0 divide-y divide-[var(--toss-border-subtle)]">
+        ${PORTFOLIO_DATA.awards.map(award => `
+          <div class="py-3.5 px-2 hover:bg-[var(--toss-surface)] transition-colors rounded-lg space-y-1">
+            <!-- Top Line: 일자 | 구분(텍스트만) | 대회명(PC 줄바꿈 없음) | 프로젝트 -->
+            <div class="flex items-baseline gap-3.5">
+              <span class="font-mono text-xs text-[var(--toss-text-tertiary)] shrink-0 w-20">${award.date}</span>
+              <span class="font-bold text-xs text-[var(--toss-primary)] shrink-0 w-16">${award.badge}</span>
+              <span class="font-bold text-sm sm:text-[15px] text-[var(--toss-text-primary)] whitespace-nowrap flex-1">${award.title}</span>
+              <span class="text-xs font-semibold text-[var(--toss-text-secondary)] shrink-0 whitespace-nowrap">${award.project}</span>
+            </div>
+
+            <!-- Bottom Line: 주최 및 주요 내용 (밑에 배치) -->
+            <div class="flex items-baseline gap-2 pl-[106px] text-xs text-[var(--toss-text-secondary)] leading-relaxed">
+              <span class="text-[var(--toss-text-tertiary)] shrink-0 font-medium">주최: ${award.organization}</span>
+              <span class="text-[var(--toss-border)] shrink-0">•</span>
+              <span>${award.description}</span>
+            </div>
+          </div>
+        `).join('')}
+      </div>
     </div>
   `;
 }
@@ -192,7 +186,7 @@ function renderProjects(filterCategory = 'all') {
 }
 
 /**
- * 6-1. Featured Projects (주요 프로젝트 4개 - 플랫 카드, 호버 시 배경색만 변경)
+ * 6-1. Featured Projects (주요 프로젝트 4개 - 플랫 카드, 차분하고 담백한 링크)
  */
 function renderFeaturedProjects(filterCategory) {
   const container = document.getElementById('projects-grid');
@@ -215,16 +209,16 @@ function renderFeaturedProjects(filterCategory) {
   if (section) section.classList.remove('hidden');
 
   container.innerHTML = filtered.map(proj => `
-    <article class="toss-flat-card p-6 flex flex-col justify-between space-y-4">
+    <article class="toss-flat-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
       <div>
         <!-- Screenshot Image -->
-        <div class="w-full h-48 rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 mb-4">
-          <img src="${proj.image}" alt="${proj.title}" class="w-full h-full object-cover" loading="lazy">
-        </div>
+        <a href="${proj.detailPage}" class="block w-full h-48 rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 mb-3.5 group">
+          <img src="${proj.image}" alt="${proj.title}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+        </a>
 
-        <div class="flex items-center justify-between gap-2 mb-2">
+        <div class="flex items-center justify-between gap-2 mb-1.5">
           ${proj.award ? `
-            <span class="toss-award-badge-flat text-[11px]">${proj.award}</span>
+            <span class="font-bold text-xs text-[var(--toss-primary)]">${proj.award}</span>
           ` : `
             <span class="text-xs text-[var(--toss-text-tertiary)] font-medium">${proj.categoryName}</span>
           `}
@@ -237,7 +231,7 @@ function renderFeaturedProjects(filterCategory) {
             ${proj.title}
           </a>
         </h3>
-        <p class="text-xs font-semibold text-[var(--toss-primary)] mt-0.5 mb-2.5">
+        <p class="text-xs font-medium text-[var(--toss-primary)] mt-0.5 mb-2">
           ${proj.subtitle}
         </p>
 
@@ -249,7 +243,7 @@ function renderFeaturedProjects(filterCategory) {
         <!-- Tags -->
         <div class="flex flex-wrap gap-1.5 mb-2">
           ${proj.tags.slice(0, 5).map(tag => `
-            <span class="toss-chip-subtle !py-1 !px-2.5 !text-[11px]">${tag}</span>
+            <span class="toss-chip-subtle !py-0.5 !px-2 !text-[11px]">${tag}</span>
           `).join('')}
           ${proj.tags.length > 5 ? `
             <span class="text-[10px] text-[var(--toss-text-tertiary)] self-center pl-1 font-medium">
@@ -259,17 +253,17 @@ function renderFeaturedProjects(filterCategory) {
         </div>
       </div>
 
-      <!-- Footer Action -->
-      <div class="pt-3 border-t border-[var(--toss-border-subtle)] space-y-2">
-        <a href="${proj.detailPage}" class="toss-btn-secondary !w-full justify-between !py-2.5 !px-4 !text-xs">
+      <!-- Footer Action (Clean & Simple) -->
+      <div class="pt-3 border-t border-[var(--toss-border-subtle)] flex items-center justify-between flex-wrap gap-2">
+        <a href="${proj.detailPage}" class="text-xs font-semibold text-[var(--toss-primary)] hover:underline flex items-center gap-1">
           <span>상세 분석 보기</span>
-          <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
         </a>
 
         ${(proj.links || []).filter(l => l.url && l.url.startsWith('http')).length > 0 ? `
-          <div class="flex items-center justify-end gap-3 pt-1">
+          <div class="flex items-center gap-3">
             ${proj.links.filter(l => l.url.startsWith('http')).map(link => `
-              <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--toss-text-tertiary)] hover:text-[var(--toss-primary)] flex items-center gap-1.5 transition-colors">
+              <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--toss-text-tertiary)] hover:text-[var(--toss-text-primary)] flex items-center gap-1.5 transition-colors">
                 ${GITHUB_SVG}
                 <span>${link.label || 'GitHub'}</span>
               </a>

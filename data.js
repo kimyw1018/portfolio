@@ -7,7 +7,8 @@
 const PORTFOLIO_DATA = {
   // 1. 기본 프로필 정보
   profile: {
-    name: "김예원",
+    name: "김예원 (코코)",
+    nickname: "코코",
     englishName: "Kim Yewon",
     githubUsername: "kimyw1018",
     role: "Backend & Fullstack Developer",
@@ -17,7 +18,7 @@ const PORTFOLIO_DATA = {
     github: "https://github.com/kimyw1018",
     avatar: "https://github.com/kimyw1018.png",
     
-    tagline: "안정적인 백엔드 시스템과 유기적인 서비스 경험을 설계하는 개발자 김예원입니다.",
+    tagline: "안정적인 백엔드 시스템과 유기적인 서비스 경험을 설계하는 개발자 김예원(코코)입니다.",
     
     bio: [
       "Spring Boot, Java를 주축으로 견고한 백엔드 아키텍처와 분산 인프라(K3s, GitOps)를 구축하고 최적화하는 데 깊은 열정을 가지고 있습니다.",
@@ -36,35 +37,35 @@ const PORTFOLIO_DATA = {
     }
   ],
 
-  // 3. 기술 스택 (이름과 숙련도 명도 텍스트)
+  // 3. 기술 스택 (공식 실제 SVG 로고 + 이름 + 숙련도 명도 텍스트)
   skills: {
     "Backend & Database": [
-      { name: "Java", level: "Advanced", icon: "devicon-java-plain colored" },
-      { name: "Spring Boot", level: "Advanced", icon: "devicon-spring-original colored" },
-      { name: "MySQL / MariaDB", level: "Advanced", icon: "devicon-mysql-original colored" },
-      { name: "PostgreSQL & PostGIS", level: "Intermediate", icon: "devicon-postgresql-plain colored" },
-      { name: "Redis", level: "Intermediate", icon: "devicon-redis-plain colored" },
-      { name: "Spring Data JPA / Hibernate", level: "Advanced", icon: "devicon-hibernate-plain colored" }
+      { name: "Java", level: "Advanced", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
+      { name: "Spring Boot", level: "Advanced", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" },
+      { name: "MySQL / MariaDB", level: "Advanced", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
+      { name: "PostgreSQL & PostGIS", level: "Intermediate", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
+      { name: "Redis", level: "Intermediate", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" },
+      { name: "Spring Data JPA / Hibernate", level: "Advanced", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/hibernate/hibernate-original.svg" }
     ],
     "Web & Frontend": [
-      { name: "React (18 / 19)", level: "Advanced", icon: "devicon-react-original colored" },
-      { name: "TypeScript", level: "Advanced", icon: "devicon-typescript-plain colored" },
-      { name: "Vite / Bun", level: "Intermediate", icon: "devicon-vitejs-plain colored" },
-      { name: "Tailwind CSS", level: "Advanced", icon: "devicon-tailwindcss-plain colored" },
-      { name: "Zustand & TanStack Query", level: "Advanced", icon: "devicon-react-original colored" },
-      { name: "LiveKit WebRTC", level: "Intermediate", icon: "devicon-chrome-plain colored" }
+      { name: "React (18 / 19)", level: "Advanced", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+      { name: "TypeScript", level: "Advanced", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
+      { name: "Vite / Bun", level: "Intermediate", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" },
+      { name: "Tailwind CSS", level: "Advanced", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+      { name: "Zustand & TanStack Query", level: "Advanced", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+      { name: "LiveKit WebRTC", level: "Intermediate", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/chrome/chrome-original.svg" }
     ],
     "Mobile": [
-      { name: "Android (Kotlin / Java)", level: "Advanced", icon: "devicon-android-plain colored" },
-      { name: "React Native", level: "Intermediate", icon: "devicon-react-original colored" },
-      { name: "Hilt & Coroutines / Flow", level: "Advanced", icon: "devicon-kotlin-plain colored" }
+      { name: "Android (Kotlin / Java)", level: "Advanced", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg" },
+      { name: "React Native", level: "Intermediate", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+      { name: "Hilt & Coroutines / Flow", level: "Advanced", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" }
     ],
     "DevOps & Infrastructure": [
-      { name: "Git & GitHub", level: "Advanced", icon: "devicon-git-plain colored" },
-      { name: "GitHub Actions", level: "Advanced", icon: "devicon-githubactions-plain colored" },
-      { name: "Docker", level: "Intermediate", icon: "devicon-docker-plain colored" },
-      { name: "K3s & ArgoCD (GitOps)", level: "Intermediate", icon: "devicon-argocd-plain colored" },
-      { name: "AWS (S3 / EC2)", level: "Intermediate", icon: "devicon-amazonwebservices-plain-wordmark colored" }
+      { name: "Git & GitHub", level: "Advanced", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
+      { name: "GitHub Actions", level: "Advanced", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" },
+      { name: "Docker", level: "Intermediate", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
+      { name: "K3s & ArgoCD (GitOps)", level: "Intermediate", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/argocd/argocd-original.svg" },
+      { name: "AWS (S3 / EC2)", level: "Intermediate", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" }
     ]
   },
 
