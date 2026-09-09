@@ -12,7 +12,6 @@ const PORTFOLIO_DATA = {
     githubUsername: "kimyw1018",
     role: "Backend & Fullstack Developer",
     affiliation: "숭실대학교 컴퓨터학부 (3학년 2학기 재학 중)",
-    statusBadge: "새로운 성장 기회를 찾고 있습니다",
     phone: "010-6555-6343",
     email: "poppppp00@gmail.com",
     github: "https://github.com/kimyw1018",
@@ -41,19 +40,19 @@ const PORTFOLIO_DATA = {
   skills: {
     "Backend & Database": [
       { name: "Java", level: "Advanced", icon: "devicon-java-plain colored" },
-      { name: "Spring Boot", level: "Advanced", icon: "devicon-spring-plain colored" },
-      { name: "MySQL / MariaDB", level: "Advanced", icon: "devicon-mysql-plain colored" },
+      { name: "Spring Boot", level: "Advanced", icon: "devicon-spring-original colored" },
+      { name: "MySQL / MariaDB", level: "Advanced", icon: "devicon-mysql-original colored" },
       { name: "PostgreSQL & PostGIS", level: "Intermediate", icon: "devicon-postgresql-plain colored" },
       { name: "Redis", level: "Intermediate", icon: "devicon-redis-plain colored" },
-      { name: "Spring Data JPA / Hibernate", level: "Advanced", icon: "devicon-spring-plain colored" }
+      { name: "Spring Data JPA / Hibernate", level: "Advanced", icon: "devicon-hibernate-plain colored" }
     ],
     "Web & Frontend": [
       { name: "React (18 / 19)", level: "Advanced", icon: "devicon-react-original colored" },
       { name: "TypeScript", level: "Advanced", icon: "devicon-typescript-plain colored" },
       { name: "Vite / Bun", level: "Intermediate", icon: "devicon-vitejs-plain colored" },
       { name: "Tailwind CSS", level: "Advanced", icon: "devicon-tailwindcss-plain colored" },
-      { name: "Zustand & TanStack Query", level: "Advanced", icon: "devicon-react-original" },
-      { name: "LiveKit WebRTC", level: "Intermediate", icon: "" }
+      { name: "Zustand & TanStack Query", level: "Advanced", icon: "devicon-react-original colored" },
+      { name: "LiveKit WebRTC", level: "Intermediate", icon: "devicon-chrome-plain colored" }
     ],
     "Mobile": [
       { name: "Android (Kotlin / Java)", level: "Advanced", icon: "devicon-android-plain colored" },
@@ -64,7 +63,7 @@ const PORTFOLIO_DATA = {
       { name: "Git & GitHub", level: "Advanced", icon: "devicon-git-plain colored" },
       { name: "GitHub Actions", level: "Advanced", icon: "devicon-githubactions-plain colored" },
       { name: "Docker", level: "Intermediate", icon: "devicon-docker-plain colored" },
-      { name: "K3s & ArgoCD (GitOps)", level: "Intermediate", icon: "devicon-kubernetes-plain colored" },
+      { name: "K3s & ArgoCD (GitOps)", level: "Intermediate", icon: "devicon-argocd-plain colored" },
       { name: "AWS (S3 / EC2)", level: "Intermediate", icon: "devicon-amazonwebservices-plain-wordmark colored" }
     ]
   },
@@ -216,8 +215,10 @@ const PORTFOLIO_DATA = {
       id: "ssurent",
       title: "SSURENT",
       subtitle: "26-1학기 캡스톤 디자인 합격 프로젝트",
-      period: "2026.02.01 ~ 2026.03.10",
+      period: "2026.02 ~ 2026.03",
       category: "web",
+      detailPage: "projects/ssurent.html",
+      url: "https://github.com/kimyw1018",
       tags: ["Web", "캡스톤 디자인", "발표 자료", "최종 보고서", "포스터"],
       summary: "숭실대학교 2026학년도 1학기 캡스톤 디자인 합격 웹 서비스 프로젝트. 전체 개발 기획, 시스템 요구사항 분석, 발표 자료, 최종 보고서 및 포스터 완성.",
       deliverables: ["발표 자료 (영상용.pdf)", "프로젝트 최종 보고서 (SSURENT_최종보고서.pdf)", "SSURENT 포스터 (SSURENT 포스터.pdf)"],
@@ -232,6 +233,8 @@ const PORTFOLIO_DATA = {
       subtitle: "캘린더 기반 독서 습관 형성 Android 애플리케이션",
       period: "2025 ~ 2026",
       category: "android",
+      detailPage: "projects/booklog.html",
+      url: "https://github.com/kimyw1018",
       tags: ["Android (Java)", "Firebase", "MaterialCalendarView", "알라딘 Open API", "Retrofit", "Glide", "ThreeTenABP"],
       summary: "읽은 책의 페이지, 별점, 감상평을 간편하게 기록하고 캘린더에 쌓이는 성취감을 통해 꾸준한 독서 습관을 형성하는 Android 네이티브 앱",
       highlights: [
@@ -248,6 +251,8 @@ const PORTFOLIO_DATA = {
       subtitle: "실시간 성/비수기 조회 및 위젯 자동 반응형 웹",
       period: "2025 ~ 2026",
       category: "web",
+      detailPage: "projects/travel.html",
+      url: "https://github.com/kimyw1018",
       tags: ["JavaScript", "HTML/CSS", "ResizeObserver", "Skyscanner Widget API", "Bootstrap", "Glassmorphism"],
       summary: "실시간 여행지별 성/비수기 정보 조회와 Skyscanner 항공권 검색 위젯을 유기적으로 통합하고, 위젯 높이 변화에 50ms 이내로 실시간 반응하는 동적 배경 시스템 구현",
       highlights: [
@@ -263,6 +268,8 @@ const PORTFOLIO_DATA = {
       subtitle: "마음건강 자가진단 및 인터랙티브 웹 서비스",
       period: "2025.11",
       category: "web",
+      detailPage: "projects/parentrest.html",
+      url: "https://github.com/kimyw1018",
       tags: ["React", "TypeScript", "Tailwind CSS", "CSS Keyframes", "Skeleton UI", "Animation"],
       summary: "부모 및 양육자를 위한 마음건강 자가진단 및 도우미 웹 플랫폼. 문항별 페이드 인/아웃 전환, 동적 피드백 애니메이션 및 스켈레톤 로딩 인터랙션 구현",
       highlights: [
@@ -278,6 +285,8 @@ const PORTFOLIO_DATA = {
       subtitle: "당일 즉시할인 쿠폰 자동 갱신 & 실시간 장애 모니터링",
       period: "2025",
       category: "backend",
+      detailPage: "projects/coupang.html",
+      url: "https://github.com/kimyw1018",
       tags: ["TypeScript (v5.5+)", "Node.js (v20+)", "Axios", "Crypto (HMAC-SHA256)", "Discord Webhook", "Scheduler"],
       summary: "쿠팡 WING Open API 기반 당일 즉시할인 쿠폰 자동 롤오버 및 무중단 장애 모니터링을 수행하는 TypeScript 서버 사이드 백엔드 스케줄러",
       highlights: [

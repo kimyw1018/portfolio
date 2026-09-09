@@ -14,12 +14,12 @@
   --toss-surface-hover: #EFF2F5;      /* Flat hover state (background shift only, no shadow, no border) */
   --toss-surface-subtle: #F2F4F6;
   
-  --toss-primary: #00B050;            /* Signature Primary Green */
-  --toss-primary-hover: #009643;
-  --toss-primary-active: #007A37;
+  --toss-primary: #15803D;            /* Mature Dark Green (Grounded & Professional) */
+  --toss-primary-hover: #166534;      /* Darker Green on Hover */
+  --toss-primary-active: #14532D;     /* Deepest Green on Active */
   
-  --toss-primary-light: #E6F7ED;      /* Sub Green / Flat Pill */
-  --toss-primary-light-hover: #D4F3E1;
+  --toss-primary-light: #EDF7F2;      /* Soft Pale Green Surface */
+  --toss-primary-light-hover: #DFEFE7;
   
   --toss-border: #EAECEF;             /* Subtle divider line */
   --toss-border-subtle: #F2F4F6;
@@ -28,9 +28,9 @@
   --toss-text-secondary: #4E5968;     /* Secondary Gray */
   --toss-text-tertiary: #8B95A1;      /* Tertiary Gray */
   
-  --toss-status-success: #00B050;
-  --toss-status-warning: #FFB800;
-  --toss-status-danger: #F04452;
+  --toss-status-success: #15803D;
+  --toss-status-warning: #D97706;
+  --toss-status-danger: #DC2626;
 }
 
 html.dark {
@@ -40,12 +40,12 @@ html.dark {
   --toss-surface-hover: #24272E;
   --toss-surface-subtle: #17181C;
   
-  --toss-primary: #10B981;
-  --toss-primary-hover: #059669;
-  --toss-primary-active: #047857;
+  --toss-primary: #22C55E;
+  --toss-primary-hover: #16A34A;
+  --toss-primary-active: #15803D;
   
-  --toss-primary-light: #162E21;
-  --toss-primary-light-hover: #1E3F2E;
+  --toss-primary-light: #142E20;
+  --toss-primary-light-hover: #1A3C2A;
   
   --toss-border: #272A31;
   --toss-border-subtle: #1E2026;
@@ -54,9 +54,9 @@ html.dark {
   --toss-text-secondary: #A4ACB7;
   --toss-text-tertiary: #67717E;
   
-  --toss-status-success: #10B981;
-  --toss-status-warning: #FBBF24;
-  --toss-status-danger: #F87171;
+  --toss-status-success: #22C55E;
+  --toss-status-warning: #F59E0B;
+  --toss-status-danger: #EF4444;
 }
 
 /* ==============================================================================
@@ -185,6 +185,40 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(0.98);
 }
 
+/* Monochrome GitHub Button (Strictly black & white/gray) */
+.toss-btn-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #24292F;
+  color: #FFFFFF !important;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1px solid #24292F;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.toss-btn-github:hover {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+html.dark .toss-btn-github {
+  background-color: #21262D;
+  color: #C9D1D9 !important;
+  border: 1px solid #30363D;
+}
+
+html.dark .toss-btn-github:hover {
+  background-color: #30363D;
+  border-color: #8B949E;
+  color: #FFFFFF !important;
+}
+
 /* Flat Chip (No border contrast) */
 .toss-chip {
   display: inline-flex;
@@ -213,20 +247,38 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==============================================================================
-   Awards Section (세로 한 줄, 박스 없이 콤팩트한 리스트 형태)
+   Awards Table (깔끔하고 신뢰도 높은 표 형태)
    ============================================================================== */
-.toss-award-item {
-  padding: 18px 12px;
+.toss-table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.toss-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13.5px;
+}
+
+.toss-table th {
+  padding: 12px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--toss-text-tertiary);
+  border-bottom: 1px solid var(--toss-border);
+  white-space: nowrap;
+}
+
+.toss-table td {
+  padding: 14px 14px;
   border-bottom: 1px solid var(--toss-border-subtle);
-  transition: background-color 0.15s ease;
-  border-radius: 14px;
+  color: var(--toss-text-secondary);
+  vertical-align: middle;
 }
 
-.toss-award-item:last-child {
-  border-bottom: none;
-}
-
-.toss-award-item:hover {
+.toss-table tr:hover td {
   background-color: var(--toss-surface);
 }
 
@@ -234,13 +286,13 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11.5px;
   font-weight: 700;
-  background-color: var(--toss-primary);
-  color: #FFFFFF !important;
-  border: 1px solid var(--toss-primary);
+  background-color: var(--toss-primary-light);
+  color: var(--toss-primary) !important;
+  border: 1px solid var(--toss-primary-light);
 }
 
 /* ==============================================================================

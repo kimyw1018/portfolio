@@ -47,18 +47,15 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="antialiased selection:bg-[#00B050] selection:text-white pb-24 sm:pb-12">
+<body class="antialiased selection:bg-[#15803D] selection:text-white pb-12">
 
   <!-- Minimal Sticky Navigation -->
   <header class="sticky top-0 z-40 backdrop-blur-md bg-[var(--toss-bg)]/90 border-b border-[var(--toss-border)] transition-colors">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5">
+      <a href="#" class="flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-[var(--toss-primary)]"></span>
         <span class="font-bold text-base text-[var(--toss-text-primary)] tracking-tight">
           김예원
-        </span>
-        <span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-[var(--toss-primary-light)] text-[var(--toss-primary)]">
-          포트폴리오
         </span>
       </a>
 
@@ -80,7 +77,7 @@
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
         </button>
 
-        <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="toss-btn-secondary !py-2 !px-3.5 !text-xs !rounded-full">
+        <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="toss-btn-github !py-1.5 !px-3 !text-xs !rounded-full">
           <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
           </svg>
@@ -110,82 +107,50 @@
   <main class="max-w-4xl mx-auto px-4 sm:px-6 divide-y divide-[var(--toss-border-subtle)]">
 
     <!-- 1. Hero Profile Section -->
-    <section id="about" class="py-10 sm:py-14 space-y-6">
+    <section id="about" class="py-10 sm:py-12 space-y-5">
       <div class="flex flex-col-reverse sm:flex-row items-start justify-between gap-6">
-        <div class="space-y-4 flex-1">
-          <div class="inline-flex items-center gap-2">
-            <span class="toss-chip text-xs">
-              <span class="w-2 h-2 rounded-full bg-[var(--toss-primary)] animate-pulse"></span>
-              새로운 성장 기회를 찾고 있습니다
-            </span>
-          </div>
-
+        <div class="space-y-3.5 flex-1">
           <div>
-            <h1 class="text-3xl sm:text-4xl font-bold text-[var(--toss-text-primary)] leading-tight">
-              안정적인 백엔드를 설계하는 <br>
-              개발자 <span class="text-[var(--toss-primary)]">김예원</span>입니다.
+            <h1 class="text-3xl sm:text-4xl font-bold text-[var(--toss-text-primary)] leading-tight tracking-tight">
+              개발자 <span class="text-[var(--toss-primary)]">김예원</span>
             </h1>
-            <p class="text-sm font-semibold text-[var(--toss-text-secondary)] mt-2" id="hero-affiliation">
+            <p class="text-sm font-medium text-[var(--toss-text-secondary)] mt-1.5" id="hero-affiliation">
               숭실대학교 컴퓨터학부 3학년 2학기 재학 • Backend & Fullstack
             </p>
           </div>
 
-          <p class="text-base text-[var(--toss-text-secondary)] leading-relaxed" id="hero-tagline">
-            Spring Boot 기반의 견고한 아키텍처와 유기적인 사용자 경험을 설계합니다.
+          <p class="text-base text-[var(--toss-text-primary)] font-medium leading-relaxed" id="hero-tagline">
+            안정적인 백엔드 시스템과 유기적인 서비스 경험을 설계합니다.
           </p>
 
           <div class="space-y-2 text-sm text-[var(--toss-text-secondary)] leading-relaxed pt-1" id="hero-bio-container">
             <!-- Populated by app.js -->
           </div>
+
+          <!-- Direct Contact & Profile Links (Non-AI, Authentic Developer Style) -->
+          <div class="pt-2 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-[var(--toss-text-secondary)]">
+            <a href="mailto:poppppp00@gmail.com" class="font-medium text-[var(--toss-primary)] hover:underline flex items-center gap-1.5">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              <span>poppppp00@gmail.com</span>
+            </a>
+            <span class="text-[var(--toss-border)]">•</span>
+            <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="toss-btn-github !py-1 !px-2.5 !text-xs !rounded-md">
+              <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
+            <span class="text-[var(--toss-border)]">•</span>
+            <span class="flex items-center gap-1">
+              <i data-lucide="phone" class="w-3.5 h-3.5 text-[var(--toss-text-tertiary)]"></i>
+              <span>010-6555-6343</span>
+            </span>
+          </div>
         </div>
 
         <div class="shrink-0 self-center sm:self-start">
-          <img id="hero-avatar" src="https://github.com/kimyw1018.png" alt="김예원 프로필 사진" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-[var(--toss-primary-light)] object-cover">
+          <img id="hero-avatar" src="https://github.com/kimyw1018.png" alt="김예원 프로필 사진" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-[var(--toss-border)] object-cover">
         </div>
-      </div>
-
-      <!-- Quick Metrics Row -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-        <div class="toss-flat-card p-4">
-          <p class="text-[11px] font-semibold text-[var(--toss-text-tertiary)] uppercase tracking-wider mb-1">Projects</p>
-          <p class="text-2xl font-bold text-[var(--toss-text-primary)]">4<span class="text-sm font-semibold text-[var(--toss-primary)] ml-0.5">개</span></p>
-          <p class="text-xs text-[var(--toss-text-secondary)] mt-0.5">주요 케이스 스터디 (총 9개)</p>
-        </div>
-        <div class="toss-flat-card p-4">
-          <p class="text-[11px] font-semibold text-[var(--toss-text-tertiary)] uppercase tracking-wider mb-1">Awards</p>
-          <p class="text-2xl font-bold text-[var(--toss-text-primary)]">4<span class="text-sm font-semibold text-[var(--toss-primary)] ml-0.5">회</span></p>
-          <p class="text-xs text-[var(--toss-text-secondary)] mt-0.5">총장상 및 최우수상 수상</p>
-        </div>
-        <div class="toss-flat-card p-4">
-          <p class="text-[11px] font-semibold text-[var(--toss-text-tertiary)] uppercase tracking-wider mb-1">Backend Core</p>
-          <p class="text-lg font-bold text-[var(--toss-text-primary)]">Spring Boot</p>
-          <p class="text-xs text-[var(--toss-text-secondary)] mt-0.5">Java & JPA & Redis</p>
-        </div>
-        <div class="toss-flat-card p-4">
-          <p class="text-[11px] font-semibold text-[var(--toss-text-tertiary)] uppercase tracking-wider mb-1">Infrastructure</p>
-          <p class="text-lg font-bold text-[var(--toss-text-primary)]">K3s & GitOps</p>
-          <p class="text-xs text-[var(--toss-text-secondary)] mt-0.5">Docker & ArgoCD 자동화</p>
-        </div>
-      </div>
-
-      <!-- Action Buttons Bar (Flat, matching border & bg) -->
-      <div class="pt-3 flex flex-wrap items-center gap-3">
-        <button id="copy-email-btn" class="toss-btn-primary flex-1 sm:flex-none">
-          <i data-lucide="mail" class="w-4 h-4"></i>
-          <span>이메일 복사하기</span>
-        </button>
-
-        <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="toss-btn-secondary flex-1 sm:flex-none">
-          <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
-          </svg>
-          <span>GitHub 저장소</span>
-        </a>
-
-        <a href="tel:010-6555-6343" class="toss-chip-subtle py-2.5 px-4 text-xs font-semibold">
-          <i data-lucide="phone" class="w-3.5 h-3.5 text-[var(--toss-primary)]"></i>
-          <span>010-6555-6343</span>
-        </a>
       </div>
     </section>
 
@@ -277,69 +242,38 @@
 
     <!-- 7. Contact Section -->
     <footer id="contact" class="py-10 sm:py-12 space-y-6">
-      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
-        <div class="space-y-1">
-          <h2 class="text-2xl font-bold text-[var(--toss-text-primary)]">
-            언제든 편하게 연락해 주세요.
-          </h2>
-          <p class="text-sm text-[var(--toss-text-secondary)]">
-            신입/인턴 채용, 프로젝트 협업, 커피챗 제안 모두 환영합니다.
-          </p>
-        </div>
-
-        <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
-          <a href="mailto:poppppp00@gmail.com" class="toss-btn-primary flex-1 sm:flex-none">
-            <i data-lucide="send" class="w-4 h-4"></i>
-            <span>메일 보내기</span>
-          </a>
-          <button id="footer-copy-email-btn" class="toss-btn-secondary flex-1 sm:flex-none">
-            <i data-lucide="copy" class="w-4 h-4"></i>
-            <span>이메일 복사</span>
-          </button>
-        </div>
+      <div class="space-y-1">
+        <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">
+          연락처 (Contact)
+        </h2>
       </div>
 
       <!-- Contact Info Line -->
-      <div class="pt-4 border-t border-[var(--toss-border-subtle)] flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--toss-text-secondary)]">
-        <div class="flex flex-wrap items-center gap-3">
-          <span class="font-bold text-[var(--toss-text-primary)]">김예원 (Kim Yewon)</span>
-          <span>•</span>
+      <div class="pt-2 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-[var(--toss-text-secondary)]">
+        <a href="mailto:poppppp00@gmail.com" class="font-medium text-[var(--toss-primary)] hover:underline flex items-center gap-1.5">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+          <span>poppppp00@gmail.com</span>
+        </a>
+        <span class="text-[var(--toss-border)]">•</span>
+        <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="toss-btn-github !py-1 !px-2.5 !text-xs !rounded-md">
+          <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+          </svg>
+          <span>github.com/kimyw1018</span>
+        </a>
+        <span class="text-[var(--toss-border)]">•</span>
+        <span class="flex items-center gap-1">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-[var(--toss-text-tertiary)]"></i>
           <span>010-6555-6343</span>
-          <span>•</span>
-          <span class="text-[var(--toss-primary)] font-semibold">poppppp00@gmail.com</span>
-        </div>
-
-        <div class="flex items-center gap-3">
-          <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--toss-primary)] transition-colors flex items-center gap-1.5 font-semibold">
-            <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
-            </svg>
-            <span>github.com/kimyw1018</span>
-          </a>
-        </div>
+        </span>
       </div>
 
-      <div class="pt-2 text-[11px] text-[var(--toss-text-tertiary)] flex flex-col sm:flex-row justify-between items-center gap-2">
-        <p>© 2026 Kim Yewon. Built with Green TDS (Seamless Flat Edition).</p>
-        <p class="text-[var(--toss-primary)] font-medium">Zero-Build Architecture</p>
+      <div class="pt-4 border-t border-[var(--toss-border-subtle)] text-xs text-[var(--toss-text-tertiary)] flex flex-col sm:flex-row justify-between items-center gap-2">
+        <p>© 2026 김예원 (Kim Yewon)</p>
       </div>
     </footer>
 
   </main>
-
-  <!-- Sticky Mobile Action Bar -->
-  <aside aria-label="모바일 빠른 액션" class="fixed bottom-0 left-0 right-0 z-40 p-3.5 backdrop-blur-lg bg-[var(--toss-bg)]/90 border-t border-[var(--toss-border)] sm:hidden flex items-center gap-2.5">
-    <button id="mobile-sticky-copy-btn" class="toss-btn-primary flex-1 !py-3 !text-xs">
-      <i data-lucide="mail" class="w-3.5 h-3.5"></i>
-      <span>이메일 복사하기</span>
-    </button>
-    <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="toss-btn-secondary !py-3 !px-4 !text-xs">
-      <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
-      </svg>
-      <span>GitHub</span>
-    </a>
-  </aside>
 
   <!-- Toast Notification (Flat) -->
   <div id="toast" class="toss-toast">
