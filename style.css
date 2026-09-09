@@ -1,6 +1,6 @@
 /* ==============================================================================
    Green TDS (Toss Design System - Green Edition)
-   Signature Green (#00B050) & Minimalist Soft Layer Architecture
+   Enhanced Readability, Balanced Spacing & Natural Korean Typography
    ============================================================================== */
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
@@ -9,10 +9,10 @@
   --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
 
   /* 🌿 Green TDS Light Mode Palette (Default) */
-  --toss-bg: #F2F4F6;                 /* Toss Iconic Soft Light-Grey Background */
-  --toss-card: #FFFFFF;               /* Pure White Card Surface */
-  --toss-card-subtle: #F9FAFB;        /* Subtle Nested Card Surface */
-  --toss-card-highlight: #F4FBF7;     /* Light Green Tinted Card Surface */
+  --toss-bg: #F2F4F6;                 /* Toss Soft Canvas */
+  --toss-card: #FFFFFF;               /* Pure White Card */
+  --toss-card-subtle: #F9FAFB;        /* Subtle Nested Card */
+  --toss-card-highlight: #F4FBF7;     /* Soft Green Tint Surface */
   
   --toss-primary: #00B050;            /* Primary Signature Green */
   --toss-primary-hover: #009643;      /* Primary Green Hover */
@@ -20,21 +20,21 @@
   
   --toss-primary-light: #E6F7ED;      /* Sub Green / Pill / Secondary Button */
   --toss-primary-light-hover: #D4F3E1;/* Sub Green Hover */
-  --toss-primary-light-border: #C1EBD2;
+  --toss-primary-light-border: #B7E8C9;
   
   --toss-border: #E5E8EB;             /* Crisp Soft Border */
-  --toss-border-subtle: #F0F2F4;      /* Ultra Subtle Border */
+  --toss-border-subtle: #EDF0F3;      /* Ultra Subtle Border */
   
-  --toss-text-primary: #191F28;       /* Primary Charcoal Black */
+  --toss-text-primary: #191F28;       /* Primary Charcoal Black (High Contrast) */
   --toss-text-secondary: #4E5968;     /* Secondary Explanatory Grey */
   --toss-text-tertiary: #8B95A1;      /* Tertiary Metadata Light Grey */
   
-  --toss-status-success: #00B050;     /* Success Green */
-  --toss-status-warning: #FFB800;     /* Warning Gold */
-  --toss-status-danger: #F04452;      /* Danger Coral Red */
+  --toss-status-success: #00B050;
+  --toss-status-warning: #FFB800;
+  --toss-status-danger: #F04452;
 
   --toss-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
-  --toss-shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.03), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  --toss-shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
   --toss-shadow-float: 0 16px 36px -4px rgba(0, 176, 80, 0.12), 0 8px 18px -4px rgba(0, 0, 0, 0.04);
   --toss-shadow-toast: 0 12px 28px rgba(0, 0, 0, 0.16);
 }
@@ -44,7 +44,7 @@ html.dark {
   --toss-bg: #111215;                 /* Deep Matte Charcoal Canvas */
   --toss-card: #1D1E24;               /* Elevated Card Surface */
   --toss-card-subtle: #252730;        /* Subtle Nested Card Surface */
-  --toss-card-highlight: #14281E;     /* Dark Green Tinted Card Surface */
+  --toss-card-highlight: #14281E;     /* Dark Green Tinted Surface */
   
   --toss-primary: #10B981;            /* Emerald Bright Green for High Contrast */
   --toss-primary-hover: #059669;
@@ -72,21 +72,25 @@ html.dark {
 }
 
 /* ==============================================================================
-   Base Resets & Typography
+   Base Resets & Typography (Natural Korean Readability, Relaxed Line Heights)
    ============================================================================== */
 * {
   box-sizing: border-box;
   font-family: var(--font-sans);
-  letter-spacing: -0.3px;
 }
 
 body {
   background-color: var(--toss-bg);
   color: var(--toss-text-primary);
-  line-height: 1.5;
+  line-height: 1.65;
+  letter-spacing: -0.01em; /* 자연스럽고 쾌적한 가독성 */
   transition: background-color 0.25s ease, color 0.25s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
 }
 
 /* Custom Scrollbar */
@@ -123,8 +127,14 @@ body {
               border-color 0.22s ease;
 }
 
+.toss-card-interactive {
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.24s ease;
+}
+
 .toss-card-interactive:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--toss-shadow-float);
   border-color: var(--toss-primary);
 }
@@ -134,11 +144,66 @@ body {
   background-color: var(--toss-card-subtle);
   border-radius: 18px;
   border: 1px solid var(--toss-border-subtle);
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .toss-subcard:hover {
   border-color: var(--toss-border);
+}
+
+/* Interactive Award Card */
+.toss-award-card {
+  background-color: var(--toss-card-subtle);
+  border-radius: 20px;
+  border: 1px solid var(--toss-border-subtle);
+  cursor: pointer;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.22s ease, 
+              box-shadow 0.22s ease;
+}
+
+.toss-award-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--toss-primary);
+  box-shadow: var(--toss-shadow-float);
+}
+
+/* Award Badge (Solid Filled, High Contrast in Light & Dark Mode) */
+.toss-award-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 13px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: var(--toss-primary);
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(0, 176, 80, 0.25);
+  line-height: 1.2;
+}
+
+/* Project Image Thumbnail Container */
+.toss-project-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--toss-card-subtle);
+  border: 1px solid var(--toss-border-subtle);
+}
+
+.toss-project-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.35s ease;
+}
+
+.toss-card:hover .toss-project-image-wrap img {
+  transform: scale(1.03);
 }
 
 /* Green Action Button (Primary) */
@@ -228,8 +293,9 @@ body {
   background-color: var(--toss-primary-light);
   border-left: 4px solid var(--toss-primary);
   border-radius: 0 16px 16px 0;
-  padding: 16px 20px;
+  padding: 18px 22px;
   color: var(--toss-text-primary);
+  line-height: 1.65;
 }
 
 /* Toast Floating Component */
