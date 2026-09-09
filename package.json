@@ -1,0 +1,8 @@
+{
+  "name": "kimyw-portfolio",
+  "version": "1.0.0",
+  "description": "김예원 포트폴리오 웹사이트",
+  "scripts": {
+    "start": "node preview.js"
+  }
+}
