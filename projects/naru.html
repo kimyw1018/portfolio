@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" class="dark scroll-smooth">
+<html lang="ko" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,16 +15,22 @@
       theme: {
         extend: {
           colors: {
-            gh: {
-              bg: 'var(--color-canvas-default)',
-              card: 'var(--color-canvas-subtle)',
-              border: 'var(--color-border-default)',
-              borderMuted: 'var(--color-border-muted)',
-              text: 'var(--color-fg-default)',
-              body: 'var(--color-fg-muted)',
-              subtle: 'var(--color-fg-subtle)',
-              blue: 'var(--color-accent-fg)',
-              green: 'var(--color-success-fg)',
+            toss: {
+              bg: 'var(--toss-bg)',
+              card: 'var(--toss-card)',
+              subtle: 'var(--toss-card-subtle)',
+              highlight: 'var(--toss-card-highlight)',
+              border: 'var(--toss-border)',
+              borderSubtle: 'var(--toss-border-subtle)',
+              primary: 'var(--toss-primary)',
+              hover: 'var(--toss-primary-hover)',
+              active: 'var(--toss-primary-active)',
+              light: 'var(--toss-primary-light)',
+              lightHover: 'var(--toss-primary-light-hover)',
+              lightBorder: 'var(--toss-primary-light-border)',
+              text: 'var(--toss-text-primary)',
+              body: 'var(--toss-text-secondary)',
+              sub: 'var(--toss-text-tertiary)',
             }
           }
         }
@@ -35,56 +41,59 @@
   <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="bg-gh-bg text-gh-text antialiased selection:bg-blue-600 selection:text-white">
+<body class="antialiased selection:bg-[#00B050] selection:text-white">
 
-  <!-- Minimal Header -->
-  <header class="sticky top-0 z-40 bg-gh-card border-b border-gh-border">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-      <a href="../index.html#projects" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gh-body hover:text-gh-blue transition-colors">
-        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+  <!-- 🌿 Toss Minimal Header -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-[var(--toss-card)]/80 border-b border-[var(--toss-border)] transition-colors">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../index.html#projects" class="toss-btn-secondary !py-2 !px-3.5 !text-xs !rounded-full">
+        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
         <span>포트폴리오 메인으로</span>
       </a>
 
       <div class="flex items-center gap-2">
-        <button id="theme-toggle" class="p-1.5 rounded-md border border-gh-border text-gh-body hover:text-gh-text">
+        <button id="theme-toggle" aria-label="테마 전환" class="w-9 h-9 rounded-full bg-[var(--toss-card-subtle)] border border-[var(--toss-border)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
           <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
         </button>
-        <a href="https://github.com/kimyw1018" target="_blank" class="p-1.5 rounded-md border border-gh-border text-gh-body hover:text-gh-text">
+        <a href="https://github.com/kimyw1018" target="_blank" class="w-9 h-9 rounded-full bg-[var(--toss-card-subtle)] border border-[var(--toss-border)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
           <i data-lucide="github" class="w-4 h-4"></i>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Markdown-like Article Container -->
-  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 space-y-10 markdown-body">
+  <!-- 🌿 Main Case Study Container -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-6">
     
-    <!-- Title & Meta -->
-    <div class="space-y-3 border-b border-gh-border pb-6">
-      <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-gh-subtle">
-        <span class="px-2 py-0.5 rounded border border-amber-500/40 bg-amber-950/20 text-amber-400 font-sans font-medium">
+    <!-- Hero Title Card -->
+    <section class="toss-card p-6 sm:p-8 space-y-4">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="toss-chip text-xs font-bold">
           🏆 2026 UNITHON 우수상
         </span>
-        <span>2026.08 ~ 2026.09</span>
-        <span>•</span>
-        <span>Frontend & Real-time AI Pipeline</span>
+        <span class="toss-chip-subtle text-xs font-mono">2026.08 ~ 2026.09</span>
+        <span class="toss-chip-subtle text-xs">Frontend & Real-time AI Pipeline</span>
       </div>
 
-      <h1 class="text-2xl sm:text-3xl font-bold text-gh-text tracking-tight">
-        Naru (나루)
-      </h1>
-      <p class="text-base text-gh-blue font-medium">
-        청각·언어장애인이 누구와도 통화할 수 있게 돕는 AI 음성 에이전트, 실시간 양방향 수어-음성 통화 웹 서비스
-      </p>
-    </div>
+      <div>
+        <h1 class="text-2xl sm:text-3xl font-bold text-[var(--toss-text-primary)] tracking-tight">
+          Naru (나루)
+        </h1>
+        <p class="text-sm sm:text-base font-semibold text-[var(--toss-primary)] mt-1.5 leading-relaxed">
+          청각·언어장애인이 누구와도 통화할 수 있게 돕는 AI 음성 에이전트, 실시간 양방향 수어-음성 통화 웹 서비스
+        </p>
+      </div>
+    </section>
 
     <!-- 1. 프로젝트 개요 -->
-    <section class="space-y-3">
-      <h2 class="text-lg font-semibold text-gh-text border-b border-gh-border pb-1.5">
-        📌 프로젝트 개요 (Overview)
-      </h2>
-      <div class="gh-callout text-xs sm:text-sm text-gh-body space-y-2">
+    <section class="toss-card p-6 sm:p-8 space-y-4">
+      <div class="flex items-center gap-2">
+        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">📌</span>
+        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">프로젝트 개요 (Overview)</h2>
+      </div>
+
+      <div class="toss-callout text-xs sm:text-[13.5px] leading-relaxed space-y-2">
         <p>
           <strong>핵심 가치:</strong> 별도 앱 설치나 전용 장비 없이, <strong>일반 웹캠과 모바일 브라우저만으로 100% 온디바이스(Client-Side) 30fps 수어 인식 및 WebRTC 통화</strong>를 지원하는 배리어프리 커뮤니케이션 웹 서비스입니다.
         </p>
@@ -94,132 +103,136 @@
       </div>
     </section>
 
-    <!-- 2. 기술 스택 -->
-    <section class="space-y-3">
-      <h2 class="text-lg font-semibold text-gh-text border-b border-gh-border pb-1.5">
-        🛠 사용 기술 (Tech Stack)
-      </h2>
-      <div class="space-y-2 text-xs sm:text-sm">
-        <div class="flex flex-wrap items-baseline gap-2">
-          <span class="font-semibold text-gh-text w-28 shrink-0">Core:</span>
-          <span class="text-gh-body">React 19, TypeScript, Vite 8, Bun</span>
+    <!-- 2. 사용 기술 -->
+    <section class="toss-card p-6 sm:p-8 space-y-4">
+      <div class="flex items-center gap-2">
+        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">🛠️</span>
+        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">사용 기술 (Tech Stack)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-[13px]">
+        <div class="toss-subcard p-4 space-y-1">
+          <p class="font-bold text-[var(--toss-text-primary)]">Core & Framework</p>
+          <p class="text-[var(--toss-text-secondary)]">React 19, TypeScript, Vite 8, Bun</p>
         </div>
-        <div class="flex flex-wrap items-baseline gap-2">
-          <span class="font-semibold text-gh-text w-28 shrink-0">Vision & AI:</span>
-          <span class="text-gh-body">@mediapipe/tasks-vision (WASM/WebGL GPU 가속), Custom DTW Engine</span>
+        <div class="toss-subcard p-4 space-y-1">
+          <p class="font-bold text-[var(--toss-text-primary)]">Vision & AI</p>
+          <p class="text-[var(--toss-text-secondary)]">@mediapipe/tasks-vision (WASM/WebGL 가속), Custom DTW</p>
         </div>
-        <div class="flex flex-wrap items-baseline gap-2">
-          <span class="font-semibold text-gh-text w-28 shrink-0">Real-time:</span>
-          <span class="text-gh-body">LiveKit WebRTC (livekit-client), MediaStream API</span>
+        <div class="toss-subcard p-4 space-y-1">
+          <p class="font-bold text-[var(--toss-text-primary)]">Real-time WebRTC</p>
+          <p class="text-[var(--toss-text-secondary)]">LiveKit WebRTC (livekit-client), MediaStream API</p>
         </div>
-        <div class="flex flex-wrap items-baseline gap-2">
-          <span class="font-semibold text-gh-text w-28 shrink-0">State & Route:</span>
-          <span class="text-gh-body">TanStack Query v5, TanStack Router, Zustand</span>
-        </div>
-        <div class="flex flex-wrap items-baseline gap-2">
-          <span class="font-semibold text-gh-text w-28 shrink-0">Accessibility:</span>
-          <span class="text-gh-body">Web Audio API (DTMF 주파수 합성), ios-haptics, 당근 SEED Design System, Tailwind CSS v4</span>
-        </div>
-        <div class="flex flex-wrap items-baseline gap-2">
-          <span class="font-semibold text-gh-text w-28 shrink-0">Architecture:</span>
-          <span class="text-gh-body">Feature-Sliced Design (FSD), Steiger, Biome, Cloudflare Pages</span>
+        <div class="toss-subcard p-4 space-y-1">
+          <p class="font-bold text-[var(--toss-text-primary)]">State & Architecture</p>
+          <p class="text-[var(--toss-text-secondary)]">TanStack Query v5, Zustand, FSD (Feature-Sliced Design)</p>
         </div>
       </div>
     </section>
 
     <!-- 3. 주요 구현 내용 -->
-    <section class="space-y-4">
-      <h2 class="text-lg font-semibold text-gh-text border-b border-gh-border pb-1.5">
-        🚀 주요 구현 및 기술적 시도 (Key Implementations)
-      </h2>
+    <section class="toss-card p-6 sm:p-8 space-y-4">
+      <div class="flex items-center gap-2">
+        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">🚀</span>
+        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">주요 구현 및 기술적 기여 (Key Implementations)</h2>
+      </div>
       
-      <div class="space-y-4 text-xs sm:text-sm text-gh-body">
-        <div class="border border-gh-border rounded-md p-4 bg-gh-card space-y-1.5">
-          <h3 class="font-semibold text-gh-text text-sm">1. 브라우저 온디바이스 실시간 수어 인식 파이프라인</h3>
-          <ul class="list-disc list-inside space-y-1 pl-1">
-            <li><strong>MediaPipe 3D 랜드마크 추출:</strong> WASM 및 WebGL 가속을 활용해 손 21개 랜드마크와 상체 포즈 좌표를 30fps로 추출</li>
-            <li><strong>신체 상대적(Body-relative) 정규화:</strong> 양 어깨 중심점을 원점 (0, 0, 0)으로 잡고 어깨 너비로 스케일을 정규화하여 사용자 거리/위치 변화에 강건한 좌표계 구축</li>
-            <li><strong>경량 DTW(Dynamic Time Warping) 분류:</strong> 30프레임 롤링 윈도우 시퀀스로 사용자 동작 속도 차이를 보정하며 실시간 단어 매칭</li>
+      <div class="space-y-3.5 text-xs sm:text-[13.5px]">
+        <div class="toss-subcard p-5 space-y-2">
+          <h3 class="font-bold text-sm sm:text-base text-[var(--toss-text-primary)] flex items-center gap-1.5">
+            <span class="text-[var(--toss-primary)]">1.</span> 브라우저 온디바이스 실시간 수어 인식 파이프라인
+          </h3>
+          <ul class="space-y-1.5 text-[var(--toss-text-secondary)] leading-relaxed pl-1">
+            <li>• <strong>MediaPipe 3D 랜드마크 추출:</strong> WASM 및 WebGL 가속을 활용해 손 21개 랜드마크와 상체 포즈 좌표를 30fps로 추출</li>
+            <li>• <strong>신체 상대적(Body-relative) 정규화:</strong> 양 어깨 중심점을 원점 (0, 0, 0)으로 잡고 어깨 너비로 스케일을 정규화하여 사용자 거리/위치 변화에 강건한 좌표계 구축</li>
+            <li>• <strong>경량 DTW(Dynamic Time Warping) 분류:</strong> 30프레임 롤링 윈도우 시퀀스로 사용자 동작 속도 차이를 보정하며 실시간 단어 매칭</li>
           </ul>
         </div>
 
-        <div class="border border-gh-border rounded-md p-4 bg-gh-card space-y-1.5">
-          <h3 class="font-semibold text-gh-text text-sm">2. 맥락 인지형 LLM 문장 변환</h3>
-          <ul class="list-disc list-inside space-y-1 pl-1">
-            <li><strong>발화 종료 판별:</strong> 손을 내리는 제스처를 감지하는 버퍼 시스템 구축 (1.5초 대기 시 발화 완료 판단)</li>
-            <li><strong>대화 히스토리 반영:</strong> 직전 최대 12턴의 대화 맥락을 LLM에 주입하여 단순 단어 나열이 아닌 자연스러운 한국어 구어체 문장으로 생성</li>
+        <div class="toss-subcard p-5 space-y-2">
+          <h3 class="font-bold text-sm sm:text-base text-[var(--toss-text-primary)] flex items-center gap-1.5">
+            <span class="text-[var(--toss-primary)]">2.</span> 맥락 인지형 LLM 문장 변환
+          </h3>
+          <ul class="space-y-1.5 text-[var(--toss-text-secondary)] leading-relaxed pl-1">
+            <li>• <strong>발화 종료 판별:</strong> 손을 내리는 제스처를 감지하는 버퍼 시스템 구축 (1.5초 대기 시 발화 완료 판단)</li>
+            <li>• <strong>대화 히스토리 반영:</strong> 직전 최대 12턴의 대화 맥락을 LLM에 주입하여 단순 단어 나열이 아닌 자연스러운 한국어 구어체 문장으로 생성</li>
           </ul>
         </div>
 
-        <div class="border border-gh-border rounded-md p-4 bg-gh-card space-y-1.5">
-          <h3 class="font-semibold text-gh-text text-sm">3. 10초 케이던스 단어 등록 & WebRTC 멀티모달 룸</h3>
-          <ul class="list-disc list-inside space-y-1 pl-1">
-            <li><strong>케이던스 바(Cadence Bar) UI:</strong> 10초 동안 2초 주기로 10회 레퍼런스 샘플을 분할 캡처하는 가이드 제공 및 인메모리 고속 캐싱</li>
-            <li><strong>LiveKit WebRTC:</strong> 번호 기반 발신, 인커밍 폴링(3초), 세션 임대 상태 머신 구축 및 PiP 수어 영상·음성·채팅 통합 제어</li>
-            <li><strong>접근성 인터랙션:</strong> iOS Safari 진동 피드백(ios-haptics) 및 Web Audio API 기반 DTMF 다이얼 톤 구현</li>
+        <div class="toss-subcard p-5 space-y-2">
+          <h3 class="font-bold text-sm sm:text-base text-[var(--toss-text-primary)] flex items-center gap-1.5">
+            <span class="text-[var(--toss-primary)]">3.</span> 10초 케이던스 단어 등록 & WebRTC 멀티모달 룸
+          </h3>
+          <ul class="space-y-1.5 text-[var(--toss-text-secondary)] leading-relaxed pl-1">
+            <li>• <strong>케이던스 바(Cadence Bar) UI:</strong> 10초 동안 2초 주기로 10회 레퍼런스 샘플을 분할 캡처하는 가이드 제공 및 인메모리 고속 캐싱</li>
+            <li>• <strong>LiveKit WebRTC:</strong> 번호 기반 발신, 인커밍 폴링(3초), 세션 임대 상태 머신 구축 및 PiP 수어 영상·음성·채팅 통합 제어</li>
+            <li>• <strong>접근성 인터랙션:</strong> iOS Safari 진동 피드백(ios-haptics) 및 Web Audio API 기반 DTMF 다이얼 톤 구현</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- 4. 트러블 슈팅 Deep Dive -->
-    <section class="space-y-4">
-      <h2 class="text-lg font-semibold text-gh-text border-b border-gh-border pb-1.5">
-        🔧 문제 해결 및 트러블 슈팅 (Troubleshooting)
-      </h2>
+    <!-- 4. 트러블 슈팅 -->
+    <section class="toss-card p-6 sm:p-8 space-y-4">
+      <div class="flex items-center gap-2">
+        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">🔧</span>
+        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">문제 해결 및 트러블 슈팅 (Troubleshooting)</h2>
+      </div>
 
-      <div class="space-y-3 text-xs sm:text-sm">
-        <div class="border border-gh-border rounded-md p-4 bg-gh-card space-y-1.5">
-          <p class="font-semibold text-gh-text">
+      <div class="space-y-3 text-xs sm:text-[13.5px]">
+        <div class="toss-subcard p-5 space-y-2">
+          <p class="font-bold text-[var(--toss-text-primary)]">
             1. 무거운 시퀀스 모델 한계 → DTW 템플릿 매칭 전면 피벗
           </p>
-          <p class="text-gh-body">
-            • <strong>문제:</strong> 초기 30프레임 LSTM 모델 구동 시 브라우저 추론 지연 및 메모리 부담이 심했고, 새로운 수어 단어를 동적으로 등록하기 어려운 구조적 한계 발생.<br>
-            • <strong>해결:</strong> 신체 기준 정규화 궤적을 비교하는 고속 DTW 알고리즘으로 전환하여 브라우저 온디바이스 연산 100% 달성 및 실시간 커스텀 단어 등록 지원.
-          </p>
+          <div class="text-[var(--toss-text-secondary)] leading-relaxed space-y-1 pl-1">
+            <p>• <strong>문제:</strong> 초기 30프레임 LSTM 모델 구동 시 브라우저 추론 지연 및 메모리 부담이 심했고, 새로운 수어 단어를 동적으로 등록하기 어려운 구조적 한계 발생.</p>
+            <p>• <strong>해결:</strong> 신체 기준 정규화 궤적을 비교하는 고속 DTW 알고리즘으로 전환하여 브라우저 온디바이스 연산 100% 달성 및 실시간 커스텀 단어 등록 지원.</p>
+          </div>
         </div>
 
-        <div class="border border-gh-border rounded-md p-4 bg-gh-card space-y-1.5">
-          <p class="font-semibold text-gh-text">
+        <div class="toss-subcard p-5 space-y-2">
+          <p class="font-bold text-[var(--toss-text-primary)]">
             2. 사용자 거리 및 위치 변화에 따른 인식률 저하
           </p>
-          <p class="text-gh-body">
-            • <strong>문제:</strong> 카메라와의 거리나 좌우 위치 이동 시 절대 좌표가 왜곡되어 동일한 동작임에도 DTW 거리값이 급증.<br>
-            • <strong>해결:</strong> 양쪽 어깨 중점을 원점 (0,0,0)으로 두고 어깨 간 거리를 기준 단위로 정규화하여 공간 불변성(Spatial Invariance) 확보.
-          </p>
+          <div class="text-[var(--toss-text-secondary)] leading-relaxed space-y-1 pl-1">
+            <p>• <strong>문제:</strong> 카메라와의 거리나 좌우 위치 이동 시 절대 좌표가 왜곡되어 동일한 동작임에도 DTW 거리값이 급증.</p>
+            <p>• <strong>해결:</strong> 양쪽 어깨 중점을 원점 (0,0,0)으로 두고 어깨 간 거리를 기준 단위로 정규화하여 공간 불변성(Spatial Invariance) 확보.</p>
+          </div>
         </div>
 
-        <div class="border border-gh-border rounded-md p-4 bg-gh-card space-y-1.5">
-          <p class="font-semibold text-gh-text">
+        <div class="toss-subcard p-5 space-y-2">
+          <p class="font-bold text-[var(--toss-text-primary)]">
             3. 발화 종료 판별 지연 및 프레임 튐 노이즈 차단
           </p>
-          <p class="text-gh-body">
-            • <strong>해결:</strong> 대기 시간을 1.5초(<code>HANDS_GONE_FLUSH_MS</code>)로 단축하고, 동일 후보 단어가 5프레임 이상 유지될 때만 확정하는 <code>REQUIRED_STREAK = 5</code> 가드 로직을 적용해 오발송 방지.
-          </p>
+          <div class="text-[var(--toss-text-secondary)] leading-relaxed pl-1">
+            <p>• <strong>해결:</strong> 대기 시간을 1.5초(<code>HANDS_GONE_FLUSH_MS</code>)로 단축하고, 동일 후보 단어가 5프레임 이상 유지될 때만 확정하는 <code>REQUIRED_STREAK = 5</code> 가드 로직을 적용해 오발송 방지.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- 5. 성과 -->
-    <section class="space-y-3">
-      <h2 class="text-lg font-semibold text-gh-text border-b border-gh-border pb-1.5">
-        📈 주요 성과 (Achievements)
-      </h2>
-      <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm text-gh-body pl-1">
-        <li><strong>30fps 온디바이스 수어 인식 달성:</strong> 무설치 웹 환경에서 일반 웹캠만으로 실시간 시계열 랜드마크 추출 및 매칭 구현</li>
-        <li><strong>문맥 기반 구어체 대화 UX:</strong> 12턴 대화 분석 LLM 파이프라인으로 기계적 단어 나열을 자연스러운 문장으로 변환</li>
-        <li><strong>FSD 아키텍처 도입:</strong> Feature-Sliced Design 구조로 모듈 결합도를 낮추고 Biome/Steiger 기반 클린 코드 유지</li>
-      </ul>
+    <section class="toss-card p-6 sm:p-8 space-y-4">
+      <div class="flex items-center gap-2">
+        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">📈</span>
+        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">주요 성과 (Achievements)</h2>
+      </div>
+      <div class="toss-subcard p-5 space-y-2 text-xs sm:text-[13.5px] text-[var(--toss-text-secondary)] leading-relaxed">
+        <p>• <strong>30fps 온디바이스 수어 인식 달성:</strong> 무설치 웹 환경에서 일반 웹캠만으로 실시간 시계열 랜드마크 추출 및 매칭 구현</p>
+        <p>• <strong>문맥 기반 구어체 대화 UX:</strong> 12턴 대화 분석 LLM 파이프라인으로 기계적 단어 나열을 자연스러운 문장으로 변환</p>
+        <p>• <strong>FSD 아키텍처 도입:</strong> Feature-Sliced Design 구조로 모듈 결합도를 낮추고 Biome/Steiger 기반 클린 코드 유지</p>
+      </div>
     </section>
 
-    <!-- Bottom Navigation -->
-    <div class="pt-6 border-t border-gh-border flex justify-between items-center text-xs">
-      <a href="../index.html#projects" class="text-gh-subtle hover:text-gh-text flex items-center gap-1">
-        <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i> 메인 포트폴리오
+    <!-- Bottom Navigation Card -->
+    <div class="toss-card p-5 flex justify-between items-center text-xs sm:text-sm">
+      <a href="../index.html#projects" class="toss-btn-secondary !py-2.5 !px-4">
+        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+        <span>메인 포트폴리오</span>
       </a>
-      <a href="assu.html" class="font-semibold text-gh-blue hover:underline flex items-center gap-1">
+      <a href="assu.html" class="toss-btn-primary !py-2.5 !px-4">
         <span>다음 프로젝트: A:SSU</span>
-        <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+        <i data-lucide="chevron-right" class="w-4 h-4"></i>
       </a>
     </div>
 
@@ -227,7 +240,9 @@
 
   <script>
     const toggleBtn = document.getElementById('theme-toggle');
-    if (localStorage.getItem('theme') === 'light') {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
       document.documentElement.classList.remove('dark');
     }
     toggleBtn?.addEventListener('click', () => {

@@ -1,135 +1,297 @@
 /* ==============================================================================
-   GitHub Primer-Inspired Stylesheet for High Readability & Clean Aesthetics
+   Green TDS (Toss Design System - Green Edition)
+   Signature Green (#00B050) & Minimalist Soft Layer Architecture
    ============================================================================== */
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 :root {
-  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+
+  /* 🌿 Green TDS Light Mode Palette (Default) */
+  --toss-bg: #F2F4F6;                 /* Toss Iconic Soft Light-Grey Background */
+  --toss-card: #FFFFFF;               /* Pure White Card Surface */
+  --toss-card-subtle: #F9FAFB;        /* Subtle Nested Card Surface */
+  --toss-card-highlight: #F4FBF7;     /* Light Green Tinted Card Surface */
   
-  /* GitHub Light Palette */
-  --color-canvas-default: #ffffff;
-  --color-canvas-subtle: #f6f8fa;
-  --color-canvas-inset: #f6f8fa;
-  --color-border-default: #d0d7de;
-  --color-border-muted: #e1e4e8;
-  --color-fg-default: #1f2328;
-  --color-fg-muted: #57606a;
-  --color-fg-subtle: #6e7781;
-  --color-accent-fg: #0969da;
-  --color-accent-emphasis: #0969da;
-  --color-success-fg: #1a7f37;
-  --color-success-subtle: #dafbe1;
-  --color-attention-subtle: #fff8c5;
-  --color-attention-fg: #9a6700;
+  --toss-primary: #00B050;            /* Primary Signature Green */
+  --toss-primary-hover: #009643;      /* Primary Green Hover */
+  --toss-primary-active: #007A37;     /* Primary Green Active */
+  
+  --toss-primary-light: #E6F7ED;      /* Sub Green / Pill / Secondary Button */
+  --toss-primary-light-hover: #D4F3E1;/* Sub Green Hover */
+  --toss-primary-light-border: #C1EBD2;
+  
+  --toss-border: #E5E8EB;             /* Crisp Soft Border */
+  --toss-border-subtle: #F0F2F4;      /* Ultra Subtle Border */
+  
+  --toss-text-primary: #191F28;       /* Primary Charcoal Black */
+  --toss-text-secondary: #4E5968;     /* Secondary Explanatory Grey */
+  --toss-text-tertiary: #8B95A1;      /* Tertiary Metadata Light Grey */
+  
+  --toss-status-success: #00B050;     /* Success Green */
+  --toss-status-warning: #FFB800;     /* Warning Gold */
+  --toss-status-danger: #F04452;      /* Danger Coral Red */
+
+  --toss-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+  --toss-shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.03), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  --toss-shadow-float: 0 16px 36px -4px rgba(0, 176, 80, 0.12), 0 8px 18px -4px rgba(0, 0, 0, 0.04);
+  --toss-shadow-toast: 0 12px 28px rgba(0, 0, 0, 0.16);
 }
 
 html.dark {
-  /* GitHub Dark Palette (High Contrast & Comfortable for Devs) */
-  --color-canvas-default: #0d1117;
-  --color-canvas-subtle: #161b22;
-  --color-canvas-inset: #010409;
-  --color-border-default: #30363d;
-  --color-border-muted: #21262d;
-  --color-fg-default: #f0f6fc;
-  --color-fg-muted: #c9d1d9;    /* Body text: high readability, no eye-strain */
-  --color-fg-subtle: #8b949e;   /* Subtext / dates / tags */
-  --color-accent-fg: #58a6ff;
-  --color-accent-emphasis: #1f6feb;
-  --color-success-fg: #3fb950;
-  --color-success-subtle: #0f2d18;
-  --color-attention-subtle: #341a00;
-  --color-attention-fg: #d29922;
+  /* 🌿 Green TDS Dark Mode Palette */
+  --toss-bg: #111215;                 /* Deep Matte Charcoal Canvas */
+  --toss-card: #1D1E24;               /* Elevated Card Surface */
+  --toss-card-subtle: #252730;        /* Subtle Nested Card Surface */
+  --toss-card-highlight: #14281E;     /* Dark Green Tinted Card Surface */
+  
+  --toss-primary: #10B981;            /* Emerald Bright Green for High Contrast */
+  --toss-primary-hover: #059669;
+  --toss-primary-active: #047857;
+  
+  --toss-primary-light: #153322;      /* Dark Light-Green Pill */
+  --toss-primary-light-hover: #1D4630;
+  --toss-primary-light-border: #23583C;
+  
+  --toss-border: #2C2E38;
+  --toss-border-subtle: #22242D;
+  
+  --toss-text-primary: #F9FAFB;
+  --toss-text-secondary: #B0B8C1;
+  --toss-text-tertiary: #6B7684;
+  
+  --toss-status-success: #10B981;
+  --toss-status-warning: #FBBF24;
+  --toss-status-danger: #F87171;
+
+  --toss-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --toss-shadow-card: 0 6px 24px -2px rgba(0, 0, 0, 0.4);
+  --toss-shadow-float: 0 16px 36px -4px rgba(16, 185, 129, 0.15), 0 8px 18px -4px rgba(0, 0, 0, 0.5);
+  --toss-shadow-toast: 0 12px 32px rgba(0, 0, 0, 0.5);
 }
 
+/* ==============================================================================
+   Base Resets & Typography
+   ============================================================================== */
 * {
   box-sizing: border-box;
   font-family: var(--font-sans);
+  letter-spacing: -0.3px;
 }
 
 body {
-  background-color: var(--color-canvas-default);
-  color: var(--color-fg-default);
-  line-height: 1.6;
+  background-color: var(--toss-bg);
+  color: var(--toss-text-primary);
+  line-height: 1.5;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-canvas-default);
+  background: var(--toss-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border-default);
-  border-radius: 4px;
+  background: var(--toss-border);
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-fg-subtle);
+  background: var(--toss-text-tertiary);
 }
 
-/* GitHub style card */
-.gh-card {
-  background-color: var(--color-canvas-subtle);
-  border: 1px solid var(--color-border-default);
-  border-radius: 8px;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+/* ==============================================================================
+   Green TDS Core Components
+   ============================================================================== */
+
+/* 24px Rounded White Card */
+.toss-card {
+  background-color: var(--toss-card);
+  border-radius: 24px;
+  border: 1px solid var(--toss-border);
+  box-shadow: var(--toss-shadow-card);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s ease;
 }
 
-.gh-card:hover {
-  border-color: var(--color-accent-fg);
+.toss-card-interactive:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--toss-shadow-float);
+  border-color: var(--toss-primary);
 }
 
-/* GitHub style blockquote / callout */
-.gh-callout {
-  border-left: 3px solid var(--color-accent-fg);
-  background-color: var(--color-canvas-subtle);
-  border-radius: 0 6px 6px 0;
-  padding: 12px 16px;
+/* Nested Sub-Card */
+.toss-subcard {
+  background-color: var(--toss-card-subtle);
+  border-radius: 18px;
+  border: 1px solid var(--toss-border-subtle);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-/* GitHub style tag pill */
-.gh-tag {
+.toss-subcard:hover {
+  border-color: var(--toss-border);
+}
+
+/* Green Action Button (Primary) */
+.toss-btn-primary {
   display: inline-flex;
   align-items: center;
-  font-size: 11.5px;
-  font-weight: 500;
-  padding: 2px 8px;
-  border-radius: 20px;
-  background-color: var(--color-canvas-subtle);
-  border: 1px solid var(--color-border-default);
-  color: var(--color-fg-muted);
-}
-
-/* Typography styles */
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3 {
-  color: var(--color-fg-default);
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--toss-primary);
+  color: #FFFFFF !important;
   font-weight: 600;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px 0 rgba(0, 176, 80, 0.28);
 }
 
-.markdown-body p,
-.markdown-body li {
-  color: var(--color-fg-muted);
-  font-size: 14.5px;
+.toss-btn-primary:hover {
+  background-color: var(--toss-primary-hover);
+  box-shadow: 0 6px 20px 0 rgba(0, 176, 80, 0.36);
+  transform: translateY(-1px);
 }
 
-.markdown-body strong {
-  color: var(--color-fg-default);
+.toss-btn-primary:active {
+  background-color: var(--toss-primary-active);
+  transform: scale(0.98);
+}
+
+/* Secondary Button (Light Green + Primary Green Text) */
+.toss-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--toss-primary-light);
+  color: var(--toss-primary) !important;
   font-weight: 600;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: 1px solid var(--toss-primary-light-border);
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-code {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+.toss-btn-secondary:hover {
+  background-color: var(--toss-primary-light-hover);
+  transform: translateY(-1px);
+}
+
+.toss-btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Green TDS Pill Chip */
+.toss-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 9999px;
   font-size: 12px;
-  background-color: var(--color-canvas-inset);
-  border: 1px solid var(--color-border-default);
-  padding: 1px 5px;
-  border-radius: 4px;
-  color: var(--color-accent-fg);
+  font-weight: 600;
+  background-color: var(--toss-primary-light);
+  color: var(--toss-primary);
+  border: 1px solid var(--toss-primary-light-border);
+}
+
+.toss-chip-subtle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: var(--toss-card-subtle);
+  color: var(--toss-text-secondary);
+  border: 1px solid var(--toss-border);
+}
+
+/* Callout Box (Soft Green Border & Background) */
+.toss-callout {
+  background-color: var(--toss-primary-light);
+  border-left: 4px solid var(--toss-primary);
+  border-radius: 0 16px 16px 0;
+  padding: 16px 20px;
+  color: var(--toss-text-primary);
+}
+
+/* Toast Floating Component */
+.toss-toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  opacity: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 9999px;
+  background-color: #191F28;
+  color: #FFFFFF;
+  font-size: 13.5px;
+  font-weight: 500;
+  box-shadow: var(--toss-shadow-toast);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease;
+  pointer-events: none;
+}
+
+html.dark .toss-toast {
+  background-color: #FFFFFF;
+  color: #191F28;
+}
+
+.toss-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Segmented Control / Tab Container */
+.toss-segmented-control {
+  display: inline-flex;
+  padding: 4px;
+  background-color: var(--toss-card-subtle);
+  border: 1px solid var(--toss-border);
+  border-radius: 9999px;
+  gap: 2px;
+}
+
+.toss-segmented-control button {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--toss-text-tertiary);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toss-segmented-control button.active {
+  background-color: var(--toss-primary);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 176, 80, 0.3);
+}
+
+.toss-segmented-control button:not(.active):hover {
+  color: var(--toss-text-primary);
 }

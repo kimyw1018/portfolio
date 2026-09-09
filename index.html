@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="ko" class="dark scroll-smooth">
+<html lang="ko" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>김예원 (Kim Yewon) | Backend & Fullstack Developer</title>
   
-  <meta name="description" content="숭실대학교 컴퓨터학부 김예원 개발자 포트폴리오. Backend & Fullstack.">
+  <meta name="description" content="토스 스타일의 심플하고 직관적인 김예원 개발자 포트폴리오. Spring Boot 백엔드 및 풀스택.">
   <meta property="og:title" content="김예원 (Kim Yewon) | Developer Portfolio">
   <meta property="og:description" content="숭실대학교 컴퓨터학부 3학년 2학기 | Backend & Fullstack Developer">
   <meta property="og:image" content="https://github.com/kimyw1018.png">
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -18,17 +18,33 @@
       theme: {
         extend: {
           colors: {
-            gh: {
-              bg: 'var(--color-canvas-default)',
-              card: 'var(--color-canvas-subtle)',
-              border: 'var(--color-border-default)',
-              borderMuted: 'var(--color-border-muted)',
-              text: 'var(--color-fg-default)',
-              body: 'var(--color-fg-muted)',
-              subtle: 'var(--color-fg-subtle)',
-              blue: 'var(--color-accent-fg)',
-              green: 'var(--color-success-fg)',
+            toss: {
+              bg: 'var(--toss-bg)',
+              card: 'var(--toss-card)',
+              subtle: 'var(--toss-card-subtle)',
+              highlight: 'var(--toss-card-highlight)',
+              border: 'var(--toss-border)',
+              borderSubtle: 'var(--toss-border-subtle)',
+              primary: 'var(--toss-primary)',
+              hover: 'var(--toss-primary-hover)',
+              active: 'var(--toss-primary-active)',
+              light: 'var(--toss-primary-light)',
+              lightHover: 'var(--toss-primary-light-hover)',
+              lightBorder: 'var(--toss-primary-light-border)',
+              text: 'var(--toss-text-primary)',
+              body: 'var(--toss-text-secondary)',
+              sub: 'var(--toss-text-tertiary)',
             }
+          },
+          boxShadow: {
+            'card': 'var(--toss-shadow-card)',
+            'float': 'var(--toss-shadow-float)',
+          },
+          borderRadius: {
+            '24': '24px',
+            '20': '20px',
+            '16': '16px',
+            '14': '14px',
           }
         }
       }
@@ -39,213 +55,330 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- GitHub-themed Stylesheet -->
+  <!-- Green TDS Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-gh-bg text-gh-text antialiased selection:bg-blue-600 selection:text-white">
+<body class="antialiased selection:bg-[#00B050] selection:text-white pb-20 sm:pb-10">
 
-  <!-- GitHub Style Navbar -->
-  <header class="sticky top-0 z-40 bg-gh-card border-b border-gh-border transition-colors">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5 group">
-        <i data-lucide="terminal" class="w-5 h-5 text-gh-blue"></i>
-        <span class="font-semibold text-sm text-gh-text tracking-tight group-hover:text-gh-blue transition-colors">
-          kimyw1018 / portfolio
+  <!-- 🌿 Toss Minimal Sticky Navigation -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-[var(--toss-card)]/80 border-b border-[var(--toss-border)] transition-colors">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] transition-transform group-hover:scale-105">
+          🌿
         </span>
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-base text-[var(--toss-text-primary)] tracking-tight">
+            김예원
+          </span>
+          <span class="hidden sm:inline-block text-xs font-semibold px-2 py-0.5 rounded-full bg-[var(--toss-primary-light)] text-[var(--toss-primary)]">
+            포트폴리오
+          </span>
+        </div>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-5 text-xs font-medium text-gh-body">
-        <a href="#about" class="hover:text-gh-blue transition-colors">About</a>
-        <a href="#skills" class="hover:text-gh-blue transition-colors">Tech Stack</a>
-        <a href="#awards" class="hover:text-gh-blue transition-colors">Awards</a>
-        <a href="#projects" class="hover:text-gh-blue transition-colors">Projects</a>
-        <a href="#experience" class="hover:text-gh-blue transition-colors">Experience</a>
-        <a href="#contact" class="hover:text-gh-blue transition-colors">Contact</a>
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-6 text-[13px] font-medium text-[var(--toss-text-secondary)]">
+        <a href="#about" class="hover:text-[var(--toss-primary)] transition-colors">소개</a>
+        <a href="#education" class="hover:text-[var(--toss-primary)] transition-colors">학력</a>
+        <a href="#skills" class="hover:text-[var(--toss-primary)] transition-colors">기술 스택</a>
+        <a href="#awards" class="hover:text-[var(--toss-primary)] transition-colors">수상</a>
+        <a href="#projects" class="hover:text-[var(--toss-primary)] transition-colors">프로젝트</a>
+        <a href="#experience" class="hover:text-[var(--toss-primary)] transition-colors">활동</a>
+        <a href="#contact" class="hover:text-[var(--toss-primary)] transition-colors">연락처</a>
       </nav>
 
-      <!-- Right Actions -->
+      <!-- Right Actions (Theme Toggle & GitHub Link) -->
       <div class="flex items-center gap-2">
-        <button id="theme-toggle" aria-label="테마 전환" class="p-1.5 rounded-md border border-gh-border hover:bg-gh-bg text-gh-body hover:text-gh-text transition-colors">
+        <button id="theme-toggle" aria-label="화면 모드 전환" class="w-9 h-9 rounded-full bg-[var(--toss-card-subtle)] border border-[var(--toss-border)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
           <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
         </button>
 
-        <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-gh-border text-xs font-medium bg-gh-bg hover:bg-gh-card text-gh-text transition-colors">
+        <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="toss-btn-secondary !py-2 !px-3.5 !text-xs !rounded-full">
           <i data-lucide="github" class="w-3.5 h-3.5"></i>
           <span>GitHub</span>
         </a>
 
-        <!-- Mobile Menu Toggle -->
-        <button id="mobile-menu-btn" aria-label="메뉴 열기" class="md:hidden p-1.5 rounded-md border border-gh-border text-gh-body">
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" aria-label="메뉴 열기" class="md:hidden w-9 h-9 rounded-full bg-[var(--toss-card-subtle)] border border-[var(--toss-border)] flex items-center justify-center text-[var(--toss-text-secondary)]">
           <i data-lucide="menu" class="w-4 h-4"></i>
         </button>
       </div>
     </div>
 
     <!-- Mobile Nav Dropdown -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-gh-border bg-gh-card px-4 py-3 space-y-2 text-sm font-medium">
-      <a href="#about" class="block py-1 text-gh-body hover:text-gh-text mobile-nav-link">About</a>
-      <a href="#skills" class="block py-1 text-gh-body hover:text-gh-text mobile-nav-link">Tech Stack</a>
-      <a href="#awards" class="block py-1 text-gh-body hover:text-gh-text mobile-nav-link">Awards</a>
-      <a href="#projects" class="block py-1 text-gh-body hover:text-gh-text mobile-nav-link">Projects</a>
-      <a href="#experience" class="block py-1 text-gh-body hover:text-gh-text mobile-nav-link">Experience</a>
-      <a href="#contact" class="block py-1 text-gh-body hover:text-gh-text mobile-nav-link">Contact</a>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--toss-border)] bg-[var(--toss-card)] px-5 py-4 space-y-3 text-sm font-semibold">
+      <a href="#about" class="block py-1 text-[var(--toss-text-secondary)] hover:text-[var(--toss-primary)] mobile-nav-link">소개</a>
+      <a href="#education" class="block py-1 text-[var(--toss-text-secondary)] hover:text-[var(--toss-primary)] mobile-nav-link">학력</a>
+      <a href="#skills" class="block py-1 text-[var(--toss-text-secondary)] hover:text-[var(--toss-primary)] mobile-nav-link">기술 스택</a>
+      <a href="#awards" class="block py-1 text-[var(--toss-text-secondary)] hover:text-[var(--toss-primary)] mobile-nav-link">수상 내역</a>
+      <a href="#projects" class="block py-1 text-[var(--toss-text-secondary)] hover:text-[var(--toss-primary)] mobile-nav-link">주요 프로젝트</a>
+      <a href="#experience" class="block py-1 text-[var(--toss-text-secondary)] hover:text-[var(--toss-primary)] mobile-nav-link">활동 및 경험</a>
+      <a href="#contact" class="block py-1 text-[var(--toss-text-secondary)] hover:text-[var(--toss-primary)] mobile-nav-link">연락처</a>
     </div>
   </header>
 
-  <!-- Main Container -->
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-14">
+  <!-- 🌿 Main View Container -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-6 sm:space-y-8">
 
-    <!-- Profile / Hero Section (GitHub Profile Style) -->
-    <section class="border border-gh-border rounded-lg bg-gh-card p-6 sm:p-8">
-      <div class="flex flex-col sm:flex-row items-start gap-6">
-        <!-- Avatar -->
-        <img id="hero-avatar" src="https://github.com/kimyw1018.png" alt="김예원 프로필" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-gh-border">
+    <!-- 1. Hero Profile Card (One Thing: Developer Identity) -->
+    <section id="about" class="toss-card p-6 sm:p-10 space-y-6">
+      <div class="flex flex-col-reverse sm:flex-row items-start justify-between gap-6">
+        <div class="space-y-3.5 flex-1">
+          <!-- Status Chip -->
+          <div class="inline-flex items-center gap-2">
+            <span class="toss-chip text-xs">
+              <span class="w-2 h-2 rounded-full bg-[var(--toss-primary)] animate-pulse"></span>
+              새로운 성장 기회를 찾고 있어요 🌿
+            </span>
+          </div>
 
-        <!-- Info -->
-        <div class="flex-1 space-y-3">
+          <!-- Main Greeting & Name -->
           <div>
-            <div class="flex flex-wrap items-center gap-2">
-              <h1 class="text-2xl sm:text-3xl font-bold text-gh-text" id="hero-name">김예원</h1>
-              <span class="text-sm text-gh-subtle" id="hero-github-id">@kimyw1018</span>
-              <span class="text-xs px-2 py-0.5 rounded-full border border-emerald-500/40 text-emerald-400 bg-emerald-950/30 font-medium" id="hero-status">
-                Active
-              </span>
-            </div>
-            <p class="text-sm font-semibold text-gh-blue mt-0.5" id="hero-role-badge">
-              Backend & Fullstack Developer
-            </p>
-            <p class="text-xs text-gh-subtle mt-0.5" id="hero-affiliation">
-              숭실대학교 컴퓨터학부 (3학년 2학기 재학 중)
+            <h1 class="text-2xl sm:text-3xl font-bold text-[var(--toss-text-primary)] leading-tight tracking-tight">
+              안녕하세요, <br class="hidden sm:inline">
+              안정적인 백엔드를 설계하는 <br>
+              <span class="text-[var(--toss-primary)]">김예원</span>입니다.
+            </h1>
+            <p class="text-sm font-semibold text-[var(--toss-text-secondary)] mt-2" id="hero-affiliation">
+              숭실대학교 컴퓨터학부 3학년 2학기 재학 • Backend & Fullstack
             </p>
           </div>
 
-          <!-- Tagline & Bio -->
-          <p class="text-sm text-gh-body font-medium leading-relaxed" id="hero-tagline">
-            안정적인 백엔드 시스템과 유기적인 서비스 경험을 설계하는 개발자 김예원입니다.
+          <!-- Tagline -->
+          <p class="text-sm sm:text-base text-[var(--toss-text-secondary)] leading-relaxed pt-1" id="hero-tagline">
+            Spring Boot 기반의 견고한 아키텍처와 유기적인 사용자 경험을 설계합니다.
           </p>
 
-          <div class="space-y-1.5 text-xs text-gh-body leading-relaxed pt-1" id="hero-bio-container">
-            <!-- Rendered by app.js -->
+          <!-- Bio Statements -->
+          <div class="space-y-2 text-xs sm:text-[13.5px] text-[var(--toss-text-secondary)] leading-relaxed pt-1" id="hero-bio-container">
+            <!-- Populated by app.js -->
           </div>
+        </div>
 
-          <!-- Contact Details Bar -->
-          <div class="pt-3 border-t border-gh-border flex flex-wrap items-center gap-4 text-xs text-gh-subtle">
-            <span class="flex items-center gap-1.5 text-gh-body">
-              <i data-lucide="phone" class="w-3.5 h-3.5 text-gh-subtle"></i>
-              <strong class="text-gh-text">010-6555-6343</strong>
-            </span>
-            <span class="flex items-center gap-1.5 text-gh-body">
-              <i data-lucide="mail" class="w-3.5 h-3.5 text-gh-subtle"></i>
-              <button id="copy-email-btn" class="hover:underline text-gh-blue focus:outline-none">
-                poppppp00@gmail.com (복사)
-              </button>
-            </span>
-            <a href="https://github.com/kimyw1018" target="_blank" class="flex items-center gap-1.5 hover:text-gh-blue text-gh-body">
-              <i data-lucide="github" class="w-3.5 h-3.5 text-gh-subtle"></i>
-              <span>github.com/kimyw1018</span>
-            </a>
+        <!-- Profile Avatar with soft Green Ring -->
+        <div class="shrink-0 self-center sm:self-start">
+          <div class="relative group">
+            <div class="absolute -inset-1 rounded-full bg-gradient-to-tr from-[var(--toss-primary)] to-[var(--toss-primary-light)] opacity-70 blur-sm group-hover:opacity-100 transition-opacity"></div>
+            <img id="hero-avatar" src="https://github.com/kimyw1018.png" alt="김예원 프로필 사진" class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-white shadow-sm object-cover">
           </div>
         </div>
       </div>
+
+      <!-- Quick Metrics Cards (Toss Stats Row) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+        <div class="toss-subcard p-4 text-center sm:text-left">
+          <p class="text-[11px] font-semibold text-[var(--toss-text-tertiary)] uppercase tracking-wider mb-1">Projects</p>
+          <p class="text-xl sm:text-2xl font-bold text-[var(--toss-text-primary)]">4<span class="text-sm font-semibold text-[var(--toss-primary)] ml-0.5">개</span></p>
+          <p class="text-[11px] text-[var(--toss-text-secondary)] mt-0.5">프로덕션 케이스 스터디</p>
+        </div>
+        <div class="toss-subcard p-4 text-center sm:text-left">
+          <p class="text-[11px] font-semibold text-[var(--toss-text-tertiary)] uppercase tracking-wider mb-1">Awards</p>
+          <p class="text-xl sm:text-2xl font-bold text-[var(--toss-text-primary)]">4<span class="text-sm font-semibold text-[var(--toss-primary)] ml-0.5">회</span></p>
+          <p class="text-[11px] text-[var(--toss-text-secondary)] mt-0.5">총장상 🏆 & 최우수상</p>
+        </div>
+        <div class="toss-subcard p-4 text-center sm:text-left">
+          <p class="text-[11px] font-semibold text-[var(--toss-text-tertiary)] uppercase tracking-wider mb-1">Backend Core</p>
+          <p class="text-lg sm:text-xl font-bold text-[var(--toss-text-primary)]">Spring Boot</p>
+          <p class="text-[11px] text-[var(--toss-text-secondary)] mt-0.5">Java & JPA & Redis</p>
+        </div>
+        <div class="toss-subcard p-4 text-center sm:text-left">
+          <p class="text-[11px] font-semibold text-[var(--toss-text-tertiary)] uppercase tracking-wider mb-1">Infrastructure</p>
+          <p class="text-lg sm:text-xl font-bold text-[var(--toss-text-primary)]">K3s & GitOps</p>
+          <p class="text-[11px] text-[var(--toss-text-secondary)] mt-0.5">Docker & ArgoCD 배포</p>
+        </div>
+      </div>
+
+      <!-- Action Buttons Bar (Green Action & Secondary Light Green) -->
+      <div class="pt-4 border-t border-[var(--toss-border-subtle)] flex flex-wrap items-center gap-3">
+        <button id="copy-email-btn" class="toss-btn-primary flex-1 sm:flex-none">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          <span>이메일 복사하기</span>
+        </button>
+
+        <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="toss-btn-secondary flex-1 sm:flex-none">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span>GitHub 저장소</span>
+        </a>
+
+        <a href="tel:010-6555-6343" class="toss-chip-subtle hover:border-[var(--toss-primary)] transition-colors py-2 px-3.5 text-xs font-semibold">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-[var(--toss-primary)]"></i>
+          <span>010-6555-6343</span>
+        </a>
+      </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="about" class="space-y-4">
-      <div class="flex items-center gap-2 border-b border-gh-border pb-2">
-        <i data-lucide="graduation-cap" class="w-4 h-4 text-gh-blue"></i>
-        <h2 class="text-lg font-semibold text-gh-text">Education</h2>
+    <!-- 2. Education Card -->
+    <section id="education" class="toss-card p-6 sm:p-8 space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="space-y-0.5">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">🎓</span>
+            <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">학력 (Education)</h2>
+          </div>
+          <p class="text-xs text-[var(--toss-text-tertiary)] pl-8">탄탄한 컴퓨터과학 기초 지식과 실무 엔지니어링 역량을 익히고 있습니다.</p>
+        </div>
       </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="education-container">
-        <!-- Rendered by app.js -->
+        <!-- Populated by app.js -->
       </div>
     </section>
 
-    <!-- Tech Stack Section -->
-    <section id="skills" class="space-y-4">
-      <div class="flex items-center gap-2 border-b border-gh-border pb-2">
-        <i data-lucide="code-2" class="w-4 h-4 text-gh-blue"></i>
-        <h2 class="text-lg font-semibold text-gh-text">Tech Stack</h2>
+    <!-- 3. Tech Stack Card -->
+    <section id="skills" class="toss-card p-6 sm:p-8 space-y-6">
+      <div class="flex items-center justify-between">
+        <div class="space-y-0.5">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">🛠️</span>
+            <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">기술 스택 (Tech Stack)</h2>
+          </div>
+          <p class="text-xs text-[var(--toss-text-tertiary)] pl-8">실제 서비스 개발 및 공모전 과정에서 깊이 있게 경험하고 활용한 기술입니다.</p>
+        </div>
       </div>
-      <div class="space-y-4" id="skills-container">
-        <!-- Rendered by app.js -->
+
+      <div class="space-y-6" id="skills-container">
+        <!-- Populated by app.js -->
       </div>
     </section>
 
-    <!-- Awards & Honors Section -->
-    <section id="awards" class="space-y-4">
-      <div class="flex items-center gap-2 border-b border-gh-border pb-2">
-        <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
-        <h2 class="text-lg font-semibold text-gh-text">Awards & Honors</h2>
+    <!-- 4. Awards & Honors Card -->
+    <section id="awards" class="toss-card p-6 sm:p-8 space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="space-y-0.5">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">🏆</span>
+            <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">수상 내역 (Awards & Honors)</h2>
+          </div>
+          <p class="text-xs text-[var(--toss-text-tertiary)] pl-8">문제를 명확히 정의하고 실질적인 솔루션으로 해결해낸 성과들입니다.</p>
+        </div>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="awards-container">
-        <!-- Rendered by app.js -->
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="awards-container">
+        <!-- Populated by app.js -->
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- 5. Projects Section (Pinned Case Studies) -->
     <section id="projects" class="space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gh-border pb-2">
-        <div class="flex items-center gap-2">
-          <i data-lucide="bookmark" class="w-4 h-4 text-gh-blue"></i>
-          <h2 class="text-lg font-semibold text-gh-text">Projects (Pinned Case Studies)</h2>
-        </div>
-
-        <!-- Filter Tabs -->
-        <div class="flex items-center gap-1 text-xs" id="project-filters">
-          <button data-filter="all" class="filter-btn px-2.5 py-1 rounded-md border border-gh-border bg-gh-bg text-gh-text font-medium">All</button>
-          <button data-filter="backend" class="filter-btn px-2.5 py-1 rounded-md text-gh-subtle hover:text-gh-text">Backend</button>
-          <button data-filter="frontend" class="filter-btn px-2.5 py-1 rounded-md text-gh-subtle hover:text-gh-text">Frontend/AI</button>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="projects-grid">
-        <!-- Rendered by app.js -->
-      </div>
-    </section>
-
-    <!-- Experience & Activities Section -->
-    <section id="experience" class="space-y-4">
-      <div class="flex items-center gap-2 border-b border-gh-border pb-2">
-        <i data-lucide="git-commit" class="w-4 h-4 text-gh-blue"></i>
-        <h2 class="text-lg font-semibold text-gh-text">Experience & Activities</h2>
-      </div>
-      <div class="space-y-3" id="experience-timeline">
-        <!-- Rendered by app.js -->
-      </div>
-    </section>
-
-    <!-- Contact & Footer Section -->
-    <footer id="contact" class="border-t border-gh-border pt-8 pb-12 space-y-4 text-xs text-gh-subtle">
-      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div class="toss-card p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <p class="font-semibold text-gh-text text-sm mb-1">김예원 (Kim Yewon)</p>
-          <p class="text-gh-body">Contact: 010-6555-6343 | Email: poppppp00@gmail.com</p>
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">🌿</span>
+            <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">주요 프로젝트 (Case Studies)</h2>
+          </div>
+          <p class="text-xs text-[var(--toss-text-tertiary)] pl-8 mt-0.5">실제 문제를 해결한 아키텍처와 상세 분석을 확인할 수 있습니다.</p>
         </div>
-        <div class="flex items-center gap-3">
-          <a href="mailto:poppppp00@gmail.com" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs transition-colors">
-            이메일 보내기
+
+        <!-- Toss Segmented Control -->
+        <div class="toss-segmented-control self-start sm:self-center" id="project-filters">
+          <button data-filter="all" class="active">전체</button>
+          <button data-filter="backend">백엔드</button>
+          <button data-filter="frontend">프론트엔드·AI</button>
+        </div>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="projects-grid">
+        <!-- Populated by app.js -->
+      </div>
+    </section>
+
+    <!-- 6. Experience & Activities Card -->
+    <section id="experience" class="toss-card p-6 sm:p-8 space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="space-y-0.5">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">🤝</span>
+            <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">활동 및 협업 경험 (Experience)</h2>
+          </div>
+          <p class="text-xs text-[var(--toss-text-tertiary)] pl-8">동료들과 치열하게 소통하고 피드백을 나누며 함께 성장했습니다.</p>
+        </div>
+      </div>
+
+      <div class="space-y-3" id="experience-timeline">
+        <!-- Populated by app.js -->
+      </div>
+    </section>
+
+    <!-- 7. Contact & Footer Card -->
+    <footer id="contact" class="toss-card p-6 sm:p-10 space-y-6">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+        <div class="space-y-1.5">
+          <span class="toss-chip text-xs">
+            🌿 편하게 이야기 나눠요
+          </span>
+          <h2 class="text-xl sm:text-2xl font-bold text-[var(--toss-text-primary)] pt-1">
+            궁금한 점이 있으시다면 <br class="sm:hidden">언제든 연락해 주세요.
+          </h2>
+          <p class="text-xs sm:text-sm text-[var(--toss-text-secondary)]">
+            신입/인턴 채용, 프로젝트 협업, 가벼운 커피챗 모두 따뜻하게 환영합니다.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+          <a href="mailto:poppppp00@gmail.com" class="toss-btn-primary flex-1 sm:flex-none">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>메일 보내기</span>
           </a>
-          <a href="https://github.com/kimyw1018" target="_blank" class="px-3 py-1.5 rounded-md border border-gh-border hover:bg-gh-card text-gh-text font-medium text-xs transition-colors">
-            GitHub
+          <button id="footer-copy-email-btn" class="toss-btn-secondary flex-1 sm:flex-none">
+            <i data-lucide="copy" class="w-4 h-4"></i>
+            <span>이메일 복사</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Contact Info Line -->
+      <div class="pt-5 border-t border-[var(--toss-border-subtle)] flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--toss-text-secondary)]">
+        <div class="flex flex-wrap items-center gap-4">
+          <span class="font-medium text-[var(--toss-text-primary)]">김예원 (Kim Yewon)</span>
+          <span>•</span>
+          <span>010-6555-6343</span>
+          <span>•</span>
+          <span class="text-[var(--toss-primary)] font-semibold">poppppp00@gmail.com</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--toss-primary)] transition-colors flex items-center gap-1 font-semibold">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+            <span>github.com/kimyw1018</span>
           </a>
         </div>
       </div>
 
-      <div class="pt-4 border-t border-gh-border flex flex-col sm:flex-row justify-between items-center gap-2">
-        <p>© 2026 Kim Yewon. Built with GitHub Pages & Zero-Build architecture.</p>
-        <p class="text-gh-blue">Clean Markdown & Primer Aesthetics</p>
+      <!-- Copyright Sub-row -->
+      <div class="pt-3 border-t border-[var(--toss-border-subtle)] flex flex-col sm:flex-row justify-between items-center gap-2 text-[11px] text-[var(--toss-text-tertiary)]">
+        <p>© 2026 Kim Yewon. Built with Green TDS (Toss Design System).</p>
+        <p class="flex items-center gap-1">
+          <span>Clean & Intuitive Interface</span>
+          <span>•</span>
+          <span class="text-[var(--toss-primary)] font-medium">Zero-Build Architecture</span>
+        </p>
       </div>
     </footer>
 
   </main>
 
-  <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-200 pointer-events-none flex items-center gap-2 px-3.5 py-2.5 rounded-md bg-gh-card border border-gh-border text-gh-text shadow-lg text-xs font-medium">
-    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
-    <span id="toast-message">알림</span>
+  <!-- 🌿 Sticky Mobile Bottom Action Bar (Toss Signature Mobile UX) -->
+  <aside aria-label="모바일 빠른 액션" class="fixed bottom-0 left-0 right-0 z-40 p-3.5 backdrop-blur-lg bg-[var(--toss-card)]/90 border-t border-[var(--toss-border)] sm:hidden flex items-center gap-2.5 shadow-lg">
+    <button id="mobile-sticky-copy-btn" class="toss-btn-primary flex-1 !py-3 !text-xs">
+      <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+      <span>이메일 복사하기</span>
+    </button>
+    <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="toss-btn-secondary !py-3 !px-4 !text-xs">
+      <i data-lucide="github" class="w-3.5 h-3.5"></i>
+      <span>GitHub</span>
+    </a>
+  </aside>
+
+  <!-- 🌿 Toss Floating Toast Notification -->
+  <div id="toast" class="toss-toast">
+    <span class="w-5 h-5 rounded-full bg-[var(--toss-primary)] text-white flex items-center justify-center shrink-0">
+      <i data-lucide="check" class="w-3 h-3 stroke-[3]"></i>
+    </span>
+    <span id="toast-message" class="tracking-tight">알림 메시지</span>
   </div>
 
   <script src="data.js"></script>

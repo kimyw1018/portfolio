@@ -96,7 +96,7 @@ const PORTFOLIO_DATA = {
     {
       date: "2026.08.04",
       title: "2026 숭실대학교 컴퓨터학부 소프트웨어공모전 총장상",
-      project: "A:SSU (아쑤)",
+      project: "A:SSU (어슈)",
       organization: "숭실대학교",
       badge: "총장상 🏆",
       description: "대학-매장 제휴 관리 플랫폼 풀스택 개발 (Spring Boot GIS/통계 + Android 클라이언트)"
@@ -138,7 +138,7 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "assu",
-      title: "A:SSU (아쑤)",
+      title: "A:SSU (어슈)",
       subtitle: "대학-매장 제휴 관리 및 실시간 통계 플랫폼",
       award: "2026 숭실대 SW공모전 총장상 🏆",
       period: "2025.03 ~ 진행 중",
