@@ -17,9 +17,8 @@
           colors: {
             toss: {
               bg: 'var(--toss-bg)',
-              card: 'var(--toss-card)',
-              subtle: 'var(--toss-card-subtle)',
-              highlight: 'var(--toss-card-highlight)',
+              surface: 'var(--toss-surface)',
+              surfaceHover: 'var(--toss-surface-hover)',
               border: 'var(--toss-border)',
               borderSubtle: 'var(--toss-border-subtle)',
               primary: 'var(--toss-primary)',
@@ -27,7 +26,6 @@
               active: 'var(--toss-primary-active)',
               light: 'var(--toss-primary-light)',
               lightHover: 'var(--toss-primary-light-hover)',
-              lightBorder: 'var(--toss-primary-light-border)',
               text: 'var(--toss-text-primary)',
               body: 'var(--toss-text-secondary)',
               sub: 'var(--toss-text-tertiary)',
@@ -41,10 +39,10 @@
   <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="antialiased selection:bg-[#00B050] selection:text-white pb-12">
+<body class="antialiased selection:bg-[#00B050] selection:text-white pb-16">
 
-  <!-- 🌿 Toss Minimal Header -->
-  <header class="sticky top-0 z-40 backdrop-blur-md bg-[var(--toss-card)]/85 border-b border-[var(--toss-border)] transition-colors">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-[var(--toss-bg)]/90 border-b border-[var(--toss-border)] transition-colors">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="../index.html#projects" class="toss-btn-secondary !py-2 !px-3.5 !text-xs !rounded-full">
         <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
@@ -52,11 +50,11 @@
       </a>
 
       <div class="flex items-center gap-2">
-        <button id="theme-toggle" aria-label="테마 전환" class="w-9 h-9 rounded-full bg-[var(--toss-card-subtle)] border border-[var(--toss-border)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
+        <button id="theme-toggle" aria-label="테마 전환" class="w-9 h-9 rounded-full bg-[var(--toss-surface)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
           <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
         </button>
-        <a href="https://github.com/kimyw1018" target="_blank" class="w-9 h-9 rounded-full bg-[var(--toss-card-subtle)] border border-[var(--toss-border)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
+        <a href="https://github.com/kimyw1018" target="_blank" class="w-9 h-9 rounded-full bg-[var(--toss-surface)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
           <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
           </svg>
@@ -65,42 +63,37 @@
     </div>
   </header>
 
-  <!-- 🌿 Main Case Study Container -->
-  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-6">
+  <!-- Main Container -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10">
     
-    <!-- Hero Title Card -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
+    <!-- Title & Image -->
+    <section class="space-y-4">
       <div class="flex flex-wrap items-center gap-2">
-        <span class="toss-award-badge">
-          🏆 2026 UNITHON 우수상
+        <span class="toss-award-badge-flat">
+          2026 UNITHON 우수상
         </span>
         <span class="toss-chip-subtle text-xs font-mono">2026.08 ~ 2026.09</span>
         <span class="toss-chip-subtle text-xs">Frontend & Real-time AI Pipeline</span>
       </div>
 
       <div>
-        <h1 class="text-2xl sm:text-3xl font-bold text-[var(--toss-text-primary)] tracking-tight">
+        <h1 class="text-3xl font-bold text-[var(--toss-text-primary)] tracking-tight">
           Naru (나루)
         </h1>
-        <p class="text-sm sm:text-base font-semibold text-[var(--toss-primary)] mt-1.5 leading-relaxed">
+        <p class="text-base font-semibold text-[var(--toss-primary)] mt-1.5 leading-relaxed">
           청각·언어장애인이 누구와도 통화할 수 있게 돕는 AI 음성 에이전트, 실시간 양방향 수어-음성 통화 웹 서비스
         </p>
       </div>
 
-      <!-- Project Screenshot Image -->
-      <div class="w-full rounded-2xl overflow-hidden border border-[var(--toss-border-subtle)] shadow-sm bg-gray-50 dark:bg-gray-900 mt-4 max-h-96">
-        <img src="img/나루.png" alt="Naru (나루) 서비스 대표 화면" class="w-full h-full object-cover">
+      <div class="w-full rounded-2xl overflow-hidden bg-[var(--toss-surface)] mt-4">
+        <img src="img/나루.png" alt="Naru 서비스 대표 화면" class="w-full h-full object-cover">
       </div>
     </section>
 
     <!-- 1. 프로젝트 개요 -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
-      <div class="flex items-center gap-2">
-        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">📌</span>
-        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">프로젝트 개요 (Overview)</h2>
-      </div>
-
-      <div class="toss-callout text-xs sm:text-[13.5px] leading-relaxed space-y-2">
+    <section class="space-y-3">
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">프로젝트 개요 (Overview)</h2>
+      <div class="toss-callout text-sm leading-relaxed space-y-2">
         <p>
           <strong>핵심 가치:</strong> 별도 앱 설치나 전용 장비 없이, <strong>일반 웹캠과 모바일 브라우저만으로 100% 온디바이스(Client-Side) 30fps 수어 인식 및 WebRTC 통화</strong>를 지원하는 배리어프리 커뮤니케이션 웹 서비스입니다.
         </p>
@@ -111,26 +104,22 @@
     </section>
 
     <!-- 2. 사용 기술 -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
-      <div class="flex items-center gap-2">
-        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">🛠️</span>
-        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">사용 기술 (Tech Stack)</h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-[13px]">
-        <div class="toss-subcard p-4 space-y-1">
+    <section class="space-y-3">
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">사용 기술 (Tech Stack)</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+        <div class="toss-flat-card p-4 space-y-1">
           <p class="font-bold text-[var(--toss-text-primary)]">Core & Framework</p>
           <p class="text-[var(--toss-text-secondary)]">React 19, TypeScript, Vite 8, Bun</p>
         </div>
-        <div class="toss-subcard p-4 space-y-1">
+        <div class="toss-flat-card p-4 space-y-1">
           <p class="font-bold text-[var(--toss-text-primary)]">Vision & AI</p>
           <p class="text-[var(--toss-text-secondary)]">@mediapipe/tasks-vision (WASM/WebGL 가속), Custom DTW</p>
         </div>
-        <div class="toss-subcard p-4 space-y-1">
+        <div class="toss-flat-card p-4 space-y-1">
           <p class="font-bold text-[var(--toss-text-primary)]">Real-time WebRTC</p>
           <p class="text-[var(--toss-text-secondary)]">LiveKit WebRTC (livekit-client), MediaStream API</p>
         </div>
-        <div class="toss-subcard p-4 space-y-1">
+        <div class="toss-flat-card p-4 space-y-1">
           <p class="font-bold text-[var(--toss-text-primary)]">State & Architecture</p>
           <p class="text-[var(--toss-text-secondary)]">TanStack Query v5, Zustand, FSD (Feature-Sliced Design)</p>
         </div>
@@ -138,27 +127,23 @@
     </section>
 
     <!-- 3. 주요 구현 내용 -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
-      <div class="flex items-center gap-2">
-        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">🚀</span>
-        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">주요 구현 및 기술적 기여 (Key Implementations)</h2>
-      </div>
-      
-      <div class="space-y-3.5 text-xs sm:text-[13.5px]">
-        <div class="toss-subcard p-5 space-y-2">
-          <h3 class="font-bold text-sm sm:text-base text-[var(--toss-text-primary)] flex items-center gap-1.5">
-            <span class="text-[var(--toss-primary)]">1.</span> 브라우저 온디바이스 실시간 수어 인식 파이프라인
+    <section class="space-y-4">
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">주요 구현 및 기술적 기여 (Key Implementations)</h2>
+      <div class="space-y-3 text-sm">
+        <div class="toss-flat-card p-5 space-y-2">
+          <h3 class="font-bold text-base text-[var(--toss-text-primary)]">
+            1. 브라우저 온디바이스 실시간 수어 인식 파이프라인
           </h3>
           <ul class="space-y-1.5 text-[var(--toss-text-secondary)] leading-relaxed pl-1">
             <li>• <strong>MediaPipe 3D 랜드마크 추출:</strong> WASM 및 WebGL 가속을 활용해 손 21개 랜드마크와 상체 포즈 좌표를 30fps로 추출</li>
-            <li>• <strong>신체 상대적(Body-relative) 정규화:</strong> 양 어깨 중심점을 원점 (0, 0, 0)으로 잡고 어깨 너비로 스케일을 정규화하여 사용자 거리/위치 변화에 강건한 좌표계 구축</li>
+            <li>• <strong>신체 상대적 정규화:</strong> 양 어깨 중심점을 원점 (0, 0, 0)으로 잡고 어깨 너비로 스케일을 정규화하여 사용자 거리/위치 변화에 강건한 좌표계 구축</li>
             <li>• <strong>경량 DTW(Dynamic Time Warping) 분류:</strong> 30프레임 롤링 윈도우 시퀀스로 사용자 동작 속도 차이를 보정하며 실시간 단어 매칭</li>
           </ul>
         </div>
 
-        <div class="toss-subcard p-5 space-y-2">
-          <h3 class="font-bold text-sm sm:text-base text-[var(--toss-text-primary)] flex items-center gap-1.5">
-            <span class="text-[var(--toss-primary)]">2.</span> 맥락 인지형 LLM 문장 변환
+        <div class="toss-flat-card p-5 space-y-2">
+          <h3 class="font-bold text-base text-[var(--toss-text-primary)]">
+            2. 맥락 인지형 LLM 문장 변환
           </h3>
           <ul class="space-y-1.5 text-[var(--toss-text-secondary)] leading-relaxed pl-1">
             <li>• <strong>발화 종료 판별:</strong> 손을 내리는 제스처를 감지하는 버퍼 시스템 구축 (1.5초 대기 시 발화 완료 판단)</li>
@@ -166,12 +151,12 @@
           </ul>
         </div>
 
-        <div class="toss-subcard p-5 space-y-2">
-          <h3 class="font-bold text-sm sm:text-base text-[var(--toss-text-primary)] flex items-center gap-1.5">
-            <span class="text-[var(--toss-primary)]">3.</span> 10초 케이던스 단어 등록 & WebRTC 멀티모달 룸
+        <div class="toss-flat-card p-5 space-y-2">
+          <h3 class="font-bold text-base text-[var(--toss-text-primary)]">
+            3. 10초 케이던스 단어 등록 & WebRTC 멀티모달 룸
           </h3>
           <ul class="space-y-1.5 text-[var(--toss-text-secondary)] leading-relaxed pl-1">
-            <li>• <strong>케이던스 바(Cadence Bar) UI:</strong> 10초 동안 2초 주기로 10회 레퍼런스 샘플을 분할 캡처하는 가이드 제공 및 인메모리 고속 캐싱</li>
+            <li>• <strong>케이던스 바 UI:</strong> 10초 동안 2초 주기로 10회 레퍼런스 샘플을 분할 캡처하는 가이드 제공 및 인메모리 고속 캐싱</li>
             <li>• <strong>LiveKit WebRTC:</strong> 번호 기반 발신, 인커밍 폴링(3초), 세션 임대 상태 머신 구축 및 PiP 수어 영상·음성·채팅 통합 제어</li>
             <li>• <strong>접근성 인터랙션:</strong> iOS Safari 진동 피드백(ios-haptics) 및 Web Audio API 기반 DTMF 다이얼 톤 구현</li>
           </ul>
@@ -180,14 +165,10 @@
     </section>
 
     <!-- 4. 트러블 슈팅 -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
-      <div class="flex items-center gap-2">
-        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">🔧</span>
-        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">문제 해결 및 트러블 슈팅 (Troubleshooting)</h2>
-      </div>
-
-      <div class="space-y-3 text-xs sm:text-[13.5px]">
-        <div class="toss-subcard p-5 space-y-2">
+    <section class="space-y-4">
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">문제 해결 및 트러블 슈팅 (Troubleshooting)</h2>
+      <div class="space-y-3 text-sm">
+        <div class="toss-flat-card p-5 space-y-2">
           <p class="font-bold text-[var(--toss-text-primary)]">
             1. 무거운 시퀀스 모델 한계 → DTW 템플릿 매칭 전면 피벗
           </p>
@@ -197,7 +178,7 @@
           </div>
         </div>
 
-        <div class="toss-subcard p-5 space-y-2">
+        <div class="toss-flat-card p-5 space-y-2">
           <p class="font-bold text-[var(--toss-text-primary)]">
             2. 사용자 거리 및 위치 변화에 따른 인식률 저하
           </p>
@@ -207,32 +188,29 @@
           </div>
         </div>
 
-        <div class="toss-subcard p-5 space-y-2">
+        <div class="toss-flat-card p-5 space-y-2">
           <p class="font-bold text-[var(--toss-text-primary)]">
             3. 발화 종료 판별 지연 및 프레임 튐 노이즈 차단
           </p>
           <div class="text-[var(--toss-text-secondary)] leading-relaxed pl-1">
-            <p>• <strong>해결:</strong> 대기 시간을 1.5초(<code>HANDS_GONE_FLUSH_MS</code>)로 단축하고, 동일 후보 단어가 5프레임 이상 유지될 때만 확정하는 <code>REQUIRED_STREAK = 5</code> 가드 로직을 적용해 오발송 방지.</p>
+            <p>• <strong>해결:</strong> 대기 시간을 1.5초로 단축하고, 동일 후보 단어가 5프레임 이상 유지될 때만 확정하는 가드 로직을 적용해 오발송 방지.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 5. 성과 -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
-      <div class="flex items-center gap-2">
-        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">📈</span>
-        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">주요 성과 (Achievements)</h2>
-      </div>
-      <div class="toss-subcard p-5 space-y-2 text-xs sm:text-[13.5px] text-[var(--toss-text-secondary)] leading-relaxed">
+    <section class="space-y-3">
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">주요 성과 (Achievements)</h2>
+      <div class="toss-flat-card p-5 space-y-2 text-sm text-[var(--toss-text-secondary)] leading-relaxed">
         <p>• <strong>30fps 온디바이스 수어 인식 달성:</strong> 무설치 웹 환경에서 일반 웹캠만으로 실시간 시계열 랜드마크 추출 및 매칭 구현</p>
         <p>• <strong>문맥 기반 구어체 대화 UX:</strong> 12턴 대화 분석 LLM 파이프라인으로 기계적 단어 나열을 자연스러운 문장으로 변환</p>
         <p>• <strong>FSD 아키텍처 도입:</strong> Feature-Sliced Design 구조로 모듈 결합도를 낮추고 Biome/Steiger 기반 클린 코드 유지</p>
       </div>
     </section>
 
-    <!-- Bottom Navigation Card -->
-    <div class="toss-card p-5 flex justify-between items-center text-xs sm:text-sm">
+    <!-- Bottom Navigation -->
+    <div class="pt-6 border-t border-[var(--toss-border-subtle)] flex justify-between items-center text-sm">
       <a href="../index.html#projects" class="toss-btn-secondary !py-2.5 !px-4">
         <i data-lucide="chevron-left" class="w-4 h-4"></i>
         <span>메인 포트폴리오</span>

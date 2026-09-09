@@ -1,11 +1,11 @@
 /**
  * ==============================================================================
- * Green TDS (Toss Design System - Green Edition)
+ * Green TDS (Toss Design System - Seamless & Flat Edition)
  * Application Logic & Dynamic Component Rendering (app.js)
  * ==============================================================================
  */
 
-// Crisp Inline GitHub SVG (prevents Lucide missing icon console error)
+// Crisp Inline GitHub SVG (zero console errors, perfectly flat)
 const GITHUB_SVG = `
 <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
   <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
@@ -31,7 +31,7 @@ function initLucide() {
 }
 
 /**
- * 1. Theme Management (Light mode default for pristine Green Toss aesthetic)
+ * 1. Theme Management (Light mode default for pristine flat aesthetic)
  */
 function initTheme() {
   const themeToggleBtn = document.getElementById('theme-toggle');
@@ -86,9 +86,9 @@ function renderEducation() {
   if (!container || !PORTFOLIO_DATA?.education) return;
 
   container.innerHTML = PORTFOLIO_DATA.education.map(edu => `
-    <div class="toss-subcard p-5 sm:p-6 space-y-3">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-        <div class="flex items-center gap-2.5">
+    <div class="toss-flat-card p-6 space-y-2.5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+        <div class="flex items-center gap-2">
           <span class="toss-chip text-xs font-semibold">${edu.period}</span>
           <span class="text-xs text-[var(--toss-text-tertiary)] font-medium">재학 중</span>
         </div>
@@ -99,7 +99,7 @@ function renderEducation() {
         <p class="text-sm font-semibold text-[var(--toss-primary)] mt-0.5">${edu.major}</p>
       </div>
       ${edu.description ? `
-        <p class="text-xs sm:text-[13px] text-[var(--toss-text-secondary)] leading-relaxed pt-2.5 border-t border-[var(--toss-border-subtle)]">
+        <p class="text-xs sm:text-[13.5px] text-[var(--toss-text-secondary)] leading-relaxed pt-2 border-t border-[var(--toss-border-subtle)]">
           ${edu.description}
         </p>
       ` : ''}
@@ -108,7 +108,7 @@ function renderEducation() {
 }
 
 /**
- * 4. Tech Stack Rendering
+ * 4. Tech Stack Rendering (박스 제거, 글씨 잘림 방지, 로고 + 이름 + 숙련도 명도 텍스트)
  */
 function renderSkills() {
   const container = document.getElementById('skills-container');
@@ -119,25 +119,22 @@ function renderSkills() {
   container.innerHTML = categories.map(category => {
     const skillsList = PORTFOLIO_DATA.skills[category];
     return `
-      <div class="space-y-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-[var(--toss-primary)]"></span>
-          <h3 class="text-xs font-bold text-[var(--toss-text-secondary)] uppercase tracking-wider">
-            ${category}
-          </h3>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
+      <div class="space-y-2">
+        <h3 class="text-xs font-bold text-[var(--toss-text-tertiary)] uppercase tracking-wider pb-1">
+          ${category}
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-1">
           ${skillsList.map(skill => `
-            <div class="toss-subcard p-3 flex items-center justify-between gap-2">
-              <div class="flex items-center gap-2.5 overflow-hidden">
-                <div class="w-6 h-6 flex items-center justify-center text-lg shrink-0">
-                  ${skill.icon ? `<i class="${skill.icon}"></i>` : `<i data-lucide="check" class="w-4 h-4 text-[var(--toss-primary)]"></i>`}
+            <div class="toss-skill-row">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-5 h-5 flex items-center justify-center text-base shrink-0 text-[var(--toss-text-primary)]">
+                  ${skill.icon ? `<i class="${skill.icon}"></i>` : `<span class="w-1.5 h-1.5 rounded-full bg-[var(--toss-primary)]"></span>`}
                 </div>
-                <div class="truncate">
-                  <p class="text-xs font-bold text-[var(--toss-text-primary)] truncate">${skill.name}</p>
-                </div>
+                <span class="text-sm font-semibold text-[var(--toss-text-primary)] whitespace-normal break-words">${skill.name}</span>
               </div>
-              <span class="toss-chip !py-0.5 !px-2 !text-[10px] shrink-0 font-medium">${skill.level}</span>
+              <span class="text-xs font-semibold shrink-0 ${skill.level === 'Advanced' ? 'text-[var(--toss-primary)]' : 'text-[var(--toss-text-tertiary)]'}">
+                ${skill.level}
+              </span>
             </div>
           `).join('')}
         </div>
@@ -147,58 +144,35 @@ function renderSkills() {
 }
 
 /**
- * 5. Awards & Honors Rendering (상 이름 우선 세로 배치 및 클릭 시 프로젝트 리다이렉트)
+ * 5. Awards & Honors Rendering (세로 1줄, 박스 없이 콤팩트한 리스트, 중복 문구 제거)
  */
 function renderAwards() {
   const container = document.getElementById('awards-container');
   if (!container || !PORTFOLIO_DATA?.awards) return;
 
-  container.innerHTML = PORTFOLIO_DATA.awards.map(award => `
-    <div 
-      class="toss-award-card p-5 sm:p-6 flex flex-col justify-between space-y-4" 
-      onclick="location.href='${award.projectDetailUrl || '#'}'"
-      title="${award.project} 프로젝트 상세 분석 보러가기"
-    >
-      <div class="space-y-3">
-        <!-- 1. Top Badge (Solid Filled Color) & Date -->
-        <div class="flex items-center justify-between gap-2">
-          <span class="toss-award-badge">
-            ${award.badge}
-          </span>
-          <span class="text-xs font-mono text-[var(--toss-text-tertiary)]">${award.date}</span>
+  container.innerHTML = `
+    <div class="divide-y divide-[var(--toss-border-subtle)]">
+      ${PORTFOLIO_DATA.awards.map(award => `
+        <div class="toss-award-item space-y-1.5">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+            <div class="flex items-center gap-2.5 flex-wrap">
+              <span class="toss-award-badge-flat">${award.badge}</span>
+              <h3 class="text-base font-bold text-[var(--toss-text-primary)]">${award.title}</h3>
+            </div>
+            <span class="text-xs font-mono text-[var(--toss-text-tertiary)] shrink-0">${award.date}</span>
+          </div>
+          <p class="text-xs text-[var(--toss-text-tertiary)]">주최: ${award.organization}</p>
+          <p class="text-xs sm:text-[13.5px] text-[var(--toss-text-secondary)] leading-relaxed pt-0.5">
+            ${award.description}
+          </p>
         </div>
-
-        <!-- 2. Award Name (Top Title) -->
-        <h3 class="text-base sm:text-[17px] font-bold text-[var(--toss-text-primary)] leading-snug">
-          ${award.title}
-        </h3>
-
-        <!-- 3. Linked Project Pill -->
-        <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[var(--toss-primary-light)] text-[var(--toss-primary)] font-bold text-xs group">
-          <span>관련 프로젝트: ${award.project}</span>
-          <i data-lucide="chevron-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"></i>
-        </div>
-
-        <!-- 4. Description -->
-        <p class="text-xs sm:text-[13px] text-[var(--toss-text-secondary)] leading-relaxed">
-          ${award.description}
-        </p>
-      </div>
-
-      <!-- 5. Footer (Host Organization & Direct Link Action) -->
-      <div class="pt-3 border-t border-[var(--toss-border-subtle)] text-xs text-[var(--toss-text-tertiary)] flex items-center justify-between">
-        <span>주최: ${award.organization}</span>
-        <span class="text-[var(--toss-primary)] font-bold flex items-center gap-1 hover:underline">
-          <span>상세 분석 보기</span>
-          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-        </span>
-      </div>
+      `).join('')}
     </div>
-  `).join('');
+  `;
 }
 
 /**
- * 6. Projects Rendering (Featured Case Studies 4개 + Other Projects 5개)
+ * 6. Projects Rendering (Featured 4개 + Other 5개, Flat & Seamless)
  */
 function renderProjects(filterCategory = 'all') {
   renderFeaturedProjects(filterCategory);
@@ -207,7 +181,7 @@ function renderProjects(filterCategory = 'all') {
 }
 
 /**
- * 6-1. Featured Projects (주요 프로젝트 4개 - 이미지 포함)
+ * 6-1. Featured Projects (주요 프로젝트 4개 - 플랫 카드, 호버 시 배경색만 변경)
  */
 function renderFeaturedProjects(filterCategory) {
   const container = document.getElementById('projects-grid');
@@ -230,39 +204,38 @@ function renderFeaturedProjects(filterCategory) {
   if (section) section.classList.remove('hidden');
 
   container.innerHTML = filtered.map(proj => `
-    <article class="toss-card toss-card-interactive p-5 sm:p-6 flex flex-col justify-between space-y-4 group">
+    <article class="toss-flat-card p-6 flex flex-col justify-between space-y-4">
       <div>
-        <!-- Project Screenshot / Image Container -->
-        <div class="toss-project-image-wrap mb-4">
-          <img src="${proj.image}" alt="${proj.title} 스크린샷" loading="lazy">
+        <!-- Screenshot Image -->
+        <div class="w-full h-48 rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 mb-4">
+          <img src="${proj.image}" alt="${proj.title}" class="w-full h-full object-cover" loading="lazy">
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mb-2">
           ${proj.award ? `
-            <div class="absolute top-3 left-3 bg-[#00B050] text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow-md flex items-center gap-1">
-              <span>${proj.award}</span>
-            </div>
-          ` : ''}
-          <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white text-[11px] font-mono px-2.5 py-0.5 rounded-md">
-            ${proj.period}
-          </div>
+            <span class="toss-award-badge-flat text-[11px]">${proj.award}</span>
+          ` : `
+            <span class="text-xs text-[var(--toss-text-tertiary)] font-medium">${proj.categoryName}</span>
+          `}
+          <span class="text-xs font-mono text-[var(--toss-text-tertiary)]">${proj.period}</span>
         </div>
 
         <!-- Title & Subtitle -->
-        <div class="space-y-1">
-          <h3 class="text-lg sm:text-xl font-bold text-[var(--toss-text-primary)] group-hover:text-[var(--toss-primary)] transition-colors">
-            <a href="${proj.detailPage}">
-              ${proj.title}
-            </a>
-          </h3>
-          <p class="text-xs font-semibold text-[var(--toss-primary)]">
-            ${proj.subtitle}
-          </p>
-        </div>
+        <h3 class="text-lg font-bold text-[var(--toss-text-primary)]">
+          <a href="${proj.detailPage}" class="hover:text-[var(--toss-primary)] transition-colors">
+            ${proj.title}
+          </a>
+        </h3>
+        <p class="text-xs font-semibold text-[var(--toss-primary)] mt-0.5 mb-2.5">
+          ${proj.subtitle}
+        </p>
 
         <!-- Summary -->
-        <p class="text-xs sm:text-[13px] text-[var(--toss-text-secondary)] leading-relaxed mt-2.5 mb-3.5 line-clamp-3">
+        <p class="text-xs sm:text-[13.5px] text-[var(--toss-text-secondary)] leading-relaxed mb-3 line-clamp-3">
           ${proj.summary}
         </p>
 
-        <!-- Tech Tags -->
+        <!-- Tags -->
         <div class="flex flex-wrap gap-1.5 mb-2">
           ${proj.tags.slice(0, 5).map(tag => `
             <span class="toss-chip-subtle !py-1 !px-2.5 !text-[11px]">${tag}</span>
@@ -275,17 +248,17 @@ function renderFeaturedProjects(filterCategory) {
         </div>
       </div>
 
-      <!-- Action Footer -->
-      <div class="pt-4 border-t border-[var(--toss-border-subtle)] space-y-2">
-        <a href="${proj.detailPage}" class="toss-btn-secondary !w-full justify-between group !py-2.5 !px-4 !text-xs !rounded-xl">
-          <span class="font-bold">상세 분석 케이스 스터디</span>
-          <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-hover:translate-x-1 text-[var(--toss-primary)]"></i>
+      <!-- Footer Action -->
+      <div class="pt-3 border-t border-[var(--toss-border-subtle)] space-y-2">
+        <a href="${proj.detailPage}" class="toss-btn-secondary !w-full justify-between !py-2.5 !px-4 !text-xs">
+          <span>상세 분석 보기</span>
+          <i data-lucide="chevron-right" class="w-4 h-4"></i>
         </a>
 
         ${(proj.links || []).filter(l => l.url && l.url.startsWith('http')).length > 0 ? `
           <div class="flex items-center justify-end gap-3 pt-1">
             ${proj.links.filter(l => l.url.startsWith('http')).map(link => `
-              <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--toss-text-tertiary)] hover:text-[var(--toss-primary)] flex items-center gap-1.5 font-medium transition-colors">
+              <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--toss-text-tertiary)] hover:text-[var(--toss-primary)] flex items-center gap-1.5 transition-colors">
                 ${GITHUB_SVG}
                 <span>${link.label || 'GitHub'}</span>
               </a>
@@ -298,7 +271,7 @@ function renderFeaturedProjects(filterCategory) {
 }
 
 /**
- * 6-2. Other Projects (기타 실전 프로젝트 5개)
+ * 6-2. Other Projects (기타 프로젝트 5개 - 플랫 카드)
  */
 function renderOtherProjects(filterCategory) {
   const container = document.getElementById('other-projects-grid');
@@ -327,7 +300,7 @@ function renderOtherProjects(filterCategory) {
   if (section) section.classList.remove('hidden');
 
   container.innerHTML = filtered.map(proj => `
-    <div class="toss-subcard p-5 sm:p-6 flex flex-col justify-between space-y-3 hover:border-[var(--toss-primary)] transition-all">
+    <div class="toss-flat-card p-6 flex flex-col justify-between space-y-3">
       <div class="space-y-2">
         <div class="flex items-center justify-between gap-2">
           <span class="toss-chip text-[11px] font-bold">${proj.subtitle}</span>
@@ -338,11 +311,10 @@ function renderOtherProjects(filterCategory) {
           ${proj.title}
         </h4>
 
-        <p class="text-xs sm:text-[13px] text-[var(--toss-text-secondary)] leading-relaxed">
+        <p class="text-xs sm:text-[13.5px] text-[var(--toss-text-secondary)] leading-relaxed">
           ${proj.summary}
         </p>
 
-        <!-- Highlights Bullet Points -->
         ${proj.highlights && proj.highlights.length > 0 ? `
           <div class="pt-2 space-y-1.5 text-xs text-[var(--toss-text-secondary)]">
             ${proj.highlights.slice(0, 3).map(h => `
@@ -354,12 +326,11 @@ function renderOtherProjects(filterCategory) {
           </div>
         ` : ''}
 
-        <!-- Deliverables (for SSURENT etc) -->
         ${proj.deliverables ? `
           <div class="pt-2 flex flex-wrap gap-1.5">
             ${proj.deliverables.map(d => `
-              <span class="px-2 py-0.5 rounded-md bg-[var(--toss-card)] border border-[var(--toss-border)] text-[11px] font-medium text-[var(--toss-text-primary)]">
-                📄 ${d}
+              <span class="px-2.5 py-1 rounded-md bg-[var(--toss-bg)] text-[11px] font-medium text-[var(--toss-text-primary)]">
+                ${d}
               </span>
             `).join('')}
           </div>
@@ -383,13 +354,13 @@ function renderExperiences() {
   if (!container || !PORTFOLIO_DATA?.experiences) return;
 
   container.innerHTML = PORTFOLIO_DATA.experiences.map(exp => `
-    <div class="toss-subcard p-5 space-y-2">
+    <div class="toss-flat-card p-5 sm:p-6 space-y-2">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-        <h3 class="text-sm sm:text-base font-bold text-[var(--toss-text-primary)]">${exp.title}</h3>
+        <h3 class="text-base font-bold text-[var(--toss-text-primary)]">${exp.title}</h3>
         <span class="toss-chip text-[11px] font-mono self-start sm:self-auto">${exp.period}</span>
       </div>
       <p class="text-xs font-bold text-[var(--toss-primary)]">${exp.organization} • ${exp.role}</p>
-      <p class="text-xs text-[var(--toss-text-secondary)] leading-relaxed pt-1">
+      <p class="text-xs sm:text-[13.5px] text-[var(--toss-text-secondary)] leading-relaxed pt-1">
         ${exp.description}
       </p>
     </div>
@@ -397,10 +368,9 @@ function renderExperiences() {
 }
 
 /**
- * 8. Event Listeners & Interactions
+ * 8. Event Listeners
  */
 function initEventListeners() {
-  // Segmented Control Filters
   const filterBtns = document.querySelectorAll('#project-filters button');
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -412,13 +382,12 @@ function initEventListeners() {
     });
   });
 
-  // Copy Email Handlers
   const handleCopyEmail = () => {
     const email = PORTFOLIO_DATA?.profile?.email || 'poppppp00@gmail.com';
     navigator.clipboard.writeText(email).then(() => {
-      showToast(`이메일 주소(${email})가 복사되었습니다 🌿`);
+      showToast(`이메일 주소(${email})가 복사되었습니다.`);
     }).catch(() => {
-      showToast('이메일 복사에 실패했습니다. 직접 복사해 주세요.');
+      showToast('이메일 복사에 실패했습니다.');
     });
   };
 
@@ -426,7 +395,6 @@ function initEventListeners() {
   document.getElementById('footer-copy-email-btn')?.addEventListener('click', handleCopyEmail);
   document.getElementById('mobile-sticky-copy-btn')?.addEventListener('click', handleCopyEmail);
 
-  // Mobile Menu Dropdown
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
@@ -443,7 +411,7 @@ function initEventListeners() {
 }
 
 /**
- * 9. Toast Floating Notification
+ * 9. Toast Notification (Flat)
  */
 let toastTimeout = null;
 function showToast(message) {

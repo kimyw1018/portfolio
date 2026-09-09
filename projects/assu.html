@@ -17,9 +17,8 @@
           colors: {
             toss: {
               bg: 'var(--toss-bg)',
-              card: 'var(--toss-card)',
-              subtle: 'var(--toss-card-subtle)',
-              highlight: 'var(--toss-card-highlight)',
+              surface: 'var(--toss-surface)',
+              surfaceHover: 'var(--toss-surface-hover)',
               border: 'var(--toss-border)',
               borderSubtle: 'var(--toss-border-subtle)',
               primary: 'var(--toss-primary)',
@@ -27,7 +26,6 @@
               active: 'var(--toss-primary-active)',
               light: 'var(--toss-primary-light)',
               lightHover: 'var(--toss-primary-light-hover)',
-              lightBorder: 'var(--toss-primary-light-border)',
               text: 'var(--toss-text-primary)',
               body: 'var(--toss-text-secondary)',
               sub: 'var(--toss-text-tertiary)',
@@ -41,10 +39,10 @@
   <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="antialiased selection:bg-[#00B050] selection:text-white pb-12">
+<body class="antialiased selection:bg-[#00B050] selection:text-white pb-16">
 
-  <!-- 🌿 Toss Minimal Header -->
-  <header class="sticky top-0 z-40 backdrop-blur-md bg-[var(--toss-card)]/85 border-b border-[var(--toss-border)] transition-colors">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-[var(--toss-bg)]/90 border-b border-[var(--toss-border)] transition-colors">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="../index.html#projects" class="toss-btn-secondary !py-2 !px-3.5 !text-xs !rounded-full">
         <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
@@ -52,11 +50,11 @@
       </a>
 
       <div class="flex items-center gap-2">
-        <button id="theme-toggle" aria-label="테마 전환" class="w-9 h-9 rounded-full bg-[var(--toss-card-subtle)] border border-[var(--toss-border)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
+        <button id="theme-toggle" aria-label="테마 전환" class="w-9 h-9 rounded-full bg-[var(--toss-surface)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
           <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
         </button>
-        <a href="https://github.com/kimyw1018/ASSU_BE" target="_blank" class="w-9 h-9 rounded-full bg-[var(--toss-card-subtle)] border border-[var(--toss-border)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
+        <a href="https://github.com/kimyw1018/ASSU_BE" target="_blank" class="w-9 h-9 rounded-full bg-[var(--toss-surface)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
           <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
           </svg>
@@ -65,30 +63,29 @@
     </div>
   </header>
 
-  <!-- 🌿 Main Case Study Container -->
-  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-6">
+  <!-- Main Container -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10">
     
-    <!-- Hero Title Card -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
+    <!-- Title & Image -->
+    <section class="space-y-4">
       <div class="flex flex-wrap items-center gap-2">
-        <span class="toss-award-badge">
-          🏆 2026 숭실대 SW공모전 총장상
+        <span class="toss-award-badge-flat">
+          2026 숭실대 SW공모전 총장상
         </span>
         <span class="toss-chip-subtle text-xs font-mono">2025.03 ~ 진행 중</span>
         <span class="toss-chip-subtle text-xs">Fullstack (Spring Boot & Android)</span>
       </div>
 
       <div>
-        <h1 class="text-2xl sm:text-3xl font-bold text-[var(--toss-text-primary)] tracking-tight">
+        <h1 class="text-3xl font-bold text-[var(--toss-text-primary)] tracking-tight">
           A:SSU (학생-매장 제휴 관리 플랫폼)
         </h1>
-        <p class="text-sm sm:text-base font-semibold text-[var(--toss-primary)] mt-1.5 leading-relaxed">
+        <p class="text-base font-semibold text-[var(--toss-primary)] mt-1.5 leading-relaxed">
           숭실대학교 학생·업체·학생회를 연결하는 제휴 혜택 인증 및 매장 순위·통계 대시보드
         </p>
       </div>
 
-      <!-- Project Screenshot Image -->
-      <div class="w-full rounded-2xl overflow-hidden border border-[var(--toss-border-subtle)] shadow-sm bg-gray-50 dark:bg-gray-900 mt-4 max-h-96">
+      <div class="w-full rounded-2xl overflow-hidden bg-[var(--toss-surface)] mt-4">
         <img src="img/ASSU – 대학생 제휴 어플.png" alt="A:SSU 서비스 대표 화면" class="w-full h-full object-cover">
       </div>
 
@@ -106,14 +103,10 @@
       </div>
     </section>
 
-    <!-- 1. 프로젝트 개요 및 담당 역할 -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
-      <div class="flex items-center gap-2">
-        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">📌</span>
-        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">프로젝트 개요 및 담당 역할</h2>
-      </div>
-
-      <div class="toss-callout text-xs sm:text-[13.5px] leading-relaxed space-y-2">
+    <!-- 1. 프로젝트 개요 및 역할 -->
+    <section class="space-y-3">
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">프로젝트 개요 및 담당 역할</h2>
+      <div class="toss-callout text-sm leading-relaxed space-y-2">
         <p>
           <strong>담당 업무:</strong> 학생-매장 간 제휴 서비스의 매장 순위 및 통계 시스템 구현, 파트너 매장 실시간 순위 추적 및 사용량 분석 기능 구현, 관리자용 통계 시스템과 데이터 시각화 통합, <strong>백엔드 API 설계부터 Android 클라이언트 구현까지 풀스택 전담</strong>.
         </p>
@@ -121,25 +114,21 @@
     </section>
 
     <!-- 2. Part 1: Android Client -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
-      <div class="flex items-center gap-2">
-        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">📱</span>
-        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">Part 1. [Android] 대시보드 클라이언트 구현</h2>
-      </div>
-
-      <div class="space-y-3.5 text-xs sm:text-[13.5px]">
-        <div class="toss-subcard p-5 space-y-2">
-          <h3 class="font-bold text-sm sm:text-base text-[var(--toss-text-primary)]">주요 기술적 기여</h3>
+    <section class="space-y-4">
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">Part 1. [Android] 대시보드 클라이언트 구현</h2>
+      <div class="space-y-3 text-sm">
+        <div class="toss-flat-card p-5 space-y-2">
+          <h3 class="font-bold text-base text-[var(--toss-text-primary)]">주요 기술적 기여</h3>
           <ul class="space-y-1.5 text-[var(--toss-text-secondary)] leading-relaxed pl-1">
-            <li>• <strong>타입 안전 상태 관리 시스템:</strong> <code>Sealed Interface</code> 기반 Exhaustive State Management 및 <code>StateFlow</code> 반응형 아키텍처로 <strong>런타임 상태 에러 0건</strong> 달성 및 UI 깜빡임 제거</li>
+            <li>• <strong>타입 안전 상태 관리:</strong> <code>Sealed Interface</code> 기반 Exhaustive State Management 및 <code>StateFlow</code> 반응형 아키텍처로 런타임 상태 에러 0건 달성 및 UI 깜빡임 제거</li>
             <li>• <strong>Clean Architecture 멀티 레이어:</strong> Presentation / Domain / Data 레이어 완전 분리, Repository + UseCase 패턴 적용으로 비즈니스 로직 캡슐화</li>
             <li>• <strong>병렬 API 호출 최적화:</strong> Kotlin Coroutines <code>async/await</code>를 활용해 독립적인 3개 API 동시 호출 및 <code>coroutineScope</code> 부분 실패 방어</li>
             <li>• <strong>Retrofit + Hilt 네트워크 계층:</strong> Moshi JSON 직렬화, SharedPreferences 토큰을 주입하는 AuthInterceptor, Hilt 모듈 분리 구성</li>
           </ul>
         </div>
 
-        <div class="toss-subcard p-5 space-y-2.5">
-          <h3 class="font-bold text-sm sm:text-base text-[var(--toss-text-primary)]">안드로이드 트러블 슈팅 (Deep Dive)</h3>
+        <div class="toss-flat-card p-5 space-y-2.5">
+          <h3 class="font-bold text-base text-[var(--toss-text-primary)]">안드로이드 트러블 슈팅</h3>
           <div class="space-y-2 text-[var(--toss-text-secondary)] leading-relaxed">
             <div>
               <p class="font-bold text-[var(--toss-text-primary)]">• ViewModel 상태 불일치 에러:</p>
@@ -147,7 +136,7 @@
             </div>
             <div>
               <p class="font-bold text-[var(--toss-text-primary)]">• MPAndroidChart UI 미반영 동기화 문제:</p>
-              <p class="pl-2">주차 선택 시 차트 색상이 갱신되지 않던 이슈를 Fragment의 StateFlow Observation 추가 및 <code>invalidate()</code> 연동, 둥근 모서리 커스텀 렌더러(<code>RoundedBarChartRenderer</code>) 적용으로 해결.</p>
+              <p class="pl-2">주차 선택 시 차트 색상이 갱신되지 않던 이슈를 Fragment의 StateFlow Observation 추가 및 <code>invalidate()</code> 연동, 둥근 모서리 커스텀 렌더러 적용으로 해결.</p>
             </div>
           </div>
         </div>
@@ -155,25 +144,21 @@
     </section>
 
     <!-- 3. Part 2: Spring Boot Backend & Cloud -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
-      <div class="flex items-center gap-2">
-        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">⚙️</span>
-        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">Part 2. [Spring Boot] 백엔드 API & 클라우드 인프라</h2>
-      </div>
-
-      <div class="space-y-3.5 text-xs sm:text-[13.5px]">
-        <div class="toss-subcard p-5 space-y-2">
-          <h3 class="font-bold text-sm sm:text-base text-[var(--toss-text-primary)]">주요 기술적 기여</h3>
+    <section class="space-y-4">
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">Part 2. [Spring Boot] 백엔드 API & 클라우드 인프라</h2>
+      <div class="space-y-3 text-sm">
+        <div class="toss-flat-card p-5 space-y-2">
+          <h3 class="font-bold text-base text-[var(--toss-text-primary)]">주요 기술적 기여</h3>
           <ul class="space-y-1.5 text-[var(--toss-text-secondary)] leading-relaxed pl-1">
             <li>• <strong>도메인 모델 & 통계 집계 최적화:</strong> Student-Store 관계 정규화 및 CTE, <code>RANK() OVER</code> Window Function으로 주간 순위 단일 쿼리 일괄 집계 (복합 인덱스 설계로 O(N) → O(log N) 개선)</li>
             <li>• <strong>공간 인덱싱(GIS) 지도 최적화:</strong> WKT 뷰포트 변환 후 PostGIS R-Tree 인덱스로 공간 바운딩 박스 필터링만 DB에 전담시키고, 권한 검증은 WAS 메모리(HashSet O(1))로 분리하여 DB CPU 병목 완화</li>
-            <li>• <strong>비관적 락(Pessimistic Lock) 동시성 제어:</strong> 제휴 사용량 동시 업데이트 시 집계 누락(Lost Update) 방지를 위해 <code>SELECT ... FOR UPDATE</code> 행 단위 잠금 적용</li>
-            <li>• <strong>K3s 기반 GitOps 파이프라인:</strong> GitHub Actions → Manifest 저장소 커밋 → ArgoCD 3-Node 클러스터 자동 반영(selfHeal) 및 Git Submodule 민감 설정 격리</li>
+            <li>• <strong>비관적 락(Pessimistic Lock) 동시성 제어:</strong> 제휴 사용량 동시 업데이트 시 집계 누락 방지를 위해 <code>SELECT ... FOR UPDATE</code> 행 단위 잠금 적용</li>
+            <li>• <strong>K3s 기반 GitOps 파이프라인:</strong> GitHub Actions → Manifest 저장소 커밋 → ArgoCD 3-Node 클러스터 자동 반영 및 Git Submodule 민감 설정 격리</li>
           </ul>
         </div>
 
-        <div class="toss-subcard p-5 space-y-2.5">
-          <h3 class="font-bold text-sm sm:text-base text-[var(--toss-text-primary)]">백엔드 & 인프라 트러블 슈팅 (Deep Dive)</h3>
+        <div class="toss-flat-card p-5 space-y-2.5">
+          <h3 class="font-bold text-base text-[var(--toss-text-primary)]">백엔드 & 인프라 트러블 슈팅</h3>
           <div class="space-y-2 text-[var(--toss-text-secondary)] leading-relaxed">
             <div>
               <p class="font-bold text-[var(--toss-text-primary)]">• 공간 쿼리 DB CPU 과부하 및 N+1 문제:</p>
@@ -192,8 +177,8 @@
       </div>
     </section>
 
-    <!-- Bottom Navigation Card -->
-    <div class="toss-card p-5 flex justify-between items-center text-xs sm:text-sm">
+    <!-- Bottom Navigation -->
+    <div class="pt-6 border-t border-[var(--toss-border-subtle)] flex justify-between items-center text-sm">
       <a href="naru.html" class="toss-btn-secondary !py-2.5 !px-4">
         <i data-lucide="chevron-left" class="w-4 h-4"></i>
         <span>이전: Naru</span>

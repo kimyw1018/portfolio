@@ -1,90 +1,79 @@
 /* ==============================================================================
-   Green TDS (Toss Design System - Green Edition)
-   Enhanced Readability, Balanced Spacing & Natural Korean Typography
+   Green TDS (Toss Design System - Seamless & Flat Edition)
+   No Shadows, No Chunky Boxes, Seamless Canvas Flow & Refined Flat Aesthetics
    ============================================================================== */
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 :root {
-  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
 
-  /* 🌿 Green TDS Light Mode Palette (Default) */
-  --toss-bg: #F2F4F6;                 /* Toss Soft Canvas */
-  --toss-card: #FFFFFF;               /* Pure White Card */
-  --toss-card-subtle: #F9FAFB;        /* Subtle Nested Card */
-  --toss-card-highlight: #F4FBF7;     /* Soft Green Tint Surface */
+  /* Seamless Canvas Palette (No artificial card borders) */
+  --toss-bg: #FFFFFF;                 /* Clean Pure White Canvas */
+  --toss-surface: #F8F9FA;            /* Soft flat surface for interactive rows/cards */
+  --toss-surface-hover: #EFF2F5;      /* Flat hover state (background shift only, no shadow, no border) */
+  --toss-surface-subtle: #F2F4F6;
   
-  --toss-primary: #00B050;            /* Primary Signature Green */
-  --toss-primary-hover: #009643;      /* Primary Green Hover */
-  --toss-primary-active: #007A37;     /* Primary Green Active */
+  --toss-primary: #00B050;            /* Signature Primary Green */
+  --toss-primary-hover: #009643;
+  --toss-primary-active: #007A37;
   
-  --toss-primary-light: #E6F7ED;      /* Sub Green / Pill / Secondary Button */
-  --toss-primary-light-hover: #D4F3E1;/* Sub Green Hover */
-  --toss-primary-light-border: #B7E8C9;
+  --toss-primary-light: #E6F7ED;      /* Sub Green / Flat Pill */
+  --toss-primary-light-hover: #D4F3E1;
   
-  --toss-border: #E5E8EB;             /* Crisp Soft Border */
-  --toss-border-subtle: #EDF0F3;      /* Ultra Subtle Border */
+  --toss-border: #EAECEF;             /* Subtle divider line */
+  --toss-border-subtle: #F2F4F6;
   
-  --toss-text-primary: #191F28;       /* Primary Charcoal Black (High Contrast) */
-  --toss-text-secondary: #4E5968;     /* Secondary Explanatory Grey */
-  --toss-text-tertiary: #8B95A1;      /* Tertiary Metadata Light Grey */
+  --toss-text-primary: #191F28;       /* Primary Charcoal Black */
+  --toss-text-secondary: #4E5968;     /* Secondary Gray */
+  --toss-text-tertiary: #8B95A1;      /* Tertiary Gray */
   
   --toss-status-success: #00B050;
   --toss-status-warning: #FFB800;
   --toss-status-danger: #F04452;
-
-  --toss-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
-  --toss-shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
-  --toss-shadow-float: 0 16px 36px -4px rgba(0, 176, 80, 0.12), 0 8px 18px -4px rgba(0, 0, 0, 0.04);
-  --toss-shadow-toast: 0 12px 28px rgba(0, 0, 0, 0.16);
 }
 
 html.dark {
-  /* 🌿 Green TDS Dark Mode Palette */
-  --toss-bg: #111215;                 /* Deep Matte Charcoal Canvas */
-  --toss-card: #1D1E24;               /* Elevated Card Surface */
-  --toss-card-subtle: #252730;        /* Subtle Nested Card Surface */
-  --toss-card-highlight: #14281E;     /* Dark Green Tinted Surface */
+  /* Dark Canvas */
+  --toss-bg: #121316;
+  --toss-surface: #1B1D22;
+  --toss-surface-hover: #24272E;
+  --toss-surface-subtle: #17181C;
   
-  --toss-primary: #10B981;            /* Emerald Bright Green for High Contrast */
+  --toss-primary: #10B981;
   --toss-primary-hover: #059669;
   --toss-primary-active: #047857;
   
-  --toss-primary-light: #153322;      /* Dark Light-Green Pill */
-  --toss-primary-light-hover: #1D4630;
-  --toss-primary-light-border: #23583C;
+  --toss-primary-light: #162E21;
+  --toss-primary-light-hover: #1E3F2E;
   
-  --toss-border: #2C2E38;
-  --toss-border-subtle: #22242D;
+  --toss-border: #272A31;
+  --toss-border-subtle: #1E2026;
   
   --toss-text-primary: #F9FAFB;
-  --toss-text-secondary: #B0B8C1;
-  --toss-text-tertiary: #6B7684;
+  --toss-text-secondary: #A4ACB7;
+  --toss-text-tertiary: #67717E;
   
   --toss-status-success: #10B981;
   --toss-status-warning: #FBBF24;
   --toss-status-danger: #F87171;
-
-  --toss-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
-  --toss-shadow-card: 0 6px 24px -2px rgba(0, 0, 0, 0.4);
-  --toss-shadow-float: 0 16px 36px -4px rgba(16, 185, 129, 0.15), 0 8px 18px -4px rgba(0, 0, 0, 0.5);
-  --toss-shadow-toast: 0 12px 32px rgba(0, 0, 0, 0.5);
 }
 
 /* ==============================================================================
-   Base Resets & Typography (Natural Korean Readability, Relaxed Line Heights)
+   Global Reset & Zero Shadows (그림자 완전 제거)
    ============================================================================== */
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   font-family: var(--font-sans);
+  box-shadow: none !important; /* 모든 그림자 원천 차단 */
 }
 
 body {
   background-color: var(--toss-bg);
   color: var(--toss-text-primary);
   line-height: 1.65;
-  letter-spacing: -0.01em; /* 자연스럽고 쾌적한 가독성 */
-  transition: background-color 0.25s ease, color 0.25s ease;
+  letter-spacing: -0.01em;
+  transition: background-color 0.2s ease, color 0.2s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -95,8 +84,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -113,100 +102,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==============================================================================
-   Green TDS Core Components
+   Seamless Section & Card System (박스 형태 제거, 페이지 연속성 확보)
    ============================================================================== */
 
-/* 24px Rounded White Card */
-.toss-card {
-  background-color: var(--toss-card);
-  border-radius: 24px;
-  border: 1px solid var(--toss-border);
-  box-shadow: var(--toss-shadow-card);
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.22s ease;
+/* Section wrapper: no artificial outer box boundaries */
+.toss-section {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--toss-border-subtle);
 }
 
-.toss-card-interactive {
-  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 0.24s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.24s ease;
+.toss-section:last-child {
+  border-bottom: none;
 }
 
-.toss-card-interactive:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--toss-shadow-float);
-  border-color: var(--toss-primary);
-}
-
-/* Nested Sub-Card */
-.toss-subcard {
-  background-color: var(--toss-card-subtle);
-  border-radius: 18px;
-  border: 1px solid var(--toss-border-subtle);
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.toss-subcard:hover {
-  border-color: var(--toss-border);
-}
-
-/* Interactive Award Card */
-.toss-award-card {
-  background-color: var(--toss-card-subtle);
+/* Flat Content Card (Soft background, no border, no shadow) */
+.toss-flat-card {
+  background-color: var(--toss-surface);
   border-radius: 20px;
-  border: 1px solid var(--toss-border-subtle);
-  cursor: pointer;
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.22s ease, 
-              box-shadow 0.22s ease;
+  border: none;
+  transition: background-color 0.18s ease;
 }
 
-.toss-award-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--toss-primary);
-  box-shadow: var(--toss-shadow-float);
+.toss-flat-card:hover {
+  background-color: var(--toss-surface-hover);
 }
 
-/* Award Badge (Solid Filled, High Contrast in Light & Dark Mode) */
-.toss-award-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 13px;
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: 700;
-  background-color: var(--toss-primary);
-  color: #FFFFFF !important;
-  box-shadow: 0 2px 8px rgba(0, 176, 80, 0.25);
-  line-height: 1.2;
-}
+/* ==============================================================================
+   Flat Action Buttons (테두리와 내부 색상 일치, 그림자 없음)
+   ============================================================================== */
 
-/* Project Image Thumbnail Container */
-.toss-project-image-wrap {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  border-radius: 16px;
-  overflow: hidden;
-  background-color: var(--toss-card-subtle);
-  border: 1px solid var(--toss-border-subtle);
-}
-
-.toss-project-image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  transition: transform 0.35s ease;
-}
-
-.toss-card:hover .toss-project-image-wrap img {
-  transform: scale(1.03);
-}
-
-/* Green Action Button (Primary) */
+/* Primary Button: Solid Green, border and background match */
 .toss-btn-primary {
   display: inline-flex;
   align-items: center;
@@ -217,25 +142,24 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   font-size: 14px;
   padding: 12px 20px;
-  border-radius: 14px;
-  border: none;
+  border-radius: 12px;
+  border: 1px solid var(--toss-primary);
   cursor: pointer;
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px 0 rgba(0, 176, 80, 0.28);
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
 }
 
 .toss-btn-primary:hover {
   background-color: var(--toss-primary-hover);
-  box-shadow: 0 6px 20px 0 rgba(0, 176, 80, 0.36);
-  transform: translateY(-1px);
+  border-color: var(--toss-primary-hover);
 }
 
 .toss-btn-primary:active {
   background-color: var(--toss-primary-active);
+  border-color: var(--toss-primary-active);
   transform: scale(0.98);
 }
 
-/* Secondary Button (Light Green + Primary Green Text) */
+/* Secondary Button: Solid Light Green, border and background match */
 .toss-btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -246,22 +170,22 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   font-size: 14px;
   padding: 12px 20px;
-  border-radius: 14px;
-  border: 1px solid var(--toss-primary-light-border);
+  border-radius: 12px;
+  border: 1px solid var(--toss-primary-light);
   cursor: pointer;
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
 }
 
 .toss-btn-secondary:hover {
   background-color: var(--toss-primary-light-hover);
-  transform: translateY(-1px);
+  border-color: var(--toss-primary-light-hover);
 }
 
 .toss-btn-secondary:active {
   transform: scale(0.98);
 }
 
-/* Green TDS Pill Chip */
+/* Flat Chip (No border contrast) */
 .toss-chip {
   display: inline-flex;
   align-items: center;
@@ -272,7 +196,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   background-color: var(--toss-primary-light);
   color: var(--toss-primary);
-  border: 1px solid var(--toss-primary-light-border);
+  border: 1px solid var(--toss-primary-light);
 }
 
 .toss-chip-subtle {
@@ -283,22 +207,70 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 9999px;
   font-size: 12px;
   font-weight: 500;
-  background-color: var(--toss-card-subtle);
+  background-color: var(--toss-surface);
   color: var(--toss-text-secondary);
-  border: 1px solid var(--toss-border);
+  border: 1px solid var(--toss-surface);
 }
 
-/* Callout Box (Soft Green Border & Background) */
+/* ==============================================================================
+   Awards Section (세로 한 줄, 박스 없이 콤팩트한 리스트 형태)
+   ============================================================================== */
+.toss-award-item {
+  padding: 18px 12px;
+  border-bottom: 1px solid var(--toss-border-subtle);
+  transition: background-color 0.15s ease;
+  border-radius: 14px;
+}
+
+.toss-award-item:last-child {
+  border-bottom: none;
+}
+
+.toss-award-item:hover {
+  background-color: var(--toss-surface);
+}
+
+.toss-award-badge-flat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: var(--toss-primary);
+  color: #FFFFFF !important;
+  border: 1px solid var(--toss-primary);
+}
+
+/* ==============================================================================
+   Tech Stack (박스 제거, 로고 + 이름 + 숙련도 명도 텍스트만 유지)
+   ============================================================================== */
+.toss-skill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  transition: background-color 0.15s ease;
+}
+
+.toss-skill-row:hover {
+  background-color: var(--toss-surface);
+}
+
+/* Callout Box */
 .toss-callout {
   background-color: var(--toss-primary-light);
   border-left: 4px solid var(--toss-primary);
-  border-radius: 0 16px 16px 0;
+  border-radius: 0 12px 12px 0;
   padding: 18px 22px;
   color: var(--toss-text-primary);
   line-height: 1.65;
 }
 
-/* Toast Floating Component */
+/* Toast Floating Component (Flat) */
 .toss-toast {
   position: fixed;
   bottom: 32px;
@@ -315,14 +287,15 @@ h1, h2, h3, h4, h5, h6 {
   color: #FFFFFF;
   font-size: 13.5px;
   font-weight: 500;
-  box-shadow: var(--toss-shadow-toast);
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease;
+  border: 1px solid #191F28;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
   pointer-events: none;
 }
 
 html.dark .toss-toast {
   background-color: #FFFFFF;
   color: #191F28;
+  border: 1px solid #FFFFFF;
 }
 
 .toss-toast.show {
@@ -330,12 +303,12 @@ html.dark .toss-toast {
   opacity: 1;
 }
 
-/* Segmented Control / Tab Container */
+/* Segmented Control / Tab Container (Flat) */
 .toss-segmented-control {
   display: inline-flex;
   padding: 4px;
-  background-color: var(--toss-card-subtle);
-  border: 1px solid var(--toss-border);
+  background-color: var(--toss-surface);
+  border: 1px solid var(--toss-surface);
   border-radius: 9999px;
   gap: 2px;
 }
@@ -349,15 +322,15 @@ html.dark .toss-toast {
   border: none;
   background: transparent;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .toss-segmented-control button.active {
   background-color: var(--toss-primary);
   color: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(0, 176, 80, 0.3);
 }
 
 .toss-segmented-control button:not(.active):hover {
   color: var(--toss-text-primary);
+  background-color: var(--toss-surface-hover);
 }

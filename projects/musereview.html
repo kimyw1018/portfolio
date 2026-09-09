@@ -17,9 +17,8 @@
           colors: {
             toss: {
               bg: 'var(--toss-bg)',
-              card: 'var(--toss-card)',
-              subtle: 'var(--toss-card-subtle)',
-              highlight: 'var(--toss-card-highlight)',
+              surface: 'var(--toss-surface)',
+              surfaceHover: 'var(--toss-surface-hover)',
               border: 'var(--toss-border)',
               borderSubtle: 'var(--toss-border-subtle)',
               primary: 'var(--toss-primary)',
@@ -27,7 +26,6 @@
               active: 'var(--toss-primary-active)',
               light: 'var(--toss-primary-light)',
               lightHover: 'var(--toss-primary-light-hover)',
-              lightBorder: 'var(--toss-primary-light-border)',
               text: 'var(--toss-text-primary)',
               body: 'var(--toss-text-secondary)',
               sub: 'var(--toss-text-tertiary)',
@@ -41,10 +39,10 @@
   <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="antialiased selection:bg-[#00B050] selection:text-white pb-12">
+<body class="antialiased selection:bg-[#00B050] selection:text-white pb-16">
 
-  <!-- 🌿 Toss Minimal Header -->
-  <header class="sticky top-0 z-40 backdrop-blur-md bg-[var(--toss-card)]/85 border-b border-[var(--toss-border)] transition-colors">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-[var(--toss-bg)]/90 border-b border-[var(--toss-border)] transition-colors">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="../index.html#projects" class="toss-btn-secondary !py-2 !px-3.5 !text-xs !rounded-full">
         <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
@@ -52,11 +50,11 @@
       </a>
 
       <div class="flex items-center gap-2">
-        <button id="theme-toggle" aria-label="테마 전환" class="w-9 h-9 rounded-full bg-[var(--toss-card-subtle)] border border-[var(--toss-border)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
+        <button id="theme-toggle" aria-label="테마 전환" class="w-9 h-9 rounded-full bg-[var(--toss-surface)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
           <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
         </button>
-        <a href="https://github.com/kimyw1018/BE" target="_blank" class="w-9 h-9 rounded-full bg-[var(--toss-card-subtle)] border border-[var(--toss-border)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
+        <a href="https://github.com/kimyw1018/BE" target="_blank" class="w-9 h-9 rounded-full bg-[var(--toss-surface)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
           <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
           </svg>
@@ -65,30 +63,29 @@
     </div>
   </header>
 
-  <!-- 🌿 Main Case Study Container -->
-  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-6">
+  <!-- Main Container -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10">
     
-    <!-- Hero Title Card -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
+    <!-- Title & Image -->
+    <section class="space-y-4">
       <div class="flex flex-wrap items-center gap-2">
-        <span class="toss-award-badge">
-          🏆 UMC 10기 데모데이 우수상
+        <span class="toss-award-badge-flat">
+          UMC 10기 데모데이 우수상
         </span>
         <span class="toss-chip-subtle text-xs font-mono">2026.06 ~ 2026.08</span>
         <span class="toss-chip-subtle text-xs">Backend Core Architecture</span>
       </div>
 
       <div>
-        <h1 class="text-2xl sm:text-3xl font-bold text-[var(--toss-text-primary)] tracking-tight">
+        <h1 class="text-3xl font-bold text-[var(--toss-text-primary)] tracking-tight">
           뮤즈리뷰 (MuseReview)
         </h1>
-        <p class="text-sm sm:text-base font-semibold text-[var(--toss-primary)] mt-1.5 leading-relaxed">
+        <p class="text-base font-semibold text-[var(--toss-primary)] mt-1.5 leading-relaxed">
           악기 연주 피드백 플랫폼 백엔드 코어 아키텍처 및 OAuth 2.0 / Redis 기반 보안 체계
         </p>
       </div>
 
-      <!-- Project Screenshot Image -->
-      <div class="w-full rounded-2xl overflow-hidden border border-[var(--toss-border-subtle)] shadow-sm bg-gray-50 dark:bg-gray-900 mt-4 max-h-96">
+      <div class="w-full rounded-2xl overflow-hidden bg-[var(--toss-surface)] mt-4">
         <img src="img/Muse Review .png" alt="뮤즈리뷰 서비스 대표 화면" class="w-full h-full object-cover">
       </div>
 
@@ -107,13 +104,9 @@
     </section>
 
     <!-- 1. 개요 및 기여 내용 -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
-      <div class="flex items-center gap-2">
-        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">📌</span>
-        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">프로젝트 개요 및 기여 내용</h2>
-      </div>
-
-      <div class="toss-callout text-xs sm:text-[13.5px] leading-relaxed space-y-2">
+    <section class="space-y-3">
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">프로젝트 개요 및 기여 내용</h2>
+      <div class="toss-callout text-sm leading-relaxed space-y-2">
         <p>
           악기 연주 피드백 플랫폼 뮤즈리뷰의 <strong>백엔드 초기 아키텍처 수립, OAuth 2.0 기반 소셜 인증 체계 구축, 그리고 프론트엔드 협업 생산성을 위한 표준 API 응답(ApiResponse) 및 전역 예외 처리 체계 설계</strong>를 전담했습니다.
         </p>
@@ -121,79 +114,67 @@
     </section>
 
     <!-- 2. 기술 스택 -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
-      <div class="flex items-center gap-2">
-        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">🛠️</span>
-        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">사용 기술 (Tech Stack)</h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-[13px]">
-        <div class="toss-subcard p-4 space-y-1">
+    <section class="space-y-3">
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">사용 기술 (Tech Stack)</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
+        <div class="toss-flat-card p-4 space-y-1">
           <p class="font-bold text-[var(--toss-text-primary)]">Core Framework</p>
-          <p class="text-[var(--toss-text-secondary)]">Java 17, Spring Boot, Spring Security, Spring Data JPA</p>
+          <p class="text-[var(--toss-text-secondary)]">Java 17, Spring Boot, Spring Security, JPA</p>
         </div>
-        <div class="toss-subcard p-4 space-y-1">
+        <div class="toss-flat-card p-4 space-y-1">
           <p class="font-bold text-[var(--toss-text-primary)]">Security & Cache</p>
-          <p class="text-[var(--toss-text-secondary)]">OAuth 2.0, JWT, Redis (세션 & 블랙리스트)</p>
+          <p class="text-[var(--toss-text-secondary)]">OAuth 2.0, JWT, Redis</p>
         </div>
-        <div class="toss-subcard p-4 space-y-1">
+        <div class="toss-flat-card p-4 space-y-1">
           <p class="font-bold text-[var(--toss-text-primary)]">Database & Tools</p>
-          <p class="text-[var(--toss-text-secondary)]">PostgreSQL, MariaDB, Docker, Swagger (OpenAPI)</p>
+          <p class="text-[var(--toss-text-secondary)]">PostgreSQL, MariaDB, Docker</p>
         </div>
       </div>
     </section>
 
     <!-- 3. 핵심 구현 내용 -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
-      <div class="flex items-center gap-2">
-        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">🚀</span>
-        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">주요 구현 및 기술적 기여</h2>
-      </div>
-
-      <div class="space-y-3.5 text-xs sm:text-[13.5px]">
-        <div class="toss-subcard p-5 space-y-2">
-          <h3 class="font-bold text-sm sm:text-base text-[var(--toss-text-primary)] flex items-center gap-1.5">
-            <span class="text-[var(--toss-primary)]">A.</span> OAuth 2.0 / JWT 다중 소셜 로그인 & Redis 세션 관리
+    <section class="space-y-4">
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">주요 구현 및 기술적 기여</h2>
+      <div class="space-y-3 text-sm">
+        <div class="toss-flat-card p-5 space-y-2">
+          <h3 class="font-bold text-base text-[var(--toss-text-primary)]">
+            A. OAuth 2.0 / JWT 다중 소셜 로그인 & Redis 세션 관리
           </h3>
           <ul class="space-y-1.5 text-[var(--toss-text-secondary)] leading-relaxed pl-1">
             <li>• <strong>다중 프로바이더 통합:</strong> 카카오, 구글 소셜 인가 코드 교환 및 사용자 조회를 단일 파이프라인으로 통합</li>
-            <li>• <strong>Dual Token & Redis 블랙리스트:</strong> 단기 Access Token과 장기 Refresh Token 구조를 적용하고, Redis TTL로 만료 관리. 로그아웃/탈퇴 시 Redis 토큰을 즉시 무효화하여 탈취 방어</li>
+            <li>• <strong>Dual Token & Redis 블랙리스트:</strong> 단기 Access Token과 장기 Refresh Token 구조를 적용하고, Redis TTL로 만료 관리. 로그아웃 시 Redis 토큰을 즉시 무효화하여 탈취 방어</li>
             <li>• <strong>인증 필터 체계:</strong> <code>OncePerRequestFilter</code> 상속 <code>JwtAuthenticationFilter</code>로 매 요청 토큰 검증 및 Context 주입</li>
           </ul>
         </div>
 
-        <div class="toss-subcard p-5 space-y-2">
-          <h3 class="font-bold text-sm sm:text-base text-[var(--toss-text-primary)] flex items-center gap-1.5">
-            <span class="text-[var(--toss-primary)]">B.</span> 표준 API 응답 & 전역 예외 처리 체계 (apipayload)
+        <div class="toss-flat-card p-5 space-y-2">
+          <h3 class="font-bold text-base text-[var(--toss-text-primary)]">
+            B. 표준 API 응답 & 전역 예외 처리 체계 (apipayload)
           </h3>
           <ul class="space-y-1.5 text-[var(--toss-text-secondary)] leading-relaxed pl-1">
             <li>• <strong>공통 응답 규격 (<code>ApiResponse&lt;T&gt;</code>):</strong> 성공 여부, 코드, 메시지, 결과를 감싸는 단일 응답 레코드 및 정적 팩토리 메서드 제공</li>
             <li>• <strong>도메인별 에러 코드 인터페이스화:</strong> <code>BaseCode</code> 인터페이스, <code>CommonStatus</code> 및 외부 AI 분석 서버 연동 오류 격리를 위한 <code>AiServerErrorStatus</code> 구축</li>
-            <li>• <strong>전역 예외 처리기:</strong> <code>@RestControllerAdvice</code> 기반의 <code>GlobalExceptionHandler</code>를 통해 커스텀 예외 <code>GeneralException</code>을 일관된 포맷으로 클라이언트에 매핑 반환</li>
+            <li>• <strong>전역 예외 처리기:</strong> <code>@RestControllerAdvice</code> 기반의 <code>GlobalExceptionHandler</code>를 통해 커스텀 예외를 일관된 포맷으로 클라이언트에 매핑 반환</li>
           </ul>
         </div>
       </div>
     </section>
 
     <!-- 4. 트러블 슈팅 -->
-    <section class="toss-card p-6 sm:p-8 space-y-4">
-      <div class="flex items-center gap-2">
-        <span class="w-6 h-6 rounded-full bg-[var(--toss-primary-light)] flex items-center justify-center text-[var(--toss-primary)] text-xs">🔧</span>
-        <h2 class="text-lg font-bold text-[var(--toss-text-primary)]">기술적 트러블슈팅 (Deep Dive)</h2>
-      </div>
-
-      <div class="space-y-3 text-xs sm:text-[13.5px]">
-        <div class="toss-subcard p-5 space-y-2">
+    <section class="space-y-4">
+      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">기술적 트러블슈팅 (Deep Dive)</h2>
+      <div class="space-y-3 text-sm">
+        <div class="toss-flat-card p-5 space-y-2">
           <p class="font-bold text-[var(--toss-text-primary)]">
             1. 소셜 로그인 리다이렉트 시 Access Token 평문 노출 위험
           </p>
           <div class="text-[var(--toss-text-secondary)] leading-relaxed space-y-1 pl-1">
-            <p>• <strong>문제:</strong> Redirect URI 쿼리 파라미터에 Access Token을 실어 보낼 경우 브라우저 히스토리 및 프록시 로그에 토큰이 평문 노출되어 XSS 등 보안 취약점 발생.</p>
+            <p>• <strong>문제:</strong> Redirect URI 쿼리 파라미터에 Access Token을 실어 보낼 경우 브라우저 히스토리 및 프록시 로그에 토큰이 노출되어 XSS 등 보안 취약점 발생.</p>
             <p>• <strong>해결:</strong> 리다이렉트 시 <code>HttpOnly</code>, <code>Secure</code> 쿠키에만 Refresh Token을 탑재하고, 1회용 임시 인가 코드만을 전달한 뒤 프론트엔드가 안전한 POST API 요청으로 Access Token을 발급받도록 구조 전면 개선.</p>
           </div>
         </div>
 
-        <div class="toss-subcard p-5 space-y-2">
+        <div class="toss-flat-card p-5 space-y-2">
           <p class="font-bold text-[var(--toss-text-primary)]">
             2. API 공통 응답 래핑 시 타입 안정성 저하 문제
           </p>
@@ -204,8 +185,8 @@
       </div>
     </section>
 
-    <!-- Bottom Navigation Card -->
-    <div class="toss-card p-5 flex justify-between items-center text-xs sm:text-sm">
+    <!-- Bottom Navigation -->
+    <div class="pt-6 border-t border-[var(--toss-border-subtle)] flex justify-between items-center text-sm">
       <a href="assu.html" class="toss-btn-secondary !py-2.5 !px-4">
         <i data-lucide="chevron-left" class="w-4 h-4"></i>
         <span>이전: A:SSU</span>
@@ -221,7 +202,7 @@
   <script>
     const toggleBtn = document.getElementById('theme-toggle');
     if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
