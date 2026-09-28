@@ -3,58 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Naru (나루) - 프로젝트 상세 | 김예원</title>
-  
+  <title>Naru (나루) · 프로젝트 상세 | 김예원 (코코)</title>
   <meta name="description" content="청각·언어장애인을 위한 온디바이스 실시간 수어-음성 통화 웹 서비스 Naru(나루) 기술 상세">
-  
-  <!-- Tailwind CSS -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            toss: {
-              bg: 'var(--toss-bg)',
-              surface: 'var(--toss-surface)',
-              surfaceHover: 'var(--toss-surface-hover)',
-              border: 'var(--toss-border)',
-              borderSubtle: 'var(--toss-border-subtle)',
-              primary: 'var(--toss-primary)',
-              hover: 'var(--toss-primary-hover)',
-              active: 'var(--toss-primary-active)',
-              light: 'var(--toss-primary-light)',
-              lightHover: 'var(--toss-primary-light-hover)',
-              text: 'var(--toss-text-primary)',
-              body: 'var(--toss-text-secondary)',
-              sub: 'var(--toss-text-tertiary)',
-            }
-          }
-        }
-      }
-    }
-  </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="antialiased selection:bg-[#15803D] selection:text-white pb-16">
+<body class="antialiased pb-16 bg-[var(--ed-paper)]">
 
-  <!-- Header -->
-  <header class="sticky top-0 z-40 backdrop-blur-md bg-[var(--toss-bg)]/90 border-b border-[var(--toss-border)] transition-colors">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <a href="../index.html#projects" class="toss-btn-secondary !py-2 !px-3.5 !text-xs !rounded-full">
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-[var(--ed-paper)]/95 border-b border-[var(--ed-line)]">
+    <div class="max-w-3xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+      <a href="../index.html#projects" class="ed-btn !py-2 !px-3.5 !text-[11px]">
         <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
         <span>포트폴리오 메인으로</span>
       </a>
-
       <div class="flex items-center gap-2">
-        <button id="theme-toggle" aria-label="테마 전환" class="w-9 h-9 rounded-full bg-[var(--toss-surface)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
+        <button id="theme-toggle" aria-label="테마 전환" class="ed-icon-btn">
           <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
         </button>
-        <a href="https://github.com/kimyw1018" target="_blank" class="w-9 h-9 rounded-full bg-[var(--toss-surface)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
+        <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="ed-icon-btn">
           <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
           </svg>
@@ -63,158 +37,213 @@
     </div>
   </header>
 
-  <!-- Main Container -->
-  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10">
-    
-    <!-- Title & Image -->
-    <section class="space-y-4">
-      <div class="flex flex-wrap items-center gap-2.5">
-        <span class="font-bold text-xs text-[var(--toss-primary)]">
-          2026 UNITHON 우수상
-        </span>
-        <span class="text-[var(--toss-border)]">•</span>
-        <span class="text-xs font-mono text-[var(--toss-text-tertiary)]">2026.08 ~ 2026.09</span>
-        <span class="text-[var(--toss-border)]">•</span>
-        <span class="text-xs text-[var(--toss-text-secondary)]">Frontend & Real-time AI Pipeline</span>
+  <main class="max-w-3xl mx-auto px-5 sm:px-8 py-10 sm:py-14 space-y-12">
+
+    <!-- Title -->
+    <section class="space-y-5 pb-10 ed-rule-b">
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="ed-badge">2026 UNITHON 우수상</span>
+        <span class="ed-mono text-xs text-[var(--ed-ink-faint)]">2026.08 ~ 2026.09</span>
+        <span class="ed-eyebrow"><span>Frontend · Real-time AI</span></span>
       </div>
 
       <div>
-        <h1 class="text-3xl font-bold text-[var(--toss-text-primary)] tracking-tight">
-          Naru (나루)
-        </h1>
-        <p class="text-base font-semibold text-[var(--toss-primary)] mt-1.5 leading-relaxed">
-          청각·언어장애인이 누구와도 통화할 수 있게 돕는 실시간 양방향 수어-음성 통화 웹 서비스
+        <h1 class="ed-display text-4xl sm:text-5xl text-[var(--ed-ink)]">Naru (나루)</h1>
+        <p class="ed-serif text-lg sm:text-xl text-[var(--ed-accent)] mt-2 leading-snug max-w-2xl">
+          청각·언어장애인이 누구와도 통화할 수 있도록 만든 실시간 양방향 수어-음성 통화 웹 서비스
         </p>
       </div>
 
-      <div class="w-full rounded-2xl overflow-hidden bg-[var(--toss-surface)] mt-4">
+      <div class="ed-project-media aspect-[16/9] mt-2">
         <img src="img/나루.png" alt="Naru 서비스 대표 화면" class="w-full h-full object-cover">
       </div>
+      <!-- 추천 캡처: 실시간 수어 인식 화면(랜드마크 오버레이), 통화 중 PiP 화면, 커스텀 단어 등록 UI -->
     </section>
 
-    <!-- 1. 프로젝트 개요 -->
+    <!-- 개요 -->
     <section class="space-y-3">
-      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">프로젝트 개요</h2>
-      <div class="toss-callout text-sm leading-relaxed space-y-2">
-        <p>
-          별도 앱 설치나 전용 장비 없이, <strong>일반 웹캠과 모바일 브라우저만으로 100% 온디바이스(Client-Side) 30fps 수어 인식 및 WebRTC 통화</strong>를 지원하는 배리어프리 커뮤니케이션 웹 서비스입니다.
-        </p>
+      <span class="ed-eyebrow"><span class="num">01</span><span>Overview</span></span>
+      <div class="ed-callout text-[15px] leading-relaxed">
+        별도 앱 설치나 전용 장비 없이 일반 웹캠과 모바일 브라우저만으로 동작합니다. 수어 인식과 문장 변환을 전부 클라이언트 안에서 처리해서, 서버로 영상을 보내지 않고도 30fps로 수어를 읽고 음성 통화 상대에게 문장으로 전달합니다.
       </div>
     </section>
 
-    <!-- 2. 기술 스택 -->
-    <section class="space-y-3">
-      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">기술 스택</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-        <div class="toss-flat-card p-4 space-y-1">
-          <p class="font-bold text-[var(--toss-text-primary)]">Core & Framework</p>
-          <p class="text-[var(--toss-text-secondary)]">React 19, TypeScript, Vite 8, Bun</p>
-        </div>
-        <div class="toss-flat-card p-4 space-y-1">
-          <p class="font-bold text-[var(--toss-text-primary)]">Vision & AI</p>
-          <p class="text-[var(--toss-text-secondary)]">@mediapipe/tasks-vision (WASM/WebGL 가속), Custom DTW</p>
-        </div>
-        <div class="toss-flat-card p-4 space-y-1">
-          <p class="font-bold text-[var(--toss-text-primary)]">Real-time WebRTC</p>
-          <p class="text-[var(--toss-text-secondary)]">LiveKit WebRTC (livekit-client), MediaStream API</p>
-        </div>
-        <div class="toss-flat-card p-4 space-y-1">
-          <p class="font-bold text-[var(--toss-text-primary)]">State & Architecture</p>
-          <p class="text-[var(--toss-text-secondary)]">TanStack Query v5, Zustand, FSD (Feature-Sliced Design)</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. 핵심 구현 내용 -->
+    <!-- 기술 스택 -->
     <section class="space-y-4">
-      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">핵심 구현 내용</h2>
-      <div class="space-y-3 text-sm">
-        <div class="toss-flat-card p-5 space-y-2">
-          <h3 class="font-bold text-base text-[var(--toss-text-primary)]">
-            1. 브라우저 온디바이스 실시간 수어 인식 파이프라인
-          </h3>
-          <ul class="space-y-1.5 text-[var(--toss-text-secondary)] leading-relaxed pl-1">
-            <li>• <strong>MediaPipe 3D 랜드마크 추출:</strong> WASM 및 WebGL 가속을 활용해 손 21개 랜드마크와 상체 포즈 좌표를 30fps로 추출</li>
-            <li>• <strong>신체 상대적 정규화:</strong> 양 어깨 중심점을 원점 (0, 0, 0)으로 잡고 어깨 너비로 스케일을 정규화하여 사용자 거리/위치 변화에 강건한 좌표계 구축</li>
-            <li>• <strong>경량 DTW(Dynamic Time Warping) 분류:</strong> 30프레임 롤링 윈도우 시퀀스로 사용자 동작 속도 차이를 보정하며 실시간 단어 매칭</li>
-          </ul>
+      <span class="ed-eyebrow"><span class="num">02</span><span>Stack</span></span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
+        <div class="ed-row py-3 flex justify-between gap-3">
+          <span class="text-sm font-semibold text-[var(--ed-ink)]">Core & Framework</span>
+          <span class="text-sm text-[var(--ed-ink-soft)] text-right">React 19, TypeScript, Vite 8, Bun</span>
         </div>
-
-        <div class="toss-flat-card p-5 space-y-2">
-          <h3 class="font-bold text-base text-[var(--toss-text-primary)]">
-            2. 맥락 인지형 LLM 문장 변환
-          </h3>
-          <ul class="space-y-1.5 text-[var(--toss-text-secondary)] leading-relaxed pl-1">
-            <li>• <strong>발화 종료 판별:</strong> 손을 내리는 제스처를 감지하는 버퍼 시스템 구축 (1.5초 대기 시 발화 완료 판단)</li>
-            <li>• <strong>대화 히스토리 반영:</strong> 직전 최대 12턴의 대화 맥락을 LLM에 주입하여 단순 단어 나열이 아닌 자연스러운 한국어 구어체 문장으로 생성</li>
-          </ul>
+        <div class="ed-row py-3 flex justify-between gap-3">
+          <span class="text-sm font-semibold text-[var(--ed-ink)]">Vision & AI</span>
+          <span class="text-sm text-[var(--ed-ink-soft)] text-right">MediaPipe Tasks Vision, Custom DTW</span>
         </div>
-
-        <div class="toss-flat-card p-5 space-y-2">
-          <h3 class="font-bold text-base text-[var(--toss-text-primary)]">
-            3. 10초 케이던스 단어 등록 & WebRTC 멀티모달 룸
-          </h3>
-          <ul class="space-y-1.5 text-[var(--toss-text-secondary)] leading-relaxed pl-1">
-            <li>• <strong>케이던스 바 UI:</strong> 10초 동안 2초 주기로 10회 레퍼런스 샘플을 분할 캡처하는 가이드 제공 및 인메모리 고속 캐싱</li>
-            <li>• <strong>LiveKit WebRTC:</strong> 번호 기반 발신, 인커밍 폴링(3초), 세션 임대 상태 머신 구축 및 PiP 수어 영상·음성·채팅 통합 제어</li>
-            <li>• <strong>접근성 인터랙션:</strong> iOS Safari 진동 피드백(ios-haptics) 및 Web Audio API 기반 DTMF 다이얼 톤 구현</li>
-          </ul>
+        <div class="ed-row py-3 flex justify-between gap-3">
+          <span class="text-sm font-semibold text-[var(--ed-ink)]">Real-time</span>
+          <span class="text-sm text-[var(--ed-ink-soft)] text-right">LiveKit WebRTC, MediaStream API</span>
+        </div>
+        <div class="ed-row py-3 flex justify-between gap-3">
+          <span class="text-sm font-semibold text-[var(--ed-ink)]">State & Architecture</span>
+          <span class="text-sm text-[var(--ed-ink-soft)] text-right">TanStack Query v5, Zustand, FSD</span>
         </div>
       </div>
     </section>
 
-    <!-- 4. 트러블슈팅 -->
+    <!-- 주요 구현 -->
     <section class="space-y-4">
-      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">트러블슈팅</h2>
-      <div class="space-y-3 text-sm">
-        <div class="toss-flat-card p-5 space-y-2">
-          <p class="font-bold text-[var(--toss-text-primary)]">
-            1. 무거운 시퀀스 모델 한계 → DTW 템플릿 매칭 전면 피벗
-          </p>
-          <div class="text-[var(--toss-text-secondary)] leading-relaxed space-y-1 pl-1">
-            <p>• <strong>문제:</strong> 초기 30프레임 LSTM 모델 구동 시 브라우저 추론 지연 및 메모리 부담이 심했고, 새로운 수어 단어를 동적으로 등록하기 어려운 구조적 한계 발생.</p>
-            <p>• <strong>해결:</strong> 신체 기준 정규화 궤적을 비교하는 고속 DTW 알고리즘으로 전환하여 브라우저 온디바이스 연산 100% 달성 및 실시간 커스텀 단어 등록 지원.</p>
-          </div>
+      <span class="ed-eyebrow"><span class="num">03</span><span>Implementation</span></span>
+      <div class="ed-divide">
+        <div class="py-4 flex gap-4">
+          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">01</span>
+          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed">MediaPipe로 손 21개 랜드마크와 상체 포즈를 30fps로 추출한다.</p>
         </div>
-
-        <div class="toss-flat-card p-5 space-y-2">
-          <p class="font-bold text-[var(--toss-text-primary)]">
-            2. 사용자 거리 및 위치 변화에 따른 인식률 저하
-          </p>
-          <div class="text-[var(--toss-text-secondary)] leading-relaxed space-y-1 pl-1">
-            <p>• <strong>문제:</strong> 카메라와의 거리나 좌우 위치 이동 시 절대 좌표가 왜곡되어 동일한 동작임에도 DTW 거리값이 급증.</p>
-            <p>• <strong>해결:</strong> 양쪽 어깨 중점을 원점 (0,0,0)으로 두고 어깨 간 거리를 기준 단위로 정규화하여 공간 불변성(Spatial Invariance) 확보.</p>
-          </div>
+        <div class="py-4 flex gap-4">
+          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">02</span>
+          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed">양 어깨 중심을 원점으로 두고 어깨 너비로 스케일을 정규화해, 사용자가 카메라에 가까워지거나 옆으로 서도 좌표가 흔들리지 않게 만든다.</p>
         </div>
-
-        <div class="toss-flat-card p-5 space-y-2">
-          <p class="font-bold text-[var(--toss-text-primary)]">
-            3. 발화 종료 판별 지연 및 프레임 튐 노이즈 차단
-          </p>
-          <div class="text-[var(--toss-text-secondary)] leading-relaxed pl-1">
-            <p>• <strong>해결:</strong> 대기 시간을 1.5초로 단축하고, 동일 후보 단어가 5프레임 이상 유지될 때만 확정하는 가드 로직을 적용해 오발송 방지.</p>
-          </div>
+        <div class="py-4 flex gap-4">
+          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">03</span>
+          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed">경량 DTW 엔진으로 30프레임 롤링 윈도우를 비교해 동작 속도 차이를 보정하면서 브라우저에서 바로 매칭한다.</p>
+        </div>
+        <div class="py-4 flex gap-4">
+          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">04</span>
+          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed">LiveKit WebRTC로 번호 기반 발신과 3초 주기 인커밍 폴링, 세션 상태 머신, PiP 수어 영상 및 채팅을 한 화면에서 제어한다.</p>
         </div>
       </div>
     </section>
 
-    <!-- 5. 성과 -->
-    <section class="space-y-3">
-      <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">주요 성과</h2>
-      <div class="toss-flat-card p-5 space-y-2 text-sm text-[var(--toss-text-secondary)] leading-relaxed">
-        <p>• <strong>30fps 온디바이스 수어 인식 달성:</strong> 무설치 웹 환경에서 일반 웹캠만으로 실시간 시계열 랜드마크 추출 및 매칭 구현</p>
-        <p>• <strong>문맥 기반 구어체 대화 UX:</strong> 12턴 대화 분석 LLM 파이프라인으로 기계적 단어 나열을 자연스러운 문장으로 변환</p>
-        <p>• <strong>FSD 아키텍처 도입:</strong> Feature-Sliced Design 구조로 모듈 결합도를 낮추고 Biome/Steiger 기반 클린 코드 유지</p>
+    <!-- 문제 해결 -->
+    <section class="space-y-5 pt-2">
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+        <span class="ed-eyebrow"><span class="num">04</span><span>Problem Solving</span></span>
+        <button id="toggle-all-btn" class="ed-mono text-[11px] text-[var(--ed-ink-faint)] hover:text-[var(--ed-accent)] flex items-center gap-1">
+          <i data-lucide="chevrons-up-down" class="w-3.5 h-3.5"></i>
+          <span>모두 열기 / 닫기</span>
+        </button>
+      </div>
+
+      <div class="ed-accordion" id="troubleshooting-accordion">
+
+        <article class="ed-toggle-card is-open" data-id="ts-naru-dtw">
+          <div class="ed-toggle-header">
+            <div class="ed-toggle-title-area">
+              <div class="ed-toggle-meta">
+                <span class="ed-tag ed-tag-accent">Edge AI</span>
+                <span class="ed-mono text-[11px] text-[var(--ed-ink-faint)]">30fps 온디바이스</span>
+              </div>
+              <h3 class="ed-toggle-title">무거운 LSTM 추론을 버리고 DTW 템플릿 매칭으로 전환한 이유</h3>
+              <p class="ed-toggle-summary">추론 지연을 없애고, 사용자가 자기만의 수어 단어를 즉시 등록할 수 있게 만들기 위해서다.</p>
+            </div>
+            <div class="ed-toggle-actions">
+              <button type="button" class="ed-btn-expand-modal" data-modal-target="modal-ts-naru-dtw" title="크게 보기">
+                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+              </button>
+              <div class="ed-toggle-icon"><i data-lucide="plus" class="w-4 h-4"></i></div>
+            </div>
+          </div>
+          <div class="ed-toggle-body text-sm space-y-3">
+            <div>
+              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">문제</h4>
+              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
+                초기 프로토타입은 30프레임 시계열을 LSTM으로 브라우저에서 추론(ONNX.js / TensorFlow.js)했다. 보급형 랩탑과 모바일 브라우저에서는 추론 지연 때문에 30fps를 유지할 수 없었고, 사용자가 자기 수어 단어를 새로 등록하기도 어려운 구조였다.
+              </p>
+            </div>
+            <div>
+              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">해결</h4>
+              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
+                신체 기준으로 정규화한 궤적을 실시간 비교하는 경량 DTW(Dynamic Time Warping) 템플릿 매칭으로 바꿨다. 가중치 연산 없이 동작 속도 차이를 보정하면서 브라우저 안에서 30fps로 인식하고, 사용자가 화면에서 10초 만에 새 단어를 등록할 수 있게 했다.
+              </p>
+            </div>
+            <div class="pt-1 text-xs text-[var(--ed-ink-faint)]">
+              결과: 브라우저 온디바이스 30fps, 사용자 맞춤 단어 등록 지원
+            </div>
+          </div>
+        </article>
+
+        <article class="ed-toggle-card" data-id="ts-naru-norm">
+          <div class="ed-toggle-header">
+            <div class="ed-toggle-title-area">
+              <div class="ed-toggle-meta">
+                <span class="ed-tag ed-tag-accent">Computer Vision</span>
+                <span class="ed-mono text-[11px] text-[var(--ed-ink-faint)]">공간 불변성</span>
+              </div>
+              <h3 class="ed-toggle-title">카메라 거리와 위치에 따라 좌표가 왜곡되는 문제</h3>
+              <p class="ed-toggle-summary">절대 픽셀 좌표 대신 어깨 중심 기준 상대 좌표로 바꿔서 해결했다.</p>
+            </div>
+            <div class="ed-toggle-actions">
+              <button type="button" class="ed-btn-expand-modal" data-modal-target="modal-ts-naru-norm" title="크게 보기">
+                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+              </button>
+              <div class="ed-toggle-icon"><i data-lucide="plus" class="w-4 h-4"></i></div>
+            </div>
+          </div>
+          <div class="ed-toggle-body text-sm space-y-3">
+            <div>
+              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">문제</h4>
+              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
+                사용자가 카메라에 가까이 다가가거나 화면 한쪽으로 치우치면 절대 픽셀 좌표가 크게 왜곡됐다. 등록된 동작과 똑같이 움직여도 DTW 거리 값이 커져서 인식이 실패했다.
+              </p>
+            </div>
+            <div>
+              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">해결</h4>
+              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
+                MediaPipe Pose의 양쪽 어깨 중점을 원점 <code>(0, 0, 0)</code>으로 옮기고, 어깨 사이 거리를 단위 길이 1.0으로 두어 모든 손 랜드마크를 스케일링했다. 신체 상대적 정규화로 거리나 위치가 바뀌어도 좌표계가 흔들리지 않게 만들었다.
+              </p>
+            </div>
+            <div class="pt-1 text-xs text-[var(--ed-ink-faint)]">
+              결과: 거리·화각이 바뀌는 환경에서도 인식률 95% 이상 유지
+            </div>
+          </div>
+        </article>
+
+        <article class="ed-toggle-card" data-id="ts-naru-buffer">
+          <div class="ed-toggle-header">
+            <div class="ed-toggle-title-area">
+              <div class="ed-toggle-meta">
+                <span class="ed-tag ed-tag-accent">Interaction</span>
+                <span class="ed-mono text-[11px] text-[var(--ed-ink-faint)]">오인식 차단</span>
+              </div>
+              <h3 class="ed-toggle-title">순간적인 오인식과 발화 종료 시점 판별 문제</h3>
+              <p class="ed-toggle-summary">연속 프레임 검증 가드와 손 내림 감지 버퍼로 정리했다.</p>
+            </div>
+            <div class="ed-toggle-actions">
+              <button type="button" class="ed-btn-expand-modal" data-modal-target="modal-ts-naru-buffer" title="크게 보기">
+                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+              </button>
+              <div class="ed-toggle-icon"><i data-lucide="plus" class="w-4 h-4"></i></div>
+            </div>
+          </div>
+          <div class="ed-toggle-body text-sm space-y-3">
+            <div>
+              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">문제</h4>
+              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
+                조명 변화나 손 떨림으로 특정 프레임에서 순간적으로 오인식이 발생했고, 사용자가 동작을 마친 뒤 언제 문장 변환을 시작할지도 애매했다.
+              </p>
+            </div>
+            <div>
+              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">해결</h4>
+              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
+                동일 후보 단어가 5프레임 이상 연속으로 매칭될 때만 후보 큐에 등록해 튐 노이즈를 걸렀다. 손을 내리는 제스처를 감지하고 1.5초간 추가 수어가 없으면 발화 완료로 보고, 수집된 단어 시퀀스와 직전 12턴 대화 히스토리를 LLM에 넘겨 자연스러운 구어체 문장으로 바꿨다.
+              </p>
+            </div>
+            <div class="pt-1 text-xs text-[var(--ed-ink-faint)]">
+              결과: 오발송 제로화, 끊김 없는 양방향 대화
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- Bottom Navigation -->
-    <div class="pt-6 border-t border-[var(--toss-border-subtle)] flex justify-between items-center text-sm">
-      <a href="../index.html#projects" class="toss-btn-secondary !py-2.5 !px-4">
+    <!-- Bottom Nav -->
+    <div class="pt-8 ed-rule flex justify-between items-center text-sm">
+      <a href="../index.html#projects" class="ed-btn !py-2.5 !px-4">
         <i data-lucide="chevron-left" class="w-4 h-4"></i>
         <span>메인 포트폴리오</span>
       </a>
-      <a href="assu.html" class="toss-btn-primary !py-2.5 !px-4">
+      <a href="assu.html" class="ed-btn ed-btn-accent !py-2.5 !px-4">
         <span>다음 프로젝트: A:SSU</span>
         <i data-lucide="chevron-right" class="w-4 h-4"></i>
       </a>
@@ -222,17 +251,79 @@
 
   </main>
 
+  <!-- Focus Modal -->
+  <div id="troubleshoot-modal" class="ed-modal-backdrop" aria-hidden="true">
+    <div class="ed-modal-container">
+      <div class="ed-modal-header">
+        <div class="space-y-2 pr-4">
+          <div id="modal-meta" class="flex items-center gap-2"></div>
+          <h3 id="modal-title" class="text-base sm:text-lg font-bold text-[var(--ed-ink)] leading-snug"></h3>
+        </div>
+        <button id="modal-close-btn" class="ed-icon-btn shrink-0" aria-label="닫기">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <div id="modal-body" class="ed-modal-body space-y-4 text-sm leading-relaxed"></div>
+      <div class="ed-modal-footer">
+        <button id="modal-footer-close-btn" class="ed-btn !py-2 !px-4 !text-xs">닫기</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     const toggleBtn = document.getElementById('theme-toggle');
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
     toggleBtn?.addEventListener('click', () => {
       const isDark = document.documentElement.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
+
+    const toggleCards = document.querySelectorAll('.ed-toggle-card');
+    toggleCards.forEach(card => {
+      const header = card.querySelector('.ed-toggle-header');
+      header?.addEventListener('click', (e) => {
+        if (e.target.closest('.ed-btn-expand-modal')) return;
+        card.classList.toggle('is-open');
+      });
+    });
+
+    const toggleAllBtn = document.getElementById('toggle-all-btn');
+    let allOpen = true;
+    toggleAllBtn?.addEventListener('click', () => {
+      allOpen = !allOpen;
+      toggleCards.forEach(card => card.classList.toggle('is-open', allOpen));
+    });
+
+    const modalBackdrop = document.getElementById('troubleshoot-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalMeta = document.getElementById('modal-meta');
+    const modalBody = document.getElementById('modal-body');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalFooterCloseBtn = document.getElementById('modal-footer-close-btn');
+
+    document.querySelectorAll('.ed-btn-expand-modal').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const card = btn.closest('.ed-toggle-card');
+        if (!card) return;
+        modalTitle.textContent = card.querySelector('.ed-toggle-title')?.textContent || '';
+        modalMeta.innerHTML = card.querySelector('.ed-toggle-meta')?.innerHTML || '';
+        modalBody.innerHTML = card.querySelector('.ed-toggle-body')?.innerHTML || '';
+        modalBackdrop.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+        if (window.lucide) lucide.createIcons();
+      });
+    });
+
+    function closeModal() {
+      modalBackdrop?.classList.remove('is-active');
+      document.body.style.overflow = '';
+    }
+    modalCloseBtn?.addEventListener('click', closeModal);
+    modalFooterCloseBtn?.addEventListener('click', closeModal);
+    modalBackdrop?.addEventListener('click', (e) => { if (e.target === modalBackdrop) closeModal(); });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
     if (window.lucide) lucide.createIcons();
   </script>
 </body>

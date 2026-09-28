@@ -1,329 +1,343 @@
 /* ==============================================================================
-   Green TDS (Toss Design System - Seamless & Flat Edition)
-   No Shadows, No Chunky Boxes, Seamless Canvas Flow & Refined Flat Aesthetics
+   Editorial / Minimalist-Brutalist Design System
+   Deep charcoal + warm paper + single muted terracotta accent.
+   No shadows, no rounded cards, no symmetric grid decoration.
    ============================================================================== */
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 :root {
   --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  --font-serif: 'Fraunces', 'Noto Serif KR', ui-serif, Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
 
-  /* Seamless Canvas Palette (No artificial card borders) */
-  --toss-bg: #FFFFFF;                 /* Clean Pure White Canvas */
-  --toss-surface: #F8F9FA;            /* Soft flat surface for interactive rows/cards */
-  --toss-surface-hover: #EFF2F5;      /* Flat hover state (background shift only, no shadow, no border) */
-  --toss-surface-subtle: #F2F4F6;
-  
-  --toss-primary: #15803D;            /* Mature Dark Green (Grounded & Professional) */
-  --toss-primary-hover: #166534;      /* Darker Green on Hover */
-  --toss-primary-active: #14532D;     /* Deepest Green on Active */
-  
-  --toss-primary-light: #EDF7F2;      /* Soft Pale Green Surface */
-  --toss-primary-light-hover: #DFEFE7;
-  
-  --toss-border: #EAECEF;             /* Subtle divider line */
-  --toss-border-subtle: #F2F4F6;
-  
-  --toss-text-primary: #191F28;       /* Primary Charcoal Black */
-  --toss-text-secondary: #4E5968;     /* Secondary Gray */
-  --toss-text-tertiary: #8B95A1;      /* Tertiary Gray */
-  
-  --toss-status-success: #15803D;
-  --toss-status-warning: #D97706;
-  --toss-status-danger: #DC2626;
+  /* Warm paper canvas */
+  --ed-paper: #F3EFE6;
+  --ed-surface: #E9E3D5;
+  --ed-surface-strong: #E0D8C6;
+
+  --ed-line: #CFC5AF;
+  --ed-line-strong: #1B1916;
+
+  --ed-ink: #1B1916;
+  --ed-ink-soft: #55504A;
+  --ed-ink-faint: #8C8577;
+
+  --ed-accent: #AE4B26;
+  --ed-accent-hover: #8C3B1C;
+  --ed-accent-soft: #E9D6C6;
+
+  --ed-white: #FDFCF9;
+  --ed-status-danger: #A8341F;
 }
 
 html.dark {
-  /* Dark Canvas */
-  --toss-bg: #121316;
-  --toss-surface: #1B1D22;
-  --toss-surface-hover: #24272E;
-  --toss-surface-subtle: #17181C;
-  
-  --toss-primary: #22C55E;
-  --toss-primary-hover: #16A34A;
-  --toss-primary-active: #15803D;
-  
-  --toss-primary-light: #142E20;
-  --toss-primary-light-hover: #1A3C2A;
-  
-  --toss-border: #272A31;
-  --toss-border-subtle: #1E2026;
-  
-  --toss-text-primary: #F9FAFB;
-  --toss-text-secondary: #A4ACB7;
-  --toss-text-tertiary: #67717E;
-  
-  --toss-status-success: #22C55E;
-  --toss-status-warning: #F59E0B;
-  --toss-status-danger: #EF4444;
+  --ed-paper: #17140F;
+  --ed-surface: #201C16;
+  --ed-surface-strong: #29241C;
+
+  --ed-line: #38322A;
+  --ed-line-strong: #EFE9DC;
+
+  --ed-ink: #EFE9DC;
+  --ed-ink-soft: #B0A996;
+  --ed-ink-faint: #756E60;
+
+  --ed-accent: #E2895F;
+  --ed-accent-hover: #ED9C77;
+  --ed-accent-soft: #3B2A20;
+
+  --ed-white: #17140F;
+  --ed-status-danger: #E2895F;
 }
 
 /* ==============================================================================
-   Global Reset & Zero Shadows (그림자 완전 제거)
+   Reset — flat, no shadows, sharp geometry
    ============================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
   font-family: var(--font-sans);
-  box-shadow: none !important; /* 모든 그림자 원천 차단 */
+  box-shadow: none !important;
 }
 
+html { background-color: var(--ed-paper); }
+
 body {
-  background-color: var(--toss-bg);
-  color: var(--toss-text-primary);
-  line-height: 1.65;
-  letter-spacing: -0.01em;
+  background-color: var(--ed-paper);
+  color: var(--ed-ink);
+  line-height: 1.7;
+  letter-spacing: -0.011em;
   transition: background-color 0.2s ease, color 0.2s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  letter-spacing: -0.02em;
+h1, h2, h3, h4, h5, h6 { letter-spacing: -0.02em; }
+
+::selection { background-color: var(--ed-ink); color: var(--ed-paper); }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--ed-paper); }
+::-webkit-scrollbar-thumb { background: var(--ed-line); }
+::-webkit-scrollbar-thumb:hover { background: var(--ed-ink-faint); }
+
+/* ==============================================================================
+   Typographic building blocks
+   ============================================================================== */
+
+.ed-display {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+.ed-serif {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--toss-bg);
+.ed-serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-optical-sizing: auto;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--toss-border);
-  border-radius: 9999px;
+.ed-mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--toss-text-tertiary);
+/* Section eyebrow: "00 — 아니라 · " style folio label (no em dash used in copy) */
+.ed-eyebrow {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ed-accent);
+}
+
+.ed-eyebrow .num {
+  font-size: 12px;
+  color: var(--ed-ink-faint);
+}
+
+/* Oversized faint folio numeral used beside headings */
+.ed-folio {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--ed-line);
+  line-height: 1;
+  user-select: none;
+}
+
+html.dark .ed-folio { color: var(--ed-surface-strong); }
+
+/* ==============================================================================
+   Rules & dividers (replace card shadows entirely)
+   ============================================================================== */
+.ed-rule { border-top: 1px solid var(--ed-line); }
+.ed-rule-b { border-bottom: 1px solid var(--ed-line); }
+.ed-rule-strong { border-top: 2px solid var(--ed-line-strong); }
+.ed-rule-strong-b { border-bottom: 2px solid var(--ed-line-strong); }
+
+.ed-divide > * + * { border-top: 1px solid var(--ed-line); }
+
+/* ==============================================================================
+   Buttons — square corners, border-driven, invert on hover
+   ============================================================================== */
+.ed-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--ed-ink);
+  color: var(--ed-ink);
+  background: transparent;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  padding: 11px 18px;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.ed-btn:hover {
+  background-color: var(--ed-ink);
+  color: var(--ed-paper) !important;
+}
+
+.ed-btn-accent {
+  border-color: var(--ed-accent);
+  color: var(--ed-white) !important;
+  background-color: var(--ed-accent);
+}
+
+.ed-btn-accent:hover {
+  background-color: var(--ed-accent-hover);
+  border-color: var(--ed-accent-hover);
+}
+
+.ed-btn-ghost {
+  border-color: transparent;
+  padding: 11px 4px;
+}
+
+.ed-btn-ghost:hover {
+  background-color: transparent;
+  color: var(--ed-accent) !important;
+}
+
+.ed-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--ed-line);
+  color: var(--ed-ink-soft);
+  background: transparent;
+  border-radius: 0;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.ed-icon-btn:hover {
+  border-color: var(--ed-ink);
+  color: var(--ed-ink);
 }
 
 /* ==============================================================================
-   Seamless Section & Card System (박스 형태 제거, 페이지 연속성 확보)
+   Tags / chips — outline only, monospace, square
    ============================================================================== */
-
-/* Section wrapper: no artificial outer box boundaries */
-.toss-section {
-  padding: 32px 0;
-  border-bottom: 1px solid var(--toss-border-subtle);
-}
-
-.toss-section:last-child {
-  border-bottom: none;
-}
-
-/* Flat Content Card (Soft background, no border, no shadow) */
-.toss-flat-card {
-  background-color: var(--toss-surface);
-  border-radius: 20px;
-  border: none;
-  transition: background-color 0.18s ease;
-}
-
-.toss-flat-card:hover {
-  background-color: var(--toss-surface-hover);
-}
-
-/* ==============================================================================
-   Flat Action Buttons (테두리와 내부 색상 일치, 그림자 없음)
-   ============================================================================== */
-
-/* Primary Button: Solid Green, border and background match */
-.toss-btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: var(--toss-primary);
-  color: #FFFFFF !important;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 12px 20px;
-  border-radius: 12px;
-  border: 1px solid var(--toss-primary);
-  cursor: pointer;
-  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
-}
-
-.toss-btn-primary:hover {
-  background-color: var(--toss-primary-hover);
-  border-color: var(--toss-primary-hover);
-}
-
-.toss-btn-primary:active {
-  background-color: var(--toss-primary-active);
-  border-color: var(--toss-primary-active);
-  transform: scale(0.98);
-}
-
-/* Secondary Button: Solid Light Green, border and background match */
-.toss-btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: var(--toss-primary-light);
-  color: var(--toss-primary) !important;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 12px 20px;
-  border-radius: 12px;
-  border: 1px solid var(--toss-primary-light);
-  cursor: pointer;
-  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
-}
-
-.toss-btn-secondary:hover {
-  background-color: var(--toss-primary-light-hover);
-  border-color: var(--toss-primary-light-hover);
-}
-
-.toss-btn-secondary:active {
-  transform: scale(0.98);
-}
-
-/* Monochrome GitHub Button (Strictly black & white/gray) */
-.toss-btn-github {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: #24292F;
-  color: #FFFFFF !important;
-  font-weight: 600;
-  font-size: 13px;
-  padding: 10px 18px;
-  border-radius: 12px;
-  border: 1px solid #24292F;
-  cursor: pointer;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
-}
-
-.toss-btn-github:hover {
-  background-color: #000000;
-  border-color: #000000;
-}
-
-html.dark .toss-btn-github {
-  background-color: #21262D;
-  color: #C9D1D9 !important;
-  border: 1px solid #30363D;
-}
-
-html.dark .toss-btn-github:hover {
-  background-color: #30363D;
-  border-color: #8B949E;
-  color: #FFFFFF !important;
-}
-
-/* Flat Chip (No border contrast) */
-.toss-chip {
+.ed-tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 12px;
-  border-radius: 9999px;
-  font-size: 12px;
-  font-weight: 600;
-  background-color: var(--toss-primary-light);
-  color: var(--toss-primary);
-  border: 1px solid var(--toss-primary-light);
-}
-
-.toss-chip-subtle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 12px;
-  border-radius: 9999px;
-  font-size: 12px;
+  padding: 5px 10px;
+  border: 1px solid var(--ed-line);
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
   font-weight: 500;
-  background-color: var(--toss-surface);
-  color: var(--toss-text-secondary);
-  border: 1px solid var(--toss-surface);
+  letter-spacing: 0.01em;
+  color: var(--ed-ink-soft);
+  background: transparent;
+}
+
+.ed-tag-accent {
+  border-color: var(--ed-accent);
+  color: var(--ed-accent);
 }
 
 /* ==============================================================================
-   Awards Table (깔끔하고 신뢰도 높은 표 형태)
+   Links
    ============================================================================== */
-.toss-table-container {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+.ed-link {
+  color: var(--ed-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--ed-line);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
-.toss-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 13.5px;
+.ed-link:hover {
+  color: var(--ed-accent);
+  text-decoration-color: var(--ed-accent);
 }
 
-.toss-table th {
-  padding: 12px 14px;
+/* ==============================================================================
+   Rows (education / awards / experience / other-projects lists)
+   ============================================================================== */
+.ed-row {
+  transition: background-color 0.15s ease;
+}
+
+.ed-row:hover {
+  background-color: var(--ed-surface);
+}
+
+/* ==============================================================================
+   Filter tabs — plain text, underline for active state (no pill container)
+   ============================================================================== */
+.ed-filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.ed-filter-tabs button {
+  font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 600;
-  color: var(--toss-text-tertiary);
-  border-bottom: 1px solid var(--toss-border);
-  white-space: nowrap;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ed-ink-faint);
+  background: transparent;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.toss-table td {
-  padding: 14px 14px;
-  border-bottom: 1px solid var(--toss-border-subtle);
-  color: var(--toss-text-secondary);
-  vertical-align: middle;
-}
+.ed-filter-tabs button:hover { color: var(--ed-ink); }
 
-.toss-table tr:hover td {
-  background-color: var(--toss-surface);
-}
-
-.toss-award-badge-flat {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3px 8px;
-  border-radius: 6px;
-  font-size: 11.5px;
-  font-weight: 700;
-  background-color: var(--toss-primary-light);
-  color: var(--toss-primary) !important;
-  border: 1px solid var(--toss-primary-light);
+.ed-filter-tabs button.active {
+  color: var(--ed-accent);
+  border-color: var(--ed-accent);
 }
 
 /* ==============================================================================
-   Tech Stack (박스 제거, 로고 + 이름 + 숙련도 명도 텍스트만 유지)
+   Skill rows
    ============================================================================== */
-.toss-skill-row {
+.ed-skill-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  transition: background-color 0.15s ease;
+  padding: 9px 4px;
+  border-bottom: 1px solid var(--ed-line);
 }
 
-.toss-skill-row:hover {
-  background-color: var(--toss-surface);
+/* ==============================================================================
+   Callout — left rule accent, no fill card
+   ============================================================================== */
+.ed-callout {
+  border-left: 2px solid var(--ed-accent);
+  padding: 4px 0 4px 20px;
+  color: var(--ed-ink);
+  line-height: 1.7;
 }
 
-/* Callout Box */
-.toss-callout {
-  background-color: var(--toss-primary-light);
-  border-left: 4px solid var(--toss-primary);
-  border-radius: 0 12px 12px 0;
-  padding: 18px 22px;
-  color: var(--toss-text-primary);
-  line-height: 1.65;
+/* ==============================================================================
+   Award badge
+   ============================================================================== */
+.ed-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 9px;
+  border: 1px solid var(--ed-accent);
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ed-accent) !important;
+  background: transparent;
+  white-space: nowrap;
 }
 
-/* Toast Floating Component (Flat) */
-.toss-toast {
+/* ==============================================================================
+   Toast
+   ============================================================================== */
+.ed-toast {
   position: fixed;
   bottom: 32px;
   left: 50%;
@@ -333,56 +347,243 @@ html.dark .toss-btn-github:hover {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 22px;
-  border-radius: 9999px;
-  background-color: #191F28;
-  color: #FFFFFF;
-  font-size: 13.5px;
+  padding: 13px 20px;
+  border-radius: 0;
+  background-color: var(--ed-ink);
+  color: var(--ed-paper);
+  font-size: 13px;
   font-weight: 500;
-  border: 1px solid #191F28;
+  border: 1px solid var(--ed-ink);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
   pointer-events: none;
 }
 
-html.dark .toss-toast {
-  background-color: #FFFFFF;
-  color: #191F28;
-  border: 1px solid #FFFFFF;
+html.dark .ed-toast {
+  background-color: var(--ed-ink);
+  color: var(--ed-paper);
+  border: 1px solid var(--ed-ink);
 }
 
-.toss-toast.show {
+.ed-toast.show {
   transform: translateX(-50%) translateY(0);
   opacity: 1;
 }
 
-/* Segmented Control / Tab Container (Flat) */
-.toss-segmented-control {
-  display: inline-flex;
-  padding: 4px;
-  background-color: var(--toss-surface);
-  border: 1px solid var(--toss-surface);
-  border-radius: 9999px;
-  gap: 2px;
+/* ==============================================================================
+   Accordion / troubleshooting toggle cards — hairline bordered, square
+   ============================================================================== */
+.ed-accordion {
+  display: flex;
+  flex-direction: column;
 }
 
-.toss-segmented-control button {
-  padding: 8px 18px;
-  border-radius: 9999px;
+.ed-toggle-card {
+  border-bottom: 1px solid var(--ed-line);
+  transition: background-color 0.15s ease;
+}
+
+.ed-toggle-card:first-child { border-top: 1px solid var(--ed-line); }
+
+.ed-toggle-header {
+  padding: 20px 4px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ed-toggle-title-area {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ed-toggle-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ed-toggle-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ed-ink);
+  line-height: 1.45;
+}
+
+.ed-toggle-summary {
   font-size: 13px;
+  color: var(--ed-ink-soft);
+  line-height: 1.55;
+}
+
+.ed-toggle-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 2px;
+}
+
+.ed-btn-expand-modal {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 9px;
+  border: 1px solid var(--ed-line);
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
   font-weight: 600;
-  color: var(--toss-text-tertiary);
-  border: none;
+  color: var(--ed-ink-faint);
   background: transparent;
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: all 0.15s ease;
 }
 
-.toss-segmented-control button.active {
-  background-color: var(--toss-primary);
-  color: #FFFFFF;
+.ed-btn-expand-modal:hover {
+  color: var(--ed-accent);
+  border-color: var(--ed-accent);
 }
 
-.toss-segmented-control button:not(.active):hover {
-  color: var(--toss-text-primary);
-  background-color: var(--toss-surface-hover);
+.ed-toggle-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ed-ink-faint);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.ed-toggle-card.is-open .ed-toggle-icon {
+  transform: rotate(45deg);
+  color: var(--ed-accent);
+}
+
+.ed-toggle-body {
+  display: none;
+  padding: 0 4px 24px 4px;
+}
+
+.ed-toggle-card.is-open .ed-toggle-body { display: block; }
+
+/* ==============================================================================
+   Focus modal ('크게 보기')
+   ============================================================================== */
+.ed-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background-color: rgba(27, 25, 22, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.ed-modal-backdrop.is-active { opacity: 1; pointer-events: auto; }
+
+.ed-modal-container {
+  background-color: var(--ed-paper);
+  width: 100%;
+  max-width: 700px;
+  max-height: 85vh;
+  border: 1px solid var(--ed-line-strong);
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(8px);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ed-modal-backdrop.is-active .ed-modal-container { transform: translateY(0); }
+
+.ed-modal-header {
+  padding: 22px 24px 18px 24px;
+  border-bottom: 1px solid var(--ed-line);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ed-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.ed-modal-footer {
+  padding: 14px 24px;
+  border-top: 1px solid var(--ed-line);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* ==============================================================================
+   Document / PDF viewer block
+   ============================================================================== */
+.ed-doc {
+  border: 1px solid var(--ed-line-strong);
+}
+
+.ed-doc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--ed-line);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ed-ink-soft);
+}
+
+.ed-doc-frame {
+  width: 100%;
+  height: 78vh;
+  border: 0;
+  display: block;
+  background-color: var(--ed-surface);
+}
+
+@media (max-width: 640px) {
+  .ed-doc-frame { height: 60vh; }
+}
+
+/* ==============================================================================
+   Asymmetric project row helpers
+   ============================================================================== */
+.ed-project-media {
+  border: 1px solid var(--ed-line);
+  overflow: hidden;
+  background-color: var(--ed-surface);
+}
+
+.ed-project-media img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  filter: grayscale(0.15);
+}
+
+.ed-project-media:hover img {
+  transform: scale(1.02);
+  filter: grayscale(0);
+}
+
+/* Portrait photo frame */
+.ed-portrait {
+  border: 1px solid var(--ed-line-strong);
+  overflow: hidden;
+  background-color: var(--ed-surface);
 }

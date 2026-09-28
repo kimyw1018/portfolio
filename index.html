@@ -3,279 +3,203 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>김예원 (코코) | Backend & Fullstack Developer</title>
-  
-  <meta name="description" content="김예원(코코) 개발자 포트폴리오. Spring Boot 백엔드 아키텍처 및 풀스택.">
-  <meta property="og:title" content="김예원 (코코) | Developer Portfolio">
-  <meta property="og:description" content="숭실대학교 컴퓨터학부 3학년 2학기 | Backend & Fullstack Developer">
-  <meta property="og:image" content="https://github.com/kimyw1018.png">
+  <title>김예원 · 코코 | Backend & Fullstack Developer</title>
+
+  <meta name="description" content="김예원(코코) 개발자 포트폴리오. Spring Boot 백엔드 아키텍처와 인프라, React/Android 풀스택 프로젝트 기록.">
+  <meta property="og:title" content="김예원 · 코코 | Developer Portfolio">
+  <meta property="og:description" content="숭실대학교 컴퓨터학부 3학년 2학기 · Backend & Fullstack Developer">
+  <meta property="og:image" content="projects/img/증명사진.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            toss: {
-              bg: 'var(--toss-bg)',
-              surface: 'var(--toss-surface)',
-              surfaceHover: 'var(--toss-surface-hover)',
-              border: 'var(--toss-border)',
-              borderSubtle: 'var(--toss-border-subtle)',
-              primary: 'var(--toss-primary)',
-              hover: 'var(--toss-primary-hover)',
-              active: 'var(--toss-primary-active)',
-              light: 'var(--toss-primary-light)',
-              lightHover: 'var(--toss-primary-light-hover)',
-              text: 'var(--toss-text-primary)',
-              body: 'var(--toss-text-secondary)',
-              sub: 'var(--toss-text-tertiary)',
-            }
-          }
-        }
-      }
-    }
-  </script>
 
-  <!-- Devicon -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Green TDS Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="antialiased selection:bg-[#15803D] selection:text-white pb-12">
+<body class="antialiased pb-16 bg-[var(--ed-paper)]">
 
-  <!-- Minimal Sticky Navigation -->
-  <header class="sticky top-0 z-40 backdrop-blur-md bg-[var(--toss-bg)]/90 border-b border-[var(--toss-border)] transition-colors">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-[var(--toss-primary)]"></span>
-        <span class="font-bold text-base text-[var(--toss-text-primary)] tracking-tight">
-          김예원 / 코코
-        </span>
+  <!-- Header -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-[var(--ed-paper)]/95 border-b border-[var(--ed-line)] transition-colors">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-baseline gap-2">
+        <span class="font-extrabold text-base tracking-tight text-[var(--ed-ink)]">김예원</span>
+        <span class="ed-serif-italic text-sm text-[var(--ed-accent)]">코코</span>
       </a>
 
-      <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center gap-6 text-[13.5px] font-semibold text-[var(--toss-text-secondary)]">
-        <a href="#about" class="hover:text-[var(--toss-primary)] transition-colors">소개</a>
-        <a href="#education" class="hover:text-[var(--toss-primary)] transition-colors">학력</a>
-        <a href="#skills" class="hover:text-[var(--toss-primary)] transition-colors">기술 스택</a>
-        <a href="#awards" class="hover:text-[var(--toss-primary)] transition-colors">수상 내역</a>
-        <a href="#projects" class="hover:text-[var(--toss-primary)] transition-colors">프로젝트</a>
-        <a href="#experience" class="hover:text-[var(--toss-primary)] transition-colors">활동 이력</a>
-        <a href="#contact" class="hover:text-[var(--toss-primary)] transition-colors">연락처</a>
+      <nav class="hidden md:flex items-center gap-7 ed-mono text-[11px] uppercase tracking-widest text-[var(--ed-ink-soft)]">
+        <a href="#about" class="hover:text-[var(--ed-accent)] transition-colors">소개</a>
+        <a href="#education" class="hover:text-[var(--ed-accent)] transition-colors">학력</a>
+        <a href="#skills" class="hover:text-[var(--ed-accent)] transition-colors">기술 스택</a>
+        <a href="#awards" class="hover:text-[var(--ed-accent)] transition-colors">수상</a>
+        <a href="#projects" class="hover:text-[var(--ed-accent)] transition-colors">프로젝트</a>
+        <a href="#experience" class="hover:text-[var(--ed-accent)] transition-colors">활동</a>
+        <a href="#contact" class="hover:text-[var(--ed-accent)] transition-colors">연락처</a>
       </nav>
 
-      <!-- Right Actions (Theme Toggle & GitHub Link) -->
       <div class="flex items-center gap-2">
-        <button id="theme-toggle" aria-label="화면 모드 전환" class="w-9 h-9 rounded-full bg-[var(--toss-surface)] flex items-center justify-center text-[var(--toss-text-secondary)] hover:text-[var(--toss-text-primary)] transition-colors">
+        <button id="theme-toggle" aria-label="화면 모드 전환" class="ed-icon-btn">
           <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
         </button>
 
-        <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="toss-btn-github !py-1.5 !px-3 !text-xs !rounded-full">
+        <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="ed-btn !hidden sm:!inline-flex !py-2 !px-3.5 !text-[11px]">
           <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
           </svg>
           <span>GitHub</span>
         </a>
 
-        <!-- Mobile Menu Trigger -->
-        <button id="mobile-menu-btn" aria-label="메뉴 열기" class="md:hidden w-9 h-9 rounded-full bg-[var(--toss-surface)] flex items-center justify-center text-[var(--toss-text-secondary)]">
+        <button id="mobile-menu-btn" aria-label="메뉴 열기" class="md:hidden ed-icon-btn">
           <i data-lucide="menu" class="w-4 h-4"></i>
         </button>
       </div>
     </div>
 
-    <!-- Mobile Nav Dropdown -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--toss-border)] bg-[var(--toss-bg)] px-5 py-4 space-y-3 text-sm font-semibold">
-      <a href="#about" class="block py-1 text-[var(--toss-text-secondary)] hover:text-[var(--toss-primary)] mobile-nav-link">소개</a>
-      <a href="#education" class="block py-1 text-[var(--toss-text-secondary)] hover:text-[var(--toss-primary)] mobile-nav-link">학력</a>
-      <a href="#skills" class="block py-1 text-[var(--toss-text-secondary)] hover:text-[var(--toss-primary)] mobile-nav-link">기술 스택</a>
-      <a href="#awards" class="block py-1 text-[var(--toss-text-secondary)] hover:text-[var(--toss-primary)] mobile-nav-link">수상 내역</a>
-      <a href="#projects" class="block py-1 text-[var(--toss-text-secondary)] hover:text-[var(--toss-primary)] mobile-nav-link">프로젝트</a>
-      <a href="#experience" class="block py-1 text-[var(--toss-text-secondary)] hover:text-[var(--toss-primary)] mobile-nav-link">활동 이력</a>
-      <a href="#contact" class="block py-1 text-[var(--toss-text-secondary)] hover:text-[var(--toss-primary)] mobile-nav-link">연락처</a>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--ed-line)] bg-[var(--ed-paper)] px-5 py-4 space-y-3 ed-mono text-xs uppercase tracking-wider">
+      <a href="#about" class="block py-1 text-[var(--ed-ink-soft)] hover:text-[var(--ed-accent)] mobile-nav-link">소개</a>
+      <a href="#education" class="block py-1 text-[var(--ed-ink-soft)] hover:text-[var(--ed-accent)] mobile-nav-link">학력</a>
+      <a href="#skills" class="block py-1 text-[var(--ed-ink-soft)] hover:text-[var(--ed-accent)] mobile-nav-link">기술 스택</a>
+      <a href="#awards" class="block py-1 text-[var(--ed-ink-soft)] hover:text-[var(--ed-accent)] mobile-nav-link">수상 내역</a>
+      <a href="#projects" class="block py-1 text-[var(--ed-ink-soft)] hover:text-[var(--ed-accent)] mobile-nav-link">프로젝트</a>
+      <a href="#experience" class="block py-1 text-[var(--ed-ink-soft)] hover:text-[var(--ed-accent)] mobile-nav-link">활동 이력</a>
+      <a href="#contact" class="block py-1 text-[var(--ed-ink-soft)] hover:text-[var(--ed-accent)] mobile-nav-link">연락처</a>
     </div>
   </header>
 
-  <!-- Seamless Canvas Main View -->
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 divide-y divide-[var(--toss-border-subtle)]">
+  <main class="max-w-5xl mx-auto px-5 sm:px-8">
 
-    <!-- 1. Hero Profile Section -->
-    <section id="about" class="py-10 sm:py-12 space-y-5">
-      <div class="flex flex-col-reverse sm:flex-row items-start justify-between gap-6">
-        <div class="space-y-3.5 flex-1">
+    <!-- 00. Hero / Profile -->
+    <section id="about" class="pt-14 sm:pt-20 pb-14 sm:pb-16 ed-rule-b">
+      <span class="ed-eyebrow"><span class="num">00</span><span>Profile</span></span>
+
+      <div class="mt-6 flex flex-col-reverse md:flex-row md:items-start justify-between gap-10 md:gap-16">
+        <div class="flex-1 min-w-0 space-y-6">
           <div>
-            <h1 class="text-3xl sm:text-4xl font-bold text-[var(--toss-text-primary)] leading-tight tracking-tight">
-              김예원 <span class="text-[var(--toss-text-tertiary)] font-normal text-2xl sm:text-3xl">/ 코코</span>
+            <h1 class="ed-display text-[15vw] leading-[0.92] sm:text-7xl md:text-[76px] text-[var(--ed-ink)]">
+              김예원
+              <span class="ed-serif-italic block sm:inline text-[0.42em] text-[var(--ed-accent)] font-normal sm:ml-3">코코</span>
             </h1>
-            <p class="text-sm font-medium text-[var(--toss-text-secondary)] mt-1.5" id="hero-affiliation">
-              숭실대학교 컴퓨터학부 3학년 2학기 재학 • Backend & Fullstack
+            <p class="ed-mono text-xs sm:text-[13px] text-[var(--ed-ink-faint)] mt-4 uppercase tracking-wider" id="hero-affiliation">
+              숭실대학교 컴퓨터학부 3학년 2학기 · Backend &amp; Fullstack
             </p>
           </div>
 
-          <p class="text-base text-[var(--toss-text-primary)] font-medium leading-relaxed" id="hero-tagline">
-            안정적인 백엔드 시스템과 유기적인 서비스 경험을 설계합니다.
+          <p class="ed-serif text-xl sm:text-2xl leading-snug text-[var(--ed-ink)] border-l-2 border-[var(--ed-accent)] pl-5 max-w-xl" id="hero-tagline">
+            쿼리 실행 계획부터 컨테이너 오케스트레이션까지, 시스템의 병목을 직접 찾아 고치는 개발자입니다.
           </p>
 
-          <div class="space-y-2 text-sm text-[var(--toss-text-secondary)] leading-relaxed pt-1" id="hero-bio-container">
+          <div class="space-y-4 text-[14.5px] sm:text-[15px] text-[var(--ed-ink-soft)] max-w-2xl" id="hero-bio-container">
             <!-- Populated by app.js -->
           </div>
 
-          <!-- Direct Contact & Profile Links (Non-AI, Authentic Developer Style) -->
-          <div class="pt-2 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-[var(--toss-text-secondary)]">
-            <a href="mailto:poppppp00@gmail.com" class="font-medium text-[var(--toss-primary)] hover:underline flex items-center gap-1.5">
-              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
-              <span>poppppp00@gmail.com</span>
-            </a>
-            <span class="text-[var(--toss-border)]">•</span>
-            <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="toss-btn-github !py-1 !px-2.5 !text-xs !rounded-md">
-              <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
-              </svg>
-              <span>GitHub</span>
-            </a>
-            <span class="text-[var(--toss-border)]">•</span>
-            <span class="flex items-center gap-1">
-              <i data-lucide="phone" class="w-3.5 h-3.5 text-[var(--toss-text-tertiary)]"></i>
-              <span>010-6555-6343</span>
-            </span>
+          <div class="pt-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] text-[var(--ed-ink-soft)]">
+            <a href="mailto:poppppp00@gmail.com" class="ed-link font-medium">poppppp00@gmail.com</a>
+            <span class="text-[var(--ed-line)]">·</span>
+            <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="ed-link font-medium">github.com/kimyw1018</a>
+            <span class="text-[var(--ed-line)]">·</span>
+            <span class="ed-mono">010-6555-6343</span>
           </div>
         </div>
 
-        <div class="shrink-0 self-center sm:self-start">
-          <img id="hero-avatar" src="https://github.com/kimyw1018.png" alt="김예원 프로필 사진" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-[var(--toss-border)] object-cover">
+        <div class="shrink-0 self-center md:self-start">
+          <div class="ed-portrait w-40 sm:w-48 md:w-56 aspect-[3/4]">
+            <img id="hero-avatar" src="projects/img/증명사진.jpg" alt="김예원 증명사진" class="w-full h-full object-cover">
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. Education Section -->
-    <section id="education" class="py-8 sm:py-10 space-y-4">
-      <div>
-        <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">학력</h2>
-      </div>
-
-      <div id="education-container">
+    <!-- 01. Education -->
+    <section id="education" class="py-12 sm:py-14 ed-rule-b">
+      <span class="ed-eyebrow"><span class="num">01</span><span>Education</span></span>
+      <div class="mt-6" id="education-container">
         <!-- Populated by app.js -->
       </div>
     </section>
 
-    <!-- 3. Tech Stack Section (Unboxed, natural typography) -->
-    <section id="skills" class="py-8 sm:py-10 space-y-5">
-      <div>
-        <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">기술 스택</h2>
-      </div>
-
-      <div class="space-y-6" id="skills-container">
+    <!-- 02. Skills -->
+    <section id="skills" class="py-12 sm:py-14 ed-rule-b">
+      <span class="ed-eyebrow"><span class="num">02</span><span>Stack</span></span>
+      <div class="mt-6 space-y-8" id="skills-container">
         <!-- Populated by app.js -->
       </div>
     </section>
 
-    <!-- 4. Awards Section -->
-    <section id="awards" class="py-8 sm:py-10 space-y-4">
-      <div>
-        <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">수상 내역</h2>
-      </div>
-
-      <div id="awards-container">
+    <!-- 03. Awards -->
+    <section id="awards" class="py-12 sm:py-14 ed-rule-b">
+      <span class="ed-eyebrow"><span class="num">03</span><span>Awards</span></span>
+      <div class="mt-6" id="awards-container">
         <!-- Populated by app.js -->
       </div>
     </section>
 
-    <!-- 5. Projects Section (Featured 4 + Other 5) -->
-    <section id="projects" class="py-8 sm:py-10 space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">프로젝트</h2>
-        </div>
-
-        <!-- Flat Segmented Filter -->
-        <div class="toss-segmented-control self-start sm:self-center" id="project-filters">
-          <button data-filter="all" class="active">전체 (9)</button>
-          <button data-filter="featured">주요 프로젝트 (4)</button>
+    <!-- 04. Projects -->
+    <section id="projects" class="py-12 sm:py-14 ed-rule-b">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+        <span class="ed-eyebrow"><span class="num">04</span><span>Projects</span></span>
+        <div class="ed-filter-tabs" id="project-filters">
+          <button data-filter="all" class="active">전체</button>
+          <button data-filter="featured">주요 4건</button>
           <button data-filter="backend">백엔드</button>
-          <button data-filter="frontend">프론트·앱</button>
+          <button data-filter="frontend">프론트 · 앱</button>
         </div>
       </div>
 
-      <!-- Featured Projects Grid (4개) -->
-      <div class="space-y-3" id="featured-projects-section">
-        <h3 class="text-sm font-bold text-[var(--toss-text-primary)]">
-          주요 프로젝트
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="projects-grid">
+      <div class="mt-10 space-y-12 sm:space-y-14" id="featured-projects-section">
+        <div id="projects-grid" class="space-y-12 sm:space-y-14">
           <!-- Populated by app.js -->
         </div>
       </div>
 
-      <!-- Other Projects Grid (5개) -->
-      <div class="space-y-3 pt-6" id="other-projects-section">
-        <h3 class="text-sm font-bold text-[var(--toss-text-primary)]">
-          기타 프로젝트
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="other-projects-grid">
+      <div class="mt-4" id="other-projects-section">
+        <p class="ed-mono text-[11px] uppercase tracking-widest text-[var(--ed-ink-faint)] mb-2 pt-8 ed-rule">기타 프로젝트</p>
+        <div id="other-projects-grid">
           <!-- Populated by app.js -->
         </div>
       </div>
     </section>
 
-    <!-- 6. Experience Section -->
-    <section id="experience" class="py-8 sm:py-10 space-y-4">
-      <div>
-        <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">활동 이력</h2>
-      </div>
-
-      <div class="space-y-3" id="experience-timeline">
+    <!-- 05. Experience -->
+    <section id="experience" class="py-12 sm:py-14 ed-rule-b">
+      <span class="ed-eyebrow"><span class="num">05</span><span>Activities</span></span>
+      <div class="mt-6" id="experience-timeline">
         <!-- Populated by app.js -->
       </div>
     </section>
 
-    <!-- 7. Contact Section -->
-    <footer id="contact" class="py-10 sm:py-12 space-y-6">
-      <div class="space-y-1">
-        <h2 class="text-xl font-bold text-[var(--toss-text-primary)]">
-          연락처
-        </h2>
+    <!-- 06. Contact -->
+    <footer id="contact" class="py-14 sm:py-16 space-y-8">
+      <span class="ed-eyebrow"><span class="num">06</span><span>Contact</span></span>
+
+      <p class="ed-serif text-2xl sm:text-3xl leading-snug max-w-2xl text-[var(--ed-ink)]">
+        지금 겪고 있는 문제나 함께 볼 만한 코드가 있다면, 아래 연락처로 편하게 알려주세요.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+        <a href="mailto:poppppp00@gmail.com" class="ed-link font-semibold">poppppp00@gmail.com</a>
+        <span class="text-[var(--ed-line)]">·</span>
+        <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="ed-link font-semibold">github.com/kimyw1018</a>
+        <span class="text-[var(--ed-line)]">·</span>
+        <span class="ed-mono text-[var(--ed-ink-soft)]">010-6555-6343</span>
       </div>
 
-      <!-- Contact Info Line -->
-      <div class="pt-2 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-[var(--toss-text-secondary)]">
-        <a href="mailto:poppppp00@gmail.com" class="font-medium text-[var(--toss-primary)] hover:underline flex items-center gap-1.5">
-          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
-          <span>poppppp00@gmail.com</span>
-        </a>
-        <span class="text-[var(--toss-border)]">•</span>
-        <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="toss-btn-github !py-1 !px-2.5 !text-xs !rounded-md">
-          <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
-          </svg>
-          <span>github.com/kimyw1018</span>
-        </a>
-        <span class="text-[var(--toss-border)]">•</span>
-        <span class="flex items-center gap-1">
-          <i data-lucide="phone" class="w-3.5 h-3.5 text-[var(--toss-text-tertiary)]"></i>
-          <span>010-6555-6343</span>
-        </span>
-      </div>
-
-      <div class="pt-4 border-t border-[var(--toss-border-subtle)] text-xs text-[var(--toss-text-tertiary)] flex flex-col sm:flex-row justify-between items-center gap-2">
-        <p>© 2026 김예원 (Kim Yewon)</p>
+      <div class="pt-6 ed-rule text-xs text-[var(--ed-ink-faint)] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+        <p class="ed-mono">© 2026 KIM YEWON</p>
       </div>
     </footer>
 
   </main>
 
-  <!-- Toast Notification (Flat) -->
-  <div id="toast" class="toss-toast">
-    <span class="w-5 h-5 rounded-full bg-[var(--toss-primary)] text-white flex items-center justify-center shrink-0">
-      <i data-lucide="check" class="w-3 h-3 stroke-[3]"></i>
-    </span>
-    <span id="toast-message" class="tracking-tight font-medium">알림 메시지</span>
+  <!-- Toast -->
+  <div id="toast" class="ed-toast">
+    <i data-lucide="check" class="w-4 h-4"></i>
+    <span id="toast-message">알림 메시지</span>
   </div>
 
   <script src="data.js"></script>

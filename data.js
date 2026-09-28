@@ -1,43 +1,43 @@
 /**
  * ==============================================================================
- * 포트폴리오 데이터 관리 파일 (data.js)
+ * 포트폴리오 데이터 (data.js)
  * ==============================================================================
  */
 
 const PORTFOLIO_DATA = {
   // 1. 기본 프로필 정보
   profile: {
-    name: "김예원 (코코)",
+    name: "김예원",
     nickname: "코코",
     englishName: "Kim Yewon",
     githubUsername: "kimyw1018",
     role: "Backend & Fullstack Developer",
-    affiliation: "숭실대학교 컴퓨터학부 (3학년 2학기 재학 중)",
+    affiliation: "숭실대학교 컴퓨터학부 3학년 2학기 재학",
     phone: "010-6555-6343",
     email: "poppppp00@gmail.com",
     github: "https://github.com/kimyw1018",
-    avatar: "https://github.com/kimyw1018.png",
-    
-    tagline: "안정적인 백엔드 시스템과 유기적인 서비스 경험을 설계하는 개발자 김예원(코코)입니다.",
-    
+    avatar: "projects/img/증명사진.jpg",
+
+    tagline: "쿼리 실행 계획부터 컨테이너 오케스트레이션까지, 시스템의 병목을 직접 찾아 고치는 개발자입니다.",
+
     bio: [
-      "Spring Boot, Java를 주축으로 견고한 백엔드 아키텍처와 분산 인프라(K3s, GitOps)를 구축하고 최적화하는 데 깊은 열정을 가지고 있습니다.",
-      "React, TypeScript 기반의 고도화된 웹 프론트엔드와 Android(Kotlin) 네이티브 클라이언트를 모두 직접 구현해보며, 클라이언트-서버 간 데이터 흐름과 트러블슈팅에 정통합니다.",
-      "기술적 한계에 부딪혔을 때 타협하지 않고 아키텍처를 과감히 피벗하여 최적의 솔루션을 도출해냅니다."
+      "Spring Boot와 Java로 백엔드를 만들고, PostgreSQL과 PostGIS로 쿼리를 튜닝하고, K3s와 ArgoCD로 그 서비스를 직접 배포합니다. A:SSU 프로젝트에서는 CTE와 Window Function으로 집계 쿼리를 단일 쿼리로 묶어 주간 매장 순위 조회 속도를 83% 줄였고, PostGIS R-Tree 공간 인덱스로 지오펜싱 조회의 N+1 문제를 없앴습니다.",
+      "프론트엔드도 같은 기준으로 다룹니다. React와 TypeScript로 웹 클라이언트를, Kotlin으로 Android 클라이언트를 직접 구현하면서 API 스키마를 먼저 정의하고 팀과 공유하는 방식으로 작업합니다. 나루 프로젝트에서는 MediaPipe 랜드마크 추출과 DTW 알고리즘을 조합해 브라우저 안에서만 동작하는 30fps 수어 인식을 만들었습니다.",
+      "UDP, TCP, STOMP 같은 전송 프로토콜을 직접 뜯어보고 스레드 풀과 락 경합을 원인 단위로 추적하는 편입니다. 겪은 문제와 해결 과정은 디렉터리 구조와 에러 페이로드 규격까지 문서로 남겨서, 같은 이슈를 팀이 두 번 겪지 않도록 합니다."
     ]
   },
 
-  // 2. 학력 정보 (숭실대학교 단독)
+  // 2. 학력
   education: [
     {
       period: "2024.03 ~ 재학 중",
-      institution: "숭실대학교 (Soongsil University)",
-      major: "IT대학 컴퓨터학부 (3학년 2학기 재학 중)",
-      description: "컴퓨터공학 전공 / 2026 숭실대 컴퓨터학부 SW공모전 총장상 수상 / 제28·29대 학생회 활동"
+      institution: "숭실대학교",
+      major: "IT대학 컴퓨터학부 · 3학년 2학기",
+      description: "2026 숭실대 컴퓨터학부 SW공모전 총장상 수상 · 제28, 29대 학생회 활동"
     }
   ],
 
-  // 3. 기술 스택 (공식 실제 SVG 로고 + 이름 + 숙련도 명도 텍스트)
+  // 3. 기술 스택
   skills: {
     "Backend & Database": [
       { name: "Java", level: "Advanced", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
@@ -69,7 +69,7 @@ const PORTFOLIO_DATA = {
     ]
   },
 
-  // 4. 수상 내역 (세로 한 줄 형태, 중복 문구 없이 본질적인 정보만 간결하게 기술)
+  // 4. 수상 내역
   awards: [
     {
       date: "2026.08.04",
@@ -77,7 +77,7 @@ const PORTFOLIO_DATA = {
       title: "2026 숭실대학교 컴퓨터학부 소프트웨어공모전 총장상",
       project: "A:SSU (어슈)",
       organization: "숭실대학교",
-      description: "대학-매장 제휴 관리 플랫폼 풀스택 개발 (Spring Boot GIS/통계 쿼리 최적화 및 Android 네이티브 클라이언트 구현)"
+      description: "대학-매장 제휴 관리 플랫폼 풀스택 개발. Spring Boot GIS/통계 쿼리 최적화 및 Android 네이티브 클라이언트 구현"
     },
     {
       date: "2026.02.20",
@@ -85,7 +85,7 @@ const PORTFOLIO_DATA = {
       title: "UMC 9기 데모데이 최우수상",
       project: "또랑 (TTORANG)",
       organization: "Makeus Challenge (UMC)",
-      description: "발표 피드백 플랫폼 브라우저 부하 격리 분리 녹화 및 1MB 청크 분할 업로드 프론트엔드 파이프라인 개발"
+      description: "발표 피드백 플랫폼의 브라우저 부하 분리 녹화 아키텍처와 1MB 청크 분할 업로드 파이프라인 개발"
     },
     {
       date: "2026.08.26",
@@ -101,11 +101,11 @@ const PORTFOLIO_DATA = {
       title: "UMC 10기 데모데이 우수상",
       project: "뮤즈리뷰 (MuseReview)",
       organization: "Makeus Challenge (UMC)",
-      description: "악기 연주 피드백 플랫폼 백엔드 코어 아키텍처 및 OAuth 2.0 / Redis 기반 보안 체계 구축"
+      description: "악기 연주 피드백 플랫폼 백엔드 코어 아키텍처 및 OAuth 2.0 / Redis 기반 인증 체계 구축"
     }
   ],
 
-  // 5. 주요 프로젝트 목록 (Featured Case Studies 4개)
+  // 5. 주요 프로젝트 (4개)
   projects: [
     {
       id: "naru",
@@ -118,13 +118,13 @@ const PORTFOLIO_DATA = {
       detailPage: "projects/naru.html",
       image: "projects/img/나루.png",
       tags: ["React 19", "TypeScript", "Vite 8", "MediaPipe", "DTW Engine", "LiveKit WebRTC", "Zustand", "Tailwind CSS v4"],
-      summary: "일반 웹캠과 모바일 브라우저만으로 30fps 온디바이스 실시간 수어 인식 및 양방향 통화를 지원하는 배리어프리 커뮤니케이션 웹 서비스",
-      role: "프론트엔드 & 실시간 AI 파이프라인 전담",
+      summary: "일반 웹캠과 모바일 브라우저만으로 30fps 온디바이스 수어 인식과 양방향 통화를 지원하는 배리어프리 커뮤니케이션 서비스",
+      role: "프론트엔드 및 실시간 AI 파이프라인 전담",
       highlights: [
-        "MediaPipe 3D 랜드마크 추출 및 신체 상대적 정규화 + DTW 알고리즘 기반 온디바이스 30fps 수어 인식 구현",
-        "발화 종료 감지 버퍼 및 직전 12턴 대화 히스토리 반영 LLM 구어체 문장 변환",
-        "2초 주기 10초 케이던스 바 UI를 통한 사용자 맞춤형 수어 단어 온디바이스 등록",
-        "LiveKit WebRTC 기반 화상 통화 및 iOS Safari 햅틱, DTMF 다이얼 톤 구현"
+        "MediaPipe 3D 랜드마크 추출과 신체 상대적 정규화, DTW 알고리즘을 결합한 온디바이스 30fps 수어 인식",
+        "발화 종료 감지 버퍼와 직전 12턴 대화 히스토리를 반영한 LLM 구어체 문장 변환",
+        "10초 케이던스 UI를 통한 사용자 맞춤 수어 단어 온디바이스 등록",
+        "LiveKit WebRTC 기반 화상 통화, iOS Safari 햅틱 및 DTMF 다이얼 톤 구현"
       ],
       links: [
         { label: "상세 분석 보기", url: "projects/naru.html" }
@@ -142,13 +142,14 @@ const PORTFOLIO_DATA = {
       detailPage: "projects/assu.html",
       image: "projects/img/ASSU – 대학생 제휴 어플.png",
       tags: ["Java", "Spring Boot", "Android", "Kotlin", "PostgreSQL", "PostGIS", "K3s", "ArgoCD", "Redis", "Hilt"],
-      summary: "숭실대학교 주변 제휴 매장 순위 추적 및 관리자 통계 대시보드를 구축하고, Android 네이티브 클라이언트부터 백엔드 GIS/통계 인프라까지 풀스택 개발",
+      summary: "숭실대 인근 제휴 매장의 순위 추적과 관리자 통계 대시보드를 Android 클라이언트부터 백엔드 GIS/통계 인프라까지 전 계층 개발",
       role: "백엔드 API·GIS·통계 및 Android 대시보드 풀스택 개발",
       highlights: [
-        "[Android] Sealed Interface 기반 전수 상태 처리 및 StateFlow 반응형 아키텍처로 런타임 에러 0건 달성",
-        "[Android] Kotlin Coroutines async/await를 활용한 3개 API 병렬 호출 최적화 및 MPAndroidChart 커스텀 렌더러 구현",
-        "[Spring Boot] PostGIS R-Tree 공간 인덱스 및 WAS 메모리 필터링 분리로 지도 뷰포트 쿼리 성능 극대화 및 N+1 원천 차단",
-        "[Infra] K3s + ArgoCD GitOps 파이프라인 구축 및 비관적 락 기반 동시성 제어"
+        "N:M 정규화와 복합 인덱스, CTE·Window Function 단일 쿼리 집계로 주간 매장 순위 조회 속도 83% 개선",
+        "PostGIS R-Tree 공간 인덱스 필터링과 메모리(HashSet) 권한 검증 분리, IN절 Bulk Read로 N+1 해결",
+        "제휴 사용량 동시 갱신 시 Lost Update 방지를 위한 비관적 락(SELECT ... FOR UPDATE) 적용",
+        "K3s 3-Node 클러스터와 ArgoCD GitOps 파이프라인 구축, Flannel VXLAN 프로토콜 분석 및 Ingress 충돌 해결",
+        "Sealed Interface 상태 관리, Coroutines async/await 병렬 API 호출, MPAndroidChart 커스텀 렌더러 구현"
       ],
       links: [
         { label: "상세 분석 보기", url: "projects/assu.html" },
@@ -168,13 +169,13 @@ const PORTFOLIO_DATA = {
       detailPage: "projects/musereview.html",
       image: "projects/img/Muse Review .png",
       tags: ["Java", "Spring Boot", "OAuth 2.0", "JWT", "Redis", "PostgreSQL", "Flyway", "Docker Compose", "Swagger"],
-      summary: "카카오/구글 다중 소셜 인증, Dual Token & Redis 세션/블랙리스트 관리, 표준 ApiResponse 및 전역 예외 처리 체계를 수립한 백엔드 코어",
+      summary: "카카오·구글 다중 소셜 인증과 Dual Token 세션 관리, 표준 응답·예외 처리 체계를 처음부터 설계한 백엔드 코어",
       role: "백엔드 초기 아키텍처 수립 및 코어 기능 개발",
       highlights: [
-        "소셜 로그인 리다이렉트 시 Access Token 평문 노출 위험을 HttpOnly 쿠키와 1회용 임시 인가 코드/POST 방식으로 원천 차단",
-        "Redis 인메모리 저장소 기반 Refresh Token 관리 및 로그아웃/탈퇴 시 즉각적인 토큰 블랙리스트 무효화",
-        "ApiResponse<T> 제네릭 레코드 및 @RestControllerAdvice 전역 예외 처리 패키지 설계",
-        "Docker Compose 기반 로컬 DB/Redis 컨테이너 가상화 및 Swagger API 스키마 사전 배포"
+        "소셜 로그인 리다이렉트 시 Access Token 노출 위험을 HttpOnly 쿠키와 1회용 인가 코드로 차단",
+        "Redis 기반 Refresh Token 관리와 로그아웃·탈퇴 시 즉시 토큰 블랙리스트 무효화",
+        "ApiResponse<T> 제네릭 레코드와 @RestControllerAdvice 전역 예외 처리 패키지 설계",
+        "Docker Compose 기반 로컬 DB/Redis 구성과 Swagger API 스키마 사전 배포"
       ],
       links: [
         { label: "상세 분석 보기", url: "projects/musereview.html" },
@@ -194,12 +195,12 @@ const PORTFOLIO_DATA = {
       detailPage: "projects/ttorang.html",
       image: "projects/img/또랑.png",
       tags: ["React 18", "TypeScript", "Vite", "Tailwind CSS", "Zustand", "TanStack Query v5", "hls.js", "MediaRecorder"],
-      summary: "브라우저 부하를 격리한 분리 녹화 아키텍처, 1MB 청크 분할 업로드 파이프라인, Zustand 기반 비디오-슬라이드 동기화 엔진 개발",
+      summary: "브라우저 부하를 분리한 녹화 아키텍처와 1MB 청크 업로드 파이프라인, 비디오-슬라이드 동기화 엔진 개발",
       role: "웹 프론트엔드 핵심 미디어 파이프라인 개발",
       highlights: [
-        "기존 Canvas 합성의 메모리 폭증 문제를 [웹캠 단독 캡처 + 슬라이드 타임스탬프 JSON 분리] 아키텍처로 전환하여 크래시 0건 달성",
-        "대용량 비디오의 네트워크 타임아웃을 극복하는 3-Phase 1MB 청크 순차 업로드 파이프라인 구축",
-        "Zustand 단일 상태 저장소로 비디오 시간-슬라이드-대본-댓글 간 밀리초 단위 양방향 동기화",
+        "Canvas 합성 방식의 메모리 폭증 문제를 웹캠 단독 캡처 + 슬라이드 타임스탬프 분리 구조로 전환해 크래시 제거",
+        "대용량 비디오 네트워크 타임아웃을 해결하는 3단계 1MB 청크 순차 업로드 파이프라인 구축",
+        "Zustand 단일 스토어로 비디오 시간, 슬라이드, 대본, 댓글 간 밀리초 단위 동기화",
         "hls.js 기반 스트리밍 재생 최적화 및 DTO 스키마 엄격 타이핑"
       ],
       links: [
@@ -210,7 +211,7 @@ const PORTFOLIO_DATA = {
     }
   ],
 
-  // 6. 기타 프로젝트 목록 (Other Projects 5개)
+  // 6. 기타 프로젝트 (5개)
   otherProjects: [
     {
       id: "ssurent",
@@ -220,12 +221,12 @@ const PORTFOLIO_DATA = {
       category: "web",
       detailPage: "projects/ssurent.html",
       url: "https://github.com/kimyw1018",
-      tags: ["Web", "캡스톤 디자인", "발표 자료", "최종 보고서", "포스터"],
-      summary: "숭실대학교 2026학년도 1학기 캡스톤 디자인 합격 웹 서비스 프로젝트. 전체 개발 기획, 시스템 요구사항 분석, 발표 자료, 최종 보고서 및 포스터 완성.",
-      deliverables: ["발표 자료 (영상용.pdf)", "프로젝트 최종 보고서 (SSURENT_최종보고서.pdf)", "SSURENT 포스터 (SSURENT 포스터.pdf)"],
+      tags: ["Web", "캡스톤 디자인", "요구사항 분석", "최종 보고서"],
+      summary: "숭실대 2026학년도 1학기 캡스톤 디자인 심사를 통과한 웹 서비스 기획. 요구사항 분석부터 발표 자료, 최종 보고서, 포스터까지 단독 작성",
+      deliverables: ["발표 자료", "최종 보고서", "포스터"],
       highlights: [
-        "2026-1학기 캡스톤 디자인 합격 및 웹 서비스 종합 기획",
-        "최종 보고서 및 발표 영상, 학술 포스터 산출물 제작 완료"
+        "캡스톤 디자인 심사 합격 및 서비스 전체 기획, 도메인 분석 담당",
+        "최종 보고서와 발표 자료, 학술 포스터를 문서 형태로 정리해 심사 제출"
       ]
     },
     {
@@ -236,31 +237,31 @@ const PORTFOLIO_DATA = {
       category: "android",
       detailPage: "projects/booklog.html",
       url: "https://github.com/kimyw1018",
-      tags: ["Android (Java)", "Firebase", "MaterialCalendarView", "알라딘 Open API", "Retrofit", "Glide", "ThreeTenABP"],
-      summary: "읽은 책의 페이지, 별점, 감상평을 간편하게 기록하고 캘린더에 쌓이는 성취감을 통해 꾸준한 독서 습관을 형성하는 Android 네이티브 앱",
+      tags: ["Android (Java)", "Firebase", "MaterialCalendarView", "알라딘 Open API", "Retrofit"],
+      summary: "읽은 책의 페이지, 별점, 감상평을 캘린더에 기록해 독서 습관을 시각적으로 관리하는 Android 네이티브 앱",
       highlights: [
-        "Decorator 패턴 활용: WeekdayDecorator, SpecialDayDecorator, BookDateDecorator로 주말/오늘/독서 기록 시각적 구분",
-        "성능 최적화: HashSet 자료구조로 날짜 조회를 O(1)에 처리하여 기록 누적 시에도 렉 없는 부드러운 UI 유지",
-        "계층적 Fragment 아키텍처: RecordContainerFragment 기반 자식 Fragment 관리 및 타입 안전 데이터(Parcelable) 전달",
-        "Firebase 실시간 DB 이중 컬렉션(books & records) 분리 및 Map 캐싱을 통한 비동기 조인·쿼리 최적화",
-        "트러블슈팅: Firebase 문자열 vs MaterialCalendarView CalendarDay 간 타입 불일치를 정규화 변환 함수로 동기화"
+        "Decorator 패턴으로 주말, 오늘, 독서 기록일을 캘린더에서 시각적으로 구분",
+        "HashSet 자료구조로 기록 날짜 조회를 O(1)로 처리해 기록이 쌓여도 스크롤 유지",
+        "RecordContainerFragment 기반 계층적 Fragment 구조와 Parcelable 타입 안전 데이터 전달",
+        "Firebase 이중 컬렉션(books/records) 분리와 Map 캐싱으로 비동기 조인 비용 절감",
+        "Firebase 문자열 날짜와 MaterialCalendarView CalendarDay 간 타입 불일치를 변환 함수로 정리"
       ]
     },
     {
       id: "travel-skyscanner",
       title: "여행 플래너 & Skyscanner 항공권 위젯",
-      subtitle: "실시간 성/비수기 조회 및 위젯 자동 반응형 웹",
+      subtitle: "실시간 성수기 조회 및 위젯 자동 반응형 웹",
       period: "2025 ~ 2026",
       category: "web",
       detailPage: "projects/travel.html",
       url: "https://github.com/kimyw1018",
-      tags: ["JavaScript", "HTML/CSS", "ResizeObserver", "Skyscanner Widget API", "Bootstrap", "Glassmorphism"],
-      summary: "실시간 여행지별 성/비수기 정보 조회와 Skyscanner 항공권 검색 위젯을 유기적으로 통합하고, 위젯 높이 변화에 50ms 이내로 실시간 반응하는 동적 배경 시스템 구현",
+      tags: ["JavaScript", "ResizeObserver", "Skyscanner Widget API", "Bootstrap"],
+      summary: "여행지별 성수기 정보 조회와 Skyscanner 항공권 검색 위젯을 결합하고, 위젯 높이 변화에 실시간으로 반응하는 배경 시스템 구현",
       highlights: [
-        "ResizeObserver API 기반 동적 배경 크기 자동 조정 시스템 구축 (위젯 높이 변화 감지 속도 50ms)",
-        "외부 스크립트 중복 로드 방지 및 메모리 누수 원천 차단 (초기 로드 2.3초, 60fps 유지)",
-        "구형 브라우저(IE 11 포함) 호환성을 위한 Polling Fallback 전략 구현",
-        "정규식 기반 위치 문자열에서 IATA 공항 코드 안전 추출 및 Glassmorphism UI 스타일링"
+        "ResizeObserver API로 위젯 높이 변화를 50ms 이내에 감지해 배경 레이아웃 자동 조정",
+        "외부 스크립트 중복 로드 방지 구조로 초기 로드 2.3초, 60fps 유지",
+        "ResizeObserver 미지원 구형 브라우저를 위한 폴링 폴백 전략 구현",
+        "정규식 기반 위치 문자열 파싱으로 IATA 공항 코드 추출"
       ]
     },
     {
@@ -271,43 +272,43 @@ const PORTFOLIO_DATA = {
       category: "web",
       detailPage: "projects/parentrest.html",
       url: "https://github.com/kimyw1018",
-      tags: ["React", "TypeScript", "Tailwind CSS", "CSS Keyframes", "Skeleton UI", "Animation"],
-      summary: "부모 및 양육자를 위한 마음건강 자가진단 및 도우미 웹 플랫폼. 문항별 페이드 인/아웃 전환, 동적 피드백 애니메이션 및 스켈레톤 로딩 인터랙션 구현",
+      tags: ["React", "TypeScript", "Tailwind CSS", "Skeleton UI"],
+      summary: "양육자를 위한 마음건강 자가진단 웹 플랫폼. 문항별 전환 애니메이션과 진단 결과에 따른 동적 피드백 구현",
       highlights: [
-        "CSS Transitions & React 상태 관리 결합: 문항 선택 시 자연스러운 슬라이드 및 페이드 인/아웃 전환 애니메이션",
-        "진단 레벨에 따른 동적 색상/아이콘 피드백 결과 화면 및 북마크 클릭 시 하트 바운스 효과",
-        "스켈레톤 UI를 도입하여 비동기 데이터 로딩 중 체감 대기 시간 감소",
-        "트러블슈팅: 단일 파일 구조를 기능별/페이지별 컴포넌트로 모듈화하고 TypeScript Props/State 엄격 타이핑 적용"
+        "React 상태 관리와 CSS Transition을 결합한 문항 전환 애니메이션",
+        "진단 레벨에 따른 색상과 아이콘 동적 렌더링",
+        "스켈레톤 UI 도입으로 비동기 로딩 중 레이아웃 시프트 방지",
+        "단일 파일 구조를 기능별 컴포넌트로 리팩토링하고 TypeScript 타입 정의 적용"
       ]
     },
     {
       id: "coupang-scheduler",
       title: "쿠팡 WING 쿠폰 자동 갱신 스케줄러",
-      subtitle: "당일 즉시할인 쿠폰 자동 갱신 & 실시간 장애 모니터링",
+      subtitle: "당일 즉시할인 쿠폰 자동 갱신 및 장애 모니터링",
       period: "2025",
       category: "backend",
       detailPage: "projects/coupang.html",
       url: "https://github.com/kimyw1018",
-      tags: ["TypeScript (v5.5+)", "Node.js (v20+)", "Axios", "Crypto (HMAC-SHA256)", "Discord Webhook", "Scheduler"],
-      summary: "쿠팡 WING Open API 기반 당일 즉시할인 쿠폰 자동 롤오버 및 무중단 장애 모니터링을 수행하는 TypeScript 서버 사이드 백엔드 스케줄러",
+      tags: ["TypeScript", "Node.js", "Axios", "HMAC-SHA256", "Discord Webhook"],
+      summary: "쿠팡 WING Open API 기반으로 당일 즉시할인 쿠폰을 자동 갱신하고, 실패 지점을 실시간으로 알리는 서버 사이드 스케줄러",
       highlights: [
-        "Node.js 내장 crypto 모듈을 활용한 쿠팡 WING API 규격 HMAC-SHA256 서명 자동 생성",
-        "3단계 쿠폰 라이프사이클 롤오버 배치 파이프라인 (조회 -> 루프 폐기 -> 신규 KST 발행)",
-        "장애 격리: 개별 쿠폰 실패 시에도 전체 배치가 중단되지 않는 예외 격리 및 실패 항목 선별 로깅",
-        "다중 레이어 계약 ID 폴백 전략 (환경변수 -> 목록 API 캐시 -> 단일 API 폴백)",
-        "Discord Webhook 실시간 모니터링: 장애 발생 위치/에러 스택 트레이스를 Embed 카드로 전송 및 dotenv Fail-Fast 검증"
+        "Node.js 내장 crypto 모듈로 쿠팡 WING API 규격 HMAC-SHA256 서명 자체 생성",
+        "조회, 폐기, 신규 발행 3단계 롤오버 배치 파이프라인 구현",
+        "개별 쿠폰 실패가 전체 배치를 막지 않도록 예외 격리 및 실패 항목 로깅",
+        "환경변수, 목록 API 캐시, 단일 API 순서의 다중 계약 ID 폴백 전략",
+        "Discord Webhook으로 장애 위치와 에러 스택을 즉시 전송, dotenv Fail-Fast 검증"
       ]
     }
   ],
 
-  // 7. 활동 이력 (Activities & Experience)
+  // 7. 활동 이력
   experiences: [
     {
       period: "2026.05 ~ 2026.12",
       title: "구암고등학교 웹 개발 동아리 자문",
       organization: "구암고등학교",
       role: "자문위원 / 멘토",
-      description: "고교 개발 동아리 학생 대상 웹 프로그래밍 기초 멘토링, 프로젝트 아키텍처 설계 피드백 및 코드 리뷰 진행"
+      description: "고교 개발 동아리 학생 대상 웹 프로그래밍 멘토링과 프로젝트 아키텍처 코드 리뷰 진행"
     },
     {
       period: "2026.03 ~ 현재",
@@ -321,21 +322,21 @@ const PORTFOLIO_DATA = {
       title: "UMC (Makeus Challenge) 9기",
       organization: "대학생 연합 IT 벤처 창업 동아리",
       role: "Web 파트",
-      description: "React/TypeScript 기반 프론트엔드 과정 수료 및 데모데이 최우수상 프로젝트(또랑) 웹 클라이언트 전담 개발"
+      description: "React/TypeScript 프론트엔드 과정 수료 및 데모데이 최우수상 프로젝트(또랑) 웹 클라이언트 개발"
     },
     {
       period: "2025.01 ~ 2025.12",
       title: "숭실대학교 컴퓨터학부 제29대 학생회",
       organization: "숭실대학교 컴퓨터학부",
       role: "기획국",
-      description: "학부 주요 학술제 및 IT 해커톤 기획 총괄, 재학생 편의 프로그램 및 제휴 연계 프로젝트 운영"
+      description: "학부 학술제와 해커톤 기획, 재학생 편의 프로그램 및 제휴 연계 프로젝트 운영"
     },
     {
       period: "2024.03 ~ 2024.12",
       title: "숭실대학교 컴퓨터학부 제28대 학생회",
       organization: "숭실대학교 컴퓨터학부",
       role: "복지국",
-      description: "학부생 편의 복지 사업 기획 및 대학 상권 제휴 프로그램 관리"
+      description: "학부생 복지 사업 기획 및 대학 상권 제휴 프로그램 관리"
     }
   ]
 };
