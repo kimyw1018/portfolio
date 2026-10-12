@@ -11,44 +11,51 @@
   --font-serif: 'Fraunces', 'Noto Serif KR', ui-serif, Georgia, serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
 
-  /* Warm paper canvas */
-  --ed-paper: #F3EFE6;
-  --ed-surface: #E9E3D5;
-  --ed-surface-strong: #E0D8C6;
+  /* ==========================================================================
+     5-color palette (only these hex values are used anywhere on the site):
+     #0A1020 Primary / Deep Background
+     #162848 Secondary / Card Background
+     #3A6090 Accent / Button / Border
+     #90A8C0 Sub Text / Muted Accent
+     #E8EEF4 Main Text / Light Background
+     ========================================================================== */
+  --ed-paper: #E8EEF4;
+  --ed-surface: #E8EEF4;
+  --ed-surface-strong: #E8EEF4;
 
-  --ed-line: #CFC5AF;
-  --ed-line-strong: #1B1916;
+  --ed-line: #3A6090;
+  --ed-line-strong: #0A1020;
 
-  --ed-ink: #1B1916;
-  --ed-ink-soft: #55504A;
-  --ed-ink-faint: #8C8577;
+  --ed-ink: #0A1020;
+  --ed-ink-soft: #162848;
+  --ed-ink-faint: #3A6090;
 
-  --ed-accent: #AE4B26;
-  --ed-accent-hover: #8C3B1C;
-  --ed-accent-soft: #E9D6C6;
+  --ed-accent: #3A6090;
+  --ed-accent-hover: #162848;
+  --ed-accent-soft: #90A8C0;
 
-  --ed-white: #FDFCF9;
-  --ed-status-danger: #A8341F;
+  --ed-white: #E8EEF4;
+  --ed-status-danger: #3A6090;
 }
 
 html.dark {
-  --ed-paper: #17140F;
-  --ed-surface: #201C16;
-  --ed-surface-strong: #29241C;
+  --ed-paper: #0A1020;
+  --ed-surface: #162848;
+  --ed-surface-strong: #162848;
 
-  --ed-line: #38322A;
-  --ed-line-strong: #EFE9DC;
+  --ed-line: #3A6090;
+  --ed-line-strong: #90A8C0;
 
-  --ed-ink: #EFE9DC;
-  --ed-ink-soft: #B0A996;
-  --ed-ink-faint: #756E60;
+  --ed-ink: #E8EEF4;
+  --ed-ink-soft: #90A8C0;
+  --ed-ink-faint: #90A8C0;
 
-  --ed-accent: #E2895F;
-  --ed-accent-hover: #ED9C77;
-  --ed-accent-soft: #3B2A20;
+  --ed-accent: #3A6090;
+  --ed-accent-hover: #90A8C0;
+  --ed-accent-soft: #162848;
 
-  --ed-white: #17140F;
-  --ed-status-danger: #E2895F;
+  --ed-white: #E8EEF4;
+  --ed-status-danger: #90A8C0;
 }
 
 /* ==============================================================================
@@ -473,65 +480,6 @@ html.dark .ed-toast {
 .ed-toggle-card.is-open .ed-toggle-body { display: block; }
 
 /* ==============================================================================
-   Focus modal ('크게 보기')
-   ============================================================================== */
-.ed-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  background-color: rgba(27, 25, 22, 0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-.ed-modal-backdrop.is-active { opacity: 1; pointer-events: auto; }
-
-.ed-modal-container {
-  background-color: var(--ed-paper);
-  width: 100%;
-  max-width: 700px;
-  max-height: 85vh;
-  border: 1px solid var(--ed-line-strong);
-  border-radius: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transform: translateY(8px);
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.ed-modal-backdrop.is-active .ed-modal-container { transform: translateY(0); }
-
-.ed-modal-header {
-  padding: 22px 24px 18px 24px;
-  border-bottom: 1px solid var(--ed-line);
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.ed-modal-body {
-  padding: 24px;
-  overflow-y: auto;
-  line-height: 1.7;
-  font-size: 14px;
-}
-
-.ed-modal-footer {
-  padding: 14px 24px;
-  border-top: 1px solid var(--ed-line);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-/* ==============================================================================
    Document / PDF viewer block
    ============================================================================== */
 .ed-doc {
@@ -589,138 +537,98 @@ html.dark .ed-toast {
 }
 
 /* ==============================================================================
-   Screenshot gallery + lightbox viewer
+   Seamless screenshot list — no slider, no crop, no modal.
+   Images sit flush against each other (object-fit: contain) so the eye reads
+   them as one continuous strip rather than a grid of clickable tiles.
    ============================================================================== */
-.ed-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-
-@media (min-width: 640px) {
-  .ed-gallery { grid-template-columns: repeat(3, 1fr); }
-}
-
-.ed-gallery-item {
-  position: relative;
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
+.ed-shots {
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--ed-line);
   background-color: var(--ed-surface);
-  overflow: hidden;
-  cursor: zoom-in;
-  padding: 0;
 }
 
-.ed-gallery-item img {
+.ed-shots > figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ed-shots > figure + figure { border-top: 1px solid var(--ed-line); }
+
+.ed-shots img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
   display: block;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
-  filter: grayscale(0.1);
+  background-color: var(--ed-paper);
 }
 
-.ed-gallery-item:hover img {
-  transform: scale(1.04);
-  filter: grayscale(0);
-}
-
-.ed-gallery-item::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(27,25,22,0.35), transparent 45%);
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-.ed-gallery-item:hover::after { opacity: 1; }
-
-.ed-gallery-caption {
+.ed-shots figcaption {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--ed-ink-faint);
-  margin-top: 8px;
+  padding: 8px 14px;
+  border-top: 1px solid var(--ed-line);
 }
 
-.ed-lightbox-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background-color: rgba(10, 9, 7, 0.88);
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
+/* ==============================================================================
+   Report building blocks (stat strip, data tables, option tables, code blocks,
+   plain reference lists) — shared by every full-report project page.
+   ============================================================================== */
+.ed-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background-color: var(--ed-line);
+  border: 1px solid var(--ed-line);
 }
 
-.ed-lightbox-backdrop.is-active { opacity: 1; pointer-events: auto; }
+@media (min-width: 640px) { .ed-stats { grid-template-columns: repeat(3, 1fr); } }
 
-.ed-lightbox-bar {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 18px;
+.ed-stat {
+  background-color: var(--ed-surface);
+  padding: 16px;
+}
+
+.ed-stat .ed-stat-value { font-family: var(--font-serif); font-weight: 700; font-size: 20px; color: var(--ed-accent); line-height: 1.25; }
+.ed-stat .ed-stat-label { font-size: 12px; color: var(--ed-ink-soft); margin-top: 4px; }
+.ed-stat .ed-stat-condition { font-family: var(--font-mono); font-size: 10.5px; color: var(--ed-ink-faint); margin-top: 6px; line-height: 1.5; }
+
+.ed-table-wrap { overflow-x: auto; border: 1px solid var(--ed-line); }
+
+.ed-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.ed-table th, .ed-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--ed-line); vertical-align: top; }
+.ed-table thead th { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ed-ink-soft); background-color: var(--ed-surface); }
+.ed-table tbody tr:last-child td { border-bottom: 0; }
+.ed-table .is-chosen { color: var(--ed-accent); font-weight: 700; }
+
+.ed-code {
+  background-color: var(--ed-ink);
+  color: var(--ed-white);
+  border: 1px solid var(--ed-line-strong);
+  padding: 14px 16px;
+  overflow-x: auto;
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--ed-surface);
+  line-height: 1.6;
+  white-space: pre;
 }
 
-.ed-lightbox-stage {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 0 12px 24px;
-  min-height: 0;
+.ed-code-path {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ed-ink-faint);
+  padding: 6px 2px;
 }
 
-.ed-lightbox-stage img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border: 1px solid rgba(239, 233, 220, 0.15);
-  background-color: var(--ed-white);
-}
+.ed-ref-list { list-style: none; padding: 0; margin: 0; }
+.ed-ref-list li { padding: 10px 0; border-top: 1px solid var(--ed-line); font-size: 13px; color: var(--ed-ink-soft); line-height: 1.65; }
+.ed-ref-list li:first-child { border-top: 0; }
+.ed-ref-list code { font-family: var(--font-mono); font-size: 11.5px; color: var(--ed-ink-faint); }
 
-.ed-lightbox-nav {
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(239, 233, 220, 0.3);
-  color: var(--ed-surface);
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
-}
-
-.ed-lightbox-nav:hover { background-color: rgba(239, 233, 220, 0.12); border-color: rgba(239, 233, 220, 0.6); }
-.ed-lightbox-nav:disabled { opacity: 0.25; cursor: default; }
-
-.ed-lightbox-close {
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(239, 233, 220, 0.3);
-  color: var(--ed-surface);
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.ed-lightbox-close:hover { background-color: rgba(239, 233, 220, 0.12); }
-
-@media (max-width: 640px) {
-  .ed-lightbox-stage { gap: 2px; padding: 0 2px 16px; }
-  .ed-lightbox-nav { width: 32px; height: 32px; }
-}
+.ed-qa { border-top: 1px solid var(--ed-line); padding: 16px 0; }
+.ed-qa:first-child { border-top: 0; }
+.ed-qa-q { font-weight: 700; color: var(--ed-ink); font-size: 14px; line-height: 1.6; }
+.ed-qa-a { font-size: 13px; color: var(--ed-ink-soft); line-height: 1.65; margin-top: 6px; }

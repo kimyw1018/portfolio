@@ -92,44 +92,14 @@
       </div>
     </section>
 
-    <section class="space-y-4">
-      <span class="ed-eyebrow"><span class="num">03</span><span>Phase 2 — 웹 SPA 마이그레이션 (bookieOn)</span></span>
-      <p class="text-xs text-[var(--ed-ink-faint)] -mt-1">기존 안드로이드 화면을 13개 라우트의 반응형 웹 SPA로 100% 이식했습니다 (PR #1).</p>
-      <div class="ed-divide">
-        <div class="py-4 flex gap-4">
-          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">01</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">Firestore Prefix Range Query 검색</strong>: Firestore에는 SQL의 <code>LIKE '%keyword%'</code>가 없어, 유니코드 Private Use Area 문자 <code>U+F8FF</code>가 거의 모든 출력 문자보다 뒤에 정렬된다는 특성을 이용해 <code>where("name", ">=", keyword)</code>와 <code>where("name", "&lt;=", keyword + "\uF8FF")</code> 복합 조건으로 "시작하는 문자열" 검색을 단일 인덱스 스캔으로 구현했다.</p>
-        </div>
-        <div class="py-4 flex gap-4">
-          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">02</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">TanStack Query 정밀 캐시 무효화</strong>: 모든 쿼리 키를 로그인 사용자 <code>uid</code>로 격리(<code>["feedItems", user?.uid]</code> 등)하고, 독서 기록 수정 시 홈 피드 캐시와 개별 기록 상세 캐시를 함께 타겟 무효화해 데이터 정합성을 보장했다.</p>
-        </div>
-        <div class="py-4 flex gap-4">
-          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">03</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">월별 캘린더 그리드 + O(1) 날짜 조회</strong>: 요일 오프셋과 월 일수로 7열 캘린더 셀 배열을 생성하고, 전체 독서 기록을 매 렌더링마다 순회하는 대신 <code>useMemo</code>로 날짜 문자열을 키로 하는 <code>Map&lt;string, FeedItem[]&gt;</code>을 만들어 O(1) 조회로 바꿨다. 무거운 캘린더 라이브러리 없이 순수 Date 객체와 CSS Grid로 구현해 번들 크기도 줄였다.</p>
-        </div>
-      </div>
+    <section class="space-y-2 pt-2">
+      <span class="ed-eyebrow"><span>Phase 2 — bookieOn 전체 리포트</span></span>
+      <p class="text-xs text-[var(--ed-ink-faint)]">
+        아래부터는 bookieOn 웹 마이그레이션 저장소를 분석한 리포트(.md/.json)를 요약 없이 통일된 템플릿으로 그대로 옮긴 전체 내용입니다.
+      </p>
     </section>
 
-    <section class="space-y-5 pt-2">
-      <span class="ed-eyebrow"><span class="num">04</span><span>Problem Solving</span></span>
-      <div class="ed-divide">
-        <div class="py-4 flex gap-4">
-          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">01</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed">
-            <strong class="text-[var(--ed-ink)]">Cloudflare 정적 호스팅에서 SPA 새로고침 404</strong>: <code>/group</code>, <code>/calendar</code> 같은 하위 라우트에서 직접 URL 진입이나 새로고침을 하면 서버가 실제 파일을 찾지 못해 404를 반환했다. HashRouter(<code>/#/group</code>)는 URL에 <code>#</code>이 노출되어 미채택, Cloudflare Pages 전용 <code>_redirects</code> 파일은 Workers 프로젝트에서는 무시되어 일시 채택 후 폐기했다. 최종적으로 <code>wrangler.jsonc</code>에 다음 설정을 추가해 해결했다:
-          </p>
-          <pre class="ed-mono text-xs bg-[var(--ed-surface)] border border-[var(--ed-line)] p-3 overflow-x-auto mt-2"><code>{
-  "name": "bookieon",
-  "compatibility_date": "2026-09-01",
-  "assets": {
-    "directory": "./dist",
-    "not_found_handling": "single-page-application"
-  }
-}</code></pre>
-        </div>
-      </div>
-    </section>
+    <div id="report-root" class="space-y-12"></div>
 
     <div class="pt-8 ed-rule flex items-center justify-between">
       <a href="../index.html#projects" class="ed-btn !py-2.5 !px-4">
@@ -146,6 +116,8 @@
 
   </main>
 
+  <script src="report-render.js"></script>
+  <script src="assets/bookieOn/report-data.js"></script>
   <script>
     if (window.lucide) window.lucide.createIcons();
     const themeBtn = document.getElementById('theme-toggle');
@@ -154,6 +126,8 @@
       const isDark = document.documentElement.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
+
+    renderReport(REPORT_DATA, { mount: '#report-root', startNum: 3 });
   </script>
 </body>
 </html>

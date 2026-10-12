@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A:SSU (어슈) · 프로젝트 상세 | 김예원 (코코)</title>
-  <meta name="description" content="숭실대학교 제휴 플랫폼 A:SSU, Android 클라이언트 및 Spring Boot 백엔드 풀스택 개발 상세">
+  <meta name="description" content="숭실대학교 제휴 플랫폼 A:SSU 백엔드 인증/인가 및 핵심 기능 개발 — 전체 리포트">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,14 +21,14 @@
     <div class="max-w-3xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
       <a href="../index.html#projects" class="ed-btn !py-2 !px-3.5 !text-[11px]">
         <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
-        <span>포트폴리오 메인으로</span>
+        <span>메인으로 돌아가기</span>
       </a>
       <div class="flex items-center gap-2">
         <button id="theme-toggle" aria-label="테마 전환" class="ed-icon-btn">
           <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
         </button>
-        <a href="https://github.com/kimyw1018/ASSU_BE" target="_blank" rel="noopener noreferrer" class="ed-icon-btn">
+        <a href="https://github.com/ASSU-dev/ASSU_BE" target="_blank" rel="noopener noreferrer" class="ed-icon-btn">
           <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
           </svg>
@@ -39,473 +39,38 @@
 
   <main class="max-w-3xl mx-auto px-5 sm:px-8 py-10 sm:py-14 space-y-12">
 
-    <section class="space-y-5 pb-10 ed-rule-b">
-      <div class="flex flex-wrap items-center gap-3">
-        <span class="ed-badge">2026 숭실대 SW공모전 총장상</span>
-        <span class="ed-mono text-xs text-[var(--ed-ink-faint)]">2025.03 ~ 진행 중</span>
-        <span class="ed-eyebrow"><span>Spring Boot · Android Fullstack</span></span>
-      </div>
+    <section class="space-y-5 pb-10 ed-rule-b" id="hero"></section>
 
-      <div>
-        <h1 class="ed-display text-4xl sm:text-5xl text-[var(--ed-ink)]">A:SSU (어슈)</h1>
-        <p class="ed-serif text-lg sm:text-xl text-[var(--ed-accent)] mt-2 leading-snug max-w-2xl">
-          숭실대학교 학생, 매장, 학생회를 연결하는 제휴 혜택 인증과 매장 순위·통계 대시보드
-        </p>
-      </div>
+    <div id="report-root" class="space-y-12"></div>
 
-      <div class="ed-project-media aspect-[16/9] mt-2">
-        <img src="img/ASSU – 대학생 제휴 어플.png" alt="A:SSU 서비스 대표 화면" class="w-full h-full object-cover">
-      </div>
-      <!-- 추천 캡처: 매장 지도 화면(뷰포트 필터링), 관리자 통계 대시보드 차트, 순위 랭킹 리스트 -->
-
-      <div class="flex flex-wrap gap-2.5">
-        <a href="https://github.com/kimyw1018/ASSU_BE" target="_blank" rel="noopener noreferrer" class="ed-btn !py-2 !px-3.5 !text-[11px]">
-          <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+    <div class="pt-8 ed-rule flex items-center justify-between">
+      <a href="../index.html#projects" class="ed-btn !py-2.5 !px-4">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span>전체 프로젝트 목록으로</span>
+      </a>
+      <a href="https://github.com/ASSU-dev/ASSU_BE" target="_blank" rel="noopener noreferrer" class="ed-btn ed-btn-accent !py-2.5 !px-4">
+        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
           </svg>
-          <span>Backend Repository</span>
-        </a>
-        <a href="https://github.com/ASSU-dev/ASSU_FE_app" target="_blank" rel="noopener noreferrer" class="ed-btn !py-2 !px-3.5 !text-[11px]">
-          <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
-          <span>Android Repository</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="space-y-3">
-      <span class="ed-eyebrow"><span class="num">01</span><span>Overview</span></span>
-      <div class="ed-callout text-[15px] leading-relaxed">
-        매장 순위와 통계 시스템 구현, 파트너 매장의 실시간 사용량 분석, 관리자용 통계 대시보드까지 백엔드 API 설계부터 Android 클라이언트 구현까지 전 구간을 맡았습니다.
-      </div>
-    </section>
-
-    <section class="space-y-4">
-      <div class="flex items-baseline justify-between gap-2">
-        <span class="ed-eyebrow"><span class="num">02</span><span>Android Client</span></span>
-      </div>
-      <div class="ed-divide">
-        <div class="py-4 flex gap-4">
-          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">01</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">타입 안전 상태 관리</strong>: Sealed Interface 기반 Exhaustive State Management와 StateFlow 반응형 아키텍처로 런타임 상태 에러를 없애고 UI 깜빡임을 제거했다.</p>
-        </div>
-        <div class="py-4 flex gap-4">
-          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">02</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">Clean Architecture</strong>: Presentation, Domain, Data 레이어를 분리하고 Repository와 UseCase 패턴으로 비즈니스 로직을 캡슐화했다.</p>
-        </div>
-        <div class="py-4 flex gap-4">
-          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">03</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">병렬 API 호출</strong>: Kotlin Coroutines async/await로 독립적인 API 3개를 동시에 호출하고 coroutineScope로 부분 실패를 방어했다.</p>
-        </div>
-        <div class="py-4 flex gap-4">
-          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">04</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">네트워크 계층</strong>: Retrofit과 Hilt, Moshi 직렬화, SharedPreferences 토큰을 주입하는 AuthInterceptor로 모듈을 구성했다.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="space-y-4">
-      <span class="ed-eyebrow"><span class="num">03</span><span>Backend & Infra</span></span>
-      <div class="ed-divide">
-        <div class="py-4 flex gap-4">
-          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">01</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">대용량 집계 최적화</strong>: N:M 정규화와 복합 인덱스, CTE와 RANK() OVER Window Function으로 여러 쿼리를 하나로 묶어 주간 순위 조회 속도를 83% 줄였다.</p>
-        </div>
-        <div class="py-4 flex gap-4">
-          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">02</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">공간 인덱싱(GIS)</strong>: PostGIS R-Tree 인덱스로 뷰포트 필터링을 분리하고, 권한 검증은 WAS 메모리(HashSet O(1))로 옮겨 DB 부하를 낮췄다.</p>
-        </div>
-        <div class="py-4 flex gap-4">
-          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">03</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">비관적 락</strong>: 제휴 혜택 동시 사용 시 갱신 손실을 막기 위해 SELECT ... FOR UPDATE 행 단위 잠금을 적용했다.</p>
-        </div>
-        <div class="py-4 flex gap-4">
-          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">04</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">K3s GitOps</strong>: GitHub Actions에서 Manifest 저장소로 커밋하면 ArgoCD가 3-Node 클러스터에 자동 반영하고, Git Submodule로 민감 설정을 분리했다.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="space-y-4">
-      <span class="ed-eyebrow"><span class="num">04</span><span>Gallery</span></span>
-      <p class="text-xs text-[var(--ed-ink-faint)]">숭실대 SW공모전 발표 슬라이드와 앱스토어 소개 화면입니다. 클릭하면 크게 볼 수 있습니다.</p>
-
-      <div class="space-y-2">
-        <p class="ed-mono text-[11px] text-[var(--ed-ink-faint)] uppercase tracking-wider">공모전 발표 슬라이드</p>
-        <div class="ed-gallery" data-gallery="assu-contest">
-          <button class="ed-gallery-item" data-src="assets/assu/gallery/contest-01.jpg" data-caption="A:SSU 소프트웨어공모전 발표 슬라이드 1"><img src="assets/assu/gallery/contest-01.jpg" alt="A:SSU 공모전 슬라이드 1" loading="lazy"></button>
-          <button class="ed-gallery-item" data-src="assets/assu/gallery/contest-02.jpg" data-caption="A:SSU 소프트웨어공모전 발표 슬라이드 2"><img src="assets/assu/gallery/contest-02.jpg" alt="A:SSU 공모전 슬라이드 2" loading="lazy"></button>
-          <button class="ed-gallery-item" data-src="assets/assu/gallery/contest-03.jpg" data-caption="A:SSU 소프트웨어공모전 발표 슬라이드 3"><img src="assets/assu/gallery/contest-03.jpg" alt="A:SSU 공모전 슬라이드 3" loading="lazy"></button>
-          <button class="ed-gallery-item" data-src="assets/assu/gallery/contest-04.jpg" data-caption="A:SSU 소프트웨어공모전 발표 슬라이드 4"><img src="assets/assu/gallery/contest-04.jpg" alt="A:SSU 공모전 슬라이드 4" loading="lazy"></button>
-          <button class="ed-gallery-item" data-src="assets/assu/gallery/contest-05.jpg" data-caption="A:SSU 소프트웨어공모전 발표 슬라이드 5"><img src="assets/assu/gallery/contest-05.jpg" alt="A:SSU 공모전 슬라이드 5" loading="lazy"></button>
-          <button class="ed-gallery-item" data-src="assets/assu/gallery/contest-06.jpg" data-caption="A:SSU 소프트웨어공모전 발표 슬라이드 6"><img src="assets/assu/gallery/contest-06.jpg" alt="A:SSU 공모전 슬라이드 6" loading="lazy"></button>
-        </div>
-      </div>
-
-      <div class="space-y-2 pt-2">
-        <p class="ed-mono text-[11px] text-[var(--ed-ink-faint)] uppercase tracking-wider">앱스토어 소개 화면</p>
-        <div class="ed-gallery" data-gallery="assu-appstore">
-          <button class="ed-gallery-item" data-src="assets/assu/gallery/appstore-01.jpg" data-caption="A:SSU 앱스토어 소개 화면 1"><img src="assets/assu/gallery/appstore-01.jpg" alt="A:SSU 앱스토어 소개 화면 1" loading="lazy"></button>
-          <button class="ed-gallery-item" data-src="assets/assu/gallery/appstore-02.jpg" data-caption="A:SSU 앱스토어 소개 화면 2"><img src="assets/assu/gallery/appstore-02.jpg" alt="A:SSU 앱스토어 소개 화면 2" loading="lazy"></button>
-          <button class="ed-gallery-item" data-src="assets/assu/gallery/appstore-03.jpg" data-caption="A:SSU 앱스토어 소개 화면 3"><img src="assets/assu/gallery/appstore-03.jpg" alt="A:SSU 앱스토어 소개 화면 3" loading="lazy"></button>
-          <button class="ed-gallery-item" data-src="assets/assu/gallery/appstore-04.jpg" data-caption="A:SSU 앱스토어 소개 화면 4"><img src="assets/assu/gallery/appstore-04.jpg" alt="A:SSU 앱스토어 소개 화면 4" loading="lazy"></button>
-          <button class="ed-gallery-item" data-src="assets/assu/gallery/appstore-05.jpg" data-caption="A:SSU 앱스토어 소개 화면 5"><img src="assets/assu/gallery/appstore-05.jpg" alt="A:SSU 앱스토어 소개 화면 5" loading="lazy"></button>
-          <button class="ed-gallery-item" data-src="assets/assu/gallery/appstore-06.jpg" data-caption="A:SSU 앱스토어 소개 화면 6"><img src="assets/assu/gallery/appstore-06.jpg" alt="A:SSU 앱스토어 소개 화면 6" loading="lazy"></button>
-          <button class="ed-gallery-item" data-src="assets/assu/gallery/appstore-07.jpg" data-caption="A:SSU 앱스토어 소개 화면 7"><img src="assets/assu/gallery/appstore-07.jpg" alt="A:SSU 앱스토어 소개 화면 7" loading="lazy"></button>
-          <button class="ed-gallery-item" data-src="assets/assu/gallery/appstore-08.jpg" data-caption="A:SSU 앱스토어 소개 화면 8"><img src="assets/assu/gallery/appstore-08.jpg" alt="A:SSU 앱스토어 소개 화면 8" loading="lazy"></button>
-        </div>
-      </div>
-    </section>
-
-    <section class="space-y-4">
-      <span class="ed-eyebrow"><span class="num">05</span><span>Documents</span></span>
-      <div class="ed-doc">
-        <div class="ed-doc-header">
-          <span>컴퓨터학부_소프트웨어공모전_결과보고서.pdf</span>
-          <a href="assets/assu/docs/assu-report.pdf" target="_blank" class="ed-link">새 탭에서 열기</a>
-        </div>
-        <iframe src="assets/assu/docs/assu-report.pdf" class="ed-doc-frame" title="A:SSU 소프트웨어공모전 결과보고서"></iframe>
-      </div>
-    </section>
-
-    <section class="space-y-5 pt-2">
-      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-        <span class="ed-eyebrow"><span class="num">06</span><span>Problem Solving</span></span>
-        <button id="toggle-all-btn" class="ed-mono text-[11px] text-[var(--ed-ink-faint)] hover:text-[var(--ed-accent)] flex items-center gap-1">
-          <i data-lucide="chevrons-up-down" class="w-3.5 h-3.5"></i>
-          <span>모두 열기 / 닫기</span>
-        </button>
-      </div>
-
-      <div class="ed-accordion" id="troubleshooting-accordion">
-
-        <article class="ed-toggle-card" data-id="ts-gis">
-          <div class="ed-toggle-header">
-            <div class="ed-toggle-title-area">
-              <div class="ed-toggle-meta">
-                <span class="ed-tag ed-tag-accent">Database & GIS</span>
-                <span class="ed-mono text-[11px] text-[var(--ed-ink-faint)]">쿼리 격리</span>
-              </div>
-              <h3 class="ed-toggle-title">지도 조회 시 DB CPU 90% 초과, PostGIS 공간 인덱스로 격리</h3>
-              <p class="ed-toggle-summary">공간 연산과 권한 검증을 분리하고 IN절 벌크 조회로 N+1을 없앴다.</p>
-            </div>
-            <div class="ed-toggle-actions">
-              <button type="button" class="ed-btn-expand-modal" data-modal-target="modal-ts-gis" title="크게 보기">
-                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
-              </button>
-              <div class="ed-toggle-icon"><i data-lucide="plus" class="w-4 h-4"></i></div>
-            </div>
-          </div>
-          <div class="ed-toggle-body text-sm space-y-3">
-            <div>
-              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">문제</h4>
-              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
-                지도를 드래그하거나 확대할 때 화면 영역(Bounding Box) 안의 매장과 제휴 혜택을 조회하는 쿼리가 공간 연산(ST_MakeEnvelope)과 권한 검증(회비 납부 여부, 활성 제휴 여부)을 다중 JOIN으로 한 번에 처리하고 있었다. DB CPU 점유율이 90%를 넘었고 연관 엔티티 N+1 조회가 폭증했다.
-              </p>
-            </div>
-            <div>
-              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">해결</h4>
-              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
-                DB는 PostGIS R-Tree 공간 인덱스(GIST)로 뷰포트 안 매장 ID만 추출하도록 역할을 좁혔다. 권한 검증은 애플리케이션 메모리(HashSet O(1))로 옮겼고, 하위 제휴 데이터는 <code>WHERE store_id IN (...)</code> 한 번의 벌크 쿼리 후 Stream groupingBy()로 조립해 N+1을 없앴다.
-              </p>
-            </div>
-            <div class="pt-1 text-xs text-[var(--ed-ink-faint)]">결과: 지도 API 응답 속도 개선, DB CPU 부하 70% 이상 절감</div>
-          </div>
-        </article>
-
-        <article class="ed-toggle-card" data-id="ts-ranking">
-          <div class="ed-toggle-header">
-            <div class="ed-toggle-title-area">
-              <div class="ed-toggle-meta">
-                <span class="ed-tag ed-tag-accent">Query Tuning</span>
-                <span class="ed-mono text-[11px] text-[var(--ed-ink-faint)]">83% 개선</span>
-              </div>
-              <h3 class="ed-toggle-title">데이터가 쌓일수록 느려지는 주간 매장 순위 쿼리</h3>
-              <p class="ed-toggle-summary">복합 인덱스와 CTE, Window Function으로 단일 쿼리 집계로 바꿨다.</p>
-            </div>
-            <div class="ed-toggle-actions">
-              <button type="button" class="ed-btn-expand-modal" data-modal-target="modal-ts-ranking" title="크게 보기">
-                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
-              </button>
-              <div class="ed-toggle-icon"><i data-lucide="plus" class="w-4 h-4"></i></div>
-            </div>
-          </div>
-          <div class="ed-toggle-body text-sm space-y-3">
-            <div>
-              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">문제</h4>
-              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
-                매장별 사용 이력을 개별 조회한 뒤 WAS 메모리에서 정렬하거나, 집계 서브쿼리를 반복 호출하는 구조였다. 데이터가 쌓일수록 O(N)으로 응답 속도가 떨어졌다.
-              </p>
-            </div>
-            <div>
-              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">해결</h4>
-              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
-                <code>(created_at, store_id)</code> 복합 인덱스로 주차 범위 검색과 매장 그룹핑이 인덱스 트리 안에서 끝나도록 만들었다. <code>WITH weekly_usage AS (...)</code> CTE로 집계를 먼저 격리하고 <code>RANK() OVER (ORDER BY usage_count DESC)</code>로 순위를 단일 SQL에서 한 번에 산출했다.
-              </p>
-            </div>
-            <div class="pt-1 text-xs text-[var(--ed-ink-faint)]">결과: 주간 순위 집계 쿼리 실행 속도 83% 개선</div>
-          </div>
-        </article>
-
-        <article class="ed-toggle-card" data-id="ts-lock">
-          <div class="ed-toggle-header">
-            <div class="ed-toggle-title-area">
-              <div class="ed-toggle-meta">
-                <span class="ed-tag ed-tag-accent">Concurrency</span>
-                <span class="ed-mono text-[11px] text-[var(--ed-ink-faint)]">정합성 100%</span>
-              </div>
-              <h3 class="ed-toggle-title">동시 요청 시 사라지는 잔여 수량, 비관적 락으로 방어</h3>
-              <p class="ed-toggle-summary">선착순 혜택 차감의 Lost Update를 행 단위 잠금으로 막았다.</p>
-            </div>
-            <div class="ed-toggle-actions">
-              <button type="button" class="ed-btn-expand-modal" data-modal-target="modal-ts-lock" title="크게 보기">
-                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
-              </button>
-              <div class="ed-toggle-icon"><i data-lucide="plus" class="w-4 h-4"></i></div>
-            </div>
-          </div>
-          <div class="ed-toggle-body text-sm space-y-3">
-            <div>
-              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">문제</h4>
-              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
-                선착순 한정 할인 혜택에 여러 학우가 동시에 사용을 요청하면, 같은 시점의 잔여 수량을 각자 읽고 덮어써서 실제보다 적게 차감되거나 정합성이 깨질 위험이 있었다.
-              </p>
-            </div>
-            <div>
-              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">해결</h4>
-              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
-                충돌 빈도가 높고 정합성이 필수인 도메인이라 재시도 오버헤드가 큰 낙관적 락 대신 <code>SELECT ... FOR UPDATE</code>를 적용했다. 인덱스를 연계한 행 단위 잠금으로 대상 레코드만 선별해 잠그고 검증 후 바로 커밋해 대기 지연을 최소화했다.
-              </p>
-            </div>
-            <div class="pt-1 text-xs text-[var(--ed-ink-faint)]">결과: 동시 요청 테스트에서 잔여 수량 차감 정합성 100% 확인</div>
-          </div>
-        </article>
-
-        <article class="ed-toggle-card" data-id="ts-stomp">
-          <div class="ed-toggle-header">
-            <div class="ed-toggle-title-area">
-              <div class="ed-toggle-meta">
-                <span class="ed-tag ed-tag-accent">Network & Security</span>
-                <span class="ed-mono text-[11px] text-[var(--ed-ink-faint)]">스레드 풀 분석</span>
-              </div>
-              <h3 class="ed-toggle-title">STOMP 핸들러에서 인증 정보가 사라지는 이유</h3>
-              <p class="ed-toggle-summary">ThreadLocal 기반 SecurityContext가 STOMP 스레드 풀로 복사되지 않는 구조를 확인했다.</p>
-            </div>
-            <div class="ed-toggle-actions">
-              <button type="button" class="ed-btn-expand-modal" data-modal-target="modal-ts-stomp" title="크게 보기">
-                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
-              </button>
-              <div class="ed-toggle-icon"><i data-lucide="plus" class="w-4 h-4"></i></div>
-            </div>
-          </div>
-          <div class="ed-toggle-body text-sm space-y-3">
-            <div>
-              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">문제</h4>
-              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
-                실시간 채팅을 만들면서 기존 HTTP API처럼 메시지 핸들러에 <code>@PreAuthorize</code>를 붙이자 인증 정보가 누락됐다. Spring Security의 SecurityContextHolder는 ThreadLocal 기반인데, STOMP는 비동기 스레드 풀을 써서 인입 스레드와 핸들러 스레드가 분리되어 컨텍스트가 복사되지 않는 게 원인이었다.
-              </p>
-            </div>
-            <div>
-              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">해결</h4>
-              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
-                웹소켓은 최초 연결(CONNECT) 시점에 JWT를 검증해 세션을 맺으므로, 세션이 수립된 뒤에는 핸들러 레벨의 중복 검증이 필요 없다는 점을 확인했다. 이 내용을 문서로 정리해 팀에 공유하고, 일반 HTTP 엔드포인트에만 검증을 선별 적용하기로 했다.
-              </p>
-            </div>
-            <div class="pt-1 text-xs text-[var(--ed-ink-faint)]">교훈: 프레임워크 밑단의 스레드 풀 모델을 이해하고 근거로 팀과 조율했다</div>
-          </div>
-        </article>
-
-        <article class="ed-toggle-card" data-id="ts-vxlan">
-          <div class="ed-toggle-header">
-            <div class="ed-toggle-title-area">
-              <div class="ed-toggle-meta">
-                <span class="ed-tag ed-tag-accent">Kubernetes & Network</span>
-                <span class="ed-mono text-[11px] text-[var(--ed-ink-faint)]">L4 프로토콜</span>
-              </div>
-              <h3 class="ed-toggle-title">노드 간 파드 통신 타임아웃, 원인은 보안그룹 UDP 포트</h3>
-              <p class="ed-toggle-summary">Flannel VXLAN 8472 포트가 TCP로 열려 있어 패킷이 막히고 있었다.</p>
-            </div>
-            <div class="ed-toggle-actions">
-              <button type="button" class="ed-btn-expand-modal" data-modal-target="modal-ts-vxlan" title="크게 보기">
-                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
-              </button>
-              <div class="ed-toggle-icon"><i data-lucide="plus" class="w-4 h-4"></i></div>
-            </div>
-          </div>
-          <div class="ed-toggle-body text-sm space-y-3">
-            <div>
-              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">문제</h4>
-              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
-                EC2 단일 배포에서 3-Node K3s 클러스터로 옮기던 중 마스터 노드와 워커 노드의 파드 간 통신이 계속 타임아웃됐다. K3s의 Flannel CNI는 노드 간 통신에 VXLAN 캡슐화(8472 UDP)를 쓰는데, AWS 보안그룹에서 관례적으로 8472를 TCP로만 열어둔 게 원인이었다.
-              </p>
-            </div>
-            <div>
-              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">해결</h4>
-              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
-                보안그룹 인바운드 규칙을 Custom UDP Rule(8472)로 바꿔 VXLAN 터널링을 정상화하고 노드 간 서비스 디스커버리를 복구했다.
-              </p>
-            </div>
-            <div class="pt-1 text-xs text-[var(--ed-ink-faint)]">교훈: 클라우드 도구 밑단의 전송 프로토콜을 알아야 장애를 예방할 수 있다</div>
-          </div>
-        </article>
-
-        <article class="ed-toggle-card" data-id="ts-ingress">
-          <div class="ed-toggle-header">
-            <div class="ed-toggle-title-area">
-              <div class="ed-toggle-meta">
-                <span class="ed-tag ed-tag-accent">Ingress & TLS</span>
-                <span class="ed-mono text-[11px] text-[var(--ed-ink-faint)]">ACME 챌린지</span>
-              </div>
-              <h3 class="ed-toggle-title">Let's Encrypt 인증서 발급이 반복 실패한 이유</h3>
-              <p class="ed-toggle-summary">80/443 엔트리포인트 동시 지정으로 생긴 TLS 리졸버 충돌을 정리했다.</p>
-            </div>
-            <div class="ed-toggle-actions">
-              <button type="button" class="ed-btn-expand-modal" data-modal-target="modal-ts-ingress" title="크게 보기">
-                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
-              </button>
-              <div class="ed-toggle-icon"><i data-lucide="plus" class="w-4 h-4"></i></div>
-            </div>
-          </div>
-          <div class="ed-toggle-body text-sm space-y-3">
-            <div>
-              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">문제</h4>
-              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
-                자동 인증서 갱신을 위해 <code>ingress.yaml</code>에 web(80)과 websecure(443)를 동시에 설정했는데 HTTP-01 챌린지가 계속 실패했다. 80 포트에도 TLS 리졸버가 먼저 매칭되어 ACME 챌린지 핸들러보다 우선순위를 가진 라우터가 충돌하고 있었다.
-              </p>
-            </div>
-            <div>
-              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">해결</h4>
-              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
-                Ingress 엔트리포인트를 websecure(443) 단독으로 지정하고, 80 포트 리다이렉트는 클러스터 전역 미들웨어로 분리해 챌린지 경로를 독립시켰다.
-              </p>
-            </div>
-            <div class="pt-1 text-xs text-[var(--ed-ink-faint)]">결과: HTTPS 무중단 자동 인증서 갱신 파이프라인 완비</div>
-          </div>
-        </article>
-
-        <article class="ed-toggle-card" data-id="ts-collab">
-          <div class="ed-toggle-header">
-            <div class="ed-toggle-title-area">
-              <div class="ed-toggle-meta">
-                <span class="ed-tag ed-tag-accent">Collaboration</span>
-                <span class="ed-mono text-[11px] text-[var(--ed-ink-faint)]">스키마 우선 설계</span>
-              </div>
-              <h3 class="ed-toggle-title">DTO를 먼저 확정해서 프론트엔드 병렬 개발을 열었다</h3>
-              <p class="ed-toggle-summary">Swagger와 목업 데이터 선제공, Git Submodule로 민감 설정 분리.</p>
-            </div>
-            <div class="ed-toggle-actions">
-              <button type="button" class="ed-btn-expand-modal" data-modal-target="modal-ts-collab" title="크게 보기">
-                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
-              </button>
-              <div class="ed-toggle-icon"><i data-lucide="plus" class="w-4 h-4"></i></div>
-            </div>
-          </div>
-          <div class="ed-toggle-body text-sm space-y-3">
-            <div>
-              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">문제</h4>
-              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
-                이전에 백엔드의 잦은 DTO·ERD 변경으로 프론트엔드에서 TypeScript 에러를 자주 겪었던 경험이 있었다. 이번에는 그 문제를 반복하고 싶지 않았다.
-              </p>
-            </div>
-            <div>
-              <h4 class="ed-mono text-[11px] text-[var(--ed-accent)] uppercase tracking-wider mb-1">해결</h4>
-              <p class="text-[var(--ed-ink-soft)] leading-relaxed">
-                프론트엔드 화면 구성에 맞춰 데이터 스키마를 먼저 확정하고 Swagger와 목업 데이터를 미리 제공해, 백엔드 배포를 기다리지 않고 병렬 개발이 가능하게 했다. 환경별 설정 파일 관리에는 Git Submodule을 제안해 민감 정보 유출 위험을 없앴고, 동료 업무가 몰릴 때는 관리자·통계 백오피스 API를 전담해 릴리즈 일정을 맞췄다.
-              </p>
-            </div>
-            <div class="pt-1 text-xs text-[var(--ed-ink-faint)]">교훈: 지식을 문서와 가이드로 공유하면 협업 마찰이 줄어든다</div>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <div class="pt-8 ed-rule flex justify-between items-center text-sm">
-      <a href="naru.html" class="ed-btn !py-2.5 !px-4">
-        <i data-lucide="chevron-left" class="w-4 h-4"></i>
-        <span>이전: Naru</span>
-      </a>
-      <a href="musereview.html" class="ed-btn ed-btn-accent !py-2.5 !px-4">
-        <span>다음 프로젝트: 뮤즈리뷰</span>
-        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        <span>GitHub 저장소</span>
       </a>
     </div>
 
   </main>
 
-  <div id="troubleshoot-modal" class="ed-modal-backdrop" aria-hidden="true">
-    <div class="ed-modal-container">
-      <div class="ed-modal-header">
-        <div class="space-y-2 pr-4">
-          <div id="modal-meta" class="flex items-center gap-2"></div>
-          <h3 id="modal-title" class="text-base sm:text-lg font-bold text-[var(--ed-ink)] leading-snug"></h3>
-        </div>
-        <button id="modal-close-btn" class="ed-icon-btn shrink-0" aria-label="닫기">
-          <i data-lucide="x" class="w-4 h-4"></i>
-        </button>
-      </div>
-      <div id="modal-body" class="ed-modal-body space-y-4 text-sm leading-relaxed"></div>
-      <div class="ed-modal-footer">
-        <button id="modal-footer-close-btn" class="ed-btn !py-2 !px-4 !text-xs">닫기</button>
-      </div>
-    </div>
-  </div>
-
+  <script src="report-render.js"></script>
+  <script src="assets/assu/report-data.js"></script>
   <script>
-    const toggleBtn = document.getElementById('theme-toggle');
+    if (window.lucide) window.lucide.createIcons();
+    const themeBtn = document.getElementById('theme-toggle');
     if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
-    toggleBtn?.addEventListener('click', () => {
+    themeBtn?.addEventListener('click', () => {
       const isDark = document.documentElement.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 
-    const toggleCards = document.querySelectorAll('.ed-toggle-card');
-    toggleCards.forEach(card => {
-      const header = card.querySelector('.ed-toggle-header');
-      header?.addEventListener('click', (e) => {
-        if (e.target.closest('.ed-btn-expand-modal')) return;
-        card.classList.toggle('is-open');
-      });
-    });
-
-    const toggleAllBtn = document.getElementById('toggle-all-btn');
-    let allOpen = false;
-    toggleAllBtn?.addEventListener('click', () => {
-      allOpen = !allOpen;
-      toggleCards.forEach(card => card.classList.toggle('is-open', allOpen));
-    });
-
-    const modalBackdrop = document.getElementById('troubleshoot-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalMeta = document.getElementById('modal-meta');
-    const modalBody = document.getElementById('modal-body');
-    const modalCloseBtn = document.getElementById('modal-close-btn');
-    const modalFooterCloseBtn = document.getElementById('modal-footer-close-btn');
-
-    document.querySelectorAll('.ed-btn-expand-modal').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const card = btn.closest('.ed-toggle-card');
-        if (!card) return;
-        modalTitle.textContent = card.querySelector('.ed-toggle-title')?.textContent || '';
-        modalMeta.innerHTML = card.querySelector('.ed-toggle-meta')?.innerHTML || '';
-        modalBody.innerHTML = card.querySelector('.ed-toggle-body')?.innerHTML || '';
-        modalBackdrop.classList.add('is-active');
-        document.body.style.overflow = 'hidden';
-        if (window.lucide) lucide.createIcons();
-      });
-    });
-
-    function closeModal() {
-      modalBackdrop?.classList.remove('is-active');
-      document.body.style.overflow = '';
-    }
-    modalCloseBtn?.addEventListener('click', closeModal);
-    modalFooterCloseBtn?.addEventListener('click', closeModal);
-    modalBackdrop?.addEventListener('click', (e) => { if (e.target === modalBackdrop) closeModal(); });
-    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
-    if (window.lucide) lucide.createIcons();
+    renderHero('#hero', REPORT_DATA);
+    renderReport(REPORT_DATA, { mount: '#report-root', startNum: 1 });
   </script>
-  <script src="gallery.js"></script>
 </body>
 </html>

@@ -1,0 +1,289 @@
+/**
+ * 자동 생성: portfolio-out/coupang/coupang-wing-coupon-manager.json 의 원문 JSON을 그대로 옮긴 REPORT_DATA.
+ * openQuestions / interviewQuestions 는 같은 프로젝트의 .md 10/11장 원문을
+ * 별도로 채워 넣는다 (json에는 없는 필드).
+ */
+const REPORT_DATA = {
+  "title": "Coupang WING Coupon Manager",
+  "period": "2026-06-23 (커밋 3건, 14:47:51 ~ 15:37:31 KST)",
+  "role": "단독 개발 (전체 커밋 author 1인: kimyw1018 <poppppp00@gmail.com>)",
+  "summary": "Coupang WING Open API를 호출해 즉시할인 쿠폰을 매일 폐기·재발급하는 Node.js/TypeScript CLI 스크립트입니다.",
+  "keyResults": [
+    {
+      "value": "494 lines / 6 files",
+      "label": "src 디렉터리 TypeScript 코드 규모",
+      "condition": "find src -name '*.ts' -exec wc -l 기준, 2026-09-29 조회"
+    },
+    {
+      "value": null,
+      "label": "실 운영 처리량/성공률",
+      "condition": "레포에서 확인되지 않음 (수치 확인 필요: 운영 로그 또는 모니터링 기록 필요)"
+    }
+  ],
+  "overview": {
+    "background": "Coupang WING 입점 판매자가 매일 수행해야 하는 즉시할인 쿠폰 폐기/재발급 반복 업무를 자동화하기 위한 스크립트입니다. 근거: package.json description, src/services/coupon.manager.ts의 runDailyRollover().",
+    "problem": "Coupang Open API의 커스텀 HMAC-SHA256 서명 인증 구현과, 최초 가정한 API 경로/파라미터 스펙이 실제와 달라 커밋 c726127에서 전면 교체한 이력이 확인됩니다.",
+    "scope": [
+      "src/index.ts - 엔트리포인트",
+      "src/config/env.ts - 환경변수 로드/검증",
+      "src/services/coupang.service.ts - Coupang WING FMS API 클라이언트",
+      "src/services/coupon.manager.ts - 일일 롤오버 오케스트레이션",
+      "src/services/discord.service.ts - Discord Webhook 오류 알림",
+      "src/utils/signature.ts - HMAC-SHA256 서명 생성"
+    ],
+    "collaboration": [
+      "전체 3개 커밋이 동일 author 1인 (git shortlog -sne 확인)",
+      "브랜치/PR/코드리뷰 흔적 로컬 저장소에 없음 (확인 필요: GitHub 웹에서 PR 이력 직접 확인, 이 환경은 gh 미인증)",
+      "설계 문서, API 명세서, README 등 문서화 산출물 없음"
+    ]
+  },
+  "stack": [
+    {
+      "category": "언어/런타임",
+      "items": [
+        { "name": "TypeScript ^5.5.2", "reason": null },
+        { "name": "Node.js (버전 미지정, engines 필드 없음)", "reason": null }
+      ]
+    },
+    {
+      "category": "라이브러리",
+      "items": [
+        { "name": "axios ^1.7.2", "reason": "Coupang API 서명 헤더를 직접 구성해 요청해야 해서 저수준 제어를 선택한 것으로 추정 (확인 필요)" },
+        { "name": "dotenv ^16.4.5", "reason": ".env 파일 기반 설정 로드" }
+      ]
+    },
+    {
+      "category": "개발 도구",
+      "items": [
+        { "name": "ts-node ^10.9.2", "reason": "npm run dev에서 TS 즉시 실행" },
+        { "name": "@types/node ^20.14.9", "reason": "Node 내장 모듈(crypto, path) 타입 지원" }
+      ]
+    },
+    {
+      "category": "알림 채널",
+      "items": [
+        { "name": "Discord Webhook", "reason": "오류 발생 시 운영자 알림 (src/services/discord.service.ts)" },
+        { "name": "Slack Webhook (미사용 추정)", "reason": "dist/services/slack.service.js만 존재, src에 대응 소스 없음 (확인 필요)" }
+      ]
+    },
+    {
+      "category": "테스트/CI/인프라",
+      "items": [
+        { "name": "없음", "reason": "테스트 프레임워크, CI 설정, Dockerfile, k8s manifest 모두 레포에 없음" }
+      ]
+    }
+  ],
+  "design": {
+    "architecture": "단일 프로세스 CLI. index.ts(엔트리) -> CouponManager.runDailyRollover()(오케스트레이션) -> CoupangService/DiscordService(외부 연동). 조회->폐기->신규발급 3단계 순차 실행, 각 단계 실패 시 Discord 알림.",
+    "dataModel": "별도 DB 없음. Coupang API와 주고받는 TypeScript interface(CoupangCoupon, CreateCouponResponse, CoupangApiErrorResponse)만 존재, 커밋 c726127에서 필드명/타입 전면 교체.",
+    "api": "이 프로젝트는 API 클라이언트이며 자체 엔드포인트 없음. Coupang WING FMS API(base: https://api-gateway.coupang.com)를 CEA algorithm=HmacSHA256 서명 헤더로 호출. 에러는 handleError()가 axios 에러 여부로 분기해 로깅 후 재throw.",
+    "infra": "실행 환경은 로컬 Node 프로세스만 확인됨. CI/CD, 컨테이너, 배포 파이프라인 없음. 설정은 .env + dotenv로 관리. 과거 커밋에 실제 자격 증명이 평문 포함되었던 이력 있음(민감정보, 값은 비공개).",
+    "tree": "coupang-wing-coupon-manager/\n├── src/\n│   ├── config/env.ts\n│   ├── services/coupang.service.ts\n│   ├── services/coupon.manager.ts\n│   ├── services/discord.service.ts\n│   ├── utils/signature.ts\n│   └── index.ts\n├── dist/ (컴파일 산출물, 현재 git에 커밋된 상태)\n│   └── services/slack.service.js (src에 대응 소스 없는 잔존 파일)\n├── package.json\n├── tsconfig.json\n├── .env.example\n└── .gitignore",
+    "diagrams": []
+  },
+  "features": [
+    {
+      "name": "Coupang API 커스텀 HMAC-SHA256 서명 인증",
+      "what": "Coupang Open API의 CEA algorithm=HmacSHA256 서명 인증 헤더를 매 요청마다 생성",
+      "how": [
+        "UTC 기준 YYMMDDTHHmmssZ 타임스탬프를 직접 조립 (라이브러리 미사용)",
+        "쿼리스트링 선두 '?' 제거로 정규화",
+        "{timestamp}{METHOD}{path}{queryString} 메시지 조립",
+        "Node 내장 crypto.createHmac('sha256', secretKey)로 서명 후 hex 인코딩",
+        "Authorization 헤더 문자열 조립 후 반환, CoupangService.request()가 매 호출마다 재생성"
+      ],
+      "decision": "서명 로직을 별도 유틸 함수로 분리해 재사용. Node 내장 crypto만 사용(서드파티 서명 라이브러리 미도입). 다른 구현 방식과의 비교 근거는 문서화되어 있지 않음(확인 필요)",
+      "files": ["src/utils/signature.ts"],
+      "code": {
+        "lang": "typescript",
+        "path": "src/utils/signature.ts",
+        "snippet": "const message = `${timestamp}${methodUpper}${path}${cleanQuery}`;\nconst signature = crypto.createHmac('sha256', secretKey).update(message).digest('hex');\nconst authorizationHeader = `CEA algorithm=HmacSHA256, access-key=${accessKey}, signed-date=${timestamp}, signature=${signature}`;"
+      }
+    },
+    {
+      "name": "계약(Contract) ID 캐싱 및 다단계 Fallback 조회",
+      "what": "쿠폰 생성에 필요한 contractId를 캐시 -> env 변수 -> 목록 API -> 단일 조회 API 순으로 조회",
+      "how": [
+        "인스턴스 캐시(cachedContractId) 확인",
+        "환경변수 COUPANG_CONTRACT_ID 파싱 시도",
+        "계약 목록 조회 API(GET .../contract/list) 호출, 배열/객체 응답 모두 처리",
+        "실패 시 단일 계약 조회 API(GET .../contract)로 재시도",
+        "모두 실패하면 안내 메시지와 함께 예외 throw"
+      ],
+      "decision": "env 우선 조회로 불필요한 API 호출 회피 추정, 목록/단일 두 API 모두 대비. 명시적 설계 근거 문서는 없음(확인 필요)",
+      "files": ["src/services/coupang.service.ts"],
+      "code": {
+        "lang": "typescript",
+        "path": "src/services/coupang.service.ts",
+        "snippet": "async getContractId(): Promise<number> {\n  if (this.cachedContractId !== null) return this.cachedContractId;\n  if (process.env.COUPANG_CONTRACT_ID) {\n    const parsed = parseInt(process.env.COUPANG_CONTRACT_ID, 10);\n    if (!isNaN(parsed)) { this.cachedContractId = parsed; return parsed; }\n  }\n  // 목록 조회 -> 단일 조회 fallback (src/services/coupang.service.ts:96-137)\n}"
+      }
+    },
+    {
+      "name": "단계별 실패 격리 순차 롤오버 오케스트레이션",
+      "what": "조회->폐기->신규발급 3단계 중 폐기 단계만 개별 실패를 허용하는 오케스트레이션",
+      "how": [
+        "1단계 조회 실패 시 알림 후 즉시 중단",
+        "2단계 폐기는 for...of + 개별 try/catch로 쿠폰별 실패를 격리, 실패 건별 알림 후 계속 진행",
+        "3단계 신규발급 실패 시 알림 후 중단",
+        "최상위 try/catch로 어떤 단계 실패도 프로세스를 죽이지 않고 로그로 종료"
+      ],
+      "decision": "조회/신규발급 실패는 그날 운영 자체가 불가하다고 판단해 즉시 중단, 폐기 실패는 부분 허용. 판단 기준의 명시적 문서는 없음(확인 필요)",
+      "files": ["src/services/coupon.manager.ts"],
+      "code": {
+        "lang": "typescript",
+        "path": "src/services/coupon.manager.ts",
+        "snippet": "for (const coupon of activeCoupons) {\n  try {\n    await this.coupangService.expireCoupon(coupon.couponId);\n  } catch (err) {\n    await this.discordService.sendErrorNotification(\n      `2단계: 기존 쿠폰 폐기 실패 (Coupon ID: ${coupon.couponId})`, err\n    );\n  }\n}"
+      }
+    },
+    {
+      "name": "환경변수 검증 시 플레이스홀더 값 방어",
+      "what": ".env 값이 비어있거나 예시 placeholder(your_...)를 그대로 둔 경우 기동 시점에 에러로 감지",
+      "how": [
+        "getEnvOrThrow(key)가 값 부재/공백/'your_' 포함 여부를 검사",
+        "DISCOUNT_VALUE는 정수 파싱 및 양수 검증",
+        "DISCORD_WEBHOOK_URL은 'your/' 포함 시 undefined 처리해 알림 기능만 조용히 비활성화"
+      ],
+      "decision": null,
+      "files": ["src/config/env.ts"],
+      "code": {
+        "lang": "typescript",
+        "path": "src/config/env.ts",
+        "snippet": "const getEnvOrThrow = (key: string): string => {\n  const value = process.env[key];\n  if (!value || value.trim() === '' || value.includes('your_')) {\n    throw new Error(`[Configuration Error] Environment variable '${key}' is required but not configured correctly in .env.`);\n  }\n  return value;\n};"
+      }
+    }
+  ],
+  "troubleshooting": [
+    {
+      "title": "Coupang API 엔드포인트 경로 및 요청 스펙 전면 교체",
+      "tags": ["API 연동", "타입 안정성"],
+      "problem": "최초 구현(3cb5e37)이 openapi v4 경로, ISO8601 날짜, couponName/discountType 필드명을 사용했고, 4분 뒤 커밋(c726127)에서 경로와 스펙이 전면 교체됨. 원 실패 응답/로그는 레포에 없음(확인 필요)",
+      "cause": "diff 비교 결과 확인되는 변경: openapi v4 -> fms v2/v1 경로 전환, expireCoupon 방식 변경(/expire 경로 -> ?action=expire 쿼리), createCoupon에 contractId 필수 파라미터 추가, 날짜 포맷을 ISO8601에서 'YYYY-MM-DD HH:mm:ss'로 변경, interface 필드명 전면 교체",
+      "options": [
+        { "name": "기존 openapi v4 경로 유지, 파라미터만 보정", "pros": "변경 범위 최소화", "cons": "실제 API가 v4 경로 자체를 지원하지 않는다면 근본 해결 불가", "chosen": false },
+        { "name": "fms v2 경로 + contractId 조회 로직 추가", "pros": "Coupang FMS API 실제 스펙(계약 기반)에 부합", "cons": "계약 조회 API 호출이 추가되어 요청 수 증가", "chosen": true }
+      ],
+      "solution": "getContractId() 신설(캐싱+다단계 fallback), 조회/폐기/생성 3개 API의 경로/쿼리/바디를 fms v2·v1 스펙으로 재작성, formatDate() 헬퍼로 날짜 포맷 변경",
+      "codeBefore": {
+        "lang": "typescript",
+        "path": "src/services/coupang.service.ts (commit 3cb5e37 시점)",
+        "snippet": "async createCoupon(discountValue: number): Promise<CreateCouponResponse> {\n  const path = `/v2/providers/openapi/apis/api/v4/vendors/${this.vendorId}/coupons`;\n  const body = {\n    couponName: `즉시할인쿠폰_${now.toISOString().split('T')[0]}`,\n    discountType: 'FIXED_AMOUNT',\n    discountValue: discountValue,\n    startDateTime: now.toISOString(),\n    endDateTime: tomorrow.toISOString(),\n  };\n  return await this.request<CreateCouponResponse>('POST', path, {}, body);\n}"
+      },
+      "codeAfter": {
+        "lang": "typescript",
+        "path": "src/services/coupang.service.ts:178-205",
+        "snippet": "async createCoupon(discountValue: number): Promise<CreateCouponResponse> {\n  const path = `/v2/providers/fms/apis/api/v2/vendors/${this.vendorId}/coupon`;\n  const contractId = await this.getContractId();\n  const body = {\n    contractId: contractId,\n    name: `즉시할인쿠폰_${now.toISOString().split('T')[0]}`,\n    maxDiscountPrice: discountValue,\n    discount: discountValue,\n    startAt: formatDate(now),\n    endAt: formatDate(tomorrow),\n    type: 'PRICE',\n    wowExclusive: false\n  };\n  return await this.request<CreateCouponResponse>('POST', path, {}, body);\n}"
+      },
+      "result": "실제 호출 성공/실패 비교 로그는 레포에 없음(수치 확인 필요). 코드상 필수 파라미터(contractId) 누락 상태에서 존재 상태로, 날짜 포맷이 임의 형태에서 명시적 스펙 형태로 바뀐 것은 사실로 확인됨",
+      "evidence": "commit c726127379a395cf86fac8ba55a494c86fa040a7, commit 3cb5e37d690106939f6e045b2b1aac3a95281aba, src/services/coupang.service.ts",
+      "learned": null
+    },
+    {
+      "title": "저장소에 커밋된 실제 API 자격 증명 삭제 및 키 교체",
+      "tags": ["보안", "시크릿 관리"],
+      "problem": "초기 커밋(3cb5e37)에서 .env가 gitignore 처리되지 않아 실제 Coupang Access Key/Secret Key/Vendor ID, Discord Webhook URL이 평문으로 git 히스토리에 포함됨 (값은 비공개)",
+      "cause": "최초 커밋 시점 .gitignore에 .env 제외 규칙이 없어 다른 소스와 함께 add됨",
+      "options": [
+        { "name": "워킹트리에서 .env 삭제 커밋만 추가", "pros": "작업이 간단함", "cons": "과거 커밋 blob에는 값이 그대로 남아 완전한 해결이 아님", "chosen": true },
+        { "name": "git filter-repo/BFG로 히스토리 재작성 후 force-push", "pros": "히스토리에서 완전 제거 가능", "cons": "이미 push된 경우 force-push 필요, 파괴적 작업", "chosen": false }
+      ],
+      "solution": "커밋 e9f5bf1에서 .env 삭제, 커밋 메시지에 '키 변경' 명시. .gitignore 신규 추가(node_modules/, dist/, .env 등 제외) - 단, 이 .gitignore는 아직 커밋되지 않고 staged 상태",
+      "codeBefore": {
+        "lang": "text",
+        "path": ".env (commit 3cb5e37, 값 비공개)",
+        "snippet": "# Coupang WING API Credentials\nCOUPANG_ACCESS_KEY=<REDACTED>\nCOUPANG_SECRET_KEY=<REDACTED>\nCOUPANG_VENDOR_ID=<REDACTED>\n\n# Coupon Settings\nDISCOUNT_VALUE=<REDACTED>\n\n# Slack Notification Settings\nDISCORD_WEBHOOK_URL=<REDACTED>"
+      },
+      "codeAfter": {
+        "lang": "text",
+        "path": ".env (commit e9f5bf1에서 파일 삭제)",
+        "snippet": "(파일 삭제됨 - git rm 상당)"
+      },
+      "result": "현재 워킹트리와 인덱스에서 .env는 추적되지 않음(git ls-files 확인). 단, 과거 커밋(3cb5e37)의 blob은 로컬 git 히스토리에 여전히 존재하며 git status 기준 로컬이 origin보다 1커밋 앞서 있어(e9f5bf1 미push 가능성), 원격 저장소에서 실제로 노출이 종료되었는지는 확인 필요",
+      "evidence": "commit e9f5bf11958e78ba7cbb9cee2bb759bd108a49af, commit 3cb5e37d690106939f6e045b2b1aac3a95281aba, 파일 .env, .gitignore",
+      "learned": null
+    }
+  ],
+  "results": [
+    "TypeScript 소스 6개 파일, 494 lines (src/ 기준)",
+    "테스트 코드/CI/배포 파이프라인 없음 (package.json에 test 스크립트 없음, .github/workflows 없음, Dockerfile 없음)",
+    "실 운영 처리량/성공률 등 성과 수치는 레포에서 확인되지 않음 (수치 확인 필요)"
+  ],
+  "retrospective": [
+    "테스트 코드가 없어 외부 API 스펙 전면 교체(c726127) 같은 변경의 회귀를 자동 검증할 수 없었음. generateSignature(), getContractId() fallback 분기에 대한 유닛 테스트를 먼저 작성했어야 함",
+    ".env가 초기 커밋에 포함되어 실제 키가 노출된 이력이 남음. 저장소 초기화 시 .gitignore를 가장 먼저 커밋했어야 함",
+    "dist/와 node_modules/(959개 파일)가 git에 커밋되어 있어 저장소가 불필요하게 커짐. 프로젝트 시작 시점부터 커밋 대상에서 제외했어야 함",
+    ".env.example은 SLACK_WEBHOOK_URL을 안내하지만 실제 코드는 DISCORD_WEBHOOK_URL을 사용해 불일치함. 예시 파일과 코드의 변수명을 같은 커밋에서 함께 갱신했어야 함",
+    "'scheduler script'라는 설명과 달리 실제 반복 실행 트리거가 레포에 없음. 스케줄링 방식까지 레포에 포함해 문서화했어야 함"
+  ],
+  "screenshots": [
+    { "src": "arch-flow.png (제작 필요)", "caption": "요청 처리 흐름 7단계 시퀀스 다이어그램" },
+    { "src": "cli-run-log.png (촬영 필요)", "caption": "npm run dev -- --run 실행 터미널 콘솔 출력" },
+    { "src": "discord-alert.png (촬영 필요)", "caption": "오류 발생 시 Discord 채널 Embed 알림" },
+    { "src": "coupang-console.png (촬영 필요)", "caption": "Coupang WING 판매자 콘솔의 실제 쿠폰 생성/폐기 화면" },
+    { "src": "commit-diff-c726127.png (제작 필요)", "caption": "API 경로/스펙 전면 교체 diff 비교" }
+  ],
+  "documents": [],
+  "links": [
+    { "label": "GitHub Repository", "url": "https://github.com/kimyw1018/coupang-wing-coupon-manager" }
+  ]
+};
+
+REPORT_DATA.gallery = [];
+
+REPORT_DATA.attachments = [];
+
+REPORT_DATA.openQuestions = [
+  {
+    "heading": "사용자가 직접 채워야 하는 정보",
+    "items": [
+      "지원 직무: 사용자 입력에 명시되지 않았습니다. 백엔드/서버사이드 관점으로 서술했으나, 실제 지원 직무에 맞춰 3장(스택 선택 이유)과 5장(구현 판단 근거)의 강조점을 조정할 필요가 있습니다.",
+      "프로젝트명(포트폴리오 표기용): package.json의 name(coupang-wing-coupon-manager)을 그대로 사용했습니다. 별도 서비스명이 있다면 교체가 필요합니다.",
+      "실제 운영 여부와 기간: 이 스크립트가 실제로 반복 운영되고 있는지, 얼마나 오래 운영되었는지 확인이 필요합니다.",
+      "팀 구성/역할 경계: 로컬 히스토리상 단독 개발로 보이나, GitHub 상 이슈/PR/코드리뷰 참여자가 있었는지 재확인이 필요합니다(이 환경에서는 gh 인증이 없어 조회 불가).",
+      "스택 선택 이유(TypeScript/axios/dotenv를 택한 배경).",
+      "실제 스케줄링 방식: cron, GitHub Actions, PM2 등 중 무엇을 사용하는지.",
+      "배포 환경/주소: 로컬 실행만 확인되고 서버 배포 여부는 불명확합니다.",
+      "수치 성과: 처리 건수, 성공률, 알림 발송 횟수 등 실측 데이터."
+    ]
+  },
+  {
+    "heading": "보안 관련 확인 필요(우선순위 높음)",
+    "items": [
+      "초기 커밋에 실제 API 자격 증명과 Webhook URL이 평문으로 포함되어 있었던 이력이 있어, 해당 자격 증명이 현재 원격 저장소 히스토리에 그대로 남아있을 가능성이 있습니다. GitHub 저장소에서 해당 커밋이 push되어 있는지, 노출된 키가 이미 회전(rotate)되었는지 확인이 필요하며, 회전이 안 되어 있다면 즉시 재발급하고 필요 시 히스토리 재작성(git filter-repo 등)을 검토해야 합니다. (이번 분석에서는 코드 수정을 하지 않는다는 지침에 따라 실행하지 않았습니다. 구체적인 키 값은 이 문서에도 기재하지 않습니다.)",
+      ".env.example의 SLACK_WEBHOOK_URL과 실제 코드의 DISCORD_WEBHOOK_URL 불일치도 함께 정리가 필요합니다.",
+      "현재 dist/와 node_modules/(959개 파일)가 git에 커밋된 상태입니다. 신규 .gitignore는 아직 커밋되지 않았고, 커밋되어도 이미 추적 중인 파일은 자동으로 제외되지 않습니다(git rm -r --cached dist node_modules 필요). 이는 코드 수정에 해당하므로 이번 분석에서는 실행하지 않았습니다."
+    ]
+  },
+  {
+    "heading": "근거 부족으로 제외한 트러블슈팅 후보",
+    "items": [
+      "dist/services/slack.service.js 관련 이력: Slack 연동에서 Discord 연동으로 전환된 것으로 추정되나, 이 전환을 보여주는 커밋이나 diff가 git 히스토리에 없어(해당 파일의 .ts 원본이 커밋된 적이 없음) 트러블슈팅으로 서술할 근거가 부족합니다. '왜, 언제 전환했는지'는 확인이 필요합니다."
+    ]
+  }
+];
+
+REPORT_DATA.interviewQuestions = [
+  {
+    "q": "'scheduler script'라고 설명했는데, 실제로는 코드에 반복 실행 트리거가 없습니다. 실제 운영 환경에서는 무엇으로 매일 실행을 트리거했는지 설명할 수 있어야 합니다.",
+    "a": "(확인 필요: 실제 크론/스케줄러 구성)"
+  },
+  {
+    "q": "커밋 c726127에서 API 경로와 파라미터가 전면 교체된 근본 원인(정확히 어떤 에러 응답을 받았는지)을 질문받을 수 있습니다.",
+    "a": "현재 diff만으로는 '무엇이 실패했는지'의 1차 증거(에러 로그, 응답 바디)가 없으므로, 실제 겪었던 에러 메시지나 Coupang 문서와의 비교 과정을 별도로 기억해 두어야 합니다."
+  },
+  {
+    "q": ".env가 커밋에 포함되었던 사건에 대해 '실제로 원격에도 반영되었는지, 키를 회전했는지, 언제 알았는지'를 질문받을 가능성이 높습니다.",
+    "a": "보안 확인 필요 항목을 실제로 점검한 뒤 답변을 준비해야 합니다."
+  },
+  {
+    "q": "expireCoupon 실패가 개별적으로 격리되도록 만든 이유(3단계 중 2단계만 부분 실패 허용)를 설명할 수 있어야 합니다.",
+    "a": "코드상 설계는 확인되지만 '왜 그렇게 판단했는지'에 대한 문서화된 근거는 없으므로, 실제 의도를 본인 말로 재구성해 둘 필요가 있습니다."
+  },
+  {
+    "q": "getContractId()의 캐시가 프로세스 재시작 시 초기화되는 인메모리 캐시라는 점, 그리고 이 스크립트가 프로세스 단위로 매번 새로 실행되는 구조라면 이 캐시가 실질적으로 어떤 효과를 주는지 질문받을 수 있습니다.",
+    "a": "프로세스 생존 기간과 캐시 효용의 관계를 설명할 수 있어야 합니다."
+  },
+  {
+    "q": "테스트 코드가 전혀 없는 상태에서 외부 API 연동 코드를 안전하게 변경하기 위해 어떤 방법(수동 테스트, src/index.ts의 서명 출력 등)을 사용했는지 질문받을 수 있습니다.",
+    "a": ""
+  }
+];

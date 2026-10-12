@@ -1,0 +1,354 @@
+/**
+ * 자동 생성: portfolio-out/ssurent/SSURENT.json 의 원문 JSON을 그대로 옮긴 REPORT_DATA.
+ * openQuestions / interviewQuestions 는 같은 프로젝트의 .md 10/11장 원문을
+ * 별도로 채워 넣는다 (json에는 없는 필드).
+ */
+const REPORT_DATA = {
+  "title": "SSURENT (숭실대 컴퓨터학부 물품 대여 서비스) - Frontend",
+  "period": "2026-01-17 ~ 2026-06-09 (본인 커밋 기준, 저장소 전체 기간 2025-08-10 ~ 2026-06-10)",
+  "role": "프론트엔드 개발자 (관리자 도메인 전 영역 담당)",
+  "summary": "숭실대 컴퓨터학부 학생 대상 물품 대여/반납 자동화 웹 서비스의 프론트엔드 저장소이며, 본인은 관리자(Admin) 도메인 화면, 라우팅, API 연동, 배포 트러블슈팅을 담당했습니다.",
+  "keyResults": [
+    {
+      "value": "36건",
+      "label": "본인 명의 커밋 수 (머지 제외)",
+      "condition": "git log --author 기준, 저장소 전체 커밋 344건 중"
+    },
+    {
+      "value": "15개",
+      "label": "본인이 작성한 관리자 도메인 페이지 수",
+      "condition": "src/features/admin/pages 하위, git log --name-only 파일별 집계 기준"
+    },
+    {
+      "value": "(수치 확인 필요)",
+      "label": "운영 지표(이용자 수, 대여 처리 건수, 응답 시간)",
+      "condition": "레포에 기록된 측정치 없음, 별도 측정 필요"
+    }
+  ],
+  "overview": {
+    "background": "README에 명시된 목적은 숭실대 컴퓨터학부 대여사업 자동화 웹 프로그램이며, 일반 사용자용 대여/반납 플로우와 관리자용 운영 플로우로 구성됩니다. (근거: README.md, src/App.tsx)",
+    "problem": "여러 명이 병행 개발하며 발생한 API 응답 스키마 불일치(카테고리 그룹 vs 평탄화 배열), Windows/Vercel 간 파일명 대소문자 불일치로 인한 배포 전용 오류, 두 개의 인증 상태 저장소 병존이 기술적으로 어려웠던 지점이었습니다.",
+    "scope": [
+      "관리자 도메인 페이지 전량 작성: AdminItems, AdminMembers, AdminMemberDetail, AdminPenaltyEdit, AdminRentalEdit, AdminStatistics, AdminInspect, InspectStatus, InspectHistory, AdminHome, AdminHelpers, AdminMemberUpload",
+      "관리자 라우팅 구성 및 App.tsx 라우트 정의",
+      "관리자 전용 API 엔드포인트(AdminItem, AdminUser 일부) 및 공통 API 클라이언트(Client.ts) 유지보수",
+      "Vercel 배포 설정(vercel.json) 및 배포 관련 오류 대응",
+      ".env를 .gitignore에 추가하는 보안 설정 변경"
+    ],
+    "collaboration": [
+      "feat/#번호, fix/#번호, refactor/#번호 형태의 기능 브랜치를 develop에 PR로 병합 (근거: git branch -a, .github/pull_request_template.md)",
+      "fix/refactor/feature 3종 이슈 템플릿으로 작업 성격 구분 (근거: .github/ISSUE_TEMPLATE)",
+      "통계 조회 훅 등 일부 코드는 팀원이 먼저 작성하고 본인이 후속 수정(예: import 경로 대소문자 수정)",
+      "코드 리뷰 절차의 구체적 방식은 레포만으로 확인 불가 (확인 필요)"
+    ]
+  },
+  "stack": [
+    {
+      "category": "코어",
+      "items": [
+        { "name": "TypeScript ^5.9.3", "reason": null },
+        { "name": "React ^19.1.1", "reason": null },
+        { "name": "Vite ^7.3.1", "reason": null },
+        { "name": "react-router-dom ^7.8.0", "reason": null }
+      ]
+    },
+    {
+      "category": "상태관리/데이터",
+      "items": [
+        { "name": "zustand ^5.0.10 (+persist)", "reason": "sessionStorage에 role/토큰을 유지하기 위해 persist 미들웨어 사용 (근거: useAuthStore.ts)" },
+        { "name": "@tanstack/react-query ^5.90.18", "reason": null }
+      ]
+    },
+    {
+      "category": "UI",
+      "items": [
+        { "name": "Tailwind CSS ^4.1.18 (@tailwindcss/vite)", "reason": null },
+        { "name": "react-bootstrap / bootstrap ^2.10.10 / ^5.3.8", "reason": "CRA 초기 세팅 잔재로 추정, 이후 Tailwind 점진 도입 (확인 필요)" },
+        { "name": "recharts ^3.8.1", "reason": null },
+        { "name": "react-items-carousel ^2.8.0", "reason": null }
+      ]
+    },
+    {
+      "category": "파일 처리",
+      "items": [
+        { "name": "exceljs ^4.4.0", "reason": "셀 단위 리치 텍스트/색상 스타일링을 위해 사용 (근거: InspectStatus.tsx)" },
+        { "name": "xlsx ^0.18.5", "reason": null },
+        { "name": "file-saver ^2.0.5", "reason": null }
+      ]
+    },
+    {
+      "category": "품질/도구",
+      "items": [
+        { "name": "prettier ^3.8.0 + prettier-plugin-tailwindcss", "reason": null },
+        { "name": "husky ^9.1.7 + lint-staged ^16.2.7", "reason": "pre-commit 시 prettier 자동 실행 (근거: .husky/pre-commit)" },
+        { "name": "테스트 프레임워크 없음", "reason": "src 하위 *.test.* 파일 0개, CRA 잔재 devDependency만 존재" }
+      ]
+    },
+    {
+      "category": "배포",
+      "items": [
+        { "name": "Vercel", "reason": "rewrites 기반 리버스 프록시로 백엔드 연동 (근거: vercel.json, 내부 IP는 문서에서 제외)" }
+      ]
+    }
+  ],
+  "design": {
+    "architecture": "SPA 구조이며 최상위 App 컴포넌트가 role에 따라 UserLayout(/*)과 AdminLayout(/admin)으로 라우트를 분기합니다. 요청 흐름: pages(features/*/pages) -> api/endpoints -> api/Client.ts(fetch 래퍼, 토큰 주입) -> api/dto 타입. 인증 토큰은 sessionStorage에 저장되고 useAutoRefreshToken 훅이 5초 간격으로 만료를 폴링합니다. 현재 라우트 가드는 App.tsx 내부의 로컬 ProtectedRoute가 담당하며 useAuth() 하드코딩 스텁(TODO 주석 존재)을 사용하고, 별도로 존재하는 AdminRoute.tsx/ProtectedRoute.tsx는 미사용 상태입니다. (근거: src/App.tsx, src/hooks/UseAutoRefreshToken.ts)",
+    "dataModel": "프론트엔드 전용 저장소로 DB 스키마는 없고 TypeScript DTO로 API 계약을 표현합니다. 공통 응답 포맷은 BaseResponseDto<T> = {code, message, data}. 주요 타입: UserRoleType('NORMAL'|'ADMIN'|'SUPERADMIN'), AdminItemResponseDto, AdminUserDetailResponseDto, CategoryInfo/MonthRentalInfo(통계). 물품 목록 API는 카테고리 그룹 구조와 평탄화 배열 구조가 혼재했던 이력이 있어 방어적 파싱 로직이 존재합니다. (근거: src/api/dto/*.ts, src/api/endpoints/AdminItem.ts)",
+    "api": "도메인별 파일(api/endpoints/*.ts)에 객체 형태로 함수를 묶어 export합니다. 공통 apiClient<T>(url, options, config)가 withAuth/tokenType 옵션으로 인증 토큰을 선택 주입합니다. 에러는 response.ok가 아니면 Error를 throw하고 각 화면에서 try/catch + alert로 처리합니다. 204/빈 바디 응답에 대한 별도 null 처리가 있습니다. (근거: src/api/Client.ts)",
+    "infra": "vite build 전에 tsc를 실행해 타입 체크를 빌드 게이트로 사용합니다. Vercel에 배포되며 vercel.json의 rewrites로 /proxy/:path*를 백엔드로 전달하는 리버스 프록시 구성을 갖습니다. VITE_API_BASE_URL 환경변수로 API Base URL을 주입합니다. GitHub Actions 등 CI 파이프라인은 확인되지 않았습니다. (근거: package.json scripts, vercel.json, .github/ 디렉터리)",
+    "tree": "src/\n├── api/\n│   ├── Client.ts              # 공통 fetch 래퍼, 토큰 주입, 응답 파싱\n│   ├── dto/                   # 요청/응답 타입 정의\n│   └── endpoints/              # 도메인별 API 함수 모음\n├── components/\n│   └── ProtectedRoute.tsx      # 전체 주석 처리된 미사용 파일\n├── features/\n│   ├── admin/                  # pages, components, context(MemberContext)\n│   ├── auth/                    # Login 등 pages, useAuthStore\n│   ├── home/                    # 홈 화면, 캐러셀\n│   ├── mypage/                  # 마이페이지, 징계 조회\n│   ├── rent/                    # 대여 플로우\n│   └── return/                  # 반납 플로우\n├── hooks/                       # UseAutoRefreshToken 등\n├── shared/                      # AdminRoute(미사용), Header, BottomBar, Layout\n├── store/userStore.ts           # useUserInfo (useAuthStore와 별도 저장소)\n├── types/                       # 공용 타입\n└── App.tsx                      # 라우트 정의, 로컬 ProtectedRoute",
+    "diagrams": []
+  },
+  "features": [
+    {
+      "name": "역할 기반 레이아웃 분기와 관리자 라우트 구성",
+      "what": "하나의 SPA에서 role에 따라 일반/관리자 화면을 분리하고 관리자 하위 라우트 7개를 구성",
+      "how": [
+        "App 컴포넌트가 /*(UserLayout)와 /admin(AdminLayout)으로 분기",
+        "/admin 진입 시 ProtectedRoute -> MemberProvider -> AdminLayout 순으로 래핑",
+        "UserLayout 내부에서 useAuthStore role 값으로 AdminHeader/Header 조건부 렌더링",
+        "users/:id, users/:id/penalty 등 경로 파라미터 기반 하위 라우트 구성"
+      ],
+      "decision": "관리자 레이아웃을 별도 라우트 트리로 분리한 이유와 UserLayout에도 AdminHeader 분기를 남긴 이유는 코드만으로 명확하지 않음 (확인 필요)",
+      "files": ["src/App.tsx"],
+      "code": {
+        "lang": "tsx",
+        "path": "src/App.tsx",
+        "snippet": "const UserLayout: React.FC = () => {\n  const role = useAuthStore((state) => state.role);\n  const isAdmin = role === 'admin' || role === 'super_admin';\n  return (\n    <div className=\"flex min-h-screen flex-col\">\n      {isAdmin ? <AdminHeader /> : <Header />}\n      <main className=\"main-content mx-auto w-full max-w-[1200px] flex-1 px-4\">\n        <Routes>\n          <Route index element={<Home />} />\n        </Routes>\n      </main>\n      <BottomBar />\n    </div>\n  );\n};"
+      }
+    },
+    {
+      "name": "JWT 만료 폴링 기반 자동 토큰 갱신",
+      "what": "accessToken 잔여 유효 시간을 계산해 만료 임박 시 자동으로 refreshToken 재발급",
+      "how": [
+        "parseJwt()로 JWT payload base64 디코딩 후 exp 추출",
+        "getTokenRemainingTime()으로 잔여 초 계산",
+        "5초 간격 setInterval에서 잔여 30초 미만이면 refreshToken 호출",
+        "sessionStorage와 zustand 스토어(useUserInfo)를 함께 갱신"
+      ],
+      "decision": "401 인터셉트/재시도 방식 대신 클라이언트 선제 계산 방식을 채택. apiClient에는 401 재시도 로직이 없어 폴링 주기 사이 만료 시 요청 실패 가능 (확인 필요: 의도된 트레이드오프인지)",
+      "files": ["src/hooks/UseAutoRefreshToken.ts", "src/api/endpoints/RefreshToken.ts"],
+      "code": {
+        "lang": "ts",
+        "path": "src/hooks/UseAutoRefreshToken.ts",
+        "snippet": "useEffect(() => {\n  if (!accessToken) return;\n  const interval = setInterval(async () => {\n    const remaining = getTokenRemainingTime(accessToken);\n    if (remaining < 30) {\n      try {\n        const newToken = await getRefreshToken.refreshToken();\n        sessionStorage.setItem('accessToken', newToken.accessToken);\n        setTokens(newToken.accessToken, newToken.refreshToken);\n      } catch (err) {\n        console.error('토큰 갱신 실패', err);\n      }\n    }\n  }, 5000);\n  return () => clearInterval(interval);\n}, [accessToken]);"
+      }
+    },
+    {
+      "name": "백엔드 응답 스키마 변경에 대한 방어적 파싱",
+      "what": "물품 목록 API가 카테고리 그룹 배열/평탄화 배열 어느 쪽을 반환해도 정상 동작",
+      "how": [
+        "unwrapResponse()로 {code,message,data} 래퍼 제거",
+        "배열이 아니면 빈 배열 반환",
+        "첫 원소에 items 필드가 있으면 카테고리 그룹으로 판단해 flatMap으로 평탄화",
+        "그 외에는 평탄화된 배열로 간주"
+      ],
+      "decision": "백엔드 계약을 고정하는 대신 두 형태를 모두 수용하는 방어 코드를 선택. 실제 백엔드 스키마 변경 이력은 저장소 범위 밖이라 확인 불가",
+      "files": ["src/api/endpoints/AdminItem.ts"],
+      "code": {
+        "lang": "ts",
+        "path": "src/api/endpoints/AdminItem.ts",
+        "snippet": "if (!Array.isArray(unwrapped)) return [];\nif (unwrapped.length > 0 && 'items' in unwrapped[0]) {\n  return (unwrapped as CategoryGroupResponse[]).flatMap(\n    (group) => group.items ?? [],\n  );\n}\nreturn unwrapped as AdminItemResponseDto[];"
+      }
+    },
+    {
+      "name": "ExcelJS 기반 리치 텍스트 엑셀 내보내기",
+      "what": "물품 검수 현황을 상태별 색상이 입혀진 리치 텍스트 엑셀로 내보내기",
+      "how": [
+        "adminItemApi.getItems() 결과를 mapConditionToStatus()로 4가지 상태로 정규화",
+        "useMemo로 물품명 기준 그룹핑",
+        "ExcelJS.Workbook 생성 후 각 유닛을 색상이 다른 richText 배열로 구성",
+        "workbook.xlsx.writeBuffer() 결과를 file-saver의 saveAs()로 다운로드"
+      ],
+      "decision": "스타일링(색상)을 지원하는 exceljs를 내보내기 용도로 선택. xlsx와 exceljs를 함께 쓴 이유(파싱/생성 역할 분리 여부)는 확인 필요",
+      "files": ["src/features/admin/pages/InspectStatus.tsx"],
+      "code": {
+        "lang": "tsx",
+        "path": "src/features/admin/pages/InspectStatus.tsx",
+        "snippet": "const handleExcelDownload = async () => {\n  const workbook = new ExcelJS.Workbook();\n  const worksheet = workbook.addWorksheet('물품현황');\n  worksheet.columns = [\n    { header: '식별번호', key: 'no', width: 10 },\n    { header: '대여물품명', key: 'name', width: 35 },\n    { header: '라벨 및 상태 (상세)', key: 'details', width: 60 },\n  ];\n  groupedItems.forEach((item) => {\n    const richText = item.units.map((u, i) => ({\n      text: `${u.id}(${u.status})`,\n      font: { color: { argb: 'FF22C55E' }, bold: true },\n    }));\n    const row = worksheet.addRow({ no: item.no, name: item.name });\n    row.getCell('details').value = { richText };\n  });\n  const buffer = await workbook.xlsx.writeBuffer();\n  saveAs(new Blob([buffer]), `SSURENT_물품현황_${new Date().toISOString().split('T')[0]}.xlsx`);\n};"
+      }
+    },
+    {
+      "name": "중복 클릭/중복 제출 방지 CRUD 패턴",
+      "what": "물품/카테고리 추가, 상태 토글 등에서 버튼 중복 클릭으로 인한 중복 요청 방지",
+      "how": [
+        "각 핸들러 진입 시 isSubmitting 플래그로 재진입 차단",
+        "setIsSubmitting(true) -> API 호출 -> finally에서 항상 false로 복원",
+        "제출 버튼 disabled 처리와 로딩 텍스트로 진행 상태 표시"
+      ],
+      "decision": "react-query mutation 상태 대신 로컬 useState로 직접 구현. react-query는 Provider만 연결되어 있고 실제 사용처는 확인되지 않음 (확인 필요)",
+      "files": ["src/features/admin/pages/AdminItems.tsx"],
+      "code": {
+        "lang": "tsx",
+        "path": "src/features/admin/pages/AdminItems.tsx",
+        "snippet": "const handleAddItem = async () => {\n  if (!newItemCategory || !newItemCode || isSubmitting) return;\n  setIsSubmitting(true);\n  try {\n    await adminItemApi.createItem({ categoryName: newItemCategory, itemNum: newItemCode });\n    setNewItemCategory('');\n    setNewItemCode('');\n    setItemModalOpen(false);\n    await fetchItems(selectedCategoryId ?? undefined);\n  } catch (err) {\n    console.error('물품 추가 실패', err);\n    alert('물품 추가에 실패했습니다.');\n  } finally {\n    setIsSubmitting(false);\n  }\n};"
+      }
+    }
+  ],
+  "troubleshooting": [
+    {
+      "title": "Windows와 Vercel(Linux) 간 파일명 대소문자 불일치로 인한 배포 전용 import 오류",
+      "tags": ["deployment", "vite", "case-sensitivity", "vercel"],
+      "problem": "로컬(Windows)에서는 정상 동작하나 Vercel 배포 환경에서만 통계 페이지 관련 import가 깨지는 문제 발생 (근거: 커밋 d7fd90b, f708ebd9 메시지)",
+      "cause": "팀원이 작성한 src/hooks/useGetStatistics.ts(소문자)와 본인이 만든 UseGetStatistics.ts(대문자)가 저장소에 공존. Windows는 대소문자 비구분 파일시스템이라 로컬에서는 문제없이 해석되지만 Vercel의 Linux 빌드는 대소문자를 구분해 실패",
+      "options": [
+        { "name": "import 경로를 실제 파일명 대소문자에 맞게 수정", "pros": "즉시 해결, 변경 최소", "cons": "중복 파일 문제 자체는 남음", "chosen": true },
+        { "name": "중복 파일(소문자본) 삭제", "pros": "근본 원인 제거", "cons": "다른 참조가 있으면 추가 수정 필요", "chosen": true },
+        { "name": "대소문자 구분 린트 규칙 도입", "pros": "재발 방지", "cons": "레포에 도입 흔적 없음", "chosen": false }
+      ],
+      "solution": "import 경로를 대문자 파일명에 맞춰 수정(d7fd90b)한 뒤, 후속 커밋에서 중복된 소문자 파일을 완전히 삭제(f708ebd9)했습니다.",
+      "codeBefore": {
+        "lang": "tsx",
+        "path": "src/features/admin/pages/AdminStatistics.tsx",
+        "snippet": "import { useGetStatics } from '../../../hooks/useGetStatistics';"
+      },
+      "codeAfter": {
+        "lang": "tsx",
+        "path": "src/features/admin/pages/AdminStatistics.tsx",
+        "snippet": "import { useGetStatics } from '../../../hooks/UseGetStatistics';"
+      },
+      "result": "배포 환경에서의 import 해석 실패가 해결되었고 이후 이력에서 동일 원인 재발은 확인되지 않음. 실제 Vercel 빌드 로그 수치는 레포에 없음 (수치 확인 필요)",
+      "evidence": "커밋 d7fd90b987e3be2a2e7f2ccd7bdcb3da2067c3e3, f708ebd91936c1a643b08117a94917c93e1c3285, PR/이슈 #44",
+      "learned": null
+    },
+    {
+      "title": "fetch 응답 바디가 비어 있을 때 JSON.parse 실패",
+      "tags": ["fetch", "api-client", "error-handling"],
+      "problem": "apiClient()가 항상 response.json()을 호출해 204/빈 바디 응답에서 Unexpected end of JSON input 형태의 파싱 오류가 발생할 수 있는 구조",
+      "cause": "fetch의 Response.json()은 빈 문자열 바디에 대해 파싱을 실패시킴. 관리자 물품 관리 통합 작업(206cb69) 중 이 문제를 인지하고 수정",
+      "options": [
+        { "name": "status/content-length로 빈 응답 선판별 후 null 반환", "pros": "공통 레이어에서 일괄 해결", "cons": "content-length 헤더 누락 시 커버 못할 수 있음", "chosen": true },
+        { "name": "response.text() 선 확인 후 빈 문자열이면 null, 아니면 JSON.parse", "pros": "헤더 유무와 무관하게 동작", "cons": "코드 한 단계 추가", "chosen": true },
+        { "name": "각 API 호출부에서 개별 try/catch 처리", "pros": "공통 레이어 수정 불필요", "cons": "동일 문제를 매번 반복 처리해야 함", "chosen": false }
+      ],
+      "solution": "response.status===204 또는 content-length==='0'이면 즉시 null 반환, 그 외에는 text()로 먼저 읽어 빈 문자열이면 null, 아니면 JSON.parse(text) 수행하도록 Client.ts를 수정했습니다.",
+      "codeBefore": {
+        "lang": "ts",
+        "path": "src/api/Client.ts",
+        "snippet": "if (!response.ok) {\n  throw new Error(`API request failed: ${response.status}`);\n}\n\nreturn response.json();\n};"
+      },
+      "codeAfter": {
+        "lang": "ts",
+        "path": "src/api/Client.ts",
+        "snippet": "if (!response.ok) {\n  throw new Error(`API request failed: ${response.status}`);\n}\n\nif (\n  response.status === 204 ||\n  response.headers.get('content-length') === '0'\n) {\n  return null as unknown as T;\n}\n\nconst text = await response.text();\nif (!text) {\n  return null as unknown as T;\n}\n\nreturn JSON.parse(text);\n};"
+      },
+      "result": "빈 바디 응답을 반환하는 API 호출 시 파싱 예외가 발생하지 않게 됨. 수정 전후 실패율 수치는 레포에 없음 (수치 확인 필요)",
+      "evidence": "커밋 206cb69c6baec1fb695cccc81899867a7afc536d",
+      "learned": null
+    },
+    {
+      "title": "관리자 물품 목록 API 응답 구조 변경(카테고리 그룹화)으로 인한 조회 오류",
+      "tags": ["api-contract", "defensive-parsing"],
+      "problem": "관리자 물품 목록 조회 오류 발생 (커밋 메시지: 관리자 물품 조회 에러 수정)",
+      "cause": "adminItemApi.getItems()가 응답을 곧바로 AdminItemResponseDto[]로 취급했으나, 실제 응답이 {categoryId, categoryName, items:[]}[] 형태의 카테고리 그룹 구조로 오는 경우가 있어 필드 불일치 발생",
+      "options": [
+        { "name": "응답 첫 요소로 그룹 구조 여부 판별 후 flatMap으로 평탄화", "pros": "백엔드 응답 형태 변화에 즉시 대응", "cons": "두 형태가 계속 혼재하면 임시방편에 그침", "chosen": true },
+        { "name": "백엔드에 응답 스키마 고정 요청", "pros": "근본적 해결", "cons": "저장소 범위 밖이라 확인 불가", "chosen": false }
+      ],
+      "solution": "CategoryGroupResponse 타입을 추가하고, 언래핑된 값의 첫 원소에 items 필드가 있으면 그룹 구조로 판단해 flatMap으로 평탄화하도록 수정했습니다.",
+      "codeBefore": {
+        "lang": "ts",
+        "path": "src/api/endpoints/AdminItem.ts",
+        "snippet": "getItems: async (categoryId?: number): Promise<AdminItemResponseDto[]> => {\n  const url = categoryId\n    ? `/v1/admin/items?categoryId=${categoryId}`\n    : '/v1/admin/items';\n  const res = await apiClient<unknown>(url);\n  return unwrapResponse<AdminItemResponseDto[]>(res) ?? [];\n},"
+      },
+      "codeAfter": {
+        "lang": "ts",
+        "path": "src/api/endpoints/AdminItem.ts",
+        "snippet": "getItems: async (categoryId?: number): Promise<AdminItemResponseDto[]> => {\n  const url = categoryId\n    ? `/v1/admin/items?categoryId=${categoryId}`\n    : '/v1/admin/items';\n  const res = await apiClient<unknown>(url);\n  const unwrapped = unwrapResponse<CategoryGroupResponse[] | AdminItemResponseDto[]>(res);\n  if (!Array.isArray(unwrapped)) return [];\n  if (unwrapped.length > 0 && 'items' in unwrapped[0]) {\n    return (unwrapped as CategoryGroupResponse[]).flatMap((group) => group.items ?? []);\n  }\n  return unwrapped as AdminItemResponseDto[];\n},"
+      },
+      "result": "그룹 구조 응답과 평탄화 응답 모두에서 물품 목록이 정상 렌더링됨. 오류 발생 빈도 수치는 레포에 없음 (수치 확인 필요)",
+      "evidence": "커밋 366be3db8657115d292ab1b7a434086065f680f6, PR/이슈 #56",
+      "learned": null
+    }
+  ],
+  "results": [
+    "본인 커밋 36건(머지 제외) / 저장소 전체 344건 (git log 기준)",
+    "관리자 도메인 페이지 15개 전량 작성 (src/features/admin/pages)",
+    "src 전체 TypeScript/TSX 약 6,786줄, 파일 120개",
+    "자동화된 테스트 코드 없음 (*.test.* 파일 0개)",
+    "배포 상태 및 프로덕션 URL 공개 여부는 확인 필요"
+  ],
+  "retrospective": [
+    "useAuthStore와 useUserInfo 두 개의 인증 관련 스토어가 분리되어 있어 다시 만든다면 하나로 통합했을 것",
+    "App.tsx의 라우트 가드가 하드코딩 스텁(useAuth)에 의존하고 TODO 주석이 남아 있는 상태로 방치됨. AdminRoute.tsx라는 실제 가드 컴포넌트를 만들어두고도 연결하지 않은 점이 아쉬움",
+    "react-query를 설치하고 Provider까지 연결했으나 실제 데이터 페칭에는 사용하지 않아, 반복되는 fetch-loading-error 패턴을 useQuery/useMutation으로 통일하지 못함",
+    "백엔드 응답 스키마를 프론트에서 방어적으로 흡수하는 코드가 여러 곳에 반복됨. API 계약을 더 일찍 고정했다면 줄었을 코드",
+    "파일명 대소문자 문제를 겪은 이후에도 파일명 표기가 시기별로 흔들린 이력이 있어 팀 차원의 네이밍 컨벤션이 아쉬움"
+  ],
+  "screenshots": [
+    { "src": "admin-items.png (직접 캡처 필요)", "caption": "/admin/items 물품 관리 카드 그리드 및 물품 추가 모달" },
+    { "src": "admin-statistics.png (직접 캡처 필요)", "caption": "/admin/stats 바차트+라인차트 화면" },
+    { "src": "admin-inspect-status.png (직접 캡처 필요)", "caption": "/admin/inspect 물품 현황 색상 뱃지 및 엑셀 다운로드" },
+    { "src": "admin-member-detail.png (직접 캡처 필요)", "caption": "/admin/users/:id 회원 상세 및 징계내역" },
+    { "src": "exported-excel.png (직접 캡처 필요)", "caption": "엑셀 다운로드로 생성된 xlsx 파일의 리치 텍스트 색상" }
+  ],
+  "documents": [
+    { "title": "SSURENT logo", "file": "src/shared/assets/images/ssulogo.jpg" },
+    { "title": "PR 템플릿", "file": ".github/pull_request_template.md" },
+    { "title": "이슈 템플릿 (fix/refactor/feature)", "file": ".github/ISSUE_TEMPLATE/" }
+  ],
+  "links": [
+    { "label": "GitHub 저장소", "url": "https://github.com/SSURENT/SSURENT-FE" }
+  ]
+};
+
+REPORT_DATA.gallery = [];
+
+REPORT_DATA.attachments = [
+  {
+    "label": "SSURENT 포스터.pdf",
+    "href": "assets/ssurent/docs/ssurent-poster.pdf"
+  },
+  {
+    "label": "SSURENT_최종보고서.pdf",
+    "href": "assets/ssurent/docs/ssurent-report.pdf"
+  },
+  {
+    "label": "최종발표.pdf",
+    "href": "assets/ssurent/docs/ssurent-presentation.pdf"
+  }
+];
+
+REPORT_DATA.openQuestions = [
+  {
+    "heading": "본인이 직접 채워야 하는 정보",
+    "items": [
+      "실제 배포 주소(공개 가능 여부 포함)",
+      "팀 내 본인의 역할 경계(코드 리뷰 참여 여부, 명세 논의 방식, 이슈 분배 방식)",
+      "기술 선택 이유: Tailwind+Bootstrap 병행 이유, exceljs와 xlsx를 함께 쓴 이유, react-query 도입 배경과 실제 미사용 이유",
+      "수치: 실제 이용자 수, 대여/반납 처리 건수, 페이지 로딩/응답 시간 등 운영 지표(측정 방법 포함해서 채워야 함)",
+      "CRA → Vite 마이그레이션을 누가, 언제, 어떤 이유로 진행했는지(커밋 로그에서 특정 커밋을 찾지 못함)"
+    ]
+  },
+  {
+    "heading": "근거 부족으로 트러블슈팅에서 제외한 항목과 이유",
+    "items": [
+      "중복 락파일(package-lock.json/pnpm-lock.yaml)로 인한 반복적인 'vercel 에러 수정' 커밋: 실제 빌드 실패 로그가 레포에 없어 원인을 코드만으로 단정할 수 없음",
+      "'admin role 로직 수정' 커밋: 실제 diff가 UI 리팩터링 위주라 role 판별 버그로 보기 어려움",
+      "AdminRoute.tsx의 super_admin 배제 가능성: 컴포넌트 자체가 미사용 코드라 실제 영향 없음"
+    ]
+  }
+];
+
+REPORT_DATA.interviewQuestions = [
+  {
+    "q": "App.tsx의 ProtectedRoute가 useAuth() 스텁을 쓰고 있고 항상 true를 반환하던데, 실제 배포 시에는 어떻게 처리했나요?",
+    "a": "확인 필요: 프로덕션 배포 시점에 이 스텁이 실제 인증 로직으로 교체되었는지, 아니면 관리자 라우트가 사실상 누구나 접근 가능한 상태로 배포되었는지 답변 준비가 필요합니다. (근거: App.tsx의 'TODO: REPLACE BEFORE PRODUCTION' 주석이 현재 HEAD에도 남아 있음)"
+  },
+  {
+    "q": "useAuthStore와 useUserInfo 두 스토어를 분리한 이유는 무엇인가요?",
+    "a": "코드상으로는 useAuthStore가 role만, useUserInfo가 사용자 정보+토큰을 담당하는 것으로 보이나, 왜 하나로 합치지 않았는지에 대한 설계 의도를 본인 언어로 설명할 수 있어야 합니다."
+  },
+  {
+    "q": "Windows/Vercel 대소문자 이슈를 겪은 뒤 재발 방지를 위해 팀에 어떤 규칙을 제안했나요?",
+    "a": "커밋 이력상 후속 린트 규칙 도입 흔적이 없어(확인 필요), 실제로 어떤 조치를 취했는지(팀 공유, 컨벤션 문서화 등) 개인적으로 기억을 정리해 둘 필요가 있습니다."
+  },
+  {
+    "q": "물품 API 응답이 '카테고리 그룹 구조'와 '평탄화 배열' 두 가지로 왔던 근본 원인은 무엇이었나요?",
+    "a": "백엔드 쪽 변경 이력은 이 저장소 범위 밖이라 확인하지 못했습니다. 백엔드 담당자와의 소통 내용, API 버전 관리 방식에 대한 설명을 준비해야 합니다."
+  },
+  {
+    "q": "react-query를 설치하고 Provider까지 연결했는데 실제로는 왜 사용하지 않았나요?",
+    "a": "코드만으로는 의도를 알 수 없는 부분이라, 도입 배경(팀 컨벤션, 도입 예정이었는지, 특정 화면에서 시도했다가 롤백했는지)을 직접 설명할 수 있어야 합니다."
+  }
+];
