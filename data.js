@@ -298,6 +298,24 @@ const PORTFOLIO_DATA = {
         "환경변수, 목록 API 캐시, 단일 API 순서의 다중 계약 ID 폴백 전략",
         "Discord Webhook으로 장애 위치와 에러 스택을 즉시 전송, dotenv Fail-Fast 검증"
       ]
+    },
+    {
+      id: "honja",
+      title: "혼저옵서예 (Honja)",
+      subtitle: "동행 유형별 제주 올레길 여행 플래너 (Expo)",
+      period: "2026.07 ~ 2026.08",
+      category: "frontend",
+      detailPage: "projects/honja.html",
+      url: "https://github.com/SSU24f5/honja-front",
+      tags: ["Expo", "React Native", "TypeScript", "Zustand", "TanStack Query", "Jest"],
+      summary: "제주 올레길과 여행지를 혼자·가족·배리어프리·반려동물 등 동행 유형별로 탐색하고 일정을 짜서 초대할 수 있는 Expo 기반 여행 플래너 앱의 프론트엔드 개발",
+      highlights: [
+        "백엔드 명세 변경 중에도 개발이 끊기지 않도록 모든 API 함수에 Mock Data Fallback 자동 전환 구현",
+        "Feature-Sliced Design을 팀 규모 대비 과도한 추상화로 판단해 화면 중심 구조로 전면 재구조화",
+        "Platform.OS 분기로 웹은 iframe, 네이티브는 WebView를 쓰는 크로스플랫폼 지도 렌더링 구현",
+        "백엔드 필드명 변경 시 @deprecated 공존 전략으로 여행 초대 DTO의 하위 호환성 유지",
+        "Zustand 스토어 4종에 단위 테스트 19개(299줄) 작성, 컴포넌트 렌더링 없이 상태 전이 검증"
+      ]
     }
   ],
 

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>쿠팡 WING 쿠폰 자동 갱신 스케줄러 · 프로젝트 상세 | 김예원 (코코)</title>
-  <meta name="description" content="쿠팡 WING Open API로 당일 즉시할인 쿠폰을 자동 갱신하고, 실패 지점을 실시간으로 알리는 서버 사이드 스케줄러입니다.">
+  <title>쿠팡 WING 쿠폰 자동 갱신 스크립트 · 프로젝트 상세 | 김예원 (코코)</title>
+  <meta name="description" content="쿠팡 WING Open API로 당일 즉시할인 쿠폰을 조회·폐기·재발급하는 Node.js/TypeScript CLI 스크립트입니다. 커스텀 HMAC-SHA256 서명과 단계별 실패 격리를 직접 구현했습니다.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
           <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
         </button>
-        <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="ed-icon-btn">
+        <a href="https://github.com/kimyw1018/coupang-wing-coupon-manager" target="_blank" rel="noopener noreferrer" class="ed-icon-btn">
           <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
           </svg>
@@ -41,66 +41,82 @@
 
     <section class="space-y-5 pb-10 ed-rule-b">
       <div class="flex flex-wrap items-center gap-3">
-        <span class="ed-badge">Backend Scheduler</span>
-        <span class="ed-mono text-xs text-[var(--ed-ink-faint)]">2025</span>
-        <span class="ed-eyebrow"><span>Node.js · TypeScript</span></span>
+        <span class="ed-badge">Solo Project · 1-day Build</span>
+        <span class="ed-mono text-xs text-[var(--ed-ink-faint)]">2026.06.23</span>
+        <span class="ed-eyebrow"><span>Node.js · TypeScript CLI</span></span>
       </div>
 
       <div>
-        <h1 class="ed-display text-4xl sm:text-5xl text-[var(--ed-ink)]">쿠팡 WING 쿠폰 자동 갱신 스케줄러</h1>
+        <h1 class="ed-display text-4xl sm:text-5xl text-[var(--ed-ink)]">쿠팡 WING 쿠폰 자동 갱신 스크립트</h1>
         <p class="ed-serif text-lg sm:text-xl text-[var(--ed-accent)] mt-2 leading-snug max-w-2xl">
-          당일 즉시할인 쿠폰 자동 갱신과 무중단 장애 모니터링
+          즉시할인 쿠폰을 조회·폐기·재발급하는 Node.js/TypeScript CLI
         </p>
       </div>
 
       <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed max-w-2xl">
-        쿠팡 WING Open API로 당일 즉시할인 쿠폰을 정해진 시각에 자동 롤오버하고, 실패 시 실시간으로 알리는 서버 사이드 스케줄러입니다.
+        Coupang WING(입점사 관리 시스템) Open API를 호출해 매일 운영해야 하는 "즉시할인 쿠폰"을 폐기하고 새로 발급하는 작업을 자동화하는 CLI 스크립트입니다. TypeScript 소스 6개 파일, 총 494줄, 커밋 3건으로 하루 안에 설계부터 구현까지 끝낸 단독 프로젝트입니다.
       </p>
 
       <div class="flex flex-wrap gap-1.5">
-        <span class="ed-tag">TypeScript (v5.5+)</span><span class="ed-tag">Node.js (v20+)</span><span class="ed-tag">Axios</span><span class="ed-tag">Crypto (HMAC-SHA256)</span><span class="ed-tag">Discord Webhook</span><span class="ed-tag">Scheduler</span>
+        <span class="ed-tag">TypeScript</span><span class="ed-tag">Node.js</span><span class="ed-tag">Axios</span><span class="ed-tag">HMAC-SHA256</span><span class="ed-tag">Discord Webhook</span><span class="ed-tag">dotenv</span>
       </div>
     </section>
 
     <section class="space-y-3">
       <span class="ed-eyebrow"><span class="num">01</span><span>Role</span></span>
       <div class="ed-callout text-[15px] leading-relaxed">
-        TypeScript 서버 사이드 스케줄러와 Open API 연동 파이프라인 개발을 전담했습니다.
+        기획부터 Coupang Open API 연동, 서명 생성, 실패 알림까지 전체 코드베이스(<code>src/config</code>, <code>src/services</code>, <code>src/utils</code>, <code>src/index.ts</code>)를 단독으로 설계하고 작성했습니다.
       </div>
     </section>
 
     <section class="space-y-4">
-      <span class="ed-eyebrow"><span class="num">02</span><span>Security</span></span>
+      <span class="ed-eyebrow"><span class="num">02</span><span>Architecture</span></span>
       <div class="ed-divide">
         <div class="py-4 flex gap-4">
           <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">01</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed">Node.js 내장 crypto 모듈로 쿠팡 WING API 규격의 HMAC-SHA256 서명을 직접 생성해 외부 의존성을 없앴다.</p>
+          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">엔트리포인트</strong>: <code>src/index.ts</code>가 설정을 로드하고 서명 생성을 1회 테스트 출력한 뒤, <code>--run</code> 플래그가 있을 때만 실제 롤오버를 실행한다. 반복 실행(매일 자동 트리거)은 이 스크립트 범위 밖이며 외부 스케줄러(cron 등)에 의존하는 구조다.</p>
         </div>
         <div class="py-4 flex gap-4">
           <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">02</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed">dotenv 기반 환경변수 검증으로 기동 시 필수 API Key와 Secret 누락을 먼저 확인해 런타임 크래시를 막았다.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="space-y-4">
-      <span class="ed-eyebrow"><span class="num">03</span><span>Pipeline</span></span>
-      <div class="ed-divide">
-        <div class="py-4 flex gap-4">
-          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">01</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed">기존 쿠폰 조회, 루프 기반 안전 폐기, 당일 신규 쿠폰 발행 순서로 3단계 롤오버 파이프라인을 구성했다.</p>
-        </div>
-        <div class="py-4 flex gap-4">
-          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">02</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed">개별 쿠폰 처리가 실패해도 전체 배치가 멈추지 않도록 예외를 격리하고 실패 항목만 따로 기록했다.</p>
+          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">오케스트레이션</strong>: <code>CouponManager.runDailyRollover()</code>가 "활성 쿠폰 조회 → 개별 폐기 → 신규 발급" 3단계를 순서대로 실행한다.</p>
         </div>
         <div class="py-4 flex gap-4">
           <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">03</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed">환경변수, 목록 API 캐시, 단일 API 순서로 이어지는 다중 계약 ID 폴백 전략을 만들었다.</p>
+          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">외부 연동</strong>: <code>CoupangService</code>가 API 호출과 응답 파싱을, <code>signature.ts</code>가 서명 생성을, <code>DiscordService</code>가 오류 알림을 각각 담당한다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <span class="ed-eyebrow"><span class="num">03</span><span>Implementation</span></span>
+      <div class="ed-divide">
+        <div class="py-4 flex gap-4">
+          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">01</span>
+          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">커스텀 HMAC-SHA256 서명</strong>: Coupang Open API가 요구하는 <code>CEA algorithm=HmacSHA256</code> 서명 인증을 서드파티 라이브러리 없이 Node 내장 <code>crypto</code> 모듈로 직접 구현했다. 타임스탬프(<code>YYMMDDTHHmmssZ</code>)·HTTP 메서드·경로·쿼리스트링을 한 문자열로 조합한 뒤 비밀키로 HMAC 서명하고, 매 요청마다 새로 계산해 재사용하지 않는다.</p>
+        </div>
+        <div class="py-4 flex gap-4">
+          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">02</span>
+          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">계약 ID 캐싱 + 다단계 Fallback</strong>: 신규 쿠폰 생성에 필요한 <code>contractId</code>를 (1) 인스턴스 캐시 → (2) 환경변수 → (3) 계약 목록 API → (4) 단일 계약 조회 API 순으로 조회한다. 모든 경로에서 값을 못 구하면 <code>.env</code>에 직접 지정하라는 안내와 함께 예외를 던진다.</p>
+        </div>
+        <div class="py-4 flex gap-4">
+          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">03</span>
+          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">단계별 실패 격리 오케스트레이션</strong>: 1단계(조회)와 3단계(신규 발급)가 실패하면 알림 후 즉시 전체를 중단하지만, 2단계(폐기)는 쿠폰 1개씩 개별 <code>try/catch</code>로 감싸 일부 쿠폰 폐기가 실패해도 나머지 쿠폰 폐기는 계속 진행한다. "조회·발급 실패는 그날 운영 자체가 불가능하지만, 일부 폐기 실패는 감내할 수 있다"는 판단을 반영한 구조다.</p>
         </div>
         <div class="py-4 flex gap-4">
           <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">04</span>
-          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed">Discord Webhook으로 장애 위치와 에러 스택을 즉시 카드로 전송해 장애를 바로 확인할 수 있게 했다.</p>
+          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed"><strong class="text-[var(--ed-ink)]">환경변수 Fail-Fast 검증</strong>: <code>.env</code> 값이 비어있거나 <code>.env.example</code>의 placeholder(<code>your_...</code>)를 그대로 두고 실행하면 기동 시점에 즉시 <code>[Configuration Error]</code>로 알리도록 검증했다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-5 pt-2">
+      <span class="ed-eyebrow"><span class="num">04</span><span>Problem Solving</span></span>
+      <div class="ed-divide">
+        <div class="py-4 flex gap-4">
+          <span class="ed-mono text-xs text-[var(--ed-ink-faint)] pt-0.5 w-10 shrink-0">01</span>
+          <p class="text-sm text-[var(--ed-ink-soft)] leading-relaxed">
+            <strong class="text-[var(--ed-ink)]">API 엔드포인트·요청 스펙 전면 교체</strong>: 최초 구현은 <code>openapi v4</code> 경로와 ISO 8601 날짜, <code>couponName</code>/<code>discountType</code> 필드명을 사용했다. 4분 뒤 커밋에서 경로를 <code>fms v2/v1</code>로, 날짜 포맷을 쿠팡이 요구하는 커스텀 문자열(<code>"YYYY-MM-DD HH:mm:ss"</code>)로, 필드명을 <code>name</code>/<code>type</code>으로 전면 교체하고 쿠폰 생성 요청에 <code>contractId</code>를 필수로 추가했다. 정확히 어떤 응답 에러를 받았는지 로그로 남기지는 못했지만, 문서만 보고 추정했던 최초 스펙이 실제 API 스펙과 달랐다는 것을 diff로 재구성해 바로 다시 확인하고 구현을 교체했다.
+          </p>
         </div>
       </div>
     </section>
@@ -110,7 +126,7 @@
         <i data-lucide="arrow-left" class="w-4 h-4"></i>
         <span>전체 프로젝트 목록으로</span>
       </a>
-      <a href="https://github.com/kimyw1018" target="_blank" rel="noopener noreferrer" class="ed-btn ed-btn-accent !py-2.5 !px-4">
+      <a href="https://github.com/kimyw1018/coupang-wing-coupon-manager" target="_blank" rel="noopener noreferrer" class="ed-btn ed-btn-accent !py-2.5 !px-4">
         <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
           <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
         </svg>

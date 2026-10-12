@@ -115,9 +115,27 @@
       </div>
     </section>
 
+    <section class="space-y-4">
+      <span class="ed-eyebrow"><span class="num">04</span><span>Gallery</span></span>
+      <div class="ed-gallery" data-gallery="ttorang">
+        <button class="ed-gallery-item" data-src="assets/ttorang/gallery/ttorang-landing.jpg" data-caption="또랑 랜딩 페이지"><img src="assets/ttorang/gallery/ttorang-landing.jpg" alt="또랑 랜딩 페이지" loading="lazy"></button>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <span class="ed-eyebrow"><span class="num">05</span><span>Documents</span></span>
+      <div class="ed-doc">
+        <div class="ed-doc-header">
+          <span>또랑_PM_PPT.pdf</span>
+          <a href="assets/ttorang/docs/ttorang-pm-ppt.pdf" target="_blank" class="ed-link">새 탭에서 열기</a>
+        </div>
+        <iframe src="assets/ttorang/docs/ttorang-pm-ppt.pdf" class="ed-doc-frame" title="또랑 PM PPT"></iframe>
+      </div>
+    </section>
+
     <section class="space-y-5 pt-2">
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-        <span class="ed-eyebrow"><span class="num">04</span><span>Problem Solving</span></span>
+        <span class="ed-eyebrow"><span class="num">06</span><span>Problem Solving</span></span>
         <button id="toggle-all-btn" class="ed-mono text-[11px] text-[var(--ed-ink-faint)] hover:text-[var(--ed-accent)] flex items-center gap-1">
           <i data-lucide="chevrons-up-down" class="w-3.5 h-3.5"></i>
           <span>모두 열기 / 닫기</span>
@@ -326,5 +344,6 @@
 
     if (window.lucide) lucide.createIcons();
   </script>
+  <script src="gallery.js"></script>
 </body>
 </html>
